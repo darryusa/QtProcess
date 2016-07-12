@@ -11,6 +11,8 @@ class DbManager
 public:
     DbManager(const QString& path);
     bool addPerson(const QString& name);
+    bool printPerson();
+    bool pinChecker(QString& pin);
 private:
     QSqlDatabase m_db;
 };

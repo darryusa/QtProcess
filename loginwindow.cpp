@@ -1,6 +1,7 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
-
+#include "dbmanager.h"
+#include <QDebug>
 LoginWindow::LoginWindow(QWidget *parent) : QWidget(parent), ui(new Ui::LoginWindow)
 {
     ui->setupUi( this );
@@ -83,9 +84,9 @@ void LoginWindow::backButtonPressed()
 void LoginWindow::passwordCheck()
 {
     QString currentText = ui->lineEdit->text();
-
+    DbManager *dbmanager = new DbManager("/home/neal/Desktop/processDB");
     // Password: "0000" for testing. Check database here.
-    if ( currentText.compare( "0000") == 0 )
+    if ( dbmanager->pinChecker(currentText))
     {
         ui->lineEdit->setEchoMode( QLineEdit::Normal );
         ui->lineEdit->setMaxLength( 32767 );
