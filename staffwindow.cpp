@@ -6,7 +6,7 @@ StaffWindow::StaffWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StaffWin
     ui->setupUi(this);
     //QAbstractItemModel *model = new QAbstractItemModel;
 
-    QTableView *tableView = ui->tableView;
+   // QTableView *tableView = ui->tableView;
     //tableView->setModel( model ); // SQL Database QAbstractItemModel model here
 
    // model->setHeaderData( 0, Qt::Horizontal, QObject::tr( "First Name") );

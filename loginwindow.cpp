@@ -47,23 +47,23 @@ void LoginWindow::keyboardButtonPressed()
     // Inserts text from button into lineEdit widget.
     if ( button )
     {
-        QString currentText = ui->lineEdit->text();
+        QString currentText = ui->pinInput->text();
 
         if ( currentText.length() > 4 )
         {
-            ui->lineEdit->clear();
-            ui->lineEdit->setEchoMode( QLineEdit::Password );
-            ui->lineEdit->setMaxLength( 4 );
+            ui->pinInput->clear();
+            ui->pinInput->setEchoMode( QLineEdit::Password );
+            ui->pinInput->setMaxLength( 4 );
         }
 
-        ui->lineEdit->insert( button->text() );
+        ui->pinInput->insert( button->text() );
     }
 }
 
 void LoginWindow::enterButtonPressed()
 {
     QPushButton* button = qobject_cast<QPushButton*>( sender() );
-    QString currentText = ui->lineEdit->text();
+    QString currentText = ui->pinInput->text();
 
     if ( button && currentText.length() == 4 )
     {
@@ -75,28 +75,28 @@ void LoginWindow::backButtonPressed()
 {
     QPushButton* button = qobject_cast<QPushButton*>( sender() );
 
-    if ( button && ui->lineEdit->text().length() <= 4 )
+    if ( button && ui->pinInput->text().length() <= 4 )
     {
-        ui->lineEdit->backspace();
+        ui->pinInput->backspace();
     }
 }
 
 void LoginWindow::passwordCheck()
 {
-    QString currentText = ui->lineEdit->text();
+    QString currentText = ui->pinInput->text();
     DbManager *dbmanager = new DbManager("/home/neal/Desktop/processDB");
     // Password: "0000" for testing. Check database here.
     if ( dbmanager->pinChecker(currentText))
     {
-        ui->lineEdit->setEchoMode( QLineEdit::Normal );
-        ui->lineEdit->setMaxLength( 32767 );
-        ui->lineEdit->setText("Success");
+        ui->pinInput->setEchoMode( QLineEdit::Normal );
+        ui->pinInput->setMaxLength( 32767 );
+        ui->pinInput->setText("Success");
         emit logIn();
     }
     else
     {
-        ui->lineEdit->setEchoMode( QLineEdit::Normal );
-        ui->lineEdit->setMaxLength( 32767 );
-        ui->lineEdit->setText("Invalid PIN");
+        ui->pinInput->setEchoMode( QLineEdit::Normal );
+        ui->pinInput->setMaxLength( 32767 );
+        ui->pinInput->setText("Invalid PIN");
     }
 }
