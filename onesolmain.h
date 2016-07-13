@@ -5,6 +5,7 @@
 #include <QStackedWidget>
 #include <loginwindow.h>
 #include <staffwindow.h>
+#include <menuwindow.h>
 
 class OneSolMain : public QWidget
 {
@@ -18,6 +19,7 @@ private:
     QStackedWidget *stackedWidget;
     LoginWindow *loginWindow;
     StaffWindow *staffWindow;
+    MenuWindow *menuWindow;
 
 private slots:
     void UserLoggedIn();
