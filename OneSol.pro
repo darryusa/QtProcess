@@ -14,18 +14,18 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         onesolmain.cpp \
-    loginwindow.cpp \
     staffwindow.cpp \
     dbmanager.cpp \
-    menuwindow.cpp
+    menuwindow.cpp \
+    logindialog.cpp
 
 HEADERS  += onesolmain.h \
-    loginwindow.h \
     staffwindow.h \
     dbmanager.h \
-    menuwindow.h
+    menuwindow.h \
+    logindialog.h
 
 FORMS += \
-    loginwindow.ui \
     staffwindow.ui \
-    menuwindow.ui
+    menuwindow.ui \
+    logindialog.ui

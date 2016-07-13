@@ -128,4 +128,7 @@
  </widget>
  <resources/>
  <connections/>
+ <slots>
+  <signal>callLogin()</signal>
+ </slots>
 </ui>

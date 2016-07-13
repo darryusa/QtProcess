@@ -15,8 +15,6 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
-#include <QtWidgets/QTableView>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
@@ -26,33 +24,20 @@ class Ui_StaffWindow
 {
 public:
     QTextBrowser *textBrowser;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QTableView *tableView;
     QPushButton *Add;
     QPushButton *Remove;
+    QTextBrowser *textBrowser_2;
 
     void setupUi(QWidget *StaffWindow)
     {
         if (StaffWindow->objectName().isEmpty())
             StaffWindow->setObjectName(QStringLiteral("StaffWindow"));
-        StaffWindow->resize(1150, 745);
+        StaffWindow->resize(1024, 600);
         StaffWindow->setToolTipDuration(-6);
         StaffWindow->setLayoutDirection(Qt::LeftToRight);
         textBrowser = new QTextBrowser(StaffWindow);
         textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        textBrowser->setGeometry(QRect(40, 40, 421, 591));
-        scrollArea = new QScrollArea(StaffWindow);
-        scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setGeometry(QRect(499, 39, 601, 591));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 599, 589));
-        tableView = new QTableView(scrollAreaWidgetContents);
-        tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(-5, -9, 611, 601));
-        scrollArea->setWidget(scrollAreaWidgetContents);
+        textBrowser->setGeometry(QRect(0, 0, 400, 600));
         Add = new QPushButton(StaffWindow);
         Add->setObjectName(QStringLiteral("Add"));
         Add->setGeometry(QRect(510, 650, 281, 81));
@@ -67,6 +52,9 @@ public:
         Remove->setGeometry(QRect(800, 650, 281, 81));
         Remove->setFont(font);
         Remove->setLayoutDirection(Qt::RightToLeft);
+        textBrowser_2 = new QTextBrowser(StaffWindow);
+        textBrowser_2->setObjectName(QStringLiteral("textBrowser_2"));
+        textBrowser_2->setGeometry(QRect(400, 0, 624, 600));
 
         retranslateUi(StaffWindow);
 

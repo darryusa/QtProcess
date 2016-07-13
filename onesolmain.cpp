@@ -1,5 +1,4 @@
 #include "onesolmain.h"
-#include "loginwindow.h"
 #include "staffwindow.h"
 #include "dbmanager.h"
 #include <QStackedWidget>
@@ -7,20 +6,19 @@
 
 OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 {
-    loginWindow = new LoginWindow( this );
+
     staffWindow = new StaffWindow( this );
     menuWindow = new MenuWindow(this);
     stackedWidget = new QStackedWidget;
-    stackedWidget->addWidget( loginWindow );
     stackedWidget->addWidget( staffWindow );
     stackedWidget->addWidget(menuWindow);
     stackedWidget->setCurrentWidget( menuWindow );
-    const QString& name = "Neal-Nguyen";
+
 
     QRect screenGeometry = QDesktopWidget().availableGeometry( this );
     stackedWidget->resize( screenGeometry.size() );
-
-    connect( loginWindow, SIGNAL( logIn() ), this, SLOT( UserLoggedIn() ) );
+  //  connect( menuWindow, )
+   // connect( loginWindow, SIGNAL( logIn() ), this, SLOT( UserLoggedIn() ) );
 
     stackedWidget->show();
 }
