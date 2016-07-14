@@ -26,6 +26,8 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     connect( loginWindow, SIGNAL( logIn() ), this, SLOT( UserLoggedIn() ) );
 
     stackedWidget->show();
+
+    reportsWindow->startDateCal
 }
 
 OneSolMain::~OneSolMain()

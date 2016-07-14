@@ -85,7 +85,7 @@ void LoginWindow::passwordCheck()
 {
 
     QString currentText = ui->pinInput->text();
-    DbManager *dbmanager = new DbManager("/home/jessica/Desktop/processDB");
+    DbManager *dbmanager = new DbManager("../processDB");
 
     // Password: "0000" for testing. Check database here.
     if ( dbmanager->pinChecker(currentText))
