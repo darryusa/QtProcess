@@ -12,3 +12,8 @@ MenuWindow::~MenuWindow()
 {
     delete ui;
 }
+
+void MenuWindow::on_reportButton_clicked()
+{
+
+}

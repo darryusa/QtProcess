@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'menuwindow.h'
+** Meta object code from reading C++ file 'reportswindow.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "menuwindow.h"
+#include "reportswindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'menuwindow.h' doesn't include <QObject>."
+#error "The header file 'reportswindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.7.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -18,27 +18,28 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_MenuWindow_t {
+struct qt_meta_stringdata_ReportsWindow_t {
     QByteArrayData data[3];
-    char stringdata0[36];
+    char stringdata0[41];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_MenuWindow_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_ReportsWindow_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_MenuWindow_t qt_meta_stringdata_MenuWindow = {
+static const qt_meta_stringdata_ReportsWindow_t qt_meta_stringdata_ReportsWindow = {
     {
-QT_MOC_LITERAL(0, 0, 10), // "MenuWindow"
-QT_MOC_LITERAL(1, 11, 23), // "on_reportButton_clicked"
-QT_MOC_LITERAL(2, 35, 0) // ""
+QT_MOC_LITERAL(0, 0, 13), // "ReportsWindow"
+QT_MOC_LITERAL(1, 14, 25), // "on_generateButton_clicked"
+QT_MOC_LITERAL(2, 40, 0) // ""
 
     },
-    "MenuWindow\0on_reportButton_clicked\0"
+    "ReportsWindow\0on_generateButton_clicked\0"
+    ""
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_MenuWindow[] = {
+static const uint qt_meta_data_ReportsWindow[] = {
 
  // content:
        7,       // revision
@@ -60,39 +61,39 @@ static const uint qt_meta_data_MenuWindow[] = {
        0        // eod
 };
 
-void MenuWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void ReportsWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        MenuWindow *_t = static_cast<MenuWindow *>(_o);
+        ReportsWindow *_t = static_cast<ReportsWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_reportButton_clicked(); break;
+        case 0: _t->on_generateButton_clicked(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObject MenuWindow::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_MenuWindow.data,
-      qt_meta_data_MenuWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject ReportsWindow::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_ReportsWindow.data,
+      qt_meta_data_ReportsWindow,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *MenuWindow::metaObject() const
+const QMetaObject *ReportsWindow::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *MenuWindow::qt_metacast(const char *_clname)
+void *ReportsWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_MenuWindow.stringdata0))
-        return static_cast<void*>(const_cast< MenuWindow*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_ReportsWindow.stringdata0))
+        return static_cast<void*>(const_cast< ReportsWindow*>(this));
     return QWidget::qt_metacast(_clname);
 }
 
-int MenuWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int ReportsWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)

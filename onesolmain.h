@@ -6,6 +6,7 @@
 #include <loginwindow.h>
 #include <staffwindow.h>
 #include <menuwindow.h>
+#include <reportswindow.h>
 
 class OneSolMain : public QWidget
 {
@@ -20,6 +21,7 @@ private:
     LoginWindow *loginWindow;
     StaffWindow *staffWindow;
     MenuWindow *menuWindow;
+    ReportsWindow *reportsWindow;
 
 private slots:
     void UserLoggedIn();

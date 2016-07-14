@@ -72,7 +72,7 @@ public:
 "}"));
         label = new QLabel(MenuWindow);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(480, 20, 181, 41));
+        label->setGeometry(QRect(480, 20, 191, 41));
         QFont font1;
         font1.setBold(true);
         font1.setWeight(75);

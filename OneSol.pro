@@ -17,15 +17,18 @@ SOURCES += main.cpp\
     loginwindow.cpp \
     staffwindow.cpp \
     dbmanager.cpp \
-    menuwindow.cpp
+    menuwindow.cpp \
+    reportswindow.cpp
 
 HEADERS  += onesolmain.h \
     loginwindow.h \
     staffwindow.h \
     dbmanager.h \
-    menuwindow.h
+    menuwindow.h \
+    reportswindow.h
 
 FORMS += \
     loginwindow.ui \
     staffwindow.ui \
-    menuwindow.ui
+    menuwindow.ui \
+    reportswindow.ui

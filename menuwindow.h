@@ -15,6 +15,9 @@ public:
     explicit MenuWindow(QWidget *parent = 0);
     ~MenuWindow();
 
+private slots:
+    void on_reportButton_clicked();
+
 private:
     Ui::MenuWindow *ui;
 };
