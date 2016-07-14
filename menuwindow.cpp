@@ -18,9 +18,5 @@ MenuWindow::~MenuWindow()
 void MenuWindow::on_reportButton_clicked()
 {
 
-    LoginDialog *loginReport = new LoginDialog(this);
-    loginReport->setModal(true);
-    loginReport->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    loginReport->show();
 
 }

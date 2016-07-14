@@ -318,7 +318,7 @@ public:
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
         lineEdit->setGeometry(QRect(0, 0, 411, 111));
         QFont font1;
-        font1.setPointSize(60);
+        font1.setPointSize(58);
         lineEdit->setFont(font1);
         lineEdit->setInputMethodHints(Qt::ImhDigitsOnly|Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData);
         lineEdit->setEchoMode(QLineEdit::Password);
@@ -331,6 +331,9 @@ public:
         icon.addFile(QStringLiteral("image/backButton.png"), QSize(), QIcon::Normal, QIcon::Off);
         backButton->setIcon(icon);
         backButton->setIconSize(QSize(111, 111));
+        backButton->raise();
+        gridLayoutWidget->raise();
+        lineEdit->raise();
 
         retranslateUi(LoginDialog);
         QObject::connect(pushButtonBack, SIGNAL(clicked()), lineEdit, SLOT(clear()));
