@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "menuwindow.h"
+#include "../menuwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -136,5 +136,6 @@ void MenuWindow::callLogin()
     QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 
+// SIGNAL 1
 
 QT_END_MOC_NAMESPACE

@@ -380,7 +380,7 @@ QPushButton:pressed{
    </property>
    <property name="font">
     <font>
-     <pointsize>60</pointsize>
+     <pointsize>58</pointsize>
     </font>
    </property>
    <property name="inputMethodHints">
@@ -419,6 +419,9 @@ QPushButton:pressed{
     </size>
    </property>
   </widget>
+  <zorder>backButton</zorder>
+  <zorder>gridLayoutWidget</zorder>
+  <zorder>lineEdit</zorder>
  </widget>
  <resources/>
  <connections>
