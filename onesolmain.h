@@ -3,7 +3,6 @@
 
 #include <QWidget>
 #include <QStackedWidget>
-#include <loginwindow.h>
 #include <staffwindow.h>
 #include <menuwindow.h>
 #include <reportswindow.h>
@@ -18,7 +17,6 @@ public:
 
 private:
     QStackedWidget *stackedWidget;
-    LoginWindow *loginWindow;
     StaffWindow *staffWindow;
     MenuWindow *menuWindow;
     ReportsWindow *reportsWindow;

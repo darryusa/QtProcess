@@ -1,5 +1,4 @@
 #include "onesolmain.h"
-#include "loginwindow.h"
 #include "staffwindow.h"
 #include "reportswindow.h"
 #include "dbmanager.h"
@@ -8,12 +7,10 @@
 
 OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 {
-    loginWindow = new LoginWindow( this );
     staffWindow = new StaffWindow( this );
     menuWindow = new MenuWindow(this);
     reportsWindow = new ReportsWindow(this);
     stackedWidget = new QStackedWidget;
-    stackedWidget->addWidget( loginWindow );
     stackedWidget->addWidget( staffWindow );
     stackedWidget->addWidget(menuWindow);
     stackedWidget->addWidget(reportsWindow);
