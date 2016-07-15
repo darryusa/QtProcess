@@ -325,15 +325,12 @@ public:
         lineEdit->setAlignment(Qt::AlignCenter);
         backButton = new QPushButton(LoginDialog);
         backButton->setObjectName(QStringLiteral("backButton"));
-        backButton->setGeometry(QRect(410, 0, 111, 111));
-        backButton->setInputMethodHints(Qt::ImhNone);
+        backButton->setGeometry(QRect(411, 0, 101, 111));
         QIcon icon;
-        icon.addFile(QStringLiteral("image/backButton.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/image/backButton.png"), QSize(), QIcon::Normal, QIcon::Off);
         backButton->setIcon(icon);
-        backButton->setIconSize(QSize(111, 111));
-        backButton->raise();
-        gridLayoutWidget->raise();
-        lineEdit->raise();
+        backButton->setIconSize(QSize(101, 111));
+        backButton->setFlat(true);
 
         retranslateUi(LoginDialog);
         QObject::connect(pushButtonBack, SIGNAL(clicked()), lineEdit, SLOT(clear()));

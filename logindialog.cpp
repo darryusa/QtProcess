@@ -1,13 +1,16 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
 #include <dbmanager.h>
-LoginDialog::LoginDialog(QWidget *parent) :
+#include <QDebug>
+#include <QSignalMapper>
+
+LoginDialog::LoginDialog(QWidget *parent ,const QString & loginSender) :
     QDialog(parent),
     ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);
 
-
+    loginSender2 = loginSender;
     for ( int i = 0; i < ui->passwordButtonLayout->count(); i++ )
     {
         // Retrieve current widget, convert to QPushButton
@@ -16,7 +19,7 @@ LoginDialog::LoginDialog(QWidget *parent) :
 
         QString buttonText = button->text();
         // Connects this button to the lineEdit widget
-
+        QString local = loginSender;
         if ( button )
         {
             if ( buttonText.compare( "Enter" ) == 0 )
@@ -66,10 +69,17 @@ void LoginDialog::enterButtonPressed()
     ui->lineEdit->setMaxLength( 4 );
     QPushButton* button = qobject_cast<QPushButton*>( sender() );
     QString currentText = ui->lineEdit->text();
-
     if ( button && currentText.length() == 4 )
     {
-        passwordCheck();
+
+        if(passwordCheck())
+        {
+            if(loginSender2 == "staff")
+            {
+                emit staffLoggedin();
+//                connect(oneSolMain::Instance(),SIGNAL(staffLogin()),oneSolMain::Instance(),SLOT(staffSlotLoggedin()));
+            }
+        }
     }
 }
 
@@ -83,12 +93,12 @@ void LoginDialog::backButtonPressed()
     }
 }
 
-void LoginDialog::passwordCheck()
+bool LoginDialog::passwordCheck()
 {
 
     QString currentText = ui->lineEdit->text();
     DbManager *dbmanager = new DbManager("../processDB");
-
+    bool correctPIN = false;
     // Password: "0000" for testing. Check database here.
     if ( dbmanager->pinChecker(currentText))
     {
@@ -96,13 +106,13 @@ void LoginDialog::passwordCheck()
         ui->lineEdit->setEchoMode( QLineEdit::Normal );
 
         ui->lineEdit->setText("Success");
-        emit logIn();
+        correctPIN = true;
     }
     else
     {
         ui->lineEdit->setMaxLength( 256 );
         ui->lineEdit->setEchoMode( QLineEdit::Normal );
-
         ui->lineEdit->setText("Invalid PIN");
     }
+    return correctPIN;
 }

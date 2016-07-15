@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_LoginDialog_t {
-    QByteArrayData data[6];
-    char stringdata0[78];
+    QByteArrayData data[8];
+    char stringdata0[126];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,15 +30,18 @@ struct qt_meta_stringdata_LoginDialog_t {
 static const qt_meta_stringdata_LoginDialog_t qt_meta_stringdata_LoginDialog = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "LoginDialog"
-QT_MOC_LITERAL(1, 12, 5), // "logIn"
-QT_MOC_LITERAL(2, 18, 0), // ""
-QT_MOC_LITERAL(3, 19, 21), // "keyboardButtonPressed"
-QT_MOC_LITERAL(4, 41, 18), // "enterButtonPressed"
-QT_MOC_LITERAL(5, 60, 17) // "backButtonPressed"
+QT_MOC_LITERAL(1, 12, 12), // "staffClicked"
+QT_MOC_LITERAL(2, 25, 0), // ""
+QT_MOC_LITERAL(3, 26, 13), // "staffLoggedin"
+QT_MOC_LITERAL(4, 40, 21), // "keyboardButtonPressed"
+QT_MOC_LITERAL(5, 62, 18), // "enterButtonPressed"
+QT_MOC_LITERAL(6, 81, 17), // "backButtonPressed"
+QT_MOC_LITERAL(7, 99, 26) // "on_pushButtonEnter_clicked"
 
     },
-    "LoginDialog\0logIn\0\0keyboardButtonPressed\0"
-    "enterButtonPressed\0backButtonPressed"
+    "LoginDialog\0staffClicked\0\0staffLoggedin\0"
+    "keyboardButtonPressed\0enterButtonPressed\0"
+    "backButtonPressed\0on_pushButtonEnter_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -48,25 +51,29 @@ static const uint qt_meta_data_LoginDialog[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   34,    2, 0x06 /* Public */,
+       1,    0,   44,    2, 0x06 /* Public */,
+       3,    0,   45,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   35,    2, 0x08 /* Private */,
-       4,    0,   36,    2, 0x08 /* Private */,
-       5,    0,   37,    2, 0x08 /* Private */,
+       4,    0,   46,    2, 0x08 /* Private */,
+       5,    0,   47,    2, 0x08 /* Private */,
+       6,    0,   48,    2, 0x08 /* Private */,
+       7,    0,   49,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -80,10 +87,11 @@ void LoginDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         LoginDialog *_t = static_cast<LoginDialog *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->logIn(); break;
-        case 1: _t->keyboardButtonPressed(); break;
-        case 2: _t->enterButtonPressed(); break;
-        case 3: _t->backButtonPressed(); break;
+        case 0: _t->staffClicked(); break;
+        case 1: _t->staffLoggedin(); break;
+        case 2: _t->keyboardButtonPressed(); break;
+        case 3: _t->enterButtonPressed(); break;
+        case 4: _t->backButtonPressed(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -91,8 +99,15 @@ void LoginDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (LoginDialog::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&LoginDialog::logIn)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&LoginDialog::staffClicked)) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            typedef void (LoginDialog::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&LoginDialog::staffLoggedin)) {
+                *result = 1;
                 return;
             }
         }
@@ -125,20 +140,26 @@ int LoginDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 6)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }
 
 // SIGNAL 0
-void LoginDialog::logIn()
+void LoginDialog::staffClicked()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
+}
+
+// SIGNAL 1
+void LoginDialog::staffLoggedin()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

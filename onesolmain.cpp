@@ -4,25 +4,29 @@
 #include <QStackedWidget>
 #include <QDesktopWidget>
 #include <logindialog.h>
+#include <QDebug>
 OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 {
 
     staffWindow = new StaffWindow( this );
     menuWindow = new MenuWindow(this);
-    LoginDialog *loginReport = new LoginDialog(this);
+    //LoginDialog *loginReport = new LoginDialog(this);
+    loginStaff = new LoginDialog(this,"staff");
     stackedWidget = new QStackedWidget;
     stackedWidget->addWidget( staffWindow );
     stackedWidget->addWidget(menuWindow);
-    stackedWidget->addWidget(loginReport);
-    stackedWidget->setCurrentWidget( loginReport );
 
-
+    stackedWidget->setCurrentWidget( menuWindow );
+    connect(loginStaff, SIGNAL(staffLoggedin()), this, SLOT(staffSlotLoggedin()));
+    connect(menuWindow, SIGNAL(staffClicked()), this, SLOT(staffClick()));
     QRect screenGeometry = QDesktopWidget().availableGeometry( this );
     stackedWidget->resize( screenGeometry.size() );
   //  connect( menuWindow, )
-     //connect( loginWindow, SIGNAL( logIn() ), this, SLOT( UserLoggedIn() ) );
+
 
     stackedWidget->show();
+    //connect(loginStaff, SIGNAL(staffClicked()), this, SLOT(staffClick()));
+//    connect( menuWindow, SIGNAL( reportLogin() ), this, SLOT( reportButtonClicked() ) );
 
 //    LoginDialog *loginReport = new LoginDialog(this);
 //    loginReport->setModal(true);
@@ -35,14 +39,28 @@ OneSolMain::~OneSolMain()
 {
 
 }
-//void OneSolMain::reportButtonClicked()
-//{
-//        loginReport->setModal(true);
-//        loginReport->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-//        loginReport->show();
-//}
+void OneSolMain::reportButtonClicked()
+{
+        loginReport->setModal(true);
+       // stackedWidget->addWidget(loginReport);
+        loginReport->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
+    //    stackedWidget->
+        loginReport->show();
 
+}
 void OneSolMain::UserLoggedIn()
 {
     stackedWidget->setCurrentWidget( staffWindow );
+}
+
+void OneSolMain::staffSlotLoggedin()
+{
+    stackedWidget->setCurrentWidget(staffWindow);
+}
+
+void OneSolMain::staffClick()
+{
+    loginStaff->setModal(true);
+    loginStaff->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
+    loginStaff->show();
 }

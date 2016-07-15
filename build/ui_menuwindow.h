@@ -28,6 +28,7 @@ public:
     QPushButton *reportButton;
     QPushButton *staffButton;
     QLabel *label;
+    QButtonGroup *menuButtonGroup;
 
     void setupUi(QWidget *MenuWindow)
     {
@@ -36,6 +37,9 @@ public:
         MenuWindow->resize(1024, 600);
         MenuWindow->setMaximumSize(QSize(1024, 600));
         inventoryButton = new QPushButton(MenuWindow);
+        menuButtonGroup = new QButtonGroup(MenuWindow);
+        menuButtonGroup->setObjectName(QStringLiteral("menuButtonGroup"));
+        menuButtonGroup->addButton(inventoryButton);
         inventoryButton->setObjectName(QStringLiteral("inventoryButton"));
         inventoryButton->setGeometry(QRect(200, 340, 250, 200));
         QFont font;
@@ -50,6 +54,7 @@ public:
 "}"));
         inventoryButton->setInputMethodHints(Qt::ImhNone);
         saleButton = new QPushButton(MenuWindow);
+        menuButtonGroup->addButton(saleButton);
         saleButton->setObjectName(QStringLiteral("saleButton"));
         saleButton->setGeometry(QRect(574, 100, 250, 200));
         saleButton->setStyleSheet(QLatin1String("QPushButton{\n"
@@ -57,6 +62,7 @@ public:
 "	background-color: rgb(255, 85, 0);\n"
 "}"));
         reportButton = new QPushButton(MenuWindow);
+        menuButtonGroup->addButton(reportButton);
         reportButton->setObjectName(QStringLiteral("reportButton"));
         reportButton->setGeometry(QRect(200, 100, 250, 200));
         reportButton->setStyleSheet(QLatin1String("QPushButton{\n"
@@ -64,6 +70,7 @@ public:
 "	background-color: rgb(255, 85, 0);\n"
 "}"));
         staffButton = new QPushButton(MenuWindow);
+        menuButtonGroup->addButton(staffButton);
         staffButton->setObjectName(QStringLiteral("staffButton"));
         staffButton->setGeometry(QRect(574, 340, 250, 200));
         staffButton->setStyleSheet(QLatin1String("QPushButton{\n"
