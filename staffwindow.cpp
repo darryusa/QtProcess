@@ -1,5 +1,8 @@
 #include "staffwindow.h"
 #include "ui_staffwindow.h"
+#include "dbmanager.h"
+#include "qdebug.h"
+
 
 StaffWindow::StaffWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StaffWindow)
 {
@@ -12,8 +15,16 @@ StaffWindow::StaffWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StaffWin
    // model->setHeaderData( 0, Qt::Horizontal, QObject::tr( "First Name") );
     //model->setHeaderData( 1, Qt::Horizontal, QObject::tr( "Last Name" ) );
 
-    connect( ui->Add, SIGNAL( clicked() ), this, SLOT( AddButtonPressed() ) );
-    connect( ui->Remove, SIGNAL( clicked() ), this, SLOT( RemoveButtonPressed() ) );
+    DbManager *dbmanager = new DbManager("../processDB");
+
+    QSqlQuery query("SELECT last FROM employee");
+        while (query.next()) {
+            QString name = query.value(0).toString();
+            qDebug() << name;
+        }
+
+//    connect( ui->Add, SIGNAL( clicked() ), this, SLOT( AddButtonPressed() ) );
+//    connect( ui->Remove, SIGNAL( clicked() ), this, SLOT( RemoveButtonPressed() ) );
 }
 
 StaffWindow::~StaffWindow()

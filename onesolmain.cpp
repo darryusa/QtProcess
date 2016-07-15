@@ -14,7 +14,7 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     stackedWidget->addWidget( staffWindow );
     stackedWidget->addWidget(menuWindow);
     stackedWidget->addWidget(loginReport);
-    stackedWidget->setCurrentWidget( loginReport );
+    stackedWidget->setCurrentWidget( staffWindow );
 
 
     QRect screenGeometry = QDesktopWidget().availableGeometry( this );
