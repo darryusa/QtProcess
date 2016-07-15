@@ -79,6 +79,10 @@ void LoginDialog::enterButtonPressed()
                 emit staffLoggedin();
 //                connect(oneSolMain::Instance(),SIGNAL(staffLogin()),oneSolMain::Instance(),SLOT(staffSlotLoggedin()));
             }
+            else if(loginSender2 == "report")
+            {
+                emit reportLoggedin();
+            }
         }
     }
 }
@@ -97,7 +101,7 @@ bool LoginDialog::passwordCheck()
 {
 
     QString currentText = ui->lineEdit->text();
-    DbManager *dbmanager = new DbManager("../processDB");
+    DbManager *dbmanager = new DbManager();
     bool correctPIN = false;
     // Password: "0000" for testing. Check database here.
     if ( dbmanager->pinChecker(currentText))

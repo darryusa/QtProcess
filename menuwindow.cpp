@@ -64,6 +64,6 @@ void MenuWindow::on_staffButton_clicked()
 
 void MenuWindow::on_reportButton_clicked()
 {
-//    emit reportLogin();
+    emit reportClicked();
 
 }

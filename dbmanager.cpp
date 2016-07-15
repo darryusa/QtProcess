@@ -1,17 +1,20 @@
 #include "dbmanager.h"
 #include <QDebug>
-
-DbManager::DbManager(const QString & path)
+#include <QSettings>
+DbManager::DbManager()
 {
    m_db = QSqlDatabase::addDatabase("QSQLITE");
-   m_db.setDatabaseName(path);
+   m_db.setDatabaseName("../processDB");
+   //QSettings settings;
+   //QString dbPath = settings.readValue("DBPath", QString(/*fallback path*/)).toString();
+   //qDebug() << dbPath;
    if (!m_db.open())
    {
       qDebug() << "Error: connection with database fail";
    }
    else
    {
-
+        qDebug() <<"success";
    }
 }
 bool DbManager::addPerson(const QString& name)

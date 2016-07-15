@@ -17,6 +17,8 @@ public:
 signals:
     void staffClicked();
     void staffLoggedin();
+    void reportLoggedin();
+    void reportLogin();
 
 private:
     Ui::LoginDialog *ui;
