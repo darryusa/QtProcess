@@ -17,31 +17,23 @@ SOURCES += main.cpp\
     staffwindow.cpp \
     dbmanager.cpp \
     menuwindow.cpp \
-<<<<<<< HEAD
-    reportswindow.cpp
-=======
+    reportswindow.cpp\
     logindialog.cpp
->>>>>>> master
 
 HEADERS  += onesolmain.h \
     staffwindow.h \
     dbmanager.h \
     menuwindow.h \
-<<<<<<< HEAD
-    reportswindow.h
-=======
+    reportswindow.h \
     logindialog.h \
     singleton.h
->>>>>>> master
 
 FORMS += \
     staffwindow.ui \
     menuwindow.ui \
-<<<<<<< HEAD
-    reportswindow.ui
-=======
+    reportswindow.ui \
+    logindialog.ui
     logindialog.ui
 
 RESOURCES += \
     resource.qrc
->>>>>>> master

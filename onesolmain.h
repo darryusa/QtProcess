@@ -5,13 +5,9 @@
 #include <QStackedWidget>
 #include <staffwindow.h>
 #include <menuwindow.h>
-<<<<<<< HEAD
 #include <reportswindow.h>
-
-=======
 #include <singleton.h>
 #include <logindialog.h>
->>>>>>> master
 class OneSolMain : public QWidget
 {
     Q_OBJECT
@@ -24,15 +20,12 @@ private:
     QStackedWidget *stackedWidget;
     StaffWindow *staffWindow;
     MenuWindow *menuWindow;
-<<<<<<< HEAD
     ReportsWindow *reportsWindow;
-
-=======
     LoginDialog * loginReport;
     LoginDialog * loginStaff;
 signals:
     void staffLogin();
->>>>>>> master
+
 private slots:
     void UserLoggedIn();
     void reportButtonClicked();
