@@ -396,34 +396,33 @@ QPushButton:pressed{
   <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>411</x>
      <y>0</y>
-     <width>111</width>
+     <width>101</width>
      <height>111</height>
     </rect>
-   </property>
-   <property name="inputMethodHints">
-    <set>Qt::ImhNone</set>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
-    <iconset>
-     <normaloff>image/backButton.png</normaloff>image/backButton.png</iconset>
+    <iconset resource="resource.qrc">
+     <normaloff>:/image/backButton.png</normaloff>:/image/backButton.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>111</width>
+     <width>101</width>
      <height>111</height>
     </size>
    </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
   </widget>
-  <zorder>backButton</zorder>
-  <zorder>gridLayoutWidget</zorder>
-  <zorder>lineEdit</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButtonBack</sender>

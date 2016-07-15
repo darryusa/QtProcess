@@ -2,7 +2,6 @@
 #define LOGINDIALOG_H
 
 #include <QDialog>
-
 namespace Ui {
 class LoginDialog;
 }
@@ -12,17 +11,21 @@ class LoginDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit LoginDialog(QWidget *parent = 0);
+    explicit LoginDialog(QWidget *parent = 0,const QString & loginSender = "");
     ~LoginDialog();
+    QString loginSender2 ="";
 signals:
-    void logIn();
+    void staffClicked();
+    void staffLoggedin();
+
 private:
     Ui::LoginDialog *ui;
-    void passwordCheck();
+    bool passwordCheck();
 private slots:
     void keyboardButtonPressed();
     void enterButtonPressed();
     void backButtonPressed();
+    void on_pushButtonEnter_clicked();
 };
 
 #endif // LOGINDIALOG_H

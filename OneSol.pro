@@ -23,9 +23,13 @@ HEADERS  += onesolmain.h \
     staffwindow.h \
     dbmanager.h \
     menuwindow.h \
-    logindialog.h
+    logindialog.h \
+    singleton.h
 
 FORMS += \
     staffwindow.ui \
     menuwindow.ui \
     logindialog.ui
+
+RESOURCES += \
+    resource.qrc

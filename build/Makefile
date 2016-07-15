@@ -53,7 +53,8 @@ SOURCES       = ../main.cpp \
 		../staffwindow.cpp \
 		../dbmanager.cpp \
 		../menuwindow.cpp \
-		../logindialog.cpp moc_onesolmain.cpp \
+		../logindialog.cpp qrc_resource.cpp \
+		moc_onesolmain.cpp \
 		moc_staffwindow.cpp \
 		moc_menuwindow.cpp \
 		moc_logindialog.cpp
@@ -63,6 +64,7 @@ OBJECTS       = main.o \
 		dbmanager.o \
 		menuwindow.o \
 		logindialog.o \
+		qrc_resource.o \
 		moc_onesolmain.o \
 		moc_staffwindow.o \
 		moc_menuwindow.o \
@@ -220,7 +222,8 @@ DIST          = ../../../../Qt/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		../staffwindow.h \
 		../dbmanager.h \
 		../menuwindow.h \
-		../logindialog.h ../main.cpp \
+		../logindialog.h \
+		../singleton.h ../main.cpp \
 		../onesolmain.cpp \
 		../staffwindow.cpp \
 		../dbmanager.cpp \
@@ -387,6 +390,7 @@ Makefile: ../OneSol.pro ../../../Qt/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.7/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.7/gcc_64/mkspecs/features/lex.prf \
 		../OneSol.pro \
+		../resource.qrc \
 		../../../Qt/5.7/gcc_64/lib/libQt5Widgets.prl \
 		../../../Qt/5.7/gcc_64/lib/libQt5Gui.prl \
 		../../../Qt/5.7/gcc_64/lib/libQt5Sql.prl \
@@ -542,6 +546,7 @@ Makefile: ../OneSol.pro ../../../Qt/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 ../../../Qt/5.7/gcc_64/mkspecs/features/yacc.prf:
 ../../../Qt/5.7/gcc_64/mkspecs/features/lex.prf:
 ../OneSol.pro:
+../resource.qrc:
 ../../../Qt/5.7/gcc_64/lib/libQt5Widgets.prl:
 ../../../Qt/5.7/gcc_64/lib/libQt5Gui.prl:
 ../../../Qt/5.7/gcc_64/lib/libQt5Sql.prl:
@@ -560,7 +565,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../onesolmain.h ../staffwindow.h ../dbmanager.h ../menuwindow.h ../logindialog.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../resource.qrc $(DISTDIR)/
+	$(COPY_FILE) --parents ../onesolmain.h ../staffwindow.h ../dbmanager.h ../menuwindow.h ../logindialog.h ../singleton.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../main.cpp ../onesolmain.cpp ../staffwindow.cpp ../dbmanager.cpp ../menuwindow.cpp ../logindialog.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../staffwindow.ui ../menuwindow.ui ../logindialog.ui $(DISTDIR)/
 
@@ -585,8 +591,14 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_resource.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_resource.cpp
+qrc_resource.cpp: ../resource.qrc \
+		../../../Qt/5.7/gcc_64/bin/rcc \
+		../image/backButton.png
+	/home/neal/Qt/5.7/gcc_64/bin/rcc -name resource ../resource.qrc -o qrc_resource.cpp
+
 compiler_moc_header_make_all: moc_onesolmain.cpp moc_staffwindow.cpp moc_menuwindow.cpp moc_logindialog.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_onesolmain.cpp moc_staffwindow.cpp moc_menuwindow.cpp moc_logindialog.cpp
@@ -692,6 +704,7 @@ moc_onesolmain.cpp: ../../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
 		../../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
 		../staffwindow.h \
 		../menuwindow.h \
+		../singleton.h \
 		../onesolmain.h \
 		../../../Qt/5.7/gcc_64/bin/moc
 	/home/neal/Qt/5.7/gcc_64/bin/moc $(DEFINES) -I/home/neal/Qt/5.7/gcc_64/mkspecs/linux-g++ -I/home/neal/Desktop/QtProcess -I/home/neal/Qt/5.7/gcc_64/include -I/home/neal/Qt/5.7/gcc_64/include/QtWidgets -I/home/neal/Qt/5.7/gcc_64/include/QtGui -I/home/neal/Qt/5.7/gcc_64/include/QtSql -I/home/neal/Qt/5.7/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../onesolmain.h -o moc_onesolmain.cpp
@@ -1023,7 +1036,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -1130,6 +1143,7 @@ main.o: ../main.cpp ../onesolmain.h \
 		../../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
 		../staffwindow.h \
 		../menuwindow.h \
+		../singleton.h \
 		../../../Qt/5.7/gcc_64/include/QtWidgets/QApplication \
 		../../../Qt/5.7/gcc_64/include/QtWidgets/qapplication.h \
 		../../../Qt/5.7/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1242,6 +1256,7 @@ onesolmain.o: ../onesolmain.cpp ../onesolmain.h \
 		../../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
 		../staffwindow.h \
 		../menuwindow.h \
+		../singleton.h \
 		../dbmanager.h \
 		../../../Qt/5.7/gcc_64/include/QtCore/QString \
 		../../../Qt/5.7/gcc_64/include/QtSql/QSqlDatabase \
@@ -1356,7 +1371,50 @@ staffwindow.o: ../staffwindow.cpp ../staffwindow.h \
 		../../../Qt/5.7/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt/5.7/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt/5.7/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_staffwindow.h
+		ui_staffwindow.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QAction \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qicon.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QTextBrowser \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qtextbrowser.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qtextedit.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qtextdocument.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qpen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o staffwindow.o ../staffwindow.cpp
 
 dbmanager.o: ../dbmanager.cpp ../dbmanager.h \
@@ -1533,7 +1591,45 @@ menuwindow.o: ../menuwindow.cpp ../menuwindow.h \
 		../logindialog.h \
 		../../../Qt/5.7/gcc_64/include/QtWidgets/QDialog \
 		../../../Qt/5.7/gcc_64/include/QtWidgets/qdialog.h \
-		ui_menuwindow.h
+		ui_menuwindow.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QAction \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qicon.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QLabel \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menuwindow.o ../menuwindow.cpp
 
 logindialog.o: ../logindialog.cpp ../logindialog.h \
@@ -1636,6 +1732,53 @@ logindialog.o: ../logindialog.cpp ../logindialog.h \
 		../../../Qt/5.7/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt/5.7/gcc_64/include/QtGui/qtouchdevice.h \
 		ui_logindialog.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/QVariant \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QAction \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qaction.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qicon.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QApplication \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QButtonGroup \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QGridLayout \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qlayout.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QHeaderView \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qheaderview.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qvalidator.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qslider.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qpen.h \
+		../../../Qt/5.7/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
 		../dbmanager.h \
 		../../../Qt/5.7/gcc_64/include/QtCore/QString \
 		../../../Qt/5.7/gcc_64/include/QtSql/QSqlDatabase \
@@ -1644,8 +1787,14 @@ logindialog.o: ../logindialog.cpp ../logindialog.h \
 		../../../Qt/5.7/gcc_64/include/QtSql/QSqlQuery \
 		../../../Qt/5.7/gcc_64/include/QtSql/qsqlquery.h \
 		../../../Qt/5.7/gcc_64/include/QtSql/QSqlError \
-		../../../Qt/5.7/gcc_64/include/QtSql/qsqlerror.h
+		../../../Qt/5.7/gcc_64/include/QtSql/qsqlerror.h \
+		../../../Qt/5.7/gcc_64/include/QtCore/QDebug \
+		../../../Qt/5.7/gcc_64/include/QtCore/QSignalMapper \
+		../../../Qt/5.7/gcc_64/include/QtCore/qsignalmapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logindialog.o ../logindialog.cpp
+
+qrc_resource.o: qrc_resource.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resource.o qrc_resource.cpp
 
 moc_onesolmain.o: moc_onesolmain.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_onesolmain.o moc_onesolmain.cpp

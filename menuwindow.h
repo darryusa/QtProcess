@@ -20,8 +20,14 @@ private:
 
 signals:
     void callLogin();
-    void on_reportButton_clicked();
+    void reportLogin();
+    void staffClicked();
 
+private slots:
+    void on_saleButton_clicked();
+    void on_inventoryButton_clicked();
+    void on_staffButton_clicked();
+    void on_reportButton_clicked();
 };
 
 #endif // MENUWINDOW_H
