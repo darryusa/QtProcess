@@ -12,23 +12,27 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     menuWindow = new MenuWindow(this);
     reportsWindow = new ReportsWindow(this);
     stackedWidget = new QStackedWidget;
+    reportListDialog = new ReportListDialog(this);
+    loginStaff = new LoginDialog(this,"staff");
+    loginReport = new LoginDialog(this,"report");
+    stackedWidget->addWidget(reportListDialog);
     stackedWidget->addWidget( staffWindow );
     stackedWidget->addWidget(menuWindow);
     stackedWidget->addWidget(reportsWindow);
     stackedWidget->setCurrentWidget( menuWindow );
-    const QString& name = "Neal-Nguyen";
+    stackedWidget->show();
 
 
-    staffWindow = new StaffWindow( this );
-    menuWindow = new MenuWindow(this);
-    //LoginDialog *loginReport = new LoginDialog(this);
-    loginStaff = new LoginDialog(this,"staff");
-    stackedWidget = new QStackedWidget;
-    stackedWidget->addWidget( staffWindow );
-    stackedWidget->addWidget(menuWindow);
+//    staffWindow = new StaffWindow( this );
+//    menuWindow = new MenuWindow(this);
+//    //LoginDialog *loginReport = new LoginDialog(this);
 
-    stackedWidget->setCurrentWidget( menuWindow );
+//    stackedWidget = new QStackedWidget;
+//    stackedWidget->addWidget( staffWindow );
+//    stackedWidget->addWidget(menuWindow);
+    connect(loginReport, SIGNAL(reportLoggedin()), this, SLOT(reportSlotLoggedin()));
     connect(loginStaff, SIGNAL(staffLoggedin()), this, SLOT(staffSlotLoggedin()));
+    connect(menuWindow, SIGNAL(reportClicked()), this, SLOT(reportButtonClicked()));
     connect(menuWindow, SIGNAL(staffClicked()), this, SLOT(staffClick()));
     QRect screenGeometry = QDesktopWidget().availableGeometry( this );
     stackedWidget->resize( screenGeometry.size() );
@@ -58,10 +62,9 @@ OneSolMain::~OneSolMain()
 void OneSolMain::reportButtonClicked()
 {
         loginReport->setModal(true);
-       // stackedWidget->addWidget(loginReport);
         loginReport->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
-    //    stackedWidget->
         loginReport->show();
+
 
 }
 void OneSolMain::UserLoggedIn()
@@ -72,6 +75,12 @@ void OneSolMain::UserLoggedIn()
 void OneSolMain::staffSlotLoggedin()
 {
     stackedWidget->setCurrentWidget(staffWindow);
+    loginStaff->hide();
+}
+void OneSolMain::reportSlotLoggedin()
+{
+    stackedWidget->setCurrentWidget(reportListDialog);
+    loginReport->hide();
 }
 
 void OneSolMain::staffClick()

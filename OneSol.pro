@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     dbmanager.cpp \
     menuwindow.cpp \
     reportswindow.cpp\
-    logindialog.cpp
+    logindialog.cpp \
+    reportlistdialog.cpp
 
 HEADERS  += onesolmain.h \
     staffwindow.h \
@@ -26,13 +27,15 @@ HEADERS  += onesolmain.h \
     menuwindow.h \
     reportswindow.h \
     logindialog.h \
-    singleton.h
+    singleton.h \
+    reportlistdialog.h
 
 FORMS += \
     staffwindow.ui \
     menuwindow.ui \
     reportswindow.ui \
-    logindialog.ui
+    logindialog.ui \
+    reportlistdialog.ui
     logindialog.ui
 
 RESOURCES += \

@@ -23,7 +23,7 @@ private:
 
 signals:
     void callLogin();
-    void reportLogin();
+    void reportClicked();
     void staffClicked();
 
 private slots:
