@@ -1,5 +1,6 @@
 #include "onesolmain.h"
 #include "staffwindow.h"
+#include "reportswindow.h"
 #include "dbmanager.h"
 #include <QStackedWidget>
 #include <QDesktopWidget>
@@ -7,6 +8,17 @@
 #include <QDebug>
 OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 {
+<<<<<<< HEAD
+    staffWindow = new StaffWindow( this );
+    menuWindow = new MenuWindow(this);
+    reportsWindow = new ReportsWindow(this);
+    stackedWidget = new QStackedWidget;
+    stackedWidget->addWidget( staffWindow );
+    stackedWidget->addWidget(menuWindow);
+    stackedWidget->addWidget(reportsWindow);
+    stackedWidget->setCurrentWidget( menuWindow );
+    const QString& name = "Neal-Nguyen";
+=======
 
     staffWindow = new StaffWindow( this );
     menuWindow = new MenuWindow(this);
@@ -15,6 +27,7 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     stackedWidget = new QStackedWidget;
     stackedWidget->addWidget( staffWindow );
     stackedWidget->addWidget(menuWindow);
+>>>>>>> master
 
     stackedWidget->setCurrentWidget( menuWindow );
     connect(loginStaff, SIGNAL(staffLoggedin()), this, SLOT(staffSlotLoggedin()));
@@ -25,6 +38,10 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 
 
     stackedWidget->show();
+<<<<<<< HEAD
+
+    reportsWindow->startDateCal
+=======
     //connect(loginStaff, SIGNAL(staffClicked()), this, SLOT(staffClick()));
 //    connect( menuWindow, SIGNAL( reportLogin() ), this, SLOT( reportButtonClicked() ) );
 
@@ -33,6 +50,7 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 //    loginReport->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 //    loginReport->show();
 
+>>>>>>> master
 }
 
 OneSolMain::~OneSolMain()
@@ -50,7 +68,7 @@ void OneSolMain::reportButtonClicked()
 }
 void OneSolMain::UserLoggedIn()
 {
-    stackedWidget->setCurrentWidget( staffWindow );
+    stackedWidget->setCurrentWidget( reportsWindow );
 }
 
 void OneSolMain::staffSlotLoggedin()

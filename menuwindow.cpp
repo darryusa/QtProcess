@@ -44,6 +44,11 @@ MenuWindow::~MenuWindow()
     delete ui;
 }
 
+<<<<<<< HEAD
+void MenuWindow::on_reportButton_clicked()
+{
+
+=======
 
 
 
@@ -65,4 +70,5 @@ void MenuWindow::on_staffButton_clicked()
 void MenuWindow::on_reportButton_clicked()
 {
 //    emit reportLogin();
+>>>>>>> master
 }
