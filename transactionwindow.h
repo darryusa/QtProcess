@@ -2,7 +2,7 @@
 #define TRANSACTIONWINDOW_H
 
 #include <QWidget>
-
+//trans test
 namespace Ui {
 class TransactionWindow;
 }
