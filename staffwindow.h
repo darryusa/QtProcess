@@ -1,10 +1,8 @@
 #ifndef STAFFWINDOW_H
 #define STAFFWINDOW_H
-<<<<<<< Updated upstream
-//test
-=======
-//test2
->>>>>>> Stashed changes
+
+//test3
+
 #include <QWidget>
 #include <QDialog>
 #include <QtSql>
