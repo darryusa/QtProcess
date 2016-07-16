@@ -10,7 +10,7 @@ ReportListDialog::ReportListDialog(QWidget *parent) :
 
     DbManager *dbmanager = new DbManager();
 
-
+    // HELLO WORLD
 
     this->model = new QSqlQueryModel();
     model->setQuery("SELECT [ID], [first], [last], [address], [phone_number], [PIN], [email_address] FROM [main].[employee]");
