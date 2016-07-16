@@ -13,14 +13,14 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTableView>
-#include <QtWidgets/QTextBrowser>
-#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QScrollBar>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,34 +28,33 @@ QT_BEGIN_NAMESPACE
 class Ui_StaffWindow
 {
 public:
-    QTextBrowser *textBrowser;
-    QTextBrowser *textBrowser_2;
-    QTableView *tableView;
-    QPushButton *pushButton_DELETE;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout_2;
-    QHBoxLayout *horizontalLayout_9;
-    QLabel *label_4;
-    QLineEdit *lineEdit_phone;
-    QHBoxLayout *horizontalLayout_8;
-    QLabel *label_3;
-    QLineEdit *lineEdit_address;
-    QHBoxLayout *horizontalLayout_5;
+    QScrollBar *verticalScrollBar;
     QLabel *label;
-    QLineEdit *lineEdit_email;
-    QHBoxLayout *horizontalLayout_7;
-    QLabel *label_2;
-    QLineEdit *lineEdit_pin;
-    QWidget *horizontalLayoutWidget_5;
-    QHBoxLayout *horizontalLayout_10;
-    QVBoxLayout *verticalLayout_4;
-    QLabel *label_5;
-    QLineEdit *lineEdit_first;
-    QVBoxLayout *verticalLayout_5;
-    QLabel *label_6;
-    QLineEdit *lineEdit_last;
-    QPushButton *pushButton_ADD;
-    QPushButton *pushButton_EDIT;
+    QWidget *formLayoutWidget;
+    QFormLayout *formLayout;
+    QLabel *firstNameLabel;
+    QLineEdit *firstNameLineEdit;
+    QSpacerItem *verticalSpacer;
+    QLabel *lastNameLabel;
+    QLineEdit *lastNameLineEdit;
+    QSpacerItem *verticalSpacer_2;
+    QLabel *addressLabel;
+    QLineEdit *addressLineEdit;
+    QSpacerItem *verticalSpacer_3;
+    QLabel *phoneNumberLabel;
+    QLineEdit *phoneNumberLineEdit;
+    QSpacerItem *verticalSpacer_4;
+    QLabel *emailAddressLabel;
+    QLineEdit *emailAddressLineEdit;
+    QSpacerItem *verticalSpacer_5;
+    QLabel *pINLabel;
+    QPushButton *modifyPINButton;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
+    QPushButton *pushButton_5;
+    QListWidget *listWidget;
 
     void setupUi(QWidget *StaffWindow)
     {
@@ -64,128 +63,243 @@ public:
         StaffWindow->resize(1024, 600);
         StaffWindow->setToolTipDuration(-6);
         StaffWindow->setLayoutDirection(Qt::LeftToRight);
-        textBrowser = new QTextBrowser(StaffWindow);
-        textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        textBrowser->setGeometry(QRect(0, 0, 400, 600));
-        textBrowser_2 = new QTextBrowser(StaffWindow);
-        textBrowser_2->setObjectName(QStringLiteral("textBrowser_2"));
-        textBrowser_2->setGeometry(QRect(400, 0, 624, 600));
-        tableView = new QTableView(StaffWindow);
-        tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(440, 130, 321, 331));
-        pushButton_DELETE = new QPushButton(StaffWindow);
-        pushButton_DELETE->setObjectName(QStringLiteral("pushButton_DELETE"));
-        pushButton_DELETE->setGeometry(QRect(640, 470, 99, 27));
-        verticalLayoutWidget = new QWidget(StaffWindow);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(30, 20, 341, 271));
-        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        label_4 = new QLabel(verticalLayoutWidget);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        horizontalLayout_9->addWidget(label_4);
-
-        lineEdit_phone = new QLineEdit(verticalLayoutWidget);
-        lineEdit_phone->setObjectName(QStringLiteral("lineEdit_phone"));
-
-        horizontalLayout_9->addWidget(lineEdit_phone);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_9);
-
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        label_3 = new QLabel(verticalLayoutWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        horizontalLayout_8->addWidget(label_3);
-
-        lineEdit_address = new QLineEdit(verticalLayoutWidget);
-        lineEdit_address->setObjectName(QStringLiteral("lineEdit_address"));
-
-        horizontalLayout_8->addWidget(lineEdit_address);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_8);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        horizontalLayout_5->setContentsMargins(0, -1, -1, -1);
-        label = new QLabel(verticalLayoutWidget);
+        verticalScrollBar = new QScrollBar(StaffWindow);
+        verticalScrollBar->setObjectName(QStringLiteral("verticalScrollBar"));
+        verticalScrollBar->setGeometry(QRect(992, 60, 16, 450));
+        verticalScrollBar->setStyleSheet(QStringLiteral(""));
+        verticalScrollBar->setOrientation(Qt::Vertical);
+        label = new QLabel(StaffWindow);
         label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(0, 0, 1024, 60));
+        QFont font;
+        font.setPointSize(20);
+        font.setBold(true);
+        font.setWeight(75);
+        label->setFont(font);
+        label->setAlignment(Qt::AlignCenter);
+        formLayoutWidget = new QWidget(StaffWindow);
+        formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
+        formLayoutWidget->setGeometry(QRect(0, 60, 511, 331));
+        formLayout = new QFormLayout(formLayoutWidget);
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setContentsMargins(40, 0, 40, 0);
+        firstNameLabel = new QLabel(formLayoutWidget);
+        firstNameLabel->setObjectName(QStringLiteral("firstNameLabel"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(firstNameLabel->sizePolicy().hasHeightForWidth());
+        firstNameLabel->setSizePolicy(sizePolicy);
+        firstNameLabel->setMinimumSize(QSize(66, 25));
 
-        horizontalLayout_5->addWidget(label);
+        formLayout->setWidget(0, QFormLayout::LabelRole, firstNameLabel);
 
-        lineEdit_email = new QLineEdit(verticalLayoutWidget);
-        lineEdit_email->setObjectName(QStringLiteral("lineEdit_email"));
+        firstNameLineEdit = new QLineEdit(formLayoutWidget);
+        firstNameLineEdit->setObjectName(QStringLiteral("firstNameLineEdit"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(firstNameLineEdit->sizePolicy().hasHeightForWidth());
+        firstNameLineEdit->setSizePolicy(sizePolicy1);
+        firstNameLineEdit->setMinimumSize(QSize(335, 25));
+        firstNameLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        firstNameLineEdit->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_5->addWidget(lineEdit_email);
+        formLayout->setWidget(0, QFormLayout::FieldRole, firstNameLineEdit);
 
+        verticalSpacer = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_2->addLayout(horizontalLayout_5);
+        formLayout->setItem(1, QFormLayout::FieldRole, verticalSpacer);
 
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        label_2 = new QLabel(verticalLayoutWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        lastNameLabel = new QLabel(formLayoutWidget);
+        lastNameLabel->setObjectName(QStringLiteral("lastNameLabel"));
+        sizePolicy.setHeightForWidth(lastNameLabel->sizePolicy().hasHeightForWidth());
+        lastNameLabel->setSizePolicy(sizePolicy);
+        lastNameLabel->setMinimumSize(QSize(65, 25));
 
-        horizontalLayout_7->addWidget(label_2);
+        formLayout->setWidget(2, QFormLayout::LabelRole, lastNameLabel);
 
-        lineEdit_pin = new QLineEdit(verticalLayoutWidget);
-        lineEdit_pin->setObjectName(QStringLiteral("lineEdit_pin"));
+        lastNameLineEdit = new QLineEdit(formLayoutWidget);
+        lastNameLineEdit->setObjectName(QStringLiteral("lastNameLineEdit"));
+        sizePolicy1.setHeightForWidth(lastNameLineEdit->sizePolicy().hasHeightForWidth());
+        lastNameLineEdit->setSizePolicy(sizePolicy1);
+        lastNameLineEdit->setMinimumSize(QSize(335, 25));
+        lastNameLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        lastNameLineEdit->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_7->addWidget(lineEdit_pin);
+        formLayout->setWidget(2, QFormLayout::FieldRole, lastNameLineEdit);
 
+        verticalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_2->addLayout(horizontalLayout_7);
+        formLayout->setItem(3, QFormLayout::FieldRole, verticalSpacer_2);
 
-        horizontalLayoutWidget_5 = new QWidget(StaffWindow);
-        horizontalLayoutWidget_5->setObjectName(QStringLiteral("horizontalLayoutWidget_5"));
-        horizontalLayoutWidget_5->setGeometry(QRect(440, 60, 321, 61));
-        horizontalLayout_10 = new QHBoxLayout(horizontalLayoutWidget_5);
-        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
-        horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        label_5 = new QLabel(horizontalLayoutWidget_5);
-        label_5->setObjectName(QStringLiteral("label_5"));
+        addressLabel = new QLabel(formLayoutWidget);
+        addressLabel->setObjectName(QStringLiteral("addressLabel"));
+        sizePolicy.setHeightForWidth(addressLabel->sizePolicy().hasHeightForWidth());
+        addressLabel->setSizePolicy(sizePolicy);
+        addressLabel->setMinimumSize(QSize(49, 25));
 
-        verticalLayout_4->addWidget(label_5);
+        formLayout->setWidget(4, QFormLayout::LabelRole, addressLabel);
 
-        lineEdit_first = new QLineEdit(horizontalLayoutWidget_5);
-        lineEdit_first->setObjectName(QStringLiteral("lineEdit_first"));
+        addressLineEdit = new QLineEdit(formLayoutWidget);
+        addressLineEdit->setObjectName(QStringLiteral("addressLineEdit"));
+        sizePolicy1.setHeightForWidth(addressLineEdit->sizePolicy().hasHeightForWidth());
+        addressLineEdit->setSizePolicy(sizePolicy1);
+        addressLineEdit->setMinimumSize(QSize(335, 25));
+        addressLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        addressLineEdit->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_4->addWidget(lineEdit_first);
+        formLayout->setWidget(4, QFormLayout::FieldRole, addressLineEdit);
 
+        verticalSpacer_3 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_10->addLayout(verticalLayout_4);
+        formLayout->setItem(5, QFormLayout::FieldRole, verticalSpacer_3);
 
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        label_6 = new QLabel(horizontalLayoutWidget_5);
-        label_6->setObjectName(QStringLiteral("label_6"));
+        phoneNumberLabel = new QLabel(formLayoutWidget);
+        phoneNumberLabel->setObjectName(QStringLiteral("phoneNumberLabel"));
+        sizePolicy.setHeightForWidth(phoneNumberLabel->sizePolicy().hasHeightForWidth());
+        phoneNumberLabel->setSizePolicy(sizePolicy);
+        phoneNumberLabel->setMinimumSize(QSize(90, 25));
 
-        verticalLayout_5->addWidget(label_6);
+        formLayout->setWidget(6, QFormLayout::LabelRole, phoneNumberLabel);
 
-        lineEdit_last = new QLineEdit(horizontalLayoutWidget_5);
-        lineEdit_last->setObjectName(QStringLiteral("lineEdit_last"));
+        phoneNumberLineEdit = new QLineEdit(formLayoutWidget);
+        phoneNumberLineEdit->setObjectName(QStringLiteral("phoneNumberLineEdit"));
+        sizePolicy1.setHeightForWidth(phoneNumberLineEdit->sizePolicy().hasHeightForWidth());
+        phoneNumberLineEdit->setSizePolicy(sizePolicy1);
+        phoneNumberLineEdit->setMinimumSize(QSize(335, 25));
+        phoneNumberLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        phoneNumberLineEdit->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_5->addWidget(lineEdit_last);
+        formLayout->setWidget(6, QFormLayout::FieldRole, phoneNumberLineEdit);
 
+        verticalSpacer_4 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout_10->addLayout(verticalLayout_5);
+        formLayout->setItem(7, QFormLayout::FieldRole, verticalSpacer_4);
 
-        pushButton_ADD = new QPushButton(StaffWindow);
-        pushButton_ADD->setObjectName(QStringLiteral("pushButton_ADD"));
-        pushButton_ADD->setGeometry(QRect(470, 470, 99, 27));
-        pushButton_EDIT = new QPushButton(StaffWindow);
-        pushButton_EDIT->setObjectName(QStringLiteral("pushButton_EDIT"));
-        pushButton_EDIT->setGeometry(QRect(90, 430, 99, 27));
+        emailAddressLabel = new QLabel(formLayoutWidget);
+        emailAddressLabel->setObjectName(QStringLiteral("emailAddressLabel"));
+        sizePolicy.setHeightForWidth(emailAddressLabel->sizePolicy().hasHeightForWidth());
+        emailAddressLabel->setSizePolicy(sizePolicy);
+        emailAddressLabel->setMinimumSize(QSize(86, 25));
+
+        formLayout->setWidget(8, QFormLayout::LabelRole, emailAddressLabel);
+
+        emailAddressLineEdit = new QLineEdit(formLayoutWidget);
+        emailAddressLineEdit->setObjectName(QStringLiteral("emailAddressLineEdit"));
+        sizePolicy1.setHeightForWidth(emailAddressLineEdit->sizePolicy().hasHeightForWidth());
+        emailAddressLineEdit->setSizePolicy(sizePolicy1);
+        emailAddressLineEdit->setMinimumSize(QSize(335, 25));
+        emailAddressLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        emailAddressLineEdit->setAlignment(Qt::AlignCenter);
+
+        formLayout->setWidget(8, QFormLayout::FieldRole, emailAddressLineEdit);
+
+        verticalSpacer_5 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout->setItem(9, QFormLayout::FieldRole, verticalSpacer_5);
+
+        pINLabel = new QLabel(formLayoutWidget);
+        pINLabel->setObjectName(QStringLiteral("pINLabel"));
+
+        formLayout->setWidget(10, QFormLayout::LabelRole, pINLabel);
+
+        modifyPINButton = new QPushButton(formLayoutWidget);
+        modifyPINButton->setObjectName(QStringLiteral("modifyPINButton"));
+        modifyPINButton->setMinimumSize(QSize(0, 25));
+        QFont font1;
+        font1.setPointSize(15);
+        modifyPINButton->setFont(font1);
+        modifyPINButton->setStyleSheet(QLatin1String("QPushButton { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+
+        formLayout->setWidget(10, QFormLayout::FieldRole, modifyPINButton);
+
+        pushButton = new QPushButton(StaffWindow);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(360, 400, 80, 22));
+        pushButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(164, 179, 60);\n"
+"}\n"
+""));
+        pushButton_2 = new QPushButton(StaffWindow);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(160, 400, 80, 22));
+        pushButton_2->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(164, 179, 60);\n"
+"}\n"
+""));
+        pushButton_3 = new QPushButton(StaffWindow);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setGeometry(QRect(40, 530, 211, 41));
+        pushButton_3->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(164, 179, 60);\n"
+"}\n"
+""));
+        pushButton_4 = new QPushButton(StaffWindow);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        pushButton_4->setGeometry(QRect(370, 530, 211, 41));
+        pushButton_4->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(164, 179, 60);\n"
+"}\n"
+""));
+        pushButton_5 = new QPushButton(StaffWindow);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        pushButton_5->setGeometry(QRect(700, 530, 211, 41));
+        pushButton_5->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(164, 179, 60);\n"
+"}\n"
+""));
+        listWidget = new QListWidget(StaffWindow);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(510, 60, 480, 450));
+        listWidget->setStyleSheet(QLatin1String("QListWidget { \n"
+"	border-radius: 20px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
 
         retranslateUi(StaffWindow);
 
@@ -195,15 +309,19 @@ public:
     void retranslateUi(QWidget *StaffWindow)
     {
         StaffWindow->setWindowTitle(QApplication::translate("StaffWindow", "Form", 0));
-        pushButton_DELETE->setText(QApplication::translate("StaffWindow", "DELETE", 0));
-        label_4->setText(QApplication::translate("StaffWindow", "Phone", 0));
-        label_3->setText(QApplication::translate("StaffWindow", "Address", 0));
-        label->setText(QApplication::translate("StaffWindow", "Email", 0));
-        label_2->setText(QApplication::translate("StaffWindow", "Pin", 0));
-        label_5->setText(QApplication::translate("StaffWindow", "Last", 0));
-        label_6->setText(QApplication::translate("StaffWindow", "FIrst", 0));
-        pushButton_ADD->setText(QApplication::translate("StaffWindow", "ADD", 0));
-        pushButton_EDIT->setText(QApplication::translate("StaffWindow", "EDIT", 0));
+        label->setText(QApplication::translate("StaffWindow", "Employee", 0));
+        firstNameLabel->setText(QApplication::translate("StaffWindow", "First Name", 0));
+        lastNameLabel->setText(QApplication::translate("StaffWindow", "Last Name", 0));
+        addressLabel->setText(QApplication::translate("StaffWindow", "Address", 0));
+        phoneNumberLabel->setText(QApplication::translate("StaffWindow", "Phone Number", 0));
+        emailAddressLabel->setText(QApplication::translate("StaffWindow", "Email Address", 0));
+        pINLabel->setText(QApplication::translate("StaffWindow", "PIN", 0));
+        modifyPINButton->setText(QApplication::translate("StaffWindow", "*    *    *    *", 0));
+        pushButton->setText(QApplication::translate("StaffWindow", "Cancel", 0));
+        pushButton_2->setText(QApplication::translate("StaffWindow", "Confirm", 0));
+        pushButton_3->setText(QApplication::translate("StaffWindow", "Edit", 0));
+        pushButton_4->setText(QApplication::translate("StaffWindow", "Add", 0));
+        pushButton_5->setText(QApplication::translate("StaffWindow", "Remove", 0));
     } // retranslateUi
 
 };

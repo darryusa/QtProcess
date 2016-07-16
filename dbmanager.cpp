@@ -63,3 +63,4 @@ bool DbManager::pinChecker(QString& pin)
             qDebug() << "Error" << query.lastError();
     }
 }
+

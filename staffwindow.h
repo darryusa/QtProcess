@@ -6,6 +6,7 @@
 #include <QWidget>
 #include <QDialog>
 #include <QtSql>
+#include <pinnumpad.h>
 
 namespace Ui {
 class StaffWindow;
@@ -22,6 +23,8 @@ public:
 private:
     Ui::StaffWindow *ui;
     QSqlQueryModel *model;
+    PINNumPad * pinNumPad;
+
 
 private slots:
     void RemoveButtonPressed();
@@ -31,6 +34,9 @@ private slots:
     void on_pushButton_ADD_clicked();
     void on_pushButton_EDIT_clicked();
     void on_pushButton_DELETE_clicked();
+    void on_pushButton_6_clicked();
+    void on_modifyPINButton_clicked();
+    void on_listWidget_activated(const QModelIndex &index);
 };
 
 #endif // STAFFWINDOW_H
