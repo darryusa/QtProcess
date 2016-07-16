@@ -35,13 +35,9 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     connect(menuWindow,SIGNAL(saleClicked()), this, SLOT(saleClicked()));
     QRect screenGeometry = QDesktopWidget().availableGeometry( this );
     stackedWidget->resize( screenGeometry.size() );
-  //  connect( menuWindow, )
 
 
     stackedWidget->show();
-
-
-
 
 
 }
