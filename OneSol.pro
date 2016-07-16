@@ -11,21 +11,32 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = OneSol
 TEMPLATE = app
 
-
+//Test
 SOURCES += main.cpp\
         onesolmain.cpp \
     staffwindow.cpp \
     dbmanager.cpp \
     menuwindow.cpp \
-    logindialog.cpp
+    reportswindow.cpp\
+    logindialog.cpp \
+    reportlistdialog.cpp
 
 HEADERS  += onesolmain.h \
     staffwindow.h \
     dbmanager.h \
     menuwindow.h \
-    logindialog.h
+    reportswindow.h \
+    logindialog.h \
+    singleton.h \
+    reportlistdialog.h
 
 FORMS += \
     staffwindow.ui \
     menuwindow.ui \
+    reportswindow.ui \
+    logindialog.ui \
+    reportlistdialog.ui
     logindialog.ui
+
+RESOURCES += \
+    resource.qrc

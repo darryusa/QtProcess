@@ -14,14 +14,23 @@ class MenuWindow : public QWidget
 public:
     explicit MenuWindow(QWidget *parent = 0);
     ~MenuWindow();
-    void reportsButtonPressed();
+
+//private slots:
+//    void on_reportButton_clicked();
+//    void reportsButtonPressed();
 private:
     Ui::MenuWindow *ui;
 
 signals:
     void callLogin();
-    void on_reportButton_clicked();
+    void reportClicked();
+    void staffClicked();
 
+private slots:
+    void on_saleButton_clicked();
+    void on_inventoryButton_clicked();
+    void on_staffButton_clicked();
+    void on_reportButton_clicked();
 };
 
 #endif // MENUWINDOW_H
