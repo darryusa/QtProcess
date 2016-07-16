@@ -1,13 +1,15 @@
 #include "dbmanager.h"
 #include <QDebug>
 #include <QSettings>
+#include <QCoreApplication>
+#include <QDir>
 DbManager::DbManager()
 {
    m_db = QSqlDatabase::addDatabase("QSQLITE");
-   m_db.setDatabaseName("../processDB");
-   //QSettings settings;
-   //QString dbPath = settings.readValue("DBPath", QString(/*fallback path*/)).toString();
-   //qDebug() << dbPath;
+   QString folderPath = QCoreApplication::applicationDirPath();
+   QString dbPath = QDir(folderPath).filePath("processDB");
+   m_db.setDatabaseName(dbPath);
+
    if (!m_db.open())
    {
       qDebug() << "Error: connection with database fail";
