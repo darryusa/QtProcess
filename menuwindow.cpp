@@ -7,36 +7,7 @@ MenuWindow::MenuWindow(QWidget *parent) :
     ui(new Ui::MenuWindow)
 {
     ui->setupUi(this);
-   // int length = ui->menuButtonGroup->;
-//    for ( int i = 0; i < length; i++ )
-//    {
-//        // Retrieve current widget, convert to QPushButton
-//        QWidget* widget = ui->menuButtonGroup->itemAt( i )->widget();
-//        QPushButton* button = qobject_cast<QPushButton*>( widget );
 
-//        QString buttonText = button->text();
-//        // Connects this button to the lineEdit widget
-
-//        if ( button )
-//        {
-//            switch (buttonText)
-//            {
-//            case "Reports":
-//                connect( button, SIGNAL( clicked() ), this, SLOT( on_reportButton_clicked() ) );
-//                break;
-//            case "Sales":
-//                connect( button, SIGNAL( clicked() ), this, SLOT( on_saleButton_clicked() ) );
-//                break;
-//            case "Inventory":
-//                connect( button, SIGNAL( clicked() ), this, SLOT( on_inventoryButton_clicked() ) );
-//                break;
-//            case "Staff":
-//                connect( button, SIGNAL( clicked() ), this, SLOT( on_staffButton_clicked() ) );
-//                break;
-//            }
-
-//        }
-//    }
 }
 
 MenuWindow::~MenuWindow()
@@ -49,7 +20,7 @@ MenuWindow::~MenuWindow()
 
 void MenuWindow::on_saleButton_clicked()
 {
-   // emit saleLogin();
+    emit saleClicked();
 }
 
 void MenuWindow::on_inventoryButton_clicked()

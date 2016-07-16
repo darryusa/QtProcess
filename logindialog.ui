@@ -425,18 +425,18 @@ QPushButton:pressed{
  </resources>
  <connections>
   <connection>
-   <sender>pushButtonBack</sender>
+   <sender>backButton</sender>
    <signal>clicked()</signal>
    <receiver>lineEdit</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>89</x>
-     <y>528</y>
+     <x>443</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
-     <x>255</x>
-     <y>55</y>
+     <x>275</x>
+     <y>45</y>
     </hint>
    </hints>
   </connection>

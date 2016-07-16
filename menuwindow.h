@@ -25,6 +25,7 @@ signals:
     void callLogin();
     void reportClicked();
     void staffClicked();
+    void saleClicked();
 
 private slots:
     void on_saleButton_clicked();
