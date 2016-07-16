@@ -83,18 +83,18 @@ void LoginDialog::enterButtonPressed()
             {
                 emit reportLoggedin();
             }
+            else if(loginSender2 == "sale");
+            {
+                emit saleLoggin();
+            }
         }
     }
 }
 
 void LoginDialog::backButtonPressed()
 {
-    QPushButton* button = qobject_cast<QPushButton*>( sender() );
-
-    if ( button && ui->lineEdit->text().length() <= 4 )
-    {
-        ui->lineEdit->backspace();
-    }
+    ui->lineEdit->clear();
+    this->hide();
 }
 
 bool LoginDialog::passwordCheck()

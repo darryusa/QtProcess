@@ -19,6 +19,8 @@ signals:
     void staffLoggedin();
     void reportLoggedin();
     void reportLogin();
+    void backButtonPressedSignal();
+    void saleLoggin();
 
 private:
     Ui::LoginDialog *ui;
@@ -27,7 +29,6 @@ private slots:
     void keyboardButtonPressed();
     void enterButtonPressed();
     void backButtonPressed();
-    void on_pushButtonEnter_clicked();
 };
 
 #endif // LOGINDIALOG_H

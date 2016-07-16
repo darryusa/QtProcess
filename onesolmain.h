@@ -9,6 +9,7 @@
 #include <singleton.h>
 #include <logindialog.h>
 #include <reportlistdialog.h>
+#include <transactionwindow.h>
 class OneSolMain : public QWidget
 {
     Q_OBJECT
@@ -25,6 +26,8 @@ private:
     LoginDialog * loginReport;
     LoginDialog * loginStaff;
     ReportListDialog * reportListDialog;
+    TransactionWindow * transactionWindow;
+    LoginDialog * loginSale;
 signals:
     void staffLogin();
     void reportLogin();
@@ -35,6 +38,8 @@ private slots:
     void staffSlotLoggedin();
     void staffClick();
     void reportSlotLoggedin();
+    void saleClicked();
+    void saleLogginSlot();
 };
 typedef Singleton<OneSolMain> oneSolMain;
 #endif // ONESOLMAIN_H

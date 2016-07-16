@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../untitled folder/QtProcess/menuwindow.h"
+#include "menuwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MenuWindow_t {
-    QByteArrayData data[9];
-    char stringdata0[145];
+    QByteArrayData data[10];
+    char stringdata0[157];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,14 +34,15 @@ QT_MOC_LITERAL(1, 11, 9), // "callLogin"
 QT_MOC_LITERAL(2, 21, 0), // ""
 QT_MOC_LITERAL(3, 22, 13), // "reportClicked"
 QT_MOC_LITERAL(4, 36, 12), // "staffClicked"
-QT_MOC_LITERAL(5, 49, 21), // "on_saleButton_clicked"
-QT_MOC_LITERAL(6, 71, 26), // "on_inventoryButton_clicked"
-QT_MOC_LITERAL(7, 98, 22), // "on_staffButton_clicked"
-QT_MOC_LITERAL(8, 121, 23) // "on_reportButton_clicked"
+QT_MOC_LITERAL(5, 49, 11), // "saleClicked"
+QT_MOC_LITERAL(6, 61, 21), // "on_saleButton_clicked"
+QT_MOC_LITERAL(7, 83, 26), // "on_inventoryButton_clicked"
+QT_MOC_LITERAL(8, 110, 22), // "on_staffButton_clicked"
+QT_MOC_LITERAL(9, 133, 23) // "on_reportButton_clicked"
 
     },
     "MenuWindow\0callLogin\0\0reportClicked\0"
-    "staffClicked\0on_saleButton_clicked\0"
+    "staffClicked\0saleClicked\0on_saleButton_clicked\0"
     "on_inventoryButton_clicked\0"
     "on_staffButton_clicked\0on_reportButton_clicked"
 };
@@ -53,25 +54,27 @@ static const uint qt_meta_data_MenuWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   49,    2, 0x06 /* Public */,
-       3,    0,   50,    2, 0x06 /* Public */,
-       4,    0,   51,    2, 0x06 /* Public */,
+       1,    0,   54,    2, 0x06 /* Public */,
+       3,    0,   55,    2, 0x06 /* Public */,
+       4,    0,   56,    2, 0x06 /* Public */,
+       5,    0,   57,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   52,    2, 0x08 /* Private */,
-       6,    0,   53,    2, 0x08 /* Private */,
-       7,    0,   54,    2, 0x08 /* Private */,
-       8,    0,   55,    2, 0x08 /* Private */,
+       6,    0,   58,    2, 0x08 /* Private */,
+       7,    0,   59,    2, 0x08 /* Private */,
+       8,    0,   60,    2, 0x08 /* Private */,
+       9,    0,   61,    2, 0x08 /* Private */,
 
  // signals: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -94,10 +97,11 @@ void MenuWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->callLogin(); break;
         case 1: _t->reportClicked(); break;
         case 2: _t->staffClicked(); break;
-        case 3: _t->on_saleButton_clicked(); break;
-        case 4: _t->on_inventoryButton_clicked(); break;
-        case 5: _t->on_staffButton_clicked(); break;
-        case 6: _t->on_reportButton_clicked(); break;
+        case 3: _t->saleClicked(); break;
+        case 4: _t->on_saleButton_clicked(); break;
+        case 5: _t->on_inventoryButton_clicked(); break;
+        case 6: _t->on_staffButton_clicked(); break;
+        case 7: _t->on_reportButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -121,6 +125,13 @@ void MenuWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             typedef void (MenuWindow::*_t)();
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::staffClicked)) {
                 *result = 2;
+                return;
+            }
+        }
+        {
+            typedef void (MenuWindow::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::saleClicked)) {
+                *result = 3;
                 return;
             }
         }
@@ -153,13 +164,13 @@ int MenuWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }
@@ -180,5 +191,11 @@ void MenuWindow::reportClicked()
 void MenuWindow::staffClicked()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, Q_NULLPTR);
+}
+
+// SIGNAL 3
+void MenuWindow::saleClicked()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

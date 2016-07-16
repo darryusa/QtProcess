@@ -333,7 +333,7 @@ public:
         backButton->setFlat(true);
 
         retranslateUi(LoginDialog);
-        QObject::connect(backButton, SIGNAL(clicked()), lineEdit, SLOT(undo()));
+        QObject::connect(backButton, SIGNAL(clicked()), lineEdit, SLOT(clear()));
 
         QMetaObject::connectSlotsByName(LoginDialog);
     } // setupUi

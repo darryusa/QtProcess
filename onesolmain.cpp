@@ -15,6 +15,9 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     reportListDialog = new ReportListDialog(this);
     loginStaff = new LoginDialog(this,"staff");
     loginReport = new LoginDialog(this,"report");
+    transactionWindow = new TransactionWindow(this);
+    loginSale = new LoginDialog(this,"sale");
+    stackedWidget->addWidget(transactionWindow);
     stackedWidget->addWidget(reportListDialog);
     stackedWidget->addWidget( staffWindow );
     stackedWidget->addWidget(menuWindow);
@@ -23,17 +26,13 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     stackedWidget->show();
 
 
-//    staffWindow = new StaffWindow( this );
-//    menuWindow = new MenuWindow(this);
-//    //LoginDialog *loginReport = new LoginDialog(this);
 
-//    stackedWidget = new QStackedWidget;
-//    stackedWidget->addWidget( staffWindow );
-//    stackedWidget->addWidget(menuWindow);
     connect(loginReport, SIGNAL(reportLoggedin()), this, SLOT(reportSlotLoggedin()));
     connect(loginStaff, SIGNAL(staffLoggedin()), this, SLOT(staffSlotLoggedin()));
+    connect(loginSale, SIGNAL(saleLoggin()), this, SLOT(saleLogginSlot()));
     connect(menuWindow, SIGNAL(reportClicked()), this, SLOT(reportButtonClicked()));
     connect(menuWindow, SIGNAL(staffClicked()), this, SLOT(staffClick()));
+    connect(menuWindow,SIGNAL(saleClicked()), this, SLOT(saleClicked()));
     QRect screenGeometry = QDesktopWidget().availableGeometry( this );
     stackedWidget->resize( screenGeometry.size() );
   //  connect( menuWindow, )
@@ -42,15 +41,7 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     stackedWidget->show();
 
 
-    //reportsWindow->startDateCal
 
-    //connect(loginStaff, SIGNAL(staffClicked()), this, SLOT(staffClick()));
-//    connect( menuWindow, SIGNAL( reportLogin() ), this, SLOT( reportButtonClicked() ) );
-
-//    LoginDialog *loginReport = new LoginDialog(this);
-//    loginReport->setModal(true);
-//    loginReport->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-//    loginReport->show();
 
 
 }
@@ -88,4 +79,15 @@ void OneSolMain::staffClick()
     loginStaff->setModal(true);
     loginStaff->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
     loginStaff->show();
+}
+void OneSolMain::saleClicked()
+{
+    loginSale->setModal(true);
+    loginSale->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
+    loginSale->show();
+}
+void OneSolMain::saleLogginSlot()
+{
+    loginSale->hide();
+    stackedWidget->setCurrentWidget(transactionWindow);
 }
