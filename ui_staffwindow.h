@@ -19,7 +19,6 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollBar>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QWidget>
 
@@ -28,7 +27,6 @@ QT_BEGIN_NAMESPACE
 class Ui_StaffWindow
 {
 public:
-    QScrollBar *verticalScrollBar;
     QLabel *label;
     QWidget *formLayoutWidget;
     QFormLayout *formLayout;
@@ -63,11 +61,6 @@ public:
         StaffWindow->resize(1024, 600);
         StaffWindow->setToolTipDuration(-6);
         StaffWindow->setLayoutDirection(Qt::LeftToRight);
-        verticalScrollBar = new QScrollBar(StaffWindow);
-        verticalScrollBar->setObjectName(QStringLiteral("verticalScrollBar"));
-        verticalScrollBar->setGeometry(QRect(992, 60, 16, 450));
-        verticalScrollBar->setStyleSheet(QStringLiteral(""));
-        verticalScrollBar->setOrientation(Qt::Vertical);
         label = new QLabel(StaffWindow);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(0, 0, 1024, 60));
@@ -293,13 +286,20 @@ public:
         listWidget = new QListWidget(StaffWindow);
         listWidget->setObjectName(QStringLiteral("listWidget"));
         listWidget->setGeometry(QRect(510, 60, 480, 450));
+        QFont font2;
+        font2.setPointSize(16);
+        listWidget->setFont(font2);
         listWidget->setStyleSheet(QLatin1String("QListWidget { \n"
 "	border-radius: 20px; \n"
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
 "} \n"
 "\n"
-""));
+"QListWidget::item:selected {\n"
+"   	background-color: red;\n"
+"	border-radius: 5px;\n"
+"}"));
+        listWidget->setSortingEnabled(true);
 
         retranslateUi(StaffWindow);
 

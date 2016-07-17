@@ -19,22 +19,6 @@
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
   </property>
-  <widget class="QScrollBar" name="verticalScrollBar">
-   <property name="geometry">
-    <rect>
-     <x>992</x>
-     <y>60</y>
-     <width>16</width>
-     <height>450</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -519,6 +503,11 @@
      <height>450</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QListWidget { 
 	border-radius: 20px; 
@@ -526,7 +515,13 @@
 	background-color: rgb(255, 255, 255); 
 } 
 
-</string>
+QListWidget::item:selected {
+   	background-color: red;
+	border-radius: 5px;
+}</string>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
