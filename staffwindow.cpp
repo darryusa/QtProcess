@@ -11,22 +11,35 @@ StaffWindow::StaffWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StaffWin
 {
     ui->setupUi(this);
     //QAbstractItemModel *model = new QAbstractItemModel;
-
    // QTableView *tableView = ui->tableView;
     //tableView->setModel( model ); // SQL Database QAbstractItemModel model here
-
+    ui->listWidget->setSpacing(3);
    // model->setHeaderData( 0, Qt::Horizontal, QObject::tr( "First Name") );
     //model->setHeaderData( 1, Qt::Horizontal, QObject::tr( "Last Name" ) );
     DbManager *dbmanager = new DbManager();
-
+    populateList();
     this->model = new QSqlQueryModel();
     model->setQuery("SELECT [ID], [last], [first] FROM [main].[employee]");
-
-    ui->tableView->setModel(model);
-
+   // ui->tableView->setModel(model);
 
 
 
+
+}
+void StaffWindow:: populateList()
+{
+    QSqlQuery query;
+    query.prepare("SELECT [ID], [last], [first] FROM [main].[employee]");
+    if(query.exec())
+    {
+
+        while(query.next() )
+        {
+            ui->listWidget->addItem("\t " + query.value(1).toString() + " " + query.value(2).toString());
+        }
+
+        //return success;
+    }
 }
 
 StaffWindow::~StaffWindow()
@@ -49,28 +62,28 @@ void StaffWindow::RemoveButtonPressed()
 void StaffWindow::on_tableView_activated(const QModelIndex &index)
 {
 
-    QString val = ui->tableView->model()->data(index).toString();
+//    QString val = ui->tableView->model()->data(index).toString();
 
-    QSqlQuery qry;
+//    QSqlQuery qry;
 
-    qry.prepare("SELECT * FROM employee WHERE first='"+val+"' or last='"+val+"' ");
-    if(qry.exec())
-    {
-        while(qry.next())
-        {
+//    qry.prepare("SELECT * FROM employee WHERE first='"+val+"' or last='"+val+"' ");
+//    if(qry.exec())
+//    {
+//        while(qry.next())
+//        {
 
-            ui->lineEdit_pin->setText(qry.value(5).toString());
+//            ui->lineEdit_pin->setText(qry.value(5).toString());
 
-            ui->lineEdit_address->setText(qry.value(3).toString());
-            ui->lineEdit_email->setText(qry.value(6).toString());
-            ui->lineEdit_phone->setText(qry.value(4).toString());
+//            ui->lineEdit_address->setText(qry.value(3).toString());
+//            ui->lineEdit_email->setText(qry.value(6).toString());
+//            ui->lineEdit_phone->setText(qry.value(4).toString());
 
-        }
+//        }
 
-        selectedName = ui->tableView->model()->data(index).toString();
+//        selectedName = ui->tableView->model()->data(index).toString();
 
 
-    }
+    //}
 
 
 
@@ -121,15 +134,15 @@ void StaffWindow::on_tableView_activated(const QModelIndex &index)
 void StaffWindow::on_pushButton_ADD_clicked()
 {
     QString first,last;
-    first=ui->lineEdit_first->text();
-    last=ui->lineEdit_last->text();
+//    first=ui->lineEdit_first->text();
+//    last=ui->lineEdit_last->text();
 //    email_address=ui->lineEdit_email->text();
 //    PIN=ui->lineEdit_pin->text();
 
     QSqlQuery qry2;
 
     int maxID;
-
+    ui->listWidget->addItem("hi");
     QSqlQuery query("SELECT ID FROM employee");
         while (query.next()) {
              maxID = query.value(0).toInt() ;
@@ -168,10 +181,10 @@ void StaffWindow::on_pushButton_ADD_clicked()
 void StaffWindow::on_pushButton_EDIT_clicked()
 {
         QString phone_number,address,email_address,PIN;
-        phone_number=ui->lineEdit_phone->text();
-        address=ui->lineEdit_address->text();
-        email_address=ui->lineEdit_email->text();
-        PIN=ui->lineEdit_pin->text();
+//        phone_number=ui->lineEdit_phone->text();
+//        address=ui->lineEdit_address->text();
+//        email_address=ui->lineEdit_email->text();
+//        PIN=ui->lineEdit_pin->text();
 
         QSqlQuery qry3;
 
@@ -191,11 +204,11 @@ void StaffWindow::on_pushButton_EDIT_clicked()
 void StaffWindow::on_pushButton_DELETE_clicked()
 {
     QString phone_number,address,email_address,PIN,first;
-    first=ui->lineEdit_last->text();
-    phone_number=ui->lineEdit_phone->text();
-    address=ui->lineEdit_address->text();
-    email_address=ui->lineEdit_email->text();
-    PIN=ui->lineEdit_pin->text();
+//    first=ui->lineEdit_last->text();
+//    phone_number=ui->lineEdit_phone->text();
+//    address=ui->lineEdit_address->text();
+//    email_address=ui->lineEdit_email->text();
+//    PIN=ui->lineEdit_pin->text();
 
     QSqlQuery qry4;
 
@@ -229,5 +242,61 @@ void StaffWindow::on_pushButton_DELETE_clicked()
     else
     {
         QMessageBox::critical(this,tr("error"),qry4.lastError().text());
+    }
+}
+
+void StaffWindow::on_listWidget_activated(const QModelIndex &index)
+{
+//        QString val = ui->listWidget->model()->data(index).toString();
+
+        QSqlQuery qry;
+
+//        qry.prepare("SELECT * FROM employee WHERE first='"+val+"' or last='"+val+"' ");
+        if(qry.exec())
+        {
+            while(qry.next())
+            {
+//                ui->firstNameLineEdit->setText(qry.value(1).toString());
+//                ui->lastNameLineEdit->setText(qry.value(2).toString());
+//                ui->addressLineEdit->setText(qry.value(3).toString());
+//                ui->phoneNumberLineEdit->setText(qry.value(4).toString());
+//                ui->emailAddressLineEdit->setText(qry.value(6).toString());
+            }
+
+            //selectedName = ui->tableView->model()->data(index).toString();
+
+
+        }
+}
+
+void StaffWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    //for(int i = 0;i < ui->formLayout)
+    QList<QLineEdit *>allLineEdit = ui->formLayout->findChildren<QLineEdit *>();
+    for(int i =0; i <allLineEdit.count();i++)
+    {
+        allLineEdit.at(i)->setReadOnly(true);
+    }
+    QSqlQuery qry;
+    qDebug()<<item->text();
+    QRegExp rx("[, ]");
+    QStringList list = item->text().split(rx, QString::SkipEmptyParts);
+    qDebug()<< list.at(1);
+    qry.prepare("SELECT * FROM employee WHERE first='"+list.at(2)+"' or last='"+list.at(1)+"' ");
+    if(qry.exec())
+    {
+        qDebug()<< "Query Execute";
+        while(qry.next())
+        {
+            ui->firstNameLineEdit->setText(qry.value(1).toString());
+            ui->lastNameLineEdit->setText(qry.value(2).toString());
+            ui->addressLineEdit->setText(qry.value(3).toString());
+            ui->phoneNumberLineEdit->setText(qry.value(4).toString());
+            ui->emailAddressLineEdit->setText(qry.value(6).toString());
+        }
+
+        //selectedName = ui->tableView->model()->data(index).toString();
+
+
     }
 }

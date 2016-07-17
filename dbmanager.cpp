@@ -54,8 +54,7 @@ bool DbManager::pinChecker(QString& pin)
                 break;
             }
         }
-        m_db.close();
-        m_db.removeDatabase(m_db.connectionName());
+
         return success;
     }
     else
