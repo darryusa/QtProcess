@@ -8,6 +8,7 @@
 #include <QtSql>
 #include <pinnumpad.h>
 #include <QListWidgetItem>
+#include <QSortFilterProxyModel>
 namespace Ui {
 class StaffWindow;
 }
@@ -25,8 +26,8 @@ private:
     QSqlQueryModel *model;
     PINNumPad * pinNumPad;
     void populateList();
-
-
+    QSortFilterProxyModel *sort_filter;
+    QModelIndex matchingIndex;
 
 private slots:
     void RemoveButtonPressed();
@@ -39,8 +40,10 @@ private slots:
     void on_pushButton_6_clicked();
     void on_modifyPINButton_clicked();
     void on_listWidget_activated(const QModelIndex &index);
-
     void on_listWidget_itemClicked(QListWidgetItem *item);
+    void on_tableWidget_activated(const QModelIndex &index);
+    void on_searchLineEdit_returnPressed();
+    void on_searchLineEdit_textChanged(const QString &arg1);
 };
 
 #endif // STAFFWINDOW_H

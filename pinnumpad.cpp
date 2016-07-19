@@ -5,7 +5,10 @@ PINNumPad::PINNumPad(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PINNumPad)
 {
+    count = 0;
     ui->setupUi(this);
+    ui->lineEdit->setEchoMode( QLineEdit::Normal );
+    ui->lineEdit->setText("Enter PIN");
     for ( int i = 0; i < ui->passwordButtonLayout->count(); i++ )
     {
         // Retrieve current widget, convert to QPushButton
@@ -39,20 +42,24 @@ PINNumPad::~PINNumPad()
 }
 void PINNumPad::backButtonPressed()
 {
-    delete ui;
+    this->deleteLater();
+
 }
 void PINNumPad::keyboardButtonPressed()
 {
-    ui->lineEdit->clear();
+    QFont font("San Serif", 40, QFont::Bold,true);
+    ui->lineEdit->setFont(font);
+    //ui->lineEdit->clear();
     QPushButton* button = qobject_cast<QPushButton*>( sender() );
-    qDebug() << "keypressed";
+
     // Inserts text from button into lineEdit widget.
     if ( button )
     {
+
         QString currentText = ui->lineEdit->text();
-            ui->lineEdit->setMaxLength( 4 );
         if ( currentText.length() > 4 )
         {
+            qDebug() << "pressed";
             ui->lineEdit->clear();
             ui->lineEdit->setEchoMode( QLineEdit::Password );
             ui->lineEdit->setMaxLength( 4 );
@@ -60,4 +67,36 @@ void PINNumPad::keyboardButtonPressed()
 
         ui->lineEdit->insert( button->text() );
     }
+}
+
+void PINNumPad::enterButtonPressed()
+{
+    //font = new QFont(45);
+    QFont font("San Serif", 40, QFont::Bold,true);
+    ui->lineEdit->setFont(font);
+    if(count ==0)
+    {
+        oldPin = ui->lineEdit->text();
+        ui->lineEdit->clear();
+        ui->lineEdit->setMaxLength(1024);
+        ui->lineEdit->setEchoMode( QLineEdit::Normal );
+        ui->lineEdit->setText("Re-EnterPin");
+        count++;
+    }
+    else if(count == 1)
+    {
+        if(oldPin == ui->lineEdit->text())
+        {
+            //enter pin matched code here
+        }
+        else
+        {
+            count = 0;
+            ui->lineEdit->setMaxLength(1024);
+            ui->lineEdit->setEchoMode( QLineEdit::Normal );
+            ui->lineEdit->setText("NOT MATCH");
+
+        }
+    }
+
 }
