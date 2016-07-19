@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     menuwindow.cpp \
     reportswindow.cpp\
     logindialog.cpp \
-    reportlistdialog.cpp
+    reportlistdialog.cpp \
+    transactionwindow.cpp \
+    pinnumpad.cpp
 
 HEADERS  += onesolmain.h \
     staffwindow.h \
@@ -28,15 +30,23 @@ HEADERS  += onesolmain.h \
     reportswindow.h \
     logindialog.h \
     singleton.h \
-    reportlistdialog.h
+    reportlistdialog.h \
+    transactionwindow.h \
+    ui_transactionwindow.h \
+    pinnumpad.h \
+    ui_pinnumpad.h
 
 FORMS += \
     staffwindow.ui \
     menuwindow.ui \
     reportswindow.ui \
     logindialog.ui \
-    reportlistdialog.ui
+    reportlistdialog.ui \
+    transactionwindow.ui \
+    pinnumpad.ui
     logindialog.ui
 
 RESOURCES += \
     resource.qrc
+
+DISTFILES +=
