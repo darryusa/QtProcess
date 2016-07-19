@@ -17,11 +17,15 @@ public:
 
 private:
     Ui::PINNumPad *ui;
+    int count;
+    QString oldPin;
+    QFont *font;
 
 private slots:
     void keyboardButtonPressed();
     void backButtonPressed();
 
+    void enterButtonPressed();
 };
 
 #endif // PINNUMPAD_H

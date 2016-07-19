@@ -3,7 +3,7 @@
 #include <dbmanager.h>
 #include <QMessageBox>
 #include <QDebug>
-
+#include <QSortFilterProxyModel>
 int one = 1;
 int ID;
  QString selectedName;
@@ -11,31 +11,35 @@ StaffWindow::StaffWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StaffWin
 {
     ui->setupUi(this);
     //QAbstractItemModel *model = new QAbstractItemModel;
-   // QTableView *tableView = ui->tableView;
-    //tableView->setModel( model ); // SQL Database QAbstractItemModel model here
-    ui->listWidget->setSpacing(3);
+    QTableView *tableView = ui->tableView;
+//    tableView->setModel( model ); // SQL Database QAbstractItemModel model here
+    //ui->listWidget->setSpacing(3);
    // model->setHeaderData( 0, Qt::Horizontal, QObject::tr( "First Name") );
     //model->setHeaderData( 1, Qt::Horizontal, QObject::tr( "Last Name" ) );
     DbManager *dbmanager = new DbManager();
     populateList();
     this->model = new QSqlQueryModel();
-    model->setQuery("SELECT [ID], [last], [first] FROM [main].[employee]");
-   // ui->tableView->setModel(model);
-
-
+    model->setQuery("SELECT [ID], [last], [first], [phone_number] FROM [main].[employee]");
+    //ui->tableView->setModel(model);
+    sort_filter = new QSortFilterProxyModel(this);
+    sort_filter->setSourceModel(model);
+    //proxyModel.setSourceModel( model );
+    sort_filter->sort (0);
+    sort_filter->setFilterKeyColumn(-1);
+    this->ui->tableView->setModel( sort_filter );
 
 
 }
 void StaffWindow:: populateList()
 {
     QSqlQuery query;
-    query.prepare("SELECT [ID], [last], [first] FROM [main].[employee]");
+    query.prepare("SELECT [ID], [last], [first], [phone_number] FROM [main].[employee]");
     if(query.exec())
     {
 
         while(query.next() )
         {
-            ui->listWidget->addItem("\t " + query.value(1).toString() + " " + query.value(2).toString());
+            //ui->listWidget->addItem("\t " + query.value(1).toString() + " " + query.value(2).toString());
         }
 
         //return success;
@@ -62,28 +66,28 @@ void StaffWindow::RemoveButtonPressed()
 void StaffWindow::on_tableView_activated(const QModelIndex &index)
 {
 
-//    QString val = ui->tableView->model()->data(index).toString();
+    QString val = ui->tableView->model()->data(index).toString();
 
-//    QSqlQuery qry;
+    QSqlQuery qry;
 
-//    qry.prepare("SELECT * FROM employee WHERE first='"+val+"' or last='"+val+"' ");
-//    if(qry.exec())
-//    {
-//        while(qry.next())
-//        {
+    qry.prepare("SELECT * FROM employee WHERE first='"+val+"' or last='"+val+"' ");
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
 
-//            ui->lineEdit_pin->setText(qry.value(5).toString());
+            ui->firstNameLineEdit->setText(qry.value(1).toString());
+            ui->lastNameLineEdit->setText(qry.value(2).toString());
+            ui->addressLineEdit->setText(qry.value(3).toString());
+            ui->phoneNumberLineEdit->setText(qry.value(4).toString());
+            ui->emailAddressLineEdit->setText(qry.value(6).toString());
 
-//            ui->lineEdit_address->setText(qry.value(3).toString());
-//            ui->lineEdit_email->setText(qry.value(6).toString());
-//            ui->lineEdit_phone->setText(qry.value(4).toString());
+        }
 
-//        }
-
-//        selectedName = ui->tableView->model()->data(index).toString();
+        selectedName = ui->tableView->model()->data(index).toString();
 
 
-    //}
+    }
 
 
 
@@ -142,7 +146,7 @@ void StaffWindow::on_pushButton_ADD_clicked()
     QSqlQuery qry2;
 
     int maxID;
-    ui->listWidget->addItem("hi");
+    //ui->listWidget->addItem("hi");
     QSqlQuery query("SELECT ID FROM employee");
         while (query.next()) {
              maxID = query.value(0).toInt() ;
@@ -299,4 +303,25 @@ void StaffWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 
 
     }
+}
+
+
+
+void StaffWindow::on_searchLineEdit_textChanged(const QString &arg1)
+{
+    sort_filter->setFilterFixedString(arg1);
+    matchingIndex = sort_filter->mapToSource(sort_filter->index(0,0));
+    if(matchingIndex.isValid())
+    {
+      qDebug() << ui->searchLineEdit->text();
+    }
+    qDebug() << ui->searchLineEdit->text();
+}
+
+void StaffWindow::on_modifyPINButton_clicked()
+{
+    qDebug() << "test passed";
+    pinNumPad = new PINNumPad(this);
+    pinNumPad->setModal(true);
+    pinNumPad->show();
 }

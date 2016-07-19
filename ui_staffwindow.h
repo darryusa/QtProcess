@@ -17,9 +17,9 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,7 +27,7 @@ QT_BEGIN_NAMESPACE
 class Ui_StaffWindow
 {
 public:
-    QLabel *label;
+    QLabel *employeeTitle;
     QWidget *formLayoutWidget;
     QFormLayout *formLayout;
     QLabel *firstNameLabel;
@@ -47,12 +47,13 @@ public:
     QSpacerItem *verticalSpacer_5;
     QLabel *pINLabel;
     QPushButton *modifyPINButton;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
-    QListWidget *listWidget;
+    QPushButton *cancelButton;
+    QPushButton *confirmButton;
+    QPushButton *addButton;
+    QPushButton *removeButton;
+    QTableView *tableView;
+    QPushButton *searchIcon;
+    QLineEdit *searchLineEdit;
 
     void setupUi(QWidget *StaffWindow)
     {
@@ -61,15 +62,22 @@ public:
         StaffWindow->resize(1024, 600);
         StaffWindow->setToolTipDuration(-6);
         StaffWindow->setLayoutDirection(Qt::LeftToRight);
-        label = new QLabel(StaffWindow);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(0, 0, 1024, 60));
+        employeeTitle = new QLabel(StaffWindow);
+        employeeTitle->setObjectName(QStringLiteral("employeeTitle"));
+        employeeTitle->setGeometry(QRect(0, 0, 1024, 60));
         QFont font;
         font.setPointSize(20);
         font.setBold(true);
         font.setWeight(75);
-        label->setFont(font);
-        label->setAlignment(Qt::AlignCenter);
+        employeeTitle->setFont(font);
+        employeeTitle->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        employeeTitle->setAlignment(Qt::AlignCenter);
         formLayoutWidget = new QWidget(StaffWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
         formLayoutWidget->setGeometry(QRect(0, 60, 511, 331));
@@ -243,63 +251,90 @@ public:
 
         formLayout->setWidget(10, QFormLayout::FieldRole, modifyPINButton);
 
-        pushButton = new QPushButton(StaffWindow);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(360, 400, 80, 22));
-        pushButton->setStyleSheet(QLatin1String("QPushButton{\n"
+        cancelButton = new QPushButton(StaffWindow);
+        cancelButton->setObjectName(QStringLiteral("cancelButton"));
+        cancelButton->setGeometry(QRect(360, 400, 80, 22));
+        cancelButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 10px;\n"
 "	background-color: rgb(164, 179, 60);\n"
 "}\n"
 ""));
-        pushButton_2 = new QPushButton(StaffWindow);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(160, 400, 80, 22));
-        pushButton_2->setStyleSheet(QLatin1String("QPushButton{\n"
+        confirmButton = new QPushButton(StaffWindow);
+        confirmButton->setObjectName(QStringLiteral("confirmButton"));
+        confirmButton->setGeometry(QRect(160, 400, 80, 22));
+        confirmButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 10px;\n"
 "	background-color: rgb(164, 179, 60);\n"
 "}\n"
 ""));
-        pushButton_3 = new QPushButton(StaffWindow);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(40, 530, 211, 41));
-        pushButton_3->setStyleSheet(QLatin1String("QPushButton{\n"
+        addButton = new QPushButton(StaffWindow);
+        addButton->setObjectName(QStringLiteral("addButton"));
+        addButton->setGeometry(QRect(110, 530, 211, 41));
+        addButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 10px;\n"
 "	background-color: rgb(164, 179, 60);\n"
 "}\n"
 ""));
-        pushButton_4 = new QPushButton(StaffWindow);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(370, 530, 211, 41));
-        pushButton_4->setStyleSheet(QLatin1String("QPushButton{\n"
+        removeButton = new QPushButton(StaffWindow);
+        removeButton->setObjectName(QStringLiteral("removeButton"));
+        removeButton->setGeometry(QRect(700, 530, 211, 41));
+        removeButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 10px;\n"
 "	background-color: rgb(164, 179, 60);\n"
 "}\n"
 ""));
-        pushButton_5 = new QPushButton(StaffWindow);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setGeometry(QRect(700, 530, 211, 41));
-        pushButton_5->setStyleSheet(QLatin1String("QPushButton{\n"
-"	border-radius: 10px;\n"
-"	background-color: rgb(164, 179, 60);\n"
-"}\n"
-""));
-        listWidget = new QListWidget(StaffWindow);
-        listWidget->setObjectName(QStringLiteral("listWidget"));
-        listWidget->setGeometry(QRect(510, 60, 480, 450));
+        tableView = new QTableView(StaffWindow);
+        tableView->setObjectName(QStringLiteral("tableView"));
+        tableView->setGeometry(QRect(510, 99, 480, 411));
         QFont font2;
         font2.setPointSize(16);
-        listWidget->setFont(font2);
-        listWidget->setStyleSheet(QLatin1String("QListWidget { \n"
+        tableView->setFont(font2);
+        tableView->setStyleSheet(QLatin1String("QTableView { \n"
 "	border-radius: 20px; \n"
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
 "} \n"
 "\n"
-"QListWidget::item:selected {\n"
+"QTableView::item:selected {\n"
 "   	background-color: red;\n"
 "	border-radius: 5px;\n"
+"}\n"
+"QTableView QTableCornerButton::section {\n"
+"    background: red;\n"
+"    border: 2px outset red;\n"
 "}"));
-        listWidget->setSortingEnabled(true);
+        tableView->setLineWidth(1);
+        tableView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        tableView->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked);
+        tableView->setAlternatingRowColors(true);
+        tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableView->setGridStyle(Qt::DashLine);
+        tableView->setSortingEnabled(true);
+        tableView->horizontalHeader()->setVisible(false);
+        tableView->horizontalHeader()->setMinimumSectionSize(10);
+        tableView->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
+        tableView->horizontalHeader()->setStretchLastSection(true);
+        tableView->verticalHeader()->setVisible(false);
+        tableView->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
+        searchIcon = new QPushButton(StaffWindow);
+        searchIcon->setObjectName(QStringLiteral("searchIcon"));
+        searchIcon->setGeometry(QRect(510, 60, 41, 31));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/image/noun_79907_cc.png"), QSize(), QIcon::Normal, QIcon::Off);
+        searchIcon->setIcon(icon);
+        searchIcon->setIconSize(QSize(41, 31));
+        searchIcon->setFlat(true);
+        searchLineEdit = new QLineEdit(StaffWindow);
+        searchLineEdit->setObjectName(QStringLiteral("searchLineEdit"));
+        searchLineEdit->setGeometry(QRect(550, 60, 441, 31));
+        searchLineEdit->setMinimumSize(QSize(0, 25));
+        searchLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
 
         retranslateUi(StaffWindow);
 
@@ -309,7 +344,7 @@ public:
     void retranslateUi(QWidget *StaffWindow)
     {
         StaffWindow->setWindowTitle(QApplication::translate("StaffWindow", "Form", 0));
-        label->setText(QApplication::translate("StaffWindow", "Employee", 0));
+        employeeTitle->setText(QApplication::translate("StaffWindow", "Employee", 0));
         firstNameLabel->setText(QApplication::translate("StaffWindow", "First Name", 0));
         lastNameLabel->setText(QApplication::translate("StaffWindow", "Last Name", 0));
         addressLabel->setText(QApplication::translate("StaffWindow", "Address", 0));
@@ -317,11 +352,11 @@ public:
         emailAddressLabel->setText(QApplication::translate("StaffWindow", "Email Address", 0));
         pINLabel->setText(QApplication::translate("StaffWindow", "PIN", 0));
         modifyPINButton->setText(QApplication::translate("StaffWindow", "*    *    *    *", 0));
-        pushButton->setText(QApplication::translate("StaffWindow", "Cancel", 0));
-        pushButton_2->setText(QApplication::translate("StaffWindow", "Confirm", 0));
-        pushButton_3->setText(QApplication::translate("StaffWindow", "Edit", 0));
-        pushButton_4->setText(QApplication::translate("StaffWindow", "Add", 0));
-        pushButton_5->setText(QApplication::translate("StaffWindow", "Remove", 0));
+        cancelButton->setText(QApplication::translate("StaffWindow", "Cancel", 0));
+        confirmButton->setText(QApplication::translate("StaffWindow", "Confirm", 0));
+        addButton->setText(QApplication::translate("StaffWindow", "Add", 0));
+        removeButton->setText(QApplication::translate("StaffWindow", "Remove", 0));
+        searchIcon->setText(QString());
     } // retranslateUi
 
 };

@@ -363,7 +363,7 @@ QPushButton:pressed{
     </font>
    </property>
    <property name="inputMethodHints">
-    <set>Qt::ImhDigitsOnly|Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+    <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
