@@ -35,7 +35,14 @@ PINNumPad::PINNumPad(QWidget *parent) :
         }
     }
 }
-
+QString PINNumPad::getPIN()
+{
+    return PINNumber;
+}
+void PINNumPad::setPIN(QString PIN)
+{
+    PINNumber = PIN;
+}
 PINNumPad::~PINNumPad()
 {
     delete ui;
@@ -87,7 +94,8 @@ void PINNumPad::enterButtonPressed()
     {
         if(oldPin == ui->lineEdit->text())
         {
-            //enter pin matched code here
+            setPIN(oldPin);
+            this->hide();
         }
         else
         {

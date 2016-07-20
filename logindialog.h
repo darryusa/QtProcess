@@ -24,7 +24,7 @@ signals:
 
 private:
     Ui::LoginDialog *ui;
-    bool passwordCheck();
+    bool passwordCheck(QString loginSender2);
 private slots:
     void keyboardButtonPressed();
     void enterButtonPressed();

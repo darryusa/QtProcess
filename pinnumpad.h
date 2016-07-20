@@ -14,12 +14,14 @@ class PINNumPad : public QDialog
 public:
     explicit PINNumPad(QWidget *parent = 0);
     ~PINNumPad();
-
+    QString getPIN();
 private:
     Ui::PINNumPad *ui;
     int count;
     QString oldPin;
     QFont *font;
+    void setPIN(QString PIN);
+    QString PINNumber;
 
 private slots:
     void keyboardButtonPressed();

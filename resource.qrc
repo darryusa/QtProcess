@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>image/backButton.png</file>
         <file>image/noun_79907_cc.png</file>
+        <file>image/return.png</file>
     </qresource>
 </RCC>

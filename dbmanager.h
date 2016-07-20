@@ -13,7 +13,7 @@ public:
     DbManager();
     bool addPerson(const QString& name);
     bool printPerson();
-    bool pinChecker(QString& pin);
+    bool pinChecker(QString& pin,QString& loginSender2);
 private:
     QSqlDatabase m_db;
 };

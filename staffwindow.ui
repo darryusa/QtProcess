@@ -57,7 +57,7 @@
      <x>0</x>
      <y>60</y>
      <width>511</width>
-     <height>331</height>
+     <height>311</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -108,6 +108,9 @@
 } 
 
 </string>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNoPredictiveText</set>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -169,6 +172,9 @@
 
 </string>
       </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNoPredictiveText</set>
+      </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
@@ -228,6 +234,9 @@
 } 
 
 </string>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNoPredictiveText</set>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -289,6 +298,9 @@
 
 </string>
       </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNoPredictiveText</set>
+      </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
@@ -349,6 +361,9 @@
 
 </string>
       </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNoPredictiveText</set>
+      </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
@@ -368,27 +383,22 @@
      </spacer>
     </item>
     <item row="10" column="0">
-     <widget class="QLabel" name="pINLabel">
+     <widget class="QLabel" name="sSNLabel">
       <property name="text">
-       <string>PIN</string>
+       <string>SSN</string>
       </property>
      </widget>
     </item>
     <item row="10" column="1">
-     <widget class="QPushButton" name="modifyPINButton">
+     <widget class="QLineEdit" name="sSNLineEdit">
       <property name="minimumSize">
        <size>
         <width>0</width>
         <height>25</height>
        </size>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton { 
+       <string notr="true">QLineEdit { 
 	border-radius: 8px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
@@ -396,10 +406,26 @@
 
 </string>
       </property>
-      <property name="text">
-       <string>*    *    *    *</string>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
+    </item>
+    <item row="11" column="1">
+     <spacer name="verticalSpacer_6">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>10</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
@@ -407,7 +433,7 @@
    <property name="geometry">
     <rect>
      <x>360</x>
-     <y>400</y>
+     <y>450</y>
      <width>80</width>
      <height>22</height>
     </rect>
@@ -426,8 +452,8 @@
   <widget class="QPushButton" name="confirmButton">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>400</y>
+     <x>60</x>
+     <y>450</y>
      <width>80</width>
      <height>22</height>
     </rect>
@@ -454,7 +480,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-radius: 10px;
+	border-radius: 20px;
 	background-color: rgb(164, 179, 60);
 }
 </string>
@@ -474,7 +500,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-radius: 10px;
+	border-radius: 20px;
 	background-color: rgb(164, 179, 60);
 }
 </string>
@@ -487,7 +513,7 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>99</y>
+     <y>90</y>
      <width>480</width>
      <height>411</height>
     </rect>
@@ -505,19 +531,40 @@
 } 
 
 QTableView::item:selected {
-   	background-color: red;
+   	background-color: rgb(164, 179, 60);
 	border-radius: 5px;
 }
 QTableView QTableCornerButton::section {
-    background: red;
-    border: 2px outset red;
-}</string>
+    background: rgb(164, 179, 60);
+    border: 2px outset rgb(164, 179, 60);
+}
+QScrollBar:vertical {               
+	background-color: none;
+	width: 10px;    
+	border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+	background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+	stop: 0  rgb(164, 179, 60), stop: 0.5 rgb(164, 179, 60),  stop:1 rgb(164, 179, 60));
+	min-height: 10px;
+    border-radius: 5px;
+    }
+QScrollBar::add-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+}
+QScrollBar::sub-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+
+}
+ </string>
    </property>
    <property name="lineWidth">
     <number>1</number>
    </property>
    <property name="sizeAdjustPolicy">
-    <enum>QAbstractScrollArea::AdjustToContents</enum>
+    <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
@@ -529,12 +576,18 @@ QTableView QTableCornerButton::section {
     <enum>QAbstractItemView::SelectRows</enum>
    </property>
    <property name="gridStyle">
-    <enum>Qt::DashLine</enum>
+    <enum>Qt::NoPen</enum>
    </property>
    <property name="sortingEnabled">
-    <bool>true</bool>
+    <bool>false</bool>
+   </property>
+   <property name="cornerButtonEnabled">
+    <bool>false</bool>
    </property>
    <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
     <bool>false</bool>
    </attribute>
    <attribute name="horizontalHeaderMinimumSectionSize">
@@ -584,7 +637,7 @@ QTableView QTableCornerButton::section {
     <rect>
      <x>550</x>
      <y>60</y>
-     <width>441</width>
+     <width>431</width>
      <height>31</height>
     </rect>
    </property>
@@ -596,7 +649,7 @@ QTableView QTableCornerButton::section {
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit { 
-	border-radius: 8px; 
+	border-radius: 10px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
 } 
@@ -604,9 +657,236 @@ QTableView QTableCornerButton::section {
 </string>
    </property>
   </widget>
+  <widget class="QPushButton" name="modifyPINButton">
+   <property name="geometry">
+    <rect>
+     <x>136</x>
+     <y>380</y>
+     <width>91</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>25</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click to Edit PIN&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton { 
+	border-radius: 8px; 
+	color:rgb(0, 0, 0);
+	background-color: red; 
+} 
+
+QPushButton::checked{
+	background-color: rgb(164, 179, 60);
+}</string>
+   </property>
+   <property name="text">
+    <string>*    *    *    *</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="pINLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>380</y>
+     <width>20</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PIN</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>71</width>
+     <height>31</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>380</y>
+     <width>171</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QRadioButton" name="employeeRadioButton">
+      <property name="text">
+       <string>Employee</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="managerRadioButton">
+      <property name="text">
+       <string>Manager</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources>
   <include location="resource.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>firstNameLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>236</x>
+     <y>542</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>218</x>
+     <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>lastNameLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>137</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>addressLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>250</x>
+     <y>548</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>394</x>
+     <y>190</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>phoneNumberLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>235</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>243</x>
+     <y>238</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>emailAddressLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>542</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>294</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>sSNLineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>553</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>196</x>
+     <y>340</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>addButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>431</x>
+     <y>456</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>260</x>
+     <y>539</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
