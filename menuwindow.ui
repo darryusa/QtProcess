@@ -19,126 +19,232 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="inventoryButton">
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <widget class="QLabel" name="pictureLabel">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>340</y>
-     <width>250</width>
-     <height>200</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>600</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <weight>50</weight>
-     <bold>false</bold>
-     <underline>false</underline>
-     <strikeout>false</strikeout>
-    </font>
+   <property name="autoFillBackground">
+    <bool>true</bool>
    </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border-radius: 10px;
-	background-color: rgb(255, 85, 0);
-}</string>
-   </property>
-   <property name="inputMethodHints">
-    <set>Qt::ImhNone</set>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
    </property>
    <property name="text">
-    <string>Inventory</string>
+    <string/>
    </property>
-   <attribute name="buttonGroup">
-    <string notr="true">menuButtonGroup</string>
-   </attribute>
+   <property name="pixmap">
+    <pixmap resource="resource.qrc">:/image/background.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
   </widget>
-  <widget class="QPushButton" name="saleButton">
+  <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>574</x>
-     <y>100</y>
-     <width>250</width>
-     <height>200</height>
+     <x>10</x>
+     <y>10</y>
+     <width>1000</width>
+     <height>72</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border-radius: 10px;
-	background-color: rgb(255, 85, 0);
-}</string>
+    <string notr="true">background-color: rgb(90, 130, 31);</string>
    </property>
-   <property name="text">
-    <string>Sales</string>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
    </property>
-   <attribute name="buttonGroup">
-    <string notr="true">menuButtonGroup</string>
-   </attribute>
-  </widget>
-  <widget class="QPushButton" name="reportButton">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>100</y>
-     <width>250</width>
-     <height>200</height>
-    </rect>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
    </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border-radius: 10px;
-	background-color: rgb(255, 85, 0);
-}</string>
-   </property>
-   <property name="text">
-    <string>Reports</string>
-   </property>
-   <attribute name="buttonGroup">
-    <string notr="true">menuButtonGroup</string>
-   </attribute>
   </widget>
   <widget class="QPushButton" name="staffButton">
    <property name="geometry">
     <rect>
-     <x>574</x>
+     <x>240</x>
      <y>340</y>
      <width>250</width>
-     <height>200</height>
+     <height>210</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Umpush</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton{
+    <string notr="true">QPushButton
+{
+	
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
 	border-radius: 10px;
-	background-color: rgb(255, 85, 0);
+	color: rgb(255, 255, 255);
 }</string>
    </property>
    <property name="text">
     <string>Staff</string>
    </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
    <attribute name="buttonGroup">
     <string notr="true">menuButtonGroup</string>
    </attribute>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QPushButton" name="staffButton_2">
    <property name="geometry">
     <rect>
-     <x>480</x>
-     <y>20</y>
-     <width>191</width>
-     <height>41</height>
+     <x>530</x>
+     <y>120</y>
+     <width>250</width>
+     <height>210</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>Umpush</family>
+     <pointsize>36</pointsize>
      <weight>75</weight>
+     <italic>true</italic>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>Staff</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="staffButton_3">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>340</y>
+     <width>250</width>
+     <height>210</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Umpush</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>Staff</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="staffButton_4">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>110</y>
+     <width>250</width>
+     <height>210</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Umpush</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	border-radius: 10px;
+	color: rgb(255, 255, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>Staff</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>1000</width>
+     <height>72</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Umpush</family>
+     <pointsize>48</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>OneSol Point of Sale System</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
  <slots>
   <signal>callLogin()</signal>

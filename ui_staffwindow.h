@@ -80,7 +80,7 @@ public:
         employeeTitle->setAlignment(Qt::AlignCenter);
         formLayoutWidget = new QWidget(StaffWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(0, 60, 511, 331));
+        formLayoutWidget->setGeometry(QRect(0, 50, 511, 331));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(40, 0, 40, 0);

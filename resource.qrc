@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>image/backButton.png</file>
         <file>image/noun_79907_cc.png</file>
+        <file>image/bamboo.jpg</file>
+        <file>../../Downloads/20822.jpg</file>
+        <file>image/background.jpg</file>
     </qresource>
 </RCC>
