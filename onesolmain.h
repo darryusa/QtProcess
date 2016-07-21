@@ -40,6 +40,7 @@ private slots:
     void reportSlotLoggedin();
     void saleClicked();
     void saleLogginSlot();
+    void staffReturned();
 };
 typedef Singleton<OneSolMain> oneSolMain;
 #endif // ONESOLMAIN_H
