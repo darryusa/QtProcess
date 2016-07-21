@@ -13,33 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTableView" name="tableView">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>80</y>
-     <width>421</width>
-     <height>421</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QTableView { 
-	border-radius: 20px; 
-	color:rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255); 
-} 
-
-QTableView::item:selected {
-   	background-color: red;
-	border-radius: 5px;
-}
-QTableView QTableCornerButton::section {
-    background: red;
-    border: 2px outset red;
-}</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="deleteButton">
    <property name="geometry">
     <rect>
      <x>610</x>
@@ -62,7 +36,7 @@ QTableView QTableCornerButton::section {
 	
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
-	border-radius: 10px;
+	border-radius: 20px;
 	color: rgb(255, 255, 255);
 }</string>
    </property>
@@ -70,7 +44,7 @@ QTableView QTableCornerButton::section {
     <string>DELETE</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="checkoutButton">
    <property name="geometry">
     <rect>
      <x>810</x>
@@ -93,7 +67,7 @@ QTableView QTableCornerButton::section {
 	
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
-	border-radius: 10px;
+	border-radius: 20px;
 	color: rgb(255, 255, 255);
 }</string>
    </property>
@@ -204,115 +178,112 @@ QTableView QTableCornerButton::section {
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="minimumSize">
-        <size>
-         <width>335</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLineEdit { 
-	border-radius: 8px; 
+      <layout class="QFormLayout" name="formLayout_3">
+       <item row="0" column="0">
+        <widget class="QLabel" name="subTotalLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Sub Total: </string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="subTotalLineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit { 
+	border-radius: 12px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
 } 
 </string>
-       </property>
-       <property name="text">
-        <string>SubTotal: </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="priceLineEdit">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>335</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLineEdit { 
-	border-radius: 8px; 
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="taxLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Tax</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="taxLineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit { 
+	border-radius: 12px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
 } 
-
 </string>
-       </property>
-       <property name="text">
-        <string>Sales Tax: </string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="quanitityLineEdit">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>335</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLineEdit { 
-	border-radius: 8px; 
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="totalLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Total</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="totalLineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit { 
+	border-radius: 12px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
 } 
-
 </string>
-       </property>
-       <property name="text">
-        <string>Total: </string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-      </widget>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
-   </widget>
-   <widget class="QTableView" name="tableView_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>461</width>
-      <height>341</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QTableView { 
-	border-radius: 20px; 
-	color:rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255); 
-} 
-
-QTableView::item:selected {
-   	background-color: red;
-	border-radius: 5px;
-}
-QTableView QTableCornerButton::section {
-    background: red;
-    border: 2px outset red;
-}</string>
-    </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -340,13 +311,374 @@ QTableView QTableCornerButton::section {
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QTreeWidget" name="treeWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>50</y>
+      <width>481</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+pad: 15px</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="dragDropMode">
+     <enum>QAbstractItemView::NoDragDrop</enum>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="uniformRowHeights">
+     <bool>true</bool>
+    </property>
+    <property name="animated">
+     <bool>true</bool>
+    </property>
+    <property name="columnCount">
+     <number>0</number>
+    </property>
+    <attribute name="headerVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="headerCascadingSectionResizes">
+     <bool>true</bool>
+    </attribute>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>80</y>
+     <width>421</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="searchBarLabel">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>searchBar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="searchBarLineEdit">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit { 
+	border-radius: 12px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="cursorMoveStyle">
+       <enum>Qt::VisualMoveStyle</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>110</y>
+     <width>421</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="tabPosition">
+    <enum>QTabWidget::West</enum>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::Triangular</enum>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <property name="tabBarAutoHide">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="allTab">
+    <attribute name="title">
+     <string>All</string>
+    </attribute>
+    <widget class="QTableView" name="allTableView">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>401</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableView { 
+	border-radius: 20px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+
+QTableView::item:selected {
+   	background-color: rgb(164, 179, 60);
+	border-radius: 8px;
+}
+QTableView QTableCornerButton::section {
+    background: red;
+    border: 2px outset red;
+}
+QHeaderView::section
+{
+	border-radius: 8px;
+	background: rgb(164, 179, 60);
+	height: 25px;
+}
+QTableView::item
+{
+	border-radius: 8px;
+
+}
+QScrollBar:vertical {               
+	background-color: none;
+	width: 10px;    
+	border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+	background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+	stop: 0  rgb(164, 179, 60), stop: 0.5 rgb(164, 179, 60),  stop:1 rgb(164, 179, 60));
+	min-height: 10px;
+    border-radius: 5px;
+    }
+QScrollBar::add-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+}
+QScrollBar::sub-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+
+}</string>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+     </property>
+     <property name="dragEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="dragDropOverwriteMode">
+      <bool>false</bool>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::NoPen</enum>
+     </property>
+     <property name="cornerButtonEnabled">
+      <bool>false</bool>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderHighlightSections">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+      <bool>true</bool>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="massageTab">
+    <attribute name="title">
+     <string>Massage </string>
+    </attribute>
+    <widget class="QTableView" name="massageTableView">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>401</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableView { 
+	border-radius: 20px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+
+QTableView::item:selected {
+   	background-color: red;
+	border-radius: 5px;
+}
+QTableView QTableCornerButton::section {
+    background: red;
+    border: 2px outset red;
+}</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="hairTab">
+    <attribute name="title">
+     <string>Hair</string>
+    </attribute>
+    <widget class="QTableView" name="hairTableView">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>401</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableView { 
+	border-radius: 20px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+
+QTableView::item:selected {
+   	background-color: red;
+	border-radius: 5px;
+}
+QTableView QTableCornerButton::section {
+    background: red;
+    border: 2px outset red;
+}</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="nailTab">
+    <attribute name="title">
+     <string>Nail</string>
+    </attribute>
+    <widget class="QTableView" name="nailTableView">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>401</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableView { 
+	border-radius: 20px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+
+QTableView::item:selected {
+   	background-color: red;
+	border-radius: 5px;
+}
+QTableView QTableCornerButton::section {
+    background: red;
+    border: 2px outset red;
+}</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="itemsTab">
+    <attribute name="title">
+     <string>Items</string>
+    </attribute>
+    <widget class="QTableView" name="itemTableview">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>401</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableView { 
+	border-radius: 20px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+
+QTableView::item:selected {
+   	background-color: red;
+	border-radius: 5px;
+}
+QTableView QTableCornerButton::section {
+    background: red;
+    border: 2px outset red;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::NoPen</enum>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <zorder>pictureLabel</zorder>
-  <zorder>tableView</zorder>
-  <zorder>pushButton</zorder>
-  <zorder>pushButton_2</zorder>
+  <zorder>deleteButton</zorder>
+  <zorder>checkoutButton</zorder>
   <zorder>frame_2</zorder>
   <zorder>frame_3</zorder>
+  <zorder>formLayoutWidget</zorder>
+  <zorder>tabWidget</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

@@ -60,7 +60,7 @@ public:
     QPushButton *modifyPINButton;
     QLabel *pINLabel;
     QPushButton *returnButton;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QRadioButton *employeeRadioButton;
     QRadioButton *managerRadioButton;
@@ -376,6 +376,7 @@ public:
 "} \n"
 "\n"
 ""));
+        searchLineEdit->setAlignment(Qt::AlignCenter);
         modifyPINButton = new QPushButton(StaffWindow);
         modifyPINButton->setObjectName(QStringLiteral("modifyPINButton"));
         modifyPINButton->setGeometry(QRect(136, 380, 91, 25));
@@ -384,7 +385,7 @@ public:
         font2.setPointSize(10);
         modifyPINButton->setFont(font2);
         modifyPINButton->setStyleSheet(QLatin1String("QPushButton { \n"
-"	border-radius: 8px; \n"
+"	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
 "	background-color: red; \n"
 "} \n"
@@ -406,19 +407,19 @@ public:
         icon1.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
         returnButton->setIcon(icon1);
         returnButton->setIconSize(QSize(71, 31));
-        widget = new QWidget(StaffWindow);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(260, 380, 171, 22));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(StaffWindow);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(260, 380, 171, 22));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        employeeRadioButton = new QRadioButton(widget);
+        employeeRadioButton = new QRadioButton(layoutWidget);
         employeeRadioButton->setObjectName(QStringLiteral("employeeRadioButton"));
         employeeRadioButton->setChecked(true);
 
         horizontalLayout->addWidget(employeeRadioButton);
 
-        managerRadioButton = new QRadioButton(widget);
+        managerRadioButton = new QRadioButton(layoutWidget);
         managerRadioButton->setObjectName(QStringLiteral("managerRadioButton"));
         managerRadioButton->setChecked(false);
 
