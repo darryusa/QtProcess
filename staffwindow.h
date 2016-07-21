@@ -19,15 +19,19 @@ class StaffWindow : public QWidget
 
 public:
     explicit StaffWindow( QWidget *parent = 0 );
+
     ~StaffWindow();
 
 private:
     Ui::StaffWindow *ui;
     QSqlQueryModel *model;
-    PINNumPad * pinNumPad;
+    PINNumPad * pinNumPad =NULL;
     void populateList();
     QSortFilterProxyModel *sort_filter;
     QModelIndex matchingIndex;
+
+signals:
+    void staffReturn();
 
 private slots:
     void RemoveButtonPressed();
@@ -44,6 +48,10 @@ private slots:
     void on_tableWidget_activated(const QModelIndex &index);
     void on_searchLineEdit_returnPressed();
     void on_searchLineEdit_textChanged(const QString &arg1);
+    void on_addButton_clicked();
+    void on_confirmButton_clicked();
+    void on_returnButton_clicked();
+    void on_removeButton_clicked();
 };
 
 #endif // STAFFWINDOW_H

@@ -49,4 +49,5 @@ FORMS += \
 RESOURCES += \
     resource.qrc
 
-DISTFILES +=
+DISTFILES += \
+    transactionwindow.o

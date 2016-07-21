@@ -23,7 +23,6 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     stackedWidget->addWidget(menuWindow);
     stackedWidget->addWidget(reportsWindow);
     stackedWidget->setCurrentWidget( menuWindow );
-    stackedWidget->show();
 
 
 
@@ -33,6 +32,7 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     connect(menuWindow, SIGNAL(reportClicked()), this, SLOT(reportButtonClicked()));
     connect(menuWindow, SIGNAL(staffClicked()), this, SLOT(staffClick()));
     connect(menuWindow,SIGNAL(saleClicked()), this, SLOT(saleClicked()));
+    connect(staffWindow,SIGNAL(staffReturn()),this,SLOT(staffReturned()));
     QRect screenGeometry = QDesktopWidget().availableGeometry( this );
     stackedWidget->resize( screenGeometry.size() );
 
@@ -63,6 +63,12 @@ void OneSolMain::staffSlotLoggedin()
 {
     stackedWidget->setCurrentWidget(staffWindow);
     loginStaff->hide();
+}
+
+void OneSolMain::staffReturned()
+{
+    stackedWidget->setCurrentWidget(menuWindow);
+
 }
 void OneSolMain::reportSlotLoggedin()
 {

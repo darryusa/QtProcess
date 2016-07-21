@@ -39,19 +39,29 @@ bool DbManager::addPerson(const QString& name)
    return success;
 }
 
-bool DbManager::pinChecker(QString& pin)
+bool DbManager::pinChecker(QString& pin, QString& loginSender2)
 {
     bool success = false;
     QSqlQuery query;
-    query.prepare("SELECT PIN FROM employee");
+    qDebug() <<loginSender2;
+    query.prepare("SELECT PIN, privilige FROM employee");
     if(query.exec())
     {
         while(query.next() )
         {
             if(pin.compare(query.value(0).toString()) == 0)
             {
-                success = true;
-                break;
+                if(((loginSender2 == "staff" || loginSender2 == "inventory" || loginSender2 == "report")
+                    && query.value(1) >1) || (loginSender2 == "sale"))
+                {
+                    success = true;
+                    break;
+                }
+                else
+                {
+                    break;
+                }
+
             }
         }
 

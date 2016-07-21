@@ -72,7 +72,7 @@ void LoginDialog::enterButtonPressed()
     if ( button && currentText.length() == 4 )
     {
 
-        if(passwordCheck())
+        if(passwordCheck(loginSender2))
         {
             if(loginSender2 == "staff")
             {
@@ -97,14 +97,14 @@ void LoginDialog::backButtonPressed()
     this->hide();
 }
 
-bool LoginDialog::passwordCheck()
+bool LoginDialog::passwordCheck(QString loginSender2)
 {
 
     QString currentText = ui->lineEdit->text();
     DbManager *dbmanager = new DbManager();
     bool correctPIN = false;
     // Password: "0000" for testing. Check database here.
-    if ( dbmanager->pinChecker(currentText))
+    if ( dbmanager->pinChecker(currentText,loginSender2))
     {
         ui->lineEdit->setMaxLength( 256 );
         ui->lineEdit->setEchoMode( QLineEdit::Normal );
