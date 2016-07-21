@@ -124,15 +124,16 @@ void StaffWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 0: _t->RemoveButtonPressed(); break;
         case 1: _t->AddButtonPressed(); break;
         case 2: _t->on_tableView_activated((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
-
+  //      case 3: _t->on_pushButton_3_clicked(); break;
         case 4: _t->on_pushButton_ADD_clicked(); break;
         case 5: _t->on_pushButton_EDIT_clicked(); break;
         case 6: _t->on_pushButton_DELETE_clicked(); break;
-
+   //     case 7: _t->on_pushButton_6_clicked(); break;
         case 8: _t->on_modifyPINButton_clicked(); break;
         case 9: _t->on_listWidget_activated((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 10: _t->on_listWidget_itemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
-
+  //      case 11: _t->on_tableWidget_activated((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+   //     case 12: _t->on_searchLineEdit_returnPressed(); break;
         case 13: _t->on_searchLineEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }

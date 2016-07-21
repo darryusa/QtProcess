@@ -64,7 +64,7 @@ void TransactionWindow::on_tableView_activated(const QModelIndex &index)
 
 //        }
 
-    ui->listWidget->addItem(item + " \t" + QString::number(val));
+  //  ui->listWidget->addItem(item + " \t" + QString::number(val));
   //  ui->listWidget->addItem(QString::number(item));
 
 
@@ -81,47 +81,47 @@ void TransactionWindow::on_tableView_activated(const QModelIndex &index)
     qDebug()<<"Sub Total is: " <<subTotal;
     qDebug()<< "Tax Total is: " <<taxTotal;
     qDebug()<< "Grand Total is: " <<grandTotal;
-    ui->lineEdit_subTotal->setText(QString::number(subTotal));
-    ui->lineEdit_2_tax->setText(QString::number(taxTotal));
-    ui->lineEdit_3_grandTotal->setText(QString::number(grandTotal));
+//    ui->lineEdit_subTotal->setText(QString::number(subTotal));
+//    ui->lineEdit_2_tax->setText(QString::number(taxTotal));
+//    ui->lineEdit_3_grandTotal->setText(QString::number(grandTotal));
 }
 
 void TransactionWindow::on_pushButton_clicked()
 {
    // ui->listWidget->currentItem()->;
-   QString str = ui->listWidget->currentItem()->text();
-   qDebug()<< "str is" <<str;
+  // QString str = ui->listWidget->currentItem()->text();
+   //qDebug()<< "str is" <<str;
 
 //   for(int i=0;i<val.length();i++)
 //   {
 //       if val.
 //   }
-   float val;
-   val = extractDouble(str);
+//   float val;
+//   val = extractDouble(str);
 
-    qDebug()<< "val is" <<val;
-   subTotal = subTotal - val;
-   taxTotal = subTotal * salesTax;
-   taxTotal = floor(taxTotal*100+0.5)/100;
+ //   qDebug()<< "val is" <<val;
+   //subTotal = subTotal - val;
+//   taxTotal = subTotal * salesTax;
+//   taxTotal = floor(taxTotal*100+0.5)/100;
 
-   grandTotal = subTotal + taxTotal;
-   grandTotal = floor(grandTotal*100+0.5)/100;
+//   grandTotal = subTotal + taxTotal;
+//   grandTotal = floor(grandTotal*100+0.5)/100;
 
-   if(subTotal<.5)
-   {
-       subTotal = 0;
-       taxTotal = 0;
-       grandTotal = 0;
-   }
-   ui->lineEdit_subTotal->setText(QString::number(subTotal));
+//   if(subTotal<.5)
+//   {
+//       subTotal = 0;
+//       taxTotal = 0;
+//       grandTotal = 0;
+//   }
+   /*ui->lineEdit_subTotal->setText(QString::number(subTotal));
    ui->lineEdit_2_tax->setText(QString::number(taxTotal));
    ui->lineEdit_3_grandTotal->setText(QString::number(grandTotal));
     qDeleteAll(ui->listWidget->selectedItems());
+    */
 
-
-     qDebug()<< "Sub Total is: " <<subTotal;
-     qDebug()<< "Tax Total is: " <<taxTotal;
-     qDebug()<< "Grand Total is: " <<grandTotal;
+//     qDebug()<< "Sub Total is: " <<subTotal;
+//     qDebug()<< "Tax Total is: " <<taxTotal;
+//     qDebug()<< "Grand Total is: " <<grandTotal;
 }
 
 static double extractDouble(const QString &s)

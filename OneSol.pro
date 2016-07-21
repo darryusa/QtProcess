@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     logindialog.cpp \
     reportlistdialog.cpp \
     transactionwindow.cpp \
-    pinnumpad.cpp
+    pinnumpad.cpp \
+    inventorywindow.cpp
 
 HEADERS  += onesolmain.h \
     staffwindow.h \
@@ -34,7 +35,8 @@ HEADERS  += onesolmain.h \
     transactionwindow.h \
     ui_transactionwindow.h \
     pinnumpad.h \
-    ui_pinnumpad.h
+    ui_pinnumpad.h \
+    inventorywindow.h
 
 FORMS += \
     staffwindow.ui \
@@ -43,7 +45,8 @@ FORMS += \
     logindialog.ui \
     reportlistdialog.ui \
     transactionwindow.ui \
-    pinnumpad.ui
+    pinnumpad.ui \
+    inventorywindow.ui
     logindialog.ui
 
 RESOURCES += \

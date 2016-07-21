@@ -71,7 +71,8 @@ void TransactionWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         TransactionWindow *_t = static_cast<TransactionWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-
+        case 0: _t->on_tableView_activated((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 1: _t->on_pushButton_clicked(); break;
         default: ;
         }
     }

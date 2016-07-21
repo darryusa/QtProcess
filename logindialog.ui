@@ -18,6 +18,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(164, 179, 60)</string>
+  </property>
   <property name="inputMethodHints">
    <set>Qt::ImhNoAutoUppercase|Qt::ImhSensitiveData</set>
   </property>
@@ -382,6 +385,9 @@ QPushButton:pressed{
     <font>
      <pointsize>58</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="inputMethodHints">
     <set>Qt::ImhDigitsOnly|Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>

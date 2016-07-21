@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCalendarWidget>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
@@ -24,52 +25,83 @@ QT_BEGIN_NAMESPACE
 class Ui_ReportsWindow
 {
 public:
-    QLabel *mainLabel;
     QLabel *startLabel;
     QCalendarWidget *startDateCal;
     QLabel *endLabel;
     QCalendarWidget *endDateCal;
     QPushButton *generateButton;
+    QLabel *pictureLabel;
+    QFrame *frame_2;
+    QLabel *label;
 
     void setupUi(QWidget *ReportsWindow)
     {
         if (ReportsWindow->objectName().isEmpty())
             ReportsWindow->setObjectName(QStringLiteral("ReportsWindow"));
         ReportsWindow->resize(1024, 600);
-        mainLabel = new QLabel(ReportsWindow);
-        mainLabel->setObjectName(QStringLiteral("mainLabel"));
-        mainLabel->setGeometry(QRect(110, 10, 771, 71));
-        QFont font;
-        font.setFamily(QStringLiteral("Bitstream Charter"));
-        font.setPointSize(36);
-        font.setBold(true);
-        font.setWeight(75);
-        mainLabel->setFont(font);
-        mainLabel->setAlignment(Qt::AlignCenter);
         startLabel = new QLabel(ReportsWindow);
         startLabel->setObjectName(QStringLiteral("startLabel"));
-        startLabel->setGeometry(QRect(120, 100, 211, 51));
-        QFont font1;
-        font1.setPointSize(14);
-        startLabel->setFont(font1);
+        startLabel->setGeometry(QRect(80, 100, 351, 51));
+        QFont font;
+        font.setPointSize(18);
+        font.setBold(true);
+        font.setWeight(75);
+        startLabel->setFont(font);
+        startLabel->setAlignment(Qt::AlignCenter);
         startDateCal = new QCalendarWidget(ReportsWindow);
         startDateCal->setObjectName(QStringLiteral("startDateCal"));
         startDateCal->setGeometry(QRect(80, 140, 351, 251));
         endLabel = new QLabel(ReportsWindow);
         endLabel->setObjectName(QStringLiteral("endLabel"));
-        endLabel->setGeometry(QRect(550, 110, 221, 31));
-        QFont font2;
-        font2.setPointSize(16);
-        endLabel->setFont(font2);
+        endLabel->setGeometry(QRect(500, 110, 371, 31));
+        endLabel->setFont(font);
+        endLabel->setAlignment(Qt::AlignCenter);
         endDateCal = new QCalendarWidget(ReportsWindow);
         endDateCal->setObjectName(QStringLiteral("endDateCal"));
         endDateCal->setGeometry(QRect(500, 140, 371, 251));
         generateButton = new QPushButton(ReportsWindow);
         generateButton->setObjectName(QStringLiteral("generateButton"));
-        generateButton->setGeometry(QRect(290, 430, 321, 111));
-        QFont font3;
-        font3.setPointSize(24);
-        generateButton->setFont(font3);
+        generateButton->setGeometry(QRect(340, 440, 321, 111));
+        QFont font1;
+        font1.setPointSize(24);
+        generateButton->setFont(font1);
+        generateButton->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(255, 255, 255);\n"
+"}"));
+        pictureLabel = new QLabel(ReportsWindow);
+        pictureLabel->setObjectName(QStringLiteral("pictureLabel"));
+        pictureLabel->setGeometry(QRect(0, 0, 1024, 600));
+        pictureLabel->setAutoFillBackground(true);
+        pictureLabel->setFrameShadow(QFrame::Raised);
+        pictureLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/background.jpg")));
+        pictureLabel->setScaledContents(true);
+        frame_2 = new QFrame(ReportsWindow);
+        frame_2->setObjectName(QStringLiteral("frame_2"));
+        frame_2->setGeometry(QRect(10, 10, 1000, 61));
+        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(90, 130, 31);"));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        label = new QLabel(frame_2);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(30, 0, 931, 61));
+        QFont font2;
+        font2.setPointSize(36);
+        label->setFont(font2);
+        label->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+        label->setAlignment(Qt::AlignCenter);
+        pictureLabel->raise();
+        startLabel->raise();
+        startDateCal->raise();
+        endLabel->raise();
+        endDateCal->raise();
+        generateButton->raise();
+        frame_2->raise();
 
         retranslateUi(ReportsWindow);
 
@@ -79,10 +111,11 @@ public:
     void retranslateUi(QWidget *ReportsWindow)
     {
         ReportsWindow->setWindowTitle(QApplication::translate("ReportsWindow", "Form", 0));
-        mainLabel->setText(QApplication::translate("ReportsWindow", "Sale Reports", 0));
         startLabel->setText(QApplication::translate("ReportsWindow", "Select the start date:", 0));
         endLabel->setText(QApplication::translate("ReportsWindow", "Select the end date:", 0));
         generateButton->setText(QApplication::translate("ReportsWindow", "Generate Reports", 0));
+        pictureLabel->setText(QString());
+        label->setText(QApplication::translate("ReportsWindow", "Transaction Report", 0));
     } // retranslateUi
 
 };

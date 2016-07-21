@@ -276,33 +276,33 @@ void StaffWindow::on_listWidget_activated(const QModelIndex &index)
 void StaffWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     //for(int i = 0;i < ui->formLayout)
-    QList<QLineEdit *>allLineEdit = ui->formLayout->findChildren<QLineEdit *>();
-    for(int i =0; i <allLineEdit.count();i++)
-    {
-        allLineEdit.at(i)->setReadOnly(true);
-    }
-    QSqlQuery qry;
-    qDebug()<<item->text();
-    QRegExp rx("[, ]");
-    QStringList list = item->text().split(rx, QString::SkipEmptyParts);
-    qDebug()<< list.at(1);
-    qry.prepare("SELECT * FROM employee WHERE first='"+list.at(2)+"' or last='"+list.at(1)+"' ");
-    if(qry.exec())
-    {
-        qDebug()<< "Query Execute";
-        while(qry.next())
-        {
-            ui->firstNameLineEdit->setText(qry.value(1).toString());
-            ui->lastNameLineEdit->setText(qry.value(2).toString());
-            ui->addressLineEdit->setText(qry.value(3).toString());
-            ui->phoneNumberLineEdit->setText(qry.value(4).toString());
-            ui->emailAddressLineEdit->setText(qry.value(6).toString());
-        }
+    //QList<QLineEdit *>allLineEdit = ui->formLayout->findChildren<QLineEdit *>();
+//    for(int i =0; i <allLineEdit.count();i++)
+//    {
+//        allLineEdit.at(i)->setReadOnly(true);
+//    }
+//    QSqlQuery qry;
+//    qDebug()<<item->text();
+//    QRegExp rx("[, ]");
+//    QStringList list = item->text().split(rx, QString::SkipEmptyParts);
+//    qDebug()<< list.at(1);
+//    qry.prepare("SELECT * FROM employee WHERE first='"+list.at(2)+"' or last='"+list.at(1)+"' ");
+//    if(qry.exec())
+//    {
+//        qDebug()<< "Query Execute";
+//        while(qry.next())
+//        {
+//            ui->firstNameLineEdit->setText(qry.value(1).toString());
+//            ui->lastNameLineEdit->setText(qry.value(2).toString());
+//            ui->addressLineEdit->setText(qry.value(3).toString());
+//            ui->phoneNumberLineEdit->setText(qry.value(4).toString());
+//            ui->emailAddressLineEdit->setText(qry.value(6).toString());
+//        }
 
         //selectedName = ui->tableView->model()->data(index).toString();
 
 
-    }
+  //  }
 }
 
 

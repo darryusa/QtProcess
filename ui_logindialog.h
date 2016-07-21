@@ -51,6 +51,7 @@ public:
         QFont font;
         font.setPointSize(16);
         LoginDialog->setFont(font);
+        LoginDialog->setStyleSheet(QStringLiteral("background-color: rgb(164, 179, 60)"));
         LoginDialog->setInputMethodHints(Qt::ImhNoAutoUppercase|Qt::ImhSensitiveData);
         LoginDialog->setModal(false);
         gridLayoutWidget = new QWidget(LoginDialog);
@@ -320,6 +321,7 @@ public:
         QFont font1;
         font1.setPointSize(58);
         lineEdit->setFont(font1);
+        lineEdit->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
         lineEdit->setInputMethodHints(Qt::ImhDigitsOnly|Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData);
         lineEdit->setEchoMode(QLineEdit::Password);
         lineEdit->setAlignment(Qt::AlignCenter);
