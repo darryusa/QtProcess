@@ -34,6 +34,9 @@
    <property name="autoFillBackground">
     <bool>true</bool>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/image/yesBorder.png);</string>
+   </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
@@ -41,46 +44,33 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resource.qrc">:/image/background.jpg</pixmap>
+    <pixmap resource="resource.qrc">:/image/Vs2.0BamBoo.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QFrame" name="frame_2">
+  <widget class="QPushButton" name="reportButton">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>1000</width>
-     <height>72</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(90, 130, 31);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="inventoryButton">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>340</y>
-     <width>250</width>
+     <x>190</x>
+     <y>350</y>
+     <width>260</width>
      <height>210</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
-     <family>Umpush</family>
+     <family>Sans Serif</family>
      <pointsize>36</pointsize>
      <weight>75</weight>
-     <italic>true</italic>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
@@ -92,7 +82,51 @@
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	
+	color: rgb(0, 0, 127);
+}</string>
+   </property>
+   <property name="text">
+    <string>Report</string>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="inventoryButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>100</y>
+     <width>260</width>
+     <height>210</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Sans Serif</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 127);
 }</string>
    </property>
    <property name="text">
@@ -108,18 +142,24 @@
   <widget class="QPushButton" name="saleButton">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>120</y>
-     <width>250</width>
+     <x>560</x>
+     <y>100</y>
+     <width>260</width>
      <height>210</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
-     <family>Umpush</family>
+     <family>Sans Serif</family>
      <pointsize>36</pointsize>
      <weight>75</weight>
-     <italic>true</italic>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
@@ -131,7 +171,8 @@
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	
+	color: rgb(0, 0, 127);
 }</string>
    </property>
    <property name="text">
@@ -144,18 +185,24 @@
   <widget class="QPushButton" name="staffButton">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>340</y>
-     <width>250</width>
+     <x>560</x>
+     <y>350</y>
+     <width>260</width>
      <height>210</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
-     <family>Umpush</family>
+     <family>Sans Serif</family>
      <pointsize>36</pointsize>
      <weight>75</weight>
-     <italic>true</italic>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
@@ -167,47 +214,12 @@
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	
+	color: rgb(0, 0, 127);
 }</string>
    </property>
    <property name="text">
     <string>Staff</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="reportButton">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>110</y>
-     <width>250</width>
-     <height>210</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Umpush</family>
-     <pointsize>36</pointsize>
-     <weight>75</weight>
-     <italic>true</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton
-{
-	
-	
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
-
-	border-radius: 10px;
-	color: rgb(255, 255, 255);
-}</string>
-   </property>
-   <property name="text">
-    <string>Report</string>
    </property>
    <property name="flat">
     <bool>false</bool>
@@ -218,24 +230,29 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>1000</width>
-     <height>72</height>
+     <width>1024</width>
+     <height>70</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Umpush</family>
+     <family>Symbola</family>
      <pointsize>48</pointsize>
      <weight>75</weight>
-     <italic>true</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
+    <string notr="true">color: rgb(0, 0, 127);
+
+
+</string>
    </property>
    <property name="text">
     <string>OneSol Point of Sale System</string>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

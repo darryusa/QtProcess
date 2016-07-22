@@ -30,22 +30,24 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <family>Symbola</family>
+     <pointsize>36</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit { 
-	border-radius: 8px; 
-	color:rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255); 
-} 
+    <string notr="true">
+	
+color: rgb(0, 0, 127);
 
 </string>
    </property>
    <property name="text">
     <string>Employee</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -57,7 +59,7 @@
      <x>0</x>
      <y>60</y>
      <width>511</width>
-     <height>311</height>
+     <height>317</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -80,6 +82,15 @@
         <width>66</width>
         <height>25</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127);</string>
       </property>
       <property name="text">
        <string>First Name</string>
@@ -124,8 +135,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>10</width>
-        <height>20</height>
+        <width>332</width>
+        <height>13</height>
        </size>
       </property>
      </spacer>
@@ -143,6 +154,15 @@
         <width>65</width>
         <height>25</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127);</string>
       </property>
       <property name="text">
        <string>Last Name</string>
@@ -207,6 +227,15 @@
         <height>25</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127);</string>
+      </property>
       <property name="text">
        <string>Address</string>
       </property>
@@ -250,8 +279,8 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>10</width>
-        <height>20</height>
+        <width>332</width>
+        <height>13</height>
        </size>
       </property>
      </spacer>
@@ -269,6 +298,15 @@
         <width>90</width>
         <height>25</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127);</string>
       </property>
       <property name="text">
        <string>Phone Number</string>
@@ -333,6 +371,15 @@
         <height>25</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127);</string>
+      </property>
       <property name="text">
        <string>Email Address</string>
       </property>
@@ -376,14 +423,23 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>10</width>
-        <height>20</height>
+        <width>332</width>
+        <height>13</height>
        </size>
       </property>
      </spacer>
     </item>
     <item row="10" column="0">
      <widget class="QLabel" name="sSNLabel">
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127);</string>
+      </property>
       <property name="text">
        <string>SSN</string>
       </property>
@@ -438,10 +494,26 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-radius: 10px;
-	background-color: rgb(164, 179, 60);
+	border-radius: 20px;
+
+
+	
+	color: rgb(0, 0, 127);
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	
+
+
+
 }
 </string>
    </property>
@@ -458,10 +530,18 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border-radius: 10px;
-	background-color: rgb(164, 179, 60);
+    <string notr="true">QPushButton
+{
+	border-radius: 20px;
+	color: rgb(0, 0, 127);
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 }
 </string>
    </property>
@@ -478,10 +558,27 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
 	border-radius: 20px;
 	background-color: rgb(164, 179, 60);
+
+	
+	color: rgb(0, 0, 127);
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	
+
+
+
 }
 </string>
    </property>
@@ -492,16 +589,33 @@
   <widget class="QPushButton" name="removeButton">
    <property name="geometry">
     <rect>
-     <x>700</x>
+     <x>640</x>
      <y>530</y>
      <width>211</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
 	border-radius: 20px;
 	background-color: rgb(164, 179, 60);
+
+	
+	color: rgb(0, 0, 127);
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	
+
+
+
 }
 </string>
    </property>
@@ -525,6 +639,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QTableView { 
+	border-image: url(:/image/whiteboxBorder.jpeg);
 	border-radius: 20px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
@@ -635,7 +750,7 @@ QScrollBar::sub-line:vertical {
   <widget class="QLineEdit" name="searchLineEdit">
    <property name="geometry">
     <rect>
-     <x>550</x>
+     <x>560</x>
      <y>60</y>
      <width>431</width>
      <height>31</height>
@@ -649,6 +764,7 @@ QScrollBar::sub-line:vertical {
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit { 
+	
 	border-radius: 10px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
@@ -707,14 +823,89 @@ QPushButton::checked{
      <height>24</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 127);</string>
+   </property>
    <property name="text">
     <string>PIN</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>380</y>
+     <width>171</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QRadioButton" name="employeeRadioButton">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127);</string>
+      </property>
+      <property name="text">
+       <string>Employee</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="managerRadioButton">
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 127);</string>
+      </property>
+      <property name="text">
+       <string>Manager</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resource.qrc">:/image/Vs2.0BamBoo.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="returnButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>10</y>
      <width>71</width>
      <height>31</height>
@@ -729,7 +920,7 @@ background-color: none;
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="resource.qrc">
+    <iconset>
      <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
    </property>
    <property name="iconSize">
@@ -739,38 +930,20 @@ background-color: none;
     </size>
    </property>
   </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>380</y>
-     <width>171</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QRadioButton" name="employeeRadioButton">
-      <property name="text">
-       <string>Employee</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QRadioButton" name="managerRadioButton">
-      <property name="text">
-       <string>Manager</string>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+  <zorder>label</zorder>
+  <zorder>employeeTitle</zorder>
+  <zorder>formLayoutWidget</zorder>
+  <zorder>cancelButton</zorder>
+  <zorder>confirmButton</zorder>
+  <zorder>addButton</zorder>
+  <zorder>removeButton</zorder>
+  <zorder>tableView</zorder>
+  <zorder>searchIcon</zorder>
+  <zorder>searchLineEdit</zorder>
+  <zorder>modifyPINButton</zorder>
+  <zorder>pINLabel</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>returnButton</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

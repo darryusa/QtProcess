@@ -63,7 +63,8 @@ QTableView QTableCornerButton::section {
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	
+	color: rgb(0, 0, 127);
 }</string>
    </property>
    <property name="text">
@@ -94,7 +95,8 @@ QTableView QTableCornerButton::section {
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	
+	color: rgb(0, 0, 127);
 }</string>
    </property>
    <property name="text">
@@ -120,54 +122,11 @@ QTableView QTableCornerButton::section {
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resource.qrc">:/image/background.jpg</pixmap>
+    <pixmap resource="resource.qrc">:/image/Vs2.0BamBoo.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
-  </widget>
-  <widget class="QFrame" name="frame_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>1000</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(90, 130, 31);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>0</y>
-      <width>931</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>36</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>Sale Transaction</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
@@ -326,12 +285,12 @@ QTableView QTableCornerButton::section {
     <property name="font">
      <font>
       <pointsize>26</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);</string>
+     <string notr="true">color: rgb(0, 0, 127);</string>
     </property>
     <property name="text">
      <string>Bill of Sale</string>
@@ -341,12 +300,68 @@ QTableView QTableCornerButton::section {
     </property>
    </widget>
   </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>1001</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Symbola</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 127);</string>
+   </property>
+   <property name="text">
+    <string>Sale Transaction</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>71</width>
+     <height>31</height>
+    </size>
+   </property>
+  </widget>
   <zorder>pictureLabel</zorder>
   <zorder>tableView</zorder>
   <zorder>pushButton</zorder>
   <zorder>pushButton_2</zorder>
-  <zorder>frame_2</zorder>
   <zorder>frame_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>returnButton</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

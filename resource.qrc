@@ -2,6 +2,8 @@
     <qresource prefix="/">
         <file>image/backButton.png</file>
         <file>image/noun_79907_cc.png</file>
-        <file>image/background.jpg</file>
+        <file>image/Vs2.0BamBoo.jpg</file>
+        <file>image/whiteboxBorder.jpeg</file>
+        <file>image/featured-overlayOK.png</file>
     </qresource>
 </RCC>
