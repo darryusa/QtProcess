@@ -16,8 +16,8 @@
   <widget class="QLabel" name="startLabel">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>100</y>
+     <x>90</x>
+     <y>90</y>
      <width>351</width>
      <height>51</height>
     </rect>
@@ -29,6 +29,13 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">
+
+	
+	color: rgb(0, 0, 127);
+</string>
+   </property>
    <property name="text">
     <string>Select the start date:</string>
    </property>
@@ -36,21 +43,11 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QCalendarWidget" name="startDateCal">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>140</y>
-     <width>351</width>
-     <height>251</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="endLabel">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>110</y>
+     <x>510</x>
+     <y>100</y>
      <width>371</width>
      <height>31</height>
     </rect>
@@ -62,6 +59,9 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 127);</string>
+   </property>
    <property name="text">
     <string>Select the end date:</string>
    </property>
@@ -72,10 +72,10 @@
   <widget class="QCalendarWidget" name="endDateCal">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>140</y>
-     <width>371</width>
-     <height>251</height>
+     <x>510</x>
+     <y>150</y>
+     <width>381</width>
+     <height>271</height>
     </rect>
    </property>
   </widget>
@@ -84,13 +84,15 @@
     <rect>
      <x>340</x>
      <y>440</y>
-     <width>321</width>
+     <width>341</width>
      <height>111</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>24</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -101,7 +103,8 @@
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	
+	color: rgb(0, 0, 127);
 }</string>
    </property>
    <property name="text">
@@ -127,62 +130,86 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resource.qrc">:/image/background.jpg</pixmap>
+    <pixmap resource="resource.qrc">:/image/Vs2.0BamBoo.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QFrame" name="frame_2">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>40</x>
      <y>10</y>
-     <width>1000</width>
+     <width>931</width>
      <height>61</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Symbola</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(90, 130, 31);</string>
+    <string notr="true">color: rgb(0, 0, 127);
+</string>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+   <property name="text">
+    <string>Transaction Report</string>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>0</y>
-      <width>931</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>36</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>Transaction Report</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
+  </widget>
+  <widget class="QCalendarWidget" name="startDateCal">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>150</y>
+     <width>381</width>
+     <height>271</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: none;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>71</width>
+     <height>31</height>
+    </size>
+   </property>
   </widget>
   <zorder>pictureLabel</zorder>
   <zorder>startLabel</zorder>
-  <zorder>startDateCal</zorder>
   <zorder>endLabel</zorder>
   <zorder>endDateCal</zorder>
   <zorder>generateButton</zorder>
-  <zorder>frame_2</zorder>
+  <zorder>label</zorder>
+  <zorder>startDateCal</zorder>
+  <zorder>returnButton</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

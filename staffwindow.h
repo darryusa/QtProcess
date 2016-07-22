@@ -34,10 +34,20 @@ signals:
     void staffReturn();
 
 private slots:
-
+    void RemoveButtonPressed();
+    void AddButtonPressed();
     void on_tableView_activated(const QModelIndex &index);
+
+    void on_pushButton_ADD_clicked();
+    void on_pushButton_EDIT_clicked();
+
+
     void on_modifyPINButton_clicked();
+
+
+
     void on_searchLineEdit_textChanged(const QString &arg1);
+
     void on_confirmButton_clicked();
     void on_returnButton_clicked();
     void on_removeButton_clicked();

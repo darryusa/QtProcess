@@ -18,13 +18,19 @@
     <rect>
      <x>80</x>
      <y>100</y>
-     <width>890</width>
+     <width>881</width>
      <height>450</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QTableView { 
+border-color: rgb(211, 225, 148);
+	
+	
+	border-image: url(:/image/whiteboxBorder.jpeg);
+	border-color: rgb(0, 0, 127);
 	border-radius: 20px; 
+	
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
 } 
@@ -48,8 +54,18 @@ QTableView QTableCornerButton::section {
      <height>600</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(121, 149, 47);
+</string>
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
@@ -58,58 +74,71 @@ QTableView QTableCornerButton::section {
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resource.qrc">:/image/background.jpg</pixmap>
+    <pixmap resource="resource.qrc">:/image/Vs2.0BamBoo.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QFrame" name="frame_2">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>90</x>
      <y>10</y>
-     <width>1000</width>
-     <height>72</height>
+     <width>861</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Symbola</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 127);</string>
+   </property>
+   <property name="text">
+    <string>Transaction Report</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>71</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(90, 130, 31);</string>
+    <string notr="true">QPushButton{
+background-color: none;
+}</string>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+   <property name="text">
+    <string/>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
    </property>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1001</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>36</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>Transaction Report</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
+   <property name="iconSize">
+    <size>
+     <width>71</width>
+     <height>31</height>
+    </size>
+   </property>
   </widget>
   <zorder>pictureLabel</zorder>
   <zorder>tableView</zorder>
-  <zorder>frame_2</zorder>
+  <zorder>label</zorder>
+  <zorder>returnButton</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

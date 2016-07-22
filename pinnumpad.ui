@@ -14,7 +14,10 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(71, 58, 39);</string>
+   <string notr="true">border-image: url(:/image/featured-overlayOK.png);
+
+background-color: rgb(211, 225, 178);
+</string>
   </property>
   <widget class="QPushButton" name="backButton">
    <property name="geometry">
@@ -93,7 +96,7 @@
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -124,7 +127,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -157,7 +160,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -190,7 +193,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -223,7 +226,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -256,7 +259,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -289,7 +292,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -322,7 +325,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -355,7 +358,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -388,7 +391,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -421,7 +424,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
@@ -454,7 +457,7 @@ QPushButton:pressed{
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 10px;
-	color: rgb(255, 255, 255);
+	color: rgb(0,0,0);
 }
 QPushButton:pressed{
     background-color: red;
