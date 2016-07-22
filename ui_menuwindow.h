@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
@@ -25,11 +24,10 @@ class Ui_MenuWindow
 {
 public:
     QLabel *pictureLabel;
-    QFrame *frame_2;
+    QPushButton *reportButton;
     QPushButton *inventoryButton;
     QPushButton *saleButton;
     QPushButton *staffButton;
-    QPushButton *reportButton;
     QLabel *label;
     QButtonGroup *menuButtonGroup;
 
@@ -44,69 +42,24 @@ public:
         pictureLabel->setObjectName(QStringLiteral("pictureLabel"));
         pictureLabel->setGeometry(QRect(0, 0, 1024, 600));
         pictureLabel->setAutoFillBackground(true);
+        pictureLabel->setStyleSheet(QStringLiteral("border-image: url(:/image/yesBorder.png);"));
         pictureLabel->setFrameShadow(QFrame::Raised);
-        pictureLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/background.jpg")));
+        pictureLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/Vs2.0BamBoo.jpg")));
         pictureLabel->setScaledContents(true);
-        frame_2 = new QFrame(MenuWindow);
-        frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(10, 10, 1000, 72));
-        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(90, 130, 31);"));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        inventoryButton = new QPushButton(MenuWindow);
-        menuButtonGroup = new QButtonGroup(MenuWindow);
-        menuButtonGroup->setObjectName(QStringLiteral("menuButtonGroup"));
-        menuButtonGroup->addButton(inventoryButton);
-        inventoryButton->setObjectName(QStringLiteral("inventoryButton"));
-        inventoryButton->setGeometry(QRect(220, 340, 250, 210));
-        QFont font;
-        font.setFamily(QStringLiteral("Umpush"));
-        font.setPointSize(36);
-        font.setBold(true);
-        font.setItalic(true);
-        font.setWeight(75);
-        inventoryButton->setFont(font);
-        inventoryButton->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"	\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
-"}"));
-        inventoryButton->setFlat(false);
-        saleButton = new QPushButton(MenuWindow);
-        saleButton->setObjectName(QStringLiteral("saleButton"));
-        saleButton->setGeometry(QRect(530, 120, 250, 210));
-        saleButton->setFont(font);
-        saleButton->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"	\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
-"}"));
-        saleButton->setFlat(false);
-        staffButton = new QPushButton(MenuWindow);
-        staffButton->setObjectName(QStringLiteral("staffButton"));
-        staffButton->setGeometry(QRect(530, 340, 250, 210));
-        staffButton->setFont(font);
-        staffButton->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"	\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
-"}"));
-        staffButton->setFlat(false);
         reportButton = new QPushButton(MenuWindow);
         reportButton->setObjectName(QStringLiteral("reportButton"));
-        reportButton->setGeometry(QRect(240, 110, 250, 210));
+        reportButton->setGeometry(QRect(190, 350, 260, 210));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(reportButton->sizePolicy().hasHeightForWidth());
+        reportButton->setSizePolicy(sizePolicy);
+        QFont font;
+        font.setFamily(QStringLiteral("Sans Serif"));
+        font.setPointSize(36);
+        font.setBold(true);
+        font.setItalic(false);
+        font.setWeight(75);
         reportButton->setFont(font);
         reportButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
@@ -115,20 +68,78 @@ public:
 "	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
 "\n"
 "	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
 "}"));
         reportButton->setFlat(false);
+        inventoryButton = new QPushButton(MenuWindow);
+        menuButtonGroup = new QButtonGroup(MenuWindow);
+        menuButtonGroup->setObjectName(QStringLiteral("menuButtonGroup"));
+        menuButtonGroup->addButton(inventoryButton);
+        inventoryButton->setObjectName(QStringLiteral("inventoryButton"));
+        inventoryButton->setGeometry(QRect(190, 100, 260, 210));
+        sizePolicy.setHeightForWidth(inventoryButton->sizePolicy().hasHeightForWidth());
+        inventoryButton->setSizePolicy(sizePolicy);
+        inventoryButton->setFont(font);
+        inventoryButton->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
+"}"));
+        inventoryButton->setFlat(false);
+        saleButton = new QPushButton(MenuWindow);
+        saleButton->setObjectName(QStringLiteral("saleButton"));
+        saleButton->setGeometry(QRect(560, 100, 260, 210));
+        sizePolicy.setHeightForWidth(saleButton->sizePolicy().hasHeightForWidth());
+        saleButton->setSizePolicy(sizePolicy);
+        saleButton->setFont(font);
+        saleButton->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
+"}"));
+        saleButton->setFlat(false);
+        staffButton = new QPushButton(MenuWindow);
+        staffButton->setObjectName(QStringLiteral("staffButton"));
+        staffButton->setGeometry(QRect(560, 350, 260, 210));
+        sizePolicy.setHeightForWidth(staffButton->sizePolicy().hasHeightForWidth());
+        staffButton->setSizePolicy(sizePolicy);
+        staffButton->setFont(font);
+        staffButton->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
+"}"));
+        staffButton->setFlat(false);
         label = new QLabel(MenuWindow);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(10, 10, 1000, 72));
+        label->setGeometry(QRect(10, 10, 1024, 70));
         QFont font1;
-        font1.setFamily(QStringLiteral("Umpush"));
+        font1.setFamily(QStringLiteral("Symbola"));
         font1.setPointSize(48);
         font1.setBold(true);
-        font1.setItalic(true);
         font1.setWeight(75);
         label->setFont(font1);
-        label->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+        label->setStyleSheet(QLatin1String("color: rgb(0, 0, 127);\n"
+"\n"
+"\n"
+""));
+        label->setScaledContents(true);
         label->setAlignment(Qt::AlignCenter);
 
         retranslateUi(MenuWindow);
@@ -140,10 +151,10 @@ public:
     {
         MenuWindow->setWindowTitle(QApplication::translate("MenuWindow", "Form", 0));
         pictureLabel->setText(QString());
+        reportButton->setText(QApplication::translate("MenuWindow", "Report", 0));
         inventoryButton->setText(QApplication::translate("MenuWindow", "Inventory", 0));
         saleButton->setText(QApplication::translate("MenuWindow", "Sales", 0));
         staffButton->setText(QApplication::translate("MenuWindow", "Staff", 0));
-        reportButton->setText(QApplication::translate("MenuWindow", "Report", 0));
         label->setText(QApplication::translate("MenuWindow", "OneSol Point of Sale System", 0));
     } // retranslateUi
 

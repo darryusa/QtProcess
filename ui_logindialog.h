@@ -27,18 +27,18 @@ class Ui_LoginDialog
 public:
     QWidget *gridLayoutWidget;
     QGridLayout *passwordButtonLayout;
-    QPushButton *pushButtonBack;
-    QPushButton *pushButton1;
-    QPushButton *pushButton7;
-    QPushButton *pushButton5;
-    QPushButton *pushButton4;
     QPushButton *pushButton2;
-    QPushButton *pushButton8;
-    QPushButton *pushButton0;
+    QPushButton *pushButton0_2;
+    QPushButton *pushButton5;
     QPushButton *pushButton3;
+    QPushButton *pushButton7;
+    QPushButton *pushButtonBack;
+    QPushButton *pushButton8;
+    QPushButton *pushButtonEnter_2;
     QPushButton *pushButton6;
+    QPushButton *pushButton1_2;
     QPushButton *pushButton9;
-    QPushButton *pushButtonEnter;
+    QPushButton *pushButton4;
     QLineEdit *lineEdit;
     QPushButton *backButton;
     QButtonGroup *buttonGroup;
@@ -47,140 +47,39 @@ public:
     {
         if (LoginDialog->objectName().isEmpty())
             LoginDialog->setObjectName(QStringLiteral("LoginDialog"));
-        LoginDialog->resize(512, 600);
+        LoginDialog->resize(511, 600);
         QFont font;
-        font.setPointSize(16);
+        font.setPointSize(48);
         LoginDialog->setFont(font);
-        LoginDialog->setStyleSheet(QStringLiteral("background-color: rgb(164, 179, 60)"));
+        LoginDialog->setStyleSheet(QLatin1String("border-image: url(:/image/featured-overlayOK.png);\n"
+"\n"
+"background-color: rgb(211, 225, 178);"));
         LoginDialog->setInputMethodHints(Qt::ImhNoAutoUppercase|Qt::ImhSensitiveData);
         LoginDialog->setModal(false);
         gridLayoutWidget = new QWidget(LoginDialog);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(0, 110, 511, 491));
+        gridLayoutWidget->setGeometry(QRect(0, 120, 511, 481));
         passwordButtonLayout = new QGridLayout(gridLayoutWidget);
         passwordButtonLayout->setObjectName(QStringLiteral("passwordButtonLayout"));
         passwordButtonLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         passwordButtonLayout->setContentsMargins(10, 0, 10, 0);
-        pushButtonBack = new QPushButton(gridLayoutWidget);
-        buttonGroup = new QButtonGroup(LoginDialog);
-        buttonGroup->setObjectName(QStringLiteral("buttonGroup"));
-        buttonGroup->addButton(pushButtonBack);
-        pushButtonBack->setObjectName(QStringLiteral("pushButtonBack"));
-        pushButtonBack->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
-"}\n"
-"QPushButton:pressed{\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}"));
-
-        passwordButtonLayout->addWidget(pushButtonBack, 3, 0, 1, 1);
-
-        pushButton1 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton1);
-        pushButton1->setObjectName(QStringLiteral("pushButton1"));
-        pushButton1->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
-"}\n"
-"QPushButton:pressed{\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}"));
-
-        passwordButtonLayout->addWidget(pushButton1, 0, 0, 1, 1);
-
-        pushButton7 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton7);
-        pushButton7->setObjectName(QStringLiteral("pushButton7"));
-        pushButton7->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
-"}\n"
-"QPushButton:pressed{\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}"));
-
-        passwordButtonLayout->addWidget(pushButton7, 2, 0, 1, 1);
-
-        pushButton5 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton5);
-        pushButton5->setObjectName(QStringLiteral("pushButton5"));
-        pushButton5->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
-"}\n"
-"QPushButton:pressed{\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}"));
-
-        passwordButtonLayout->addWidget(pushButton5, 1, 1, 1, 1);
-
-        pushButton4 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton4);
-        pushButton4->setObjectName(QStringLiteral("pushButton4"));
-        pushButton4->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
-"}\n"
-"QPushButton:pressed{\n"
-"    background-color: red;\n"
-"    border-style: inset;\n"
-"}"));
-
-        passwordButtonLayout->addWidget(pushButton4, 1, 0, 1, 1);
-
         pushButton2 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton2);
         pushButton2->setObjectName(QStringLiteral("pushButton2"));
-        pushButton2->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
+        pushButton2->setEnabled(true);
+        QFont font1;
+        font1.setPointSize(48);
+        font1.setBold(false);
+        font1.setItalic(false);
+        font1.setWeight(50);
+        pushButton2->setFont(font1);
+        pushButton2->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    background-color: red;\n"
@@ -189,61 +88,58 @@ public:
 
         passwordButtonLayout->addWidget(pushButton2, 0, 1, 1, 1);
 
-        pushButton8 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton8);
-        pushButton8->setObjectName(QStringLiteral("pushButton8"));
-        pushButton8->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
+        pushButton0_2 = new QPushButton(gridLayoutWidget);
+        pushButton0_2->setObjectName(QStringLiteral("pushButton0_2"));
+        pushButton0_2->setEnabled(true);
+        pushButton0_2->setFont(font1);
+        pushButton0_2->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    background-color: red;\n"
 "    border-style: inset;\n"
 "}"));
 
-        passwordButtonLayout->addWidget(pushButton8, 2, 1, 1, 1);
+        passwordButtonLayout->addWidget(pushButton0_2, 4, 1, 1, 1);
 
-        pushButton0 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton0);
-        pushButton0->setObjectName(QStringLiteral("pushButton0"));
-        pushButton0->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
+        pushButton5 = new QPushButton(gridLayoutWidget);
+        pushButton5->setObjectName(QStringLiteral("pushButton5"));
+        pushButton5->setEnabled(true);
+        pushButton5->setFont(font1);
+        pushButton5->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    background-color: red;\n"
 "    border-style: inset;\n"
 "}"));
 
-        passwordButtonLayout->addWidget(pushButton0, 3, 1, 1, 1);
+        passwordButtonLayout->addWidget(pushButton5, 2, 1, 1, 1);
 
         pushButton3 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton3);
         pushButton3->setObjectName(QStringLiteral("pushButton3"));
-        pushButton3->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
+        pushButton3->setEnabled(true);
+        pushButton3->setFont(font1);
+        pushButton3->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    background-color: red;\n"
@@ -252,82 +148,188 @@ public:
 
         passwordButtonLayout->addWidget(pushButton3, 0, 2, 1, 1);
 
-        pushButton6 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton6);
-        pushButton6->setObjectName(QStringLiteral("pushButton6"));
-        pushButton6->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
+        pushButton7 = new QPushButton(gridLayoutWidget);
+        pushButton7->setObjectName(QStringLiteral("pushButton7"));
+        pushButton7->setEnabled(true);
+        pushButton7->setFont(font1);
+        pushButton7->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    background-color: red;\n"
 "    border-style: inset;\n"
 "}"));
 
-        passwordButtonLayout->addWidget(pushButton6, 1, 2, 1, 1);
+        passwordButtonLayout->addWidget(pushButton7, 3, 0, 1, 1);
+
+        pushButtonBack = new QPushButton(gridLayoutWidget);
+        pushButtonBack->setObjectName(QStringLiteral("pushButtonBack"));
+        pushButtonBack->setEnabled(true);
+        pushButtonBack->setFont(font1);
+        pushButtonBack->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}"));
+
+        passwordButtonLayout->addWidget(pushButtonBack, 4, 2, 1, 1);
+
+        pushButton8 = new QPushButton(gridLayoutWidget);
+        pushButton8->setObjectName(QStringLiteral("pushButton8"));
+        pushButton8->setEnabled(true);
+        pushButton8->setFont(font1);
+        pushButton8->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}"));
+
+        passwordButtonLayout->addWidget(pushButton8, 3, 1, 1, 1);
+
+        pushButtonEnter_2 = new QPushButton(gridLayoutWidget);
+        pushButtonEnter_2->setObjectName(QStringLiteral("pushButtonEnter_2"));
+        pushButtonEnter_2->setEnabled(true);
+        pushButtonEnter_2->setFont(font1);
+        pushButtonEnter_2->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}"));
+
+        passwordButtonLayout->addWidget(pushButtonEnter_2, 4, 0, 1, 1);
+
+        pushButton6 = new QPushButton(gridLayoutWidget);
+        pushButton6->setObjectName(QStringLiteral("pushButton6"));
+        pushButton6->setEnabled(true);
+        pushButton6->setFont(font1);
+        pushButton6->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}"));
+
+        passwordButtonLayout->addWidget(pushButton6, 2, 2, 1, 1);
+
+        pushButton1_2 = new QPushButton(gridLayoutWidget);
+        pushButton1_2->setObjectName(QStringLiteral("pushButton1_2"));
+        QFont font2;
+        font2.setPointSize(48);
+        font2.setBold(false);
+        font2.setItalic(false);
+        font2.setWeight(50);
+        font2.setStyleStrategy(QFont::PreferAntialias);
+        pushButton1_2->setFont(font2);
+        pushButton1_2->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    background-color: red;\n"
+"    border-style: inset;\n"
+"}"));
+
+        passwordButtonLayout->addWidget(pushButton1_2, 0, 0, 1, 1);
 
         pushButton9 = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButton9);
         pushButton9->setObjectName(QStringLiteral("pushButton9"));
-        pushButton9->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
+        pushButton9->setEnabled(true);
+        pushButton9->setFont(font1);
+        pushButton9->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    background-color: red;\n"
 "    border-style: inset;\n"
 "}"));
 
-        passwordButtonLayout->addWidget(pushButton9, 2, 2, 1, 1);
+        passwordButtonLayout->addWidget(pushButton9, 3, 2, 1, 1);
 
-        pushButtonEnter = new QPushButton(gridLayoutWidget);
-        buttonGroup->addButton(pushButtonEnter);
-        pushButtonEnter->setObjectName(QStringLiteral("pushButtonEnter"));
-        pushButtonEnter->setStyleSheet(QLatin1String("QPushButton{\n"
-"    background-color: white;\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 16px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    width: 4em;\n"
-"	height: 4em;\n"
-"    padding: 6px;\n"
+        pushButton4 = new QPushButton(gridLayoutWidget);
+        pushButton4->setObjectName(QStringLiteral("pushButton4"));
+        pushButton4->setEnabled(true);
+        pushButton4->setFont(font1);
+        pushButton4->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(0,0,0);\n"
 "}\n"
 "QPushButton:pressed{\n"
 "    background-color: red;\n"
 "    border-style: inset;\n"
 "}"));
 
-        passwordButtonLayout->addWidget(pushButtonEnter, 3, 2, 1, 1);
+        passwordButtonLayout->addWidget(pushButton4, 2, 0, 1, 1);
 
         lineEdit = new QLineEdit(LoginDialog);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(0, 0, 411, 111));
-        QFont font1;
-        font1.setPointSize(58);
-        lineEdit->setFont(font1);
+        lineEdit->setGeometry(QRect(10, 10, 411, 111));
+        QFont font3;
+        font3.setPointSize(58);
+        lineEdit->setFont(font3);
         lineEdit->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
         lineEdit->setInputMethodHints(Qt::ImhDigitsOnly|Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData);
         lineEdit->setEchoMode(QLineEdit::Password);
         lineEdit->setAlignment(Qt::AlignCenter);
         backButton = new QPushButton(LoginDialog);
         backButton->setObjectName(QStringLiteral("backButton"));
-        backButton->setGeometry(QRect(411, 0, 101, 111));
+        backButton->setGeometry(QRect(410, 10, 101, 111));
+        backButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	border-radius: 10px;\n"
+"	color: rgb(255, 255, 255);"));
         QIcon icon;
         icon.addFile(QStringLiteral(":/image/backButton.png"), QSize(), QIcon::Normal, QIcon::Off);
         backButton->setIcon(icon);
@@ -343,18 +345,18 @@ public:
     void retranslateUi(QDialog *LoginDialog)
     {
         LoginDialog->setWindowTitle(QApplication::translate("LoginDialog", "Dialog", 0));
-        pushButtonBack->setText(QApplication::translate("LoginDialog", "Back", 0));
-        pushButton1->setText(QApplication::translate("LoginDialog", "1", 0));
-        pushButton7->setText(QApplication::translate("LoginDialog", "7", 0));
-        pushButton5->setText(QApplication::translate("LoginDialog", "5", 0));
-        pushButton4->setText(QApplication::translate("LoginDialog", "4", 0));
         pushButton2->setText(QApplication::translate("LoginDialog", "2", 0));
-        pushButton8->setText(QApplication::translate("LoginDialog", "8", 0));
-        pushButton0->setText(QApplication::translate("LoginDialog", "0", 0));
+        pushButton0_2->setText(QApplication::translate("LoginDialog", "0", 0));
+        pushButton5->setText(QApplication::translate("LoginDialog", "5", 0));
         pushButton3->setText(QApplication::translate("LoginDialog", "3", 0));
+        pushButton7->setText(QApplication::translate("LoginDialog", "7", 0));
+        pushButtonBack->setText(QApplication::translate("LoginDialog", "Back", 0));
+        pushButton8->setText(QApplication::translate("LoginDialog", "8", 0));
+        pushButtonEnter_2->setText(QApplication::translate("LoginDialog", "Enter", 0));
         pushButton6->setText(QApplication::translate("LoginDialog", "6", 0));
+        pushButton1_2->setText(QApplication::translate("LoginDialog", "1", 0));
         pushButton9->setText(QApplication::translate("LoginDialog", "9", 0));
-        pushButtonEnter->setText(QApplication::translate("LoginDialog", "Enter", 0));
+        pushButton4->setText(QApplication::translate("LoginDialog", "4", 0));
         backButton->setText(QString());
     } // retranslateUi
 

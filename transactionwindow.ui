@@ -103,9 +103,9 @@
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>89</x>
      <y>10</y>
-     <width>1000</width>
+     <width>921</width>
      <height>61</height>
     </rect>
    </property>
@@ -118,36 +118,12 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>0</y>
-      <width>931</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>36</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: black;</string>
-    </property>
-    <property name="text">
-     <string>Sale Transaction</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="name">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>780</x>
       <y>0</y>
-      <width>121</width>
+      <width>221</width>
       <height>61</height>
      </rect>
     </property>
@@ -156,10 +132,42 @@
       <pointsize>18</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 127);</string>
+    </property>
     <property name="text">
      <string>Name</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>0</y>
+      <width>891</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Symbola</family>
+      <pointsize>36</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 127);</string>
+    </property>
+    <property name="text">
+     <string>Sale Transaction</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <zorder>label_4</zorder>
+   <zorder>name</zorder>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
@@ -229,6 +237,9 @@
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="1" column="0">
@@ -263,6 +274,9 @@
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="2" column="0">
@@ -296,6 +310,9 @@
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -413,10 +430,6 @@
      </property>
     </column>
    </widget>
-   <zorder>frame</zorder>
-   <zorder>label</zorder>
-   <zorder>treeWidget</zorder>
-   <zorder>label_4</zorder>
   </widget>
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
@@ -483,7 +496,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>true</bool>
@@ -624,7 +637,16 @@ QTableView QTableCornerButton::section {
     border: 2px outset red;
 }</string>
      </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::SelectedClicked</set>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
     </widget>
+    <zorder>massageTableView</zorder>
+    <zorder>label_4</zorder>
+    <zorder>label_4</zorder>
    </widget>
    <widget class="QWidget" name="hairTab">
     <attribute name="title">
@@ -729,33 +751,6 @@ QTableView QTableCornerButton::section {
     </widget>
    </widget>
   </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>1001</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Symbola</family>
-     <pointsize>36</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 127);</string>
-   </property>
-   <property name="text">
-    <string>Sale Transaction</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QPushButton" name="returnButton">
    <property name="geometry">
     <rect>
@@ -774,7 +769,7 @@ background-color: none;
     <string/>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="resource.qrc">
      <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
    </property>
    <property name="iconSize">
@@ -784,6 +779,35 @@ background-color: none;
     </size>
    </property>
   </widget>
+  <widget class="QPushButton" name="returnButton_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(211, 225, 148);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>71</width>
+     <height>31</height>
+    </size>
+   </property>
+  </widget>
+  <zorder>returnButton</zorder>
   <zorder>pictureLabel</zorder>
   <zorder>deleteButton</zorder>
   <zorder>checkoutButton</zorder>
@@ -791,7 +815,7 @@ background-color: none;
   <zorder>frame_3</zorder>
   <zorder>formLayoutWidget</zorder>
   <zorder>tabWidget</zorder>
-  <zorder>label_4</zorder>
+  <zorder>returnButton_2</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

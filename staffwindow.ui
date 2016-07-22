@@ -916,14 +916,42 @@ QPushButton::checked{
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-background-color: none;
+background-color: rgb(211, 225, 148);
 }</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="resource.qrc">
+     <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>71</width>
+     <height>31</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnButton_2">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>570</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(211, 225, 148);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
      <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
    </property>
    <property name="iconSize">
@@ -947,6 +975,7 @@ background-color: none;
   <zorder>pINLabel</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>returnButton</zorder>
+  <zorder>returnButton_2</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>
@@ -979,8 +1008,8 @@ background-color: none;
      <y>547</y>
     </hint>
     <hint type="destinationlabel">
-     <x>324</x>
-     <y>137</y>
+     <x>460</x>
+     <y>135</y>
     </hint>
    </hints>
   </connection>

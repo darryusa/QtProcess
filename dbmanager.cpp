@@ -10,7 +10,7 @@ DbManager::DbManager()
    QString folderPath = QCoreApplication::applicationDirPath();
    QString dbPath = QDir(folderPath).filePath("processDB");
    m_db.setDatabaseName(dbPath);
-
+    qDebug() << dbPath;
    if (!m_db.open())
    {
       qDebug() << "Error: connection with database fail";

@@ -21,30 +21,41 @@ public:
     static void setSender(int source);
     static int getSender();
 
-
+signals:
+    void returnToMain();
 private slots:
-    void on_tableView_activated(const QModelIndex &index);
+
 
     void transactionLoggedin();
 
     void on_searchBarLineEdit_textChanged(const QString &arg1);
 
-    void on_allTableView_activated(const QModelIndex &index);
-
     void on_deleteButton_clicked();
 
-    void on_treeWidget_activated(const QModelIndex &index);
+    void on_allTableView_clicked(const QModelIndex &index);
+
+    void on_treeWidget_clicked(const QModelIndex &index);
+
+    void on_checkoutButton_clicked();
+
+    void on_returnButton_2_clicked();
 
 private:
+    void updateTotal(double val1);
     int static sender;
     Ui::TransactionWindow *ui;
     QSqlQueryModel *model;
     void populateTables();
     QSortFilterProxyModel *sort_filter;
     QModelIndex matchingIndex;
-    void AddRoot(QString name,float price,QString description);
+    void AddRoot(QString name,double price,QString description,int id);
     void AddChild(QTreeWidgetItem *parent,QString description);
     QString selectedName;
+    double subTotal;
+    double grandTotal;
+    double salesTax = .06;
+    double taxTotal;
+    void updateDatabase();
 };
 
 #endif // TRANSACTIONWINDOW_H

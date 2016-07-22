@@ -5,5 +5,6 @@
         <file>image/Vs2.0BamBoo.jpg</file>
         <file>image/whiteboxBorder.jpeg</file>
         <file>image/featured-overlayOK.png</file>
+        <file>image/return.png</file>
     </qresource>
 </RCC>

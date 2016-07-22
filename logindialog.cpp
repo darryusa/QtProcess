@@ -10,7 +10,7 @@ LoginDialog::LoginDialog(QWidget *parent ,const QString & loginSender) :
     ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);
-    DbManagerInstance.open();
+
     loginSender2 = loginSender;
     for ( int i = 0; i < ui->passwordButtonLayout->count(); i++ )
     {
