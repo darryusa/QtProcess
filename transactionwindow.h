@@ -6,8 +6,7 @@
 #include <QtSql>
 #include <qsortfilterproxymodel.h>
 #include <QTreeWidgetItem>
-//trans test 2
-//trans test 3
+
 namespace Ui {
 class TransactionWindow;
 }
@@ -19,11 +18,14 @@ class TransactionWindow : public QWidget
 public:
     explicit TransactionWindow(QWidget *parent = 0);
     ~TransactionWindow();
+    static void setSender(int source);
+    static int getSender();
+
 
 private slots:
     void on_tableView_activated(const QModelIndex &index);
 
-    void on_pushButton_clicked();
+    void transactionLoggedin();
 
     void on_searchBarLineEdit_textChanged(const QString &arg1);
 
@@ -34,6 +36,7 @@ private slots:
     void on_treeWidget_activated(const QModelIndex &index);
 
 private:
+    int static sender;
     Ui::TransactionWindow *ui;
     QSqlQueryModel *model;
     void populateTables();

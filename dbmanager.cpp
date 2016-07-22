@@ -3,6 +3,7 @@
 #include <QSettings>
 #include <QCoreApplication>
 #include <QDir>
+#include <transactionwindow.h>
 DbManager::DbManager()
 {
    m_db = QSqlDatabase::addDatabase("QSQLITE");
@@ -38,13 +39,29 @@ bool DbManager::addPerson(const QString& name)
 
    return success;
 }
+void DbManager::open()
+{
+    if(m_db.open())
+    {
+
+    }
+    else
+    {
+        qDebug() << "dbnot open";
+    }
+}
+
+void DbManager::close()
+{
+    m_db.close();
+}
 
 bool DbManager::pinChecker(QString& pin, QString& loginSender2)
 {
     bool success = false;
     QSqlQuery query;
     qDebug() <<loginSender2;
-    query.prepare("SELECT PIN, privilige FROM employee");
+    query.prepare("SELECT PIN,ID privilige FROM employee");
     if(query.exec())
     {
         while(query.next() )
@@ -54,6 +71,10 @@ bool DbManager::pinChecker(QString& pin, QString& loginSender2)
                 if(((loginSender2 == "staff" || loginSender2 == "inventory" || loginSender2 == "report")
                     && query.value(1) >1) || (loginSender2 == "sale"))
                 {
+                    if(loginSender2 == "sale")
+                    {
+                        TransactionWindow::setSender(query.value(1).toInt());
+                    }
                     success = true;
                     break;
                 }

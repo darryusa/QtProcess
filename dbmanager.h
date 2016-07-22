@@ -14,8 +14,10 @@ public:
     bool addPerson(const QString& name);
     bool printPerson();
     bool pinChecker(QString& pin,QString& loginSender2);
+    void open();
+    void close();
 private:
     QSqlDatabase m_db;
 };
-typedef Singleton<DbManager> dbManager;
+
 #endif // DBMANAGER_H

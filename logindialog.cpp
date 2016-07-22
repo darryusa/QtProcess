@@ -3,13 +3,14 @@
 #include <dbmanager.h>
 #include <QDebug>
 #include <QSignalMapper>
-
+#include <transactionwindow.h>
+#define DbManagerInstance Singleton<DbManager>::instance()
 LoginDialog::LoginDialog(QWidget *parent ,const QString & loginSender) :
     QDialog(parent),
     ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);
-
+    DbManagerInstance.open();
     loginSender2 = loginSender;
     for ( int i = 0; i < ui->passwordButtonLayout->count(); i++ )
     {
@@ -101,16 +102,17 @@ bool LoginDialog::passwordCheck(QString loginSender2)
 {
 
     QString currentText = ui->lineEdit->text();
-    DbManager *dbmanager = new DbManager();
+
     bool correctPIN = false;
     // Password: "0000" for testing. Check database here.
-    if ( dbmanager->pinChecker(currentText,loginSender2))
+    if ( DbManagerInstance.pinChecker(currentText,loginSender2))
     {
         ui->lineEdit->setMaxLength( 256 );
         ui->lineEdit->setEchoMode( QLineEdit::Normal );
 
         ui->lineEdit->setText("Success");
         correctPIN = true;
+
     }
     else
     {

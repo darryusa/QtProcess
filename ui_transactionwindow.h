@@ -35,6 +35,7 @@ public:
     QLabel *pictureLabel;
     QFrame *frame_2;
     QLabel *label_4;
+    QLabel *name;
     QFrame *frame_3;
     QFrame *frame;
     QVBoxLayout *verticalLayout;
@@ -108,7 +109,7 @@ public:
         frame_2 = new QFrame(TransactionWindow);
         frame_2->setObjectName(QStringLiteral("frame_2"));
         frame_2->setGeometry(QRect(10, 10, 1000, 61));
-        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(90, 130, 31);"));
+        frame_2->setStyleSheet(QStringLiteral("background-color:none;"));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         label_4 = new QLabel(frame_2);
@@ -117,8 +118,14 @@ public:
         QFont font1;
         font1.setPointSize(36);
         label_4->setFont(font1);
-        label_4->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+        label_4->setStyleSheet(QStringLiteral("color: black;"));
         label_4->setAlignment(Qt::AlignCenter);
+        name = new QLabel(frame_2);
+        name->setObjectName(QStringLiteral("name"));
+        name->setGeometry(QRect(880, 0, 121, 61));
+        QFont font2;
+        font2.setPointSize(18);
+        name->setFont(font2);
         frame_3 = new QFrame(TransactionWindow);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(80, 80, 481, 501));
@@ -197,30 +204,44 @@ public:
         label = new QLabel(frame_3);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(0, 0, 481, 41));
-        QFont font2;
-        font2.setPointSize(26);
-        font2.setBold(false);
-        font2.setWeight(50);
-        label->setFont(font2);
+        QFont font3;
+        font3.setPointSize(26);
+        font3.setBold(false);
+        font3.setWeight(50);
+        label->setFont(font3);
         label->setStyleSheet(QStringLiteral("color: rgb(0, 0, 0);"));
         label->setAlignment(Qt::AlignCenter);
         treeWidget = new QTreeWidget(frame_3);
+        QFont font4;
+        font4.setPointSize(9);
+        QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
+        __qtreewidgetitem->setFont(0, font4);
+        treeWidget->setHeaderItem(__qtreewidgetitem);
         treeWidget->setObjectName(QStringLiteral("treeWidget"));
         treeWidget->setGeometry(QRect(0, 50, 481, 341));
         treeWidget->setMinimumSize(QSize(25, 25));
-        QFont font3;
-        font3.setPointSize(14);
-        treeWidget->setFont(font3);
+        QFont font5;
+        font5.setPointSize(14);
+        treeWidget->setFont(font5);
         treeWidget->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
-"pad: 15px"));
+""));
         treeWidget->setFrameShape(QFrame::NoFrame);
         treeWidget->setDragDropMode(QAbstractItemView::NoDragDrop);
         treeWidget->setSelectionMode(QAbstractItemView::SingleSelection);
         treeWidget->setUniformRowHeights(true);
         treeWidget->setAnimated(true);
-        treeWidget->setColumnCount(0);
+        treeWidget->setAllColumnsShowFocus(true);
+        treeWidget->setWordWrap(true);
+        treeWidget->setColumnCount(3);
         treeWidget->header()->setVisible(false);
-        treeWidget->header()->setCascadingSectionResizes(true);
+        treeWidget->header()->setCascadingSectionResizes(false);
+        treeWidget->header()->setDefaultSectionSize(100);
+        treeWidget->header()->setMinimumSectionSize(26);
+        treeWidget->header()->setStretchLastSection(false);
+        frame->raise();
+        label->raise();
+        treeWidget->raise();
+        label_4->raise();
         formLayoutWidget = new QWidget(TransactionWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
         formLayoutWidget->setGeometry(QRect(590, 80, 421, 31));
@@ -410,10 +431,11 @@ public:
         frame_3->raise();
         formLayoutWidget->raise();
         tabWidget->raise();
+        label_4->raise();
 
         retranslateUi(TransactionWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(TransactionWindow);
@@ -426,10 +448,15 @@ public:
         checkoutButton->setText(QApplication::translate("TransactionWindow", "CHECK OUT", 0));
         pictureLabel->setText(QString());
         label_4->setText(QApplication::translate("TransactionWindow", "Sale Transaction", 0));
+        name->setText(QApplication::translate("TransactionWindow", "Name", 0));
         subTotalLabel->setText(QApplication::translate("TransactionWindow", "Sub Total: ", 0));
         taxLabel->setText(QApplication::translate("TransactionWindow", "Tax", 0));
         totalLabel->setText(QApplication::translate("TransactionWindow", "Total", 0));
         label->setText(QApplication::translate("TransactionWindow", "Bill of Sale", 0));
+        QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
+        ___qtreewidgetitem->setText(2, QApplication::translate("TransactionWindow", "Price", 0));
+        ___qtreewidgetitem->setText(1, QApplication::translate("TransactionWindow", "Quantity", 0));
+        ___qtreewidgetitem->setText(0, QApplication::translate("TransactionWindow", "Name", 0));
         searchBarLabel->setText(QApplication::translate("TransactionWindow", "searchBar", 0));
         tabWidget->setTabText(tabWidget->indexOf(allTab), QApplication::translate("TransactionWindow", "All", 0));
         tabWidget->setTabText(tabWidget->indexOf(massageTab), QApplication::translate("TransactionWindow", "Massage ", 0));

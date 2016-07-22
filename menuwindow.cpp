@@ -2,6 +2,7 @@
 #include <logindialog.h>
 #include <ui_menuwindow.h>
 #include <QDebug>
+#include <dbmanager.h>
 MenuWindow::MenuWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MenuWindow)
