@@ -31,6 +31,7 @@ private:
 signals:
     void staffLogin();
     void reportLogin();
+    void saleLogginSignal();
 
 private slots:
     void UserLoggedIn();

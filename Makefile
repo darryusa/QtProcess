@@ -2986,12 +2986,14 @@ staffwindow.o: staffwindow.cpp staffwindow.h \
 		../../Qt/5.7/gcc_64/include/QtGui/qinputmethod.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QButtonGroup \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QFrame \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QHBoxLayout \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QFormLayout \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qformlayout.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QLayout \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qlayout.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qboxlayout.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QHBoxLayout \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QHeaderView \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qheaderview.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QLabel \
@@ -3005,9 +3007,11 @@ staffwindow.o: staffwindow.cpp staffwindow.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QRadioButton \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qradiobutton.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QSpacerItem \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QTableView \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtableview.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QVBoxLayout \
 		dbmanager.h \
 		../../Qt/5.7/gcc_64/include/QtCore/QString \
 		../../Qt/5.7/gcc_64/include/QtSql/QSqlDatabase \

@@ -36,7 +36,8 @@ HEADERS  += onesolmain.h \
     ui_transactionwindow.h \
     pinnumpad.h \
     ui_pinnumpad.h \
-    inventorywindow.h
+    inventorywindow.h \
+    call_once.h
 
 FORMS += \
     staffwindow.ui \

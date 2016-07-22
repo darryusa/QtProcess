@@ -772,6 +772,9 @@ QScrollBar::sub-line:vertical {
 
 </string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="modifyPINButton">
    <property name="geometry">
@@ -798,7 +801,7 @@ QScrollBar::sub-line:vertical {
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton { 
-	border-radius: 8px; 
+	border-radius: 12px; 
 	color:rgb(0, 0, 0);
 	background-color: red; 
 } 
