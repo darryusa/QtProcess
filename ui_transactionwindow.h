@@ -33,9 +33,6 @@ public:
     QPushButton *deleteButton;
     QPushButton *checkoutButton;
     QLabel *pictureLabel;
-    QFrame *frame_2;
-    QLabel *name;
-    QLabel *label_4;
     QFrame *frame_3;
     QFrame *frame;
     QVBoxLayout *verticalLayout;
@@ -65,6 +62,8 @@ public:
     QTableView *itemTableview;
     QPushButton *returnButton;
     QPushButton *returnButton_2;
+    QLabel *label_4;
+    QLabel *name;
 
     void setupUi(QWidget *TransactionWindow)
     {
@@ -86,7 +85,7 @@ public:
 "	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
 "\n"
 "	border-radius: 20px;\n"
-"	color: rgb(255, 255, 255);\n"
+"	color: rgb(0, 0, 127);\n"
 "}"));
         checkoutButton = new QPushButton(TransactionWindow);
         checkoutButton->setObjectName(QStringLiteral("checkoutButton"));
@@ -99,7 +98,7 @@ public:
 "	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
 "\n"
 "	border-radius: 20px;\n"
-"	color: rgb(255, 255, 255);\n"
+"	color: rgb(0, 0, 127);\n"
 "}"));
         pictureLabel = new QLabel(TransactionWindow);
         pictureLabel->setObjectName(QStringLiteral("pictureLabel"));
@@ -108,32 +107,6 @@ public:
         pictureLabel->setFrameShadow(QFrame::Raised);
         pictureLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/Vs2.0BamBoo.jpg")));
         pictureLabel->setScaledContents(true);
-        frame_2 = new QFrame(TransactionWindow);
-        frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(89, 10, 921, 61));
-        frame_2->setStyleSheet(QStringLiteral("background-color:none;"));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        name = new QLabel(frame_2);
-        name->setObjectName(QStringLiteral("name"));
-        name->setGeometry(QRect(780, 0, 221, 61));
-        QFont font1;
-        font1.setPointSize(18);
-        name->setFont(font1);
-        name->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
-        label_4 = new QLabel(frame_2);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(9, 0, 891, 61));
-        QFont font2;
-        font2.setFamily(QStringLiteral("Symbola"));
-        font2.setPointSize(36);
-        font2.setBold(true);
-        font2.setWeight(75);
-        label_4->setFont(font2);
-        label_4->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
-        label_4->setAlignment(Qt::AlignCenter);
-        label_4->raise();
-        name->raise();
         frame_3 = new QFrame(TransactionWindow);
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setGeometry(QRect(80, 80, 481, 501));
@@ -215,25 +188,25 @@ public:
         label = new QLabel(frame_3);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(0, 0, 481, 41));
-        QFont font3;
-        font3.setPointSize(26);
-        font3.setBold(false);
-        font3.setWeight(50);
-        label->setFont(font3);
+        QFont font1;
+        font1.setPointSize(26);
+        font1.setBold(false);
+        font1.setWeight(50);
+        label->setFont(font1);
         label->setStyleSheet(QStringLiteral("color: rgb(0, 0, 0);"));
         label->setAlignment(Qt::AlignCenter);
         treeWidget = new QTreeWidget(frame_3);
-        QFont font4;
-        font4.setPointSize(9);
+        QFont font2;
+        font2.setPointSize(9);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
-        __qtreewidgetitem->setFont(0, font4);
+        __qtreewidgetitem->setFont(0, font2);
         treeWidget->setHeaderItem(__qtreewidgetitem);
         treeWidget->setObjectName(QStringLiteral("treeWidget"));
         treeWidget->setGeometry(QRect(0, 50, 481, 341));
         treeWidget->setMinimumSize(QSize(25, 25));
-        QFont font5;
-        font5.setPointSize(14);
-        treeWidget->setFont(font5);
+        QFont font3;
+        font3.setPointSize(14);
+        treeWidget->setFont(font3);
         treeWidget->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
 ""));
         treeWidget->setFrameShape(QFrame::NoFrame);
@@ -370,9 +343,6 @@ public:
         massageTableView->setEditTriggers(QAbstractItemView::SelectedClicked);
         massageTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
         tabWidget->addTab(massageTab, QString());
-        massageTableView->raise();
-        label_4->raise();
-        label_4->raise();
         hairTab = new QWidget();
         hairTab->setObjectName(QStringLiteral("hairTab"));
         hairTableView = new QTableView(hairTab);
@@ -450,19 +420,37 @@ public:
         returnButton_2->setObjectName(QStringLiteral("returnButton_2"));
         returnButton_2->setGeometry(QRect(20, 20, 71, 31));
         returnButton_2->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: rgb(211, 225, 148);\n"
+"	background-color: rgb(140, 177, 63);\n"
+"\n"
 "}"));
         returnButton_2->setIcon(icon);
         returnButton_2->setIconSize(QSize(71, 31));
+        label_4 = new QLabel(TransactionWindow);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(100, 10, 891, 61));
+        QFont font4;
+        font4.setFamily(QStringLiteral("Symbola"));
+        font4.setPointSize(36);
+        font4.setBold(true);
+        font4.setWeight(75);
+        label_4->setFont(font4);
+        label_4->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
+        label_4->setAlignment(Qt::AlignCenter);
+        name = new QLabel(TransactionWindow);
+        name->setObjectName(QStringLiteral("name"));
+        name->setGeometry(QRect(770, 10, 221, 61));
+        name->setFont(font);
+        name->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         returnButton->raise();
         pictureLabel->raise();
         deleteButton->raise();
         checkoutButton->raise();
-        frame_2->raise();
         frame_3->raise();
         formLayoutWidget->raise();
         tabWidget->raise();
         returnButton_2->raise();
+        label_4->raise();
+        name->raise();
 
         retranslateUi(TransactionWindow);
 
@@ -478,8 +466,6 @@ public:
         deleteButton->setText(QApplication::translate("TransactionWindow", "DELETE", 0));
         checkoutButton->setText(QApplication::translate("TransactionWindow", "CHECK OUT", 0));
         pictureLabel->setText(QString());
-        name->setText(QApplication::translate("TransactionWindow", "Name", 0));
-        label_4->setText(QApplication::translate("TransactionWindow", "Sale Transaction", 0));
         subTotalLabel->setText(QApplication::translate("TransactionWindow", "Sub Total: ", 0));
         taxLabel->setText(QApplication::translate("TransactionWindow", "Tax", 0));
         totalLabel->setText(QApplication::translate("TransactionWindow", "Total", 0));
@@ -496,6 +482,8 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(itemsTab), QApplication::translate("TransactionWindow", "Items", 0));
         returnButton->setText(QString());
         returnButton_2->setText(QString());
+        label_4->setText(QApplication::translate("TransactionWindow", "Sale Transaction", 0));
+        name->setText(QApplication::translate("TransactionWindow", "Name", 0));
     } // retranslateUi
 
 };

@@ -53,7 +53,7 @@ public:
 ""));
         backButton = new QPushButton(PINNumPad);
         backButton->setObjectName(QStringLiteral("backButton"));
-        backButton->setGeometry(QRect(410, 10, 101, 111));
+        backButton->setGeometry(QRect(410, 0, 101, 118));
         backButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -78,8 +78,13 @@ public:
         pushButtonBack = new QPushButton(gridLayoutWidget);
         pushButtonBack->setObjectName(QStringLiteral("pushButtonBack"));
         pushButtonBack->setEnabled(true);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(pushButtonBack->sizePolicy().hasHeightForWidth());
+        pushButtonBack->setSizePolicy(sizePolicy);
         QFont font;
-        font.setPointSize(48);
+        font.setPointSize(36);
         font.setBold(false);
         font.setItalic(false);
         font.setWeight(50);
@@ -128,7 +133,12 @@ public:
         pushButton7 = new QPushButton(gridLayoutWidget);
         pushButton7->setObjectName(QStringLiteral("pushButton7"));
         pushButton7->setEnabled(true);
-        pushButton7->setFont(font);
+        QFont font2;
+        font2.setPointSize(48);
+        font2.setBold(false);
+        font2.setItalic(false);
+        font2.setWeight(50);
+        pushButton7->setFont(font2);
         pushButton7->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -148,7 +158,7 @@ public:
         pushButton5 = new QPushButton(gridLayoutWidget);
         pushButton5->setObjectName(QStringLiteral("pushButton5"));
         pushButton5->setEnabled(true);
-        pushButton5->setFont(font);
+        pushButton5->setFont(font2);
         pushButton5->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -168,7 +178,7 @@ public:
         pushButton4 = new QPushButton(gridLayoutWidget);
         pushButton4->setObjectName(QStringLiteral("pushButton4"));
         pushButton4->setEnabled(true);
-        pushButton4->setFont(font);
+        pushButton4->setFont(font2);
         pushButton4->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -188,7 +198,7 @@ public:
         pushButton2 = new QPushButton(gridLayoutWidget);
         pushButton2->setObjectName(QStringLiteral("pushButton2"));
         pushButton2->setEnabled(true);
-        pushButton2->setFont(font);
+        pushButton2->setFont(font2);
         pushButton2->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -208,7 +218,7 @@ public:
         pushButton8 = new QPushButton(gridLayoutWidget);
         pushButton8->setObjectName(QStringLiteral("pushButton8"));
         pushButton8->setEnabled(true);
-        pushButton8->setFont(font);
+        pushButton8->setFont(font2);
         pushButton8->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -228,7 +238,7 @@ public:
         pushButton0 = new QPushButton(gridLayoutWidget);
         pushButton0->setObjectName(QStringLiteral("pushButton0"));
         pushButton0->setEnabled(true);
-        pushButton0->setFont(font);
+        pushButton0->setFont(font2);
         pushButton0->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -248,7 +258,7 @@ public:
         pushButton3 = new QPushButton(gridLayoutWidget);
         pushButton3->setObjectName(QStringLiteral("pushButton3"));
         pushButton3->setEnabled(true);
-        pushButton3->setFont(font);
+        pushButton3->setFont(font2);
         pushButton3->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -268,7 +278,7 @@ public:
         pushButton6 = new QPushButton(gridLayoutWidget);
         pushButton6->setObjectName(QStringLiteral("pushButton6"));
         pushButton6->setEnabled(true);
-        pushButton6->setFont(font);
+        pushButton6->setFont(font2);
         pushButton6->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -288,7 +298,7 @@ public:
         pushButton9 = new QPushButton(gridLayoutWidget);
         pushButton9->setObjectName(QStringLiteral("pushButton9"));
         pushButton9->setEnabled(true);
-        pushButton9->setFont(font);
+        pushButton9->setFont(font2);
         pushButton9->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -308,6 +318,8 @@ public:
         pushButtonEnter = new QPushButton(gridLayoutWidget);
         pushButtonEnter->setObjectName(QStringLiteral("pushButtonEnter"));
         pushButtonEnter->setEnabled(true);
+        sizePolicy.setHeightForWidth(pushButtonEnter->sizePolicy().hasHeightForWidth());
+        pushButtonEnter->setSizePolicy(sizePolicy);
         pushButtonEnter->setFont(font);
         pushButtonEnter->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
@@ -327,10 +339,10 @@ public:
 
         lineEdit = new QLineEdit(PINNumPad);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(10, 10, 401, 111));
-        QFont font2;
-        font2.setPointSize(58);
-        lineEdit->setFont(font2);
+        lineEdit->setGeometry(QRect(0, 0, 411, 118));
+        QFont font3;
+        font3.setPointSize(58);
+        lineEdit->setFont(font3);
         lineEdit->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
         lineEdit->setInputMethodHints(Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData);
         lineEdit->setEchoMode(QLineEdit::Password);

@@ -85,7 +85,10 @@ public:
         returnButton->setObjectName(QStringLiteral("returnButton"));
         returnButton->setGeometry(QRect(20, 10, 71, 31));
         returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: none;\n"
+"\n"
+"	background-color: rgb(140, 177, 63);\n"
+"\n"
+"\n"
 "}"));
         QIcon icon;
         icon.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);

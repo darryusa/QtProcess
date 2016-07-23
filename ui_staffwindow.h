@@ -65,7 +65,6 @@ public:
     QRadioButton *managerRadioButton;
     QLabel *label;
     QPushButton *returnButton;
-    QPushButton *returnButton_2;
 
     void setupUi(QWidget *StaffWindow)
     {
@@ -294,7 +293,7 @@ public:
         font2.setWeight(75);
         cancelButton->setFont(font2);
         cancelButton->setStyleSheet(QLatin1String("QPushButton{\n"
-"	border-radius: 20px;\n"
+"	border-radius: 8px;\n"
 "\n"
 "\n"
 "	\n"
@@ -314,7 +313,7 @@ public:
         confirmButton->setFont(font2);
         confirmButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
-"	border-radius: 20px;\n"
+"	border-radius: 8px;\n"
 "	color: rgb(0, 0, 127);\n"
 "	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
 "}\n"
@@ -493,20 +492,13 @@ public:
         returnButton->setObjectName(QStringLiteral("returnButton"));
         returnButton->setGeometry(QRect(20, 10, 71, 31));
         returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: rgb(211, 225, 148);\n"
+"	background-color: rgb(140, 177, 63);\n"
+"\n"
 "}"));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
         returnButton->setIcon(icon1);
         returnButton->setIconSize(QSize(71, 31));
-        returnButton_2 = new QPushButton(StaffWindow);
-        returnButton_2->setObjectName(QStringLiteral("returnButton_2"));
-        returnButton_2->setGeometry(QRect(620, 570, 71, 31));
-        returnButton_2->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: rgb(211, 225, 148);\n"
-"}"));
-        returnButton_2->setIcon(icon1);
-        returnButton_2->setIconSize(QSize(71, 31));
         label->raise();
         employeeTitle->raise();
         formLayoutWidget->raise();
@@ -521,7 +513,6 @@ public:
         pINLabel->raise();
         layoutWidget->raise();
         returnButton->raise();
-        returnButton_2->raise();
 
         retranslateUi(StaffWindow);
         QObject::connect(addButton, SIGNAL(clicked()), firstNameLineEdit, SLOT(clear()));
@@ -559,7 +550,6 @@ public:
         managerRadioButton->setText(QApplication::translate("StaffWindow", "Manager", 0));
         label->setText(QString());
         returnButton->setText(QString());
-        returnButton_2->setText(QString());
     } // retranslateUi
 
 };

@@ -502,7 +502,7 @@ color: rgb(0, 0, 127);
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-radius: 20px;
+	border-radius: 8px;
 
 
 	
@@ -539,7 +539,7 @@ color: rgb(0, 0, 127);
    <property name="styleSheet">
     <string notr="true">QPushButton
 {
-	border-radius: 20px;
+	border-radius: 8px;
 	color: rgb(0, 0, 127);
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 }
@@ -916,35 +916,8 @@ QPushButton::checked{
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-background-color: rgb(211, 225, 148);
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="resource.qrc">
-     <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>71</width>
-     <height>31</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="returnButton_2">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>570</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-background-color: rgb(211, 225, 148);
+	background-color: rgb(140, 177, 63);
+
 }</string>
    </property>
    <property name="text">
@@ -975,7 +948,6 @@ background-color: rgb(211, 225, 148);
   <zorder>pINLabel</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>returnButton</zorder>
-  <zorder>returnButton_2</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

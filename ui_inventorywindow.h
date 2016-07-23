@@ -177,7 +177,7 @@ public:
         font1.setWeight(75);
         cancelButton->setFont(font1);
         cancelButton->setStyleSheet(QLatin1String("QPushButton{\n"
-"	border-radius: 20px;\n"
+"	border-radius: 8px;\n"
 "\n"
 "\n"
 "	\n"
@@ -239,7 +239,7 @@ public:
         confirmButton->setFont(font1);
         confirmButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
-"	border-radius: 20px;\n"
+"	border-radius: 8px;\n"
 "	color: rgb(0, 0, 127);\n"
 "	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
 "}\n"
@@ -321,6 +321,9 @@ public:
 "} \n"
 "\n"
 ""));
+        searchLineEdit->setText(QStringLiteral(""));
+        searchLineEdit->setMaxLength(32767);
+        searchLineEdit->setCursorPosition(0);
         inventoryTitle = new QLabel(InventoryWindow);
         inventoryTitle->setObjectName(QStringLiteral("inventoryTitle"));
         inventoryTitle->setGeometry(QRect(0, 0, 1024, 60));
@@ -341,7 +344,8 @@ public:
         returnButton->setObjectName(QStringLiteral("returnButton"));
         returnButton->setGeometry(QRect(20, 10, 71, 31));
         returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: none;\n"
+"	background-color: rgb(140, 177, 63);\n"
+"\n"
 "}"));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -389,6 +393,7 @@ public:
         addButton->setText(QApplication::translate("InventoryWindow", "Add", 0));
         confirmButton->setText(QApplication::translate("InventoryWindow", "Confirm", 0));
         searchIcon->setText(QString());
+        searchLineEdit->setInputMask(QString());
         inventoryTitle->setText(QApplication::translate("InventoryWindow", "Inventory", 0));
         returnButton->setText(QString());
         phoneNumberLineEdit->setText(QString());

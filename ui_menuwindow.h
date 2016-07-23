@@ -48,7 +48,7 @@ public:
         pictureLabel->setScaledContents(true);
         reportButton = new QPushButton(MenuWindow);
         reportButton->setObjectName(QStringLiteral("reportButton"));
-        reportButton->setGeometry(QRect(190, 350, 260, 210));
+        reportButton->setGeometry(QRect(169, 350, 281, 210));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -77,10 +77,16 @@ public:
         menuButtonGroup->setObjectName(QStringLiteral("menuButtonGroup"));
         menuButtonGroup->addButton(inventoryButton);
         inventoryButton->setObjectName(QStringLiteral("inventoryButton"));
-        inventoryButton->setGeometry(QRect(190, 100, 260, 210));
+        inventoryButton->setGeometry(QRect(169, 100, 281, 210));
         sizePolicy.setHeightForWidth(inventoryButton->sizePolicy().hasHeightForWidth());
         inventoryButton->setSizePolicy(sizePolicy);
-        inventoryButton->setFont(font);
+        QFont font1;
+        font1.setFamily(QStringLiteral("Sans Serif"));
+        font1.setPointSize(34);
+        font1.setBold(true);
+        font1.setItalic(false);
+        font1.setWeight(75);
+        inventoryButton->setFont(font1);
         inventoryButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -94,7 +100,7 @@ public:
         inventoryButton->setFlat(false);
         saleButton = new QPushButton(MenuWindow);
         saleButton->setObjectName(QStringLiteral("saleButton"));
-        saleButton->setGeometry(QRect(560, 100, 260, 210));
+        saleButton->setGeometry(QRect(560, 100, 281, 210));
         sizePolicy.setHeightForWidth(saleButton->sizePolicy().hasHeightForWidth());
         saleButton->setSizePolicy(sizePolicy);
         saleButton->setFont(font);
@@ -111,7 +117,7 @@ public:
         saleButton->setFlat(false);
         staffButton = new QPushButton(MenuWindow);
         staffButton->setObjectName(QStringLiteral("staffButton"));
-        staffButton->setGeometry(QRect(560, 350, 260, 210));
+        staffButton->setGeometry(QRect(560, 350, 281, 210));
         sizePolicy.setHeightForWidth(staffButton->sizePolicy().hasHeightForWidth());
         staffButton->setSizePolicy(sizePolicy);
         staffButton->setFont(font);
@@ -129,12 +135,12 @@ public:
         label = new QLabel(MenuWindow);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(10, 10, 1024, 70));
-        QFont font1;
-        font1.setFamily(QStringLiteral("Symbola"));
-        font1.setPointSize(48);
-        font1.setBold(true);
-        font1.setWeight(75);
-        label->setFont(font1);
+        QFont font2;
+        font2.setFamily(QStringLiteral("Symbola"));
+        font2.setPointSize(48);
+        font2.setBold(true);
+        font2.setWeight(75);
+        label->setFont(font2);
         label->setStyleSheet(QLatin1String("color: rgb(0, 0, 127);\n"
 "\n"
 "\n"

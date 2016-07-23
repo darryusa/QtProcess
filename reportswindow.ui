@@ -185,14 +185,15 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-background-color: none;
+	background-color: rgb(140, 177, 63);
+
 }</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="resource.qrc">
      <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
    </property>
    <property name="iconSize">

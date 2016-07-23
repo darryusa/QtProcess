@@ -37,7 +37,7 @@
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 20px;
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 127);
 }</string>
    </property>
    <property name="text">
@@ -68,7 +68,7 @@
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
 	border-radius: 20px;
-	color: rgb(255, 255, 255);
+	color: rgb(0, 0, 127);
 }</string>
    </property>
    <property name="text">
@@ -99,75 +99,6 @@
    <property name="scaledContents">
     <bool>true</bool>
    </property>
-  </widget>
-  <widget class="QFrame" name="frame_2">
-   <property name="geometry">
-    <rect>
-     <x>89</x>
-     <y>10</y>
-     <width>921</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color:none;</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLabel" name="name">
-    <property name="geometry">
-     <rect>
-      <x>780</x>
-      <y>0</y>
-      <width>221</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>18</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 127);</string>
-    </property>
-    <property name="text">
-     <string>Name</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>0</y>
-      <width>891</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Symbola</family>
-      <pointsize>36</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 127);</string>
-    </property>
-    <property name="text">
-     <string>Sale Transaction</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <zorder>label_4</zorder>
-   <zorder>name</zorder>
   </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
@@ -644,9 +575,6 @@ QTableView QTableCornerButton::section {
       <enum>QAbstractItemView::SelectRows</enum>
      </property>
     </widget>
-    <zorder>massageTableView</zorder>
-    <zorder>label_4</zorder>
-    <zorder>label_4</zorder>
    </widget>
    <widget class="QWidget" name="hairTab">
     <attribute name="title">
@@ -790,7 +718,8 @@ background-color: none;
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-background-color: rgb(211, 225, 148);
+	background-color: rgb(140, 177, 63);
+
 }</string>
    </property>
    <property name="text">
@@ -807,15 +736,66 @@ background-color: rgb(211, 225, 148);
     </size>
    </property>
   </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>10</y>
+     <width>891</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Symbola</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 127);</string>
+   </property>
+   <property name="text">
+    <string>Sale Transaction</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>10</y>
+     <width>221</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 127);</string>
+   </property>
+   <property name="text">
+    <string>Name</string>
+   </property>
+  </widget>
   <zorder>returnButton</zorder>
   <zorder>pictureLabel</zorder>
   <zorder>deleteButton</zorder>
   <zorder>checkoutButton</zorder>
-  <zorder>frame_2</zorder>
   <zorder>frame_3</zorder>
   <zorder>formLayoutWidget</zorder>
   <zorder>tabWidget</zorder>
   <zorder>returnButton_2</zorder>
+  <zorder>label_4</zorder>
+  <zorder>name</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

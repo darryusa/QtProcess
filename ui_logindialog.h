@@ -41,7 +41,6 @@ public:
     QPushButton *pushButton4;
     QLineEdit *lineEdit;
     QPushButton *backButton;
-    QButtonGroup *buttonGroup;
 
     void setupUi(QDialog *LoginDialog)
     {
@@ -171,7 +170,17 @@ public:
         pushButtonBack = new QPushButton(gridLayoutWidget);
         pushButtonBack->setObjectName(QStringLiteral("pushButtonBack"));
         pushButtonBack->setEnabled(true);
-        pushButtonBack->setFont(font1);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(pushButtonBack->sizePolicy().hasHeightForWidth());
+        pushButtonBack->setSizePolicy(sizePolicy);
+        QFont font2;
+        font2.setPointSize(36);
+        font2.setBold(false);
+        font2.setItalic(false);
+        font2.setWeight(50);
+        pushButtonBack->setFont(font2);
         pushButtonBack->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -211,7 +220,15 @@ public:
         pushButtonEnter_2 = new QPushButton(gridLayoutWidget);
         pushButtonEnter_2->setObjectName(QStringLiteral("pushButtonEnter_2"));
         pushButtonEnter_2->setEnabled(true);
-        pushButtonEnter_2->setFont(font1);
+        sizePolicy.setHeightForWidth(pushButtonEnter_2->sizePolicy().hasHeightForWidth());
+        pushButtonEnter_2->setSizePolicy(sizePolicy);
+        QFont font3;
+        font3.setFamily(QStringLiteral("Sans Serif"));
+        font3.setPointSize(36);
+        font3.setBold(false);
+        font3.setItalic(false);
+        font3.setWeight(50);
+        pushButtonEnter_2->setFont(font3);
         pushButtonEnter_2->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -250,13 +267,13 @@ public:
 
         pushButton1_2 = new QPushButton(gridLayoutWidget);
         pushButton1_2->setObjectName(QStringLiteral("pushButton1_2"));
-        QFont font2;
-        font2.setPointSize(48);
-        font2.setBold(false);
-        font2.setItalic(false);
-        font2.setWeight(50);
-        font2.setStyleStrategy(QFont::PreferAntialias);
-        pushButton1_2->setFont(font2);
+        QFont font4;
+        font4.setPointSize(48);
+        font4.setBold(false);
+        font4.setItalic(false);
+        font4.setWeight(50);
+        font4.setStyleStrategy(QFont::PreferAntialias);
+        pushButton1_2->setFont(font4);
         pushButton1_2->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -315,17 +332,17 @@ public:
 
         lineEdit = new QLineEdit(LoginDialog);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(10, 10, 411, 111));
-        QFont font3;
-        font3.setPointSize(58);
-        lineEdit->setFont(font3);
+        lineEdit->setGeometry(QRect(0, 0, 411, 118));
+        QFont font5;
+        font5.setPointSize(58);
+        lineEdit->setFont(font5);
         lineEdit->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
         lineEdit->setInputMethodHints(Qt::ImhDigitsOnly|Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData);
         lineEdit->setEchoMode(QLineEdit::Password);
         lineEdit->setAlignment(Qt::AlignCenter);
         backButton = new QPushButton(LoginDialog);
         backButton->setObjectName(QStringLiteral("backButton"));
-        backButton->setGeometry(QRect(410, 10, 101, 111));
+        backButton->setGeometry(QRect(410, 0, 101, 118));
         backButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
 "\n"
 "	border-radius: 10px;\n"

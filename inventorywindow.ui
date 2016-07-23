@@ -283,7 +283,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-radius: 20px;
+	border-radius: 8px;
 
 
 	
@@ -394,7 +394,7 @@
    <property name="styleSheet">
     <string notr="true">QPushButton
 {
-	border-radius: 20px;
+	border-radius: 8px;
 	color: rgb(0, 0, 127);
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 }
@@ -553,6 +553,18 @@ QScrollBar::sub-line:vertical {
 
 </string>
    </property>
+   <property name="inputMask">
+    <string/>
+   </property>
+   <property name="text">
+    <string notr="true"/>
+   </property>
+   <property name="maxLength">
+    <number>32767</number>
+   </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
   </widget>
   <widget class="QLabel" name="inventoryTitle">
    <property name="geometry">
@@ -599,14 +611,15 @@ color: rgb(0, 0, 127);
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-background-color: none;
+	background-color: rgb(140, 177, 63);
+
 }</string>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="resource.qrc">
      <normaloff>:/image/return.png</normaloff>:/image/return.png</iconset>
    </property>
    <property name="iconSize">
