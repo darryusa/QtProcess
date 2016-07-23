@@ -43,9 +43,9 @@ private slots:
 private:
     void updateTotal(double val1);
     int static sender;
-    Ui::TransactionWindow *ui;
-    QSqlQueryModel *model;
+    Ui::TransactionWindow *ui;  
     void populateTables();
+    QSqlQueryModel *model;
     QSortFilterProxyModel *sort_filter;
     QModelIndex matchingIndex;
     void AddRoot(QString name,double price,QString description,int id);

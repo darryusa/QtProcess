@@ -216,7 +216,7 @@ public:
         treeWidget->setAnimated(true);
         treeWidget->setAllColumnsShowFocus(true);
         treeWidget->setWordWrap(true);
-        treeWidget->setColumnCount(3);
+        treeWidget->setColumnCount(4);
         treeWidget->header()->setVisible(false);
         treeWidget->header()->setCascadingSectionResizes(false);
         treeWidget->header()->setDefaultSectionSize(100);
@@ -454,7 +454,7 @@ public:
 
         retranslateUi(TransactionWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(TransactionWindow);
@@ -471,9 +471,10 @@ public:
         totalLabel->setText(QApplication::translate("TransactionWindow", "Total", 0));
         label->setText(QApplication::translate("TransactionWindow", "Bill of Sale", 0));
         QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
-        ___qtreewidgetitem->setText(2, QApplication::translate("TransactionWindow", "Price", 0));
-        ___qtreewidgetitem->setText(1, QApplication::translate("TransactionWindow", "Quantity", 0));
-        ___qtreewidgetitem->setText(0, QApplication::translate("TransactionWindow", "Name", 0));
+        ___qtreewidgetitem->setText(3, QApplication::translate("TransactionWindow", "Price", 0));
+        ___qtreewidgetitem->setText(2, QApplication::translate("TransactionWindow", "Quantity", 0));
+        ___qtreewidgetitem->setText(1, QApplication::translate("TransactionWindow", "Name", 0));
+        ___qtreewidgetitem->setText(0, QApplication::translate("TransactionWindow", "ID", 0));
         searchBarLabel->setText(QApplication::translate("TransactionWindow", "searchBar", 0));
         tabWidget->setTabText(tabWidget->indexOf(allTab), QApplication::translate("TransactionWindow", "All", 0));
         tabWidget->setTabText(tabWidget->indexOf(massageTab), QApplication::translate("TransactionWindow", "Massage ", 0));

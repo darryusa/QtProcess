@@ -26,7 +26,7 @@ void MenuWindow::on_saleButton_clicked()
 
 void MenuWindow::on_inventoryButton_clicked()
 {
-    //emit inventoryLogin();
+    emit inventoryClicked();
 }
 
 void MenuWindow::on_staffButton_clicked()

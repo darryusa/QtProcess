@@ -22,9 +22,8 @@ TransactionWindow::TransactionWindow(QWidget *parent) :
 
 void TransactionWindow::populateTables()
 {
-    QTableView *tableView = ui->allTableView;
     this->model = new QSqlQueryModel();
-    model->setQuery("SELECT [ID], [name], [quantity], [price] FROM [main].[inventory]");
+    model->setQuery("SELECT [ID], [name], [quantity], [price] FROM [main].[inventory] WHERE quantity != 0");
     sort_filter = new QSortFilterProxyModel(this);
     sort_filter->setSourceModel(model);
     sort_filter->sort (0);
@@ -188,7 +187,7 @@ void TransactionWindow::on_allTableView_clicked(const QModelIndex &index)
         ui->treeWidget->resizeColumnToContents(2);
         ui->treeWidget->resizeColumnToContents(3);
 
-    int row = index.row();
+
 }
 
 void TransactionWindow::on_treeWidget_clicked(const QModelIndex &index)
@@ -210,7 +209,6 @@ void TransactionWindow::updateDatabase()
     qint64 seconds= QDateTime::currentMSecsSinceEpoch();
     QString date = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
     QSqlQuery qry;
-    qDebug() << date;
     qry.prepare("INSERT INTO transactions (times, employee, sale, sale_tax, total,seconds)"
                  "VALUES (:times, :employee, :sale, :sale_tax, :total,:seconds)");
     qry.bindValue(":times" , date);
@@ -231,43 +229,34 @@ void TransactionWindow::updateDatabase()
             }
             ++it;
         }
-        QString idset= "(";
-        for(int i =0; i < updateId.length() ; i++)
-        {
-            idset += QString::number(updateId.at(i).value<int>());
-            if(i < updateId.length()-1)
-                idset +=",";
-        }
-        idset +=")";
-        QSqlQuery qry2;
-        qry2.prepare("SELECT quantity FROM inventory WHERE ID in "+idset+";");
-        //qry2.bindValue(":id",idset);
-        if(qry2.exec())
-        {
-            while(qry2.next())
-            {
-                qDebug() << qry2.value(0).toString();
-            }
-        }
-        else
-        {
-            qDebug() << qry2.lastError();
-        }
+
         QSqlQuery qry3;
-        qry3.prepare("UPDATE inventory SET quantity =:quantity WHERE ID in :id");
 
+        qry3.prepare("UPDATE inventory SET quantity=quantity - (:quantity) WHERE ID=:id");
 
-
-
-        if(qry3.exec())
+        for(int i = 0;i<updateId.length();i++)
         {
-            QMessageBox::critical(this,tr("Save"),tr("Saved"));
+            qry3.bindValue(":quantity",updateQuantity.at(i).value<int>());
+            qry3.bindValue(":id",updateId.at(i).value<int>());
+
+            if(!qry3.exec()) qDebug() << qry3.lastError();
+        }
+        qry.exec("SELECT id FROM transactions");
+        qry.last();
+        int transID = qry.value(0).value<int>();
+
+        qry.prepare("INSERT INTO items_sold (transID, itemID,quantity)"
+                     "VALUES (:transID,:itemID,:quantity)");
+        for(int i =0; i < updateId.length(); i++)
+        {
+            qry.bindValue(":transID" , transID);
+            qry.bindValue(":itemID", updateId.at(i).value<int>());
+            qry.bindValue(":quantity",updateQuantity.at(i).value<int>());
+            if (!qry.exec()) qDebug()<< qry.lastError();
 
         }
-        else
-        {
-            QMessageBox::critical(this,tr("Error"),qry3.lastError().text());
-        }
+        clearDesk();
+        emit returnToMain();
     }
 
     else
@@ -279,9 +268,9 @@ void TransactionWindow::updateDatabase()
 void TransactionWindow::clearDesk()
 {
     ui->treeWidget->clear();
-    double subTotal = 0;
-    double grandTotal = 0;
-    double taxTotal = 0;
+    subTotal = 0;
+    grandTotal = 0;
+    taxTotal = 0;
     ui->subTotalLineEdit->setText(0);
     ui->totalLineEdit->setText(0);
     ui->taxLineEdit->setText(0);
@@ -289,7 +278,6 @@ void TransactionWindow::clearDesk()
 
 void TransactionWindow::on_returnButton_2_clicked()
 {
-    ui->treeWidget->clear();
     clearDesk();
     emit returnToMain();
 }

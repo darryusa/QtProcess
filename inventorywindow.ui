@@ -407,9 +407,9 @@
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>29</x>
      <y>110</y>
-     <width>480</width>
+     <width>961</width>
      <height>411</height>
     </rect>
    </property>
@@ -424,10 +424,19 @@
 	border-radius: 20px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
+	
 } 
-
+QHeaderView::section
+{
+	border-radius: 8px;
+	background: rgb(164, 179, 60);
+	height: 25px;
+}
 QTableView::item:selected {
    	background-color: rgb(164, 179, 60);
+
+}
+QTableView::item {
 	border-radius: 5px;
 }
 QTableView QTableCornerButton::section {
@@ -481,7 +490,7 @@ QScrollBar::sub-line:vertical {
     <bool>false</bool>
    </property>
    <attribute name="horizontalHeaderVisible">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
    <attribute name="horizontalHeaderCascadingSectionResizes">
     <bool>false</bool>
@@ -629,82 +638,94 @@ color: rgb(0, 0, 127);
     </size>
    </property>
   </widget>
-  <widget class="QLineEdit" name="phoneNumberLineEdit">
+  <widget class="QPushButton" name="editButton">
    <property name="geometry">
     <rect>
-     <x>113</x>
-     <y>250</y>
-     <width>358</width>
-     <height>191</height>
+     <x>380</x>
+     <y>540</y>
+     <width>211</width>
+     <height>41</height>
     </rect>
    </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>335</width>
-     <height>25</height>
-    </size>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit { 
-	border-radius: 8px; 
+    <string notr="true">QPushButton{
+	border-radius: 20px;
+	background-color: rgb(164, 179, 60);
+
+	
+	color: rgb(0, 0, 127);
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	
+
+
+
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Edit</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>70</y>
+     <width>951</width>
+     <height>39</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="searchIcon">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/image/noun_79907_cc.png</normaloff>:/image/noun_79907_cc.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>41</width>
+        <height>31</height>
+       </size>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="searchLineEdit">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit { 
+	
+	border-radius: 10px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
 } 
 
 </string>
-   </property>
-   <property name="inputMethodHints">
-    <set>Qt::ImhNoPredictiveText</set>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="clearButtonEnabled">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="detailsLabel">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>250</y>
-     <width>90</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>90</width>
-     <height>25</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 127);</string>
-   </property>
-   <property name="text">
-    <string>Details</string>
-   </property>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources>
