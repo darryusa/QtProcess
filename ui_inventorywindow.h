@@ -13,14 +13,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QFrame>
-#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTableView>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,32 +27,28 @@ QT_BEGIN_NAMESPACE
 class Ui_InventoryWindow
 {
 public:
-    QTableView *tableView;
-    QLineEdit *searchLineEdit;
-    QPushButton *searchIcon;
     QLabel *backgroundLabel;
-    QFrame *frame_2;
-    QLabel *label;
-    QFrame *frame_3;
-    QLineEdit *detailsLineEdit;
-    QFrame *frame;
-    QVBoxLayout *verticalLayout;
-    QLineEdit *itemNameLineEdit;
-    QLineEdit *priceLineEdit;
-    QLineEdit *quanitityLineEdit;
-    QFrame *frame_4;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *confirmButton;
+    QWidget *formLayoutWidget;
+    QFormLayout *formLayout;
+    QLabel *itemNameLabel;
+    QLineEdit *firstNameLineEdit;
+    QSpacerItem *verticalSpacer;
+    QLabel *priceLabel;
+    QLineEdit *lastNameLineEdit;
+    QSpacerItem *verticalSpacer_2;
+    QLabel *quantityLabel;
+    QLineEdit *addressLineEdit;
+    QSpacerItem *verticalSpacer_3;
     QPushButton *cancelButton;
-    QFrame *frame_5;
-    QHBoxLayout *horizontalLayout_2;
     QPushButton *removeButton;
     QPushButton *addButton;
-    QFrame *frame_6;
-    QVBoxLayout *verticalLayout_2;
-    QLabel *itemNameLabel;
-    QLabel *quanitityLabel;
-    QLabel *priceLabel;
+    QPushButton *confirmButton;
+    QTableView *tableView;
+    QPushButton *searchIcon;
+    QLineEdit *searchLineEdit;
+    QLabel *inventoryTitle;
+    QPushButton *returnButton;
+    QLineEdit *phoneNumberLineEdit;
     QLabel *detailsLabel;
 
     void setupUi(QWidget *InventoryWindow)
@@ -61,315 +56,321 @@ public:
         if (InventoryWindow->objectName().isEmpty())
             InventoryWindow->setObjectName(QStringLiteral("InventoryWindow"));
         InventoryWindow->resize(1024, 600);
+        backgroundLabel = new QLabel(InventoryWindow);
+        backgroundLabel->setObjectName(QStringLiteral("backgroundLabel"));
+        backgroundLabel->setGeometry(QRect(0, 0, 1024, 600));
+        backgroundLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/Vs2.0BamBoo.jpg")));
+        backgroundLabel->setScaledContents(true);
+        formLayoutWidget = new QWidget(InventoryWindow);
+        formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
+        formLayoutWidget->setGeometry(QRect(0, 80, 511, 171));
+        formLayout = new QFormLayout(formLayoutWidget);
+        formLayout->setObjectName(QStringLiteral("formLayout"));
+        formLayout->setContentsMargins(40, 0, 40, 0);
+        itemNameLabel = new QLabel(formLayoutWidget);
+        itemNameLabel->setObjectName(QStringLiteral("itemNameLabel"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(itemNameLabel->sizePolicy().hasHeightForWidth());
+        itemNameLabel->setSizePolicy(sizePolicy);
+        itemNameLabel->setMinimumSize(QSize(66, 25));
+        QFont font;
+        font.setBold(false);
+        font.setWeight(50);
+        itemNameLabel->setFont(font);
+        itemNameLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
+
+        formLayout->setWidget(0, QFormLayout::LabelRole, itemNameLabel);
+
+        firstNameLineEdit = new QLineEdit(formLayoutWidget);
+        firstNameLineEdit->setObjectName(QStringLiteral("firstNameLineEdit"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(firstNameLineEdit->sizePolicy().hasHeightForWidth());
+        firstNameLineEdit->setSizePolicy(sizePolicy1);
+        firstNameLineEdit->setMinimumSize(QSize(335, 25));
+        firstNameLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        firstNameLineEdit->setInputMethodHints(Qt::ImhNoPredictiveText);
+        firstNameLineEdit->setAlignment(Qt::AlignCenter);
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, firstNameLineEdit);
+
+        verticalSpacer = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout->setItem(1, QFormLayout::FieldRole, verticalSpacer);
+
+        priceLabel = new QLabel(formLayoutWidget);
+        priceLabel->setObjectName(QStringLiteral("priceLabel"));
+        sizePolicy.setHeightForWidth(priceLabel->sizePolicy().hasHeightForWidth());
+        priceLabel->setSizePolicy(sizePolicy);
+        priceLabel->setMinimumSize(QSize(65, 25));
+        priceLabel->setFont(font);
+        priceLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
+
+        formLayout->setWidget(2, QFormLayout::LabelRole, priceLabel);
+
+        lastNameLineEdit = new QLineEdit(formLayoutWidget);
+        lastNameLineEdit->setObjectName(QStringLiteral("lastNameLineEdit"));
+        sizePolicy1.setHeightForWidth(lastNameLineEdit->sizePolicy().hasHeightForWidth());
+        lastNameLineEdit->setSizePolicy(sizePolicy1);
+        lastNameLineEdit->setMinimumSize(QSize(335, 25));
+        lastNameLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        lastNameLineEdit->setInputMethodHints(Qt::ImhNoPredictiveText);
+        lastNameLineEdit->setAlignment(Qt::AlignCenter);
+
+        formLayout->setWidget(2, QFormLayout::FieldRole, lastNameLineEdit);
+
+        verticalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout->setItem(3, QFormLayout::FieldRole, verticalSpacer_2);
+
+        quantityLabel = new QLabel(formLayoutWidget);
+        quantityLabel->setObjectName(QStringLiteral("quantityLabel"));
+        sizePolicy.setHeightForWidth(quantityLabel->sizePolicy().hasHeightForWidth());
+        quantityLabel->setSizePolicy(sizePolicy);
+        quantityLabel->setMinimumSize(QSize(49, 25));
+        quantityLabel->setFont(font);
+        quantityLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
+
+        formLayout->setWidget(4, QFormLayout::LabelRole, quantityLabel);
+
+        addressLineEdit = new QLineEdit(formLayoutWidget);
+        addressLineEdit->setObjectName(QStringLiteral("addressLineEdit"));
+        sizePolicy1.setHeightForWidth(addressLineEdit->sizePolicy().hasHeightForWidth());
+        addressLineEdit->setSizePolicy(sizePolicy1);
+        addressLineEdit->setMinimumSize(QSize(335, 25));
+        addressLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        addressLineEdit->setInputMethodHints(Qt::ImhNoPredictiveText);
+        addressLineEdit->setAlignment(Qt::AlignCenter);
+
+        formLayout->setWidget(4, QFormLayout::FieldRole, addressLineEdit);
+
+        verticalSpacer_3 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        formLayout->setItem(5, QFormLayout::FieldRole, verticalSpacer_3);
+
+        cancelButton = new QPushButton(InventoryWindow);
+        cancelButton->setObjectName(QStringLiteral("cancelButton"));
+        cancelButton->setGeometry(QRect(350, 470, 80, 22));
+        QFont font1;
+        font1.setBold(true);
+        font1.setWeight(75);
+        cancelButton->setFont(font1);
+        cancelButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 20px;\n"
+"\n"
+"\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+""));
+        removeButton = new QPushButton(InventoryWindow);
+        removeButton->setObjectName(QStringLiteral("removeButton"));
+        removeButton->setGeometry(QRect(650, 540, 211, 41));
+        QFont font2;
+        font2.setPointSize(16);
+        font2.setBold(true);
+        font2.setWeight(75);
+        removeButton->setFont(font2);
+        removeButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 20px;\n"
+"	background-color: rgb(164, 179, 60);\n"
+"\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+""));
+        addButton = new QPushButton(InventoryWindow);
+        addButton->setObjectName(QStringLiteral("addButton"));
+        addButton->setGeometry(QRect(120, 540, 211, 41));
+        addButton->setFont(font2);
+        addButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 20px;\n"
+"	background-color: rgb(164, 179, 60);\n"
+"\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+""));
+        confirmButton = new QPushButton(InventoryWindow);
+        confirmButton->setObjectName(QStringLiteral("confirmButton"));
+        confirmButton->setGeometry(QRect(50, 470, 80, 22));
+        confirmButton->setFont(font1);
+        confirmButton->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	border-radius: 20px;\n"
+"	color: rgb(0, 0, 127);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"}\n"
+""));
         tableView = new QTableView(InventoryWindow);
         tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(580, 160, 431, 391));
-        QFont font;
-        font.setPointSize(16);
-        tableView->setFont(font);
+        tableView->setGeometry(QRect(510, 110, 480, 411));
+        QFont font3;
+        font3.setPointSize(16);
+        tableView->setFont(font3);
         tableView->setStyleSheet(QLatin1String("QTableView { \n"
+"	border-image: url(:/image/whiteboxBorder.jpeg);\n"
 "	border-radius: 20px; \n"
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
 "} \n"
 "\n"
 "QTableView::item:selected {\n"
-"   	background-color: red;\n"
+"   	background-color: rgb(164, 179, 60);\n"
 "	border-radius: 5px;\n"
 "}\n"
 "QTableView QTableCornerButton::section {\n"
-"    background: red;\n"
-"    border: 2px outset red;\n"
-"}"));
+"    background: rgb(164, 179, 60);\n"
+"    border: 2px outset rgb(164, 179, 60);\n"
+"}\n"
+"QScrollBar:vertical {               \n"
+"	background-color: none;\n"
+"	width: 10px;    \n"
+"	border-radius: 5px;\n"
+"}\n"
+"QScrollBar::handle:vertical {\n"
+"	background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
+"	stop: 0  rgb(164, 179, 60), stop: 0.5 rgb(164, 179, 60),  stop:1 rgb(164, 179, 60));\n"
+"	min-height: 10px;\n"
+"    border-radius: 5px;\n"
+"    }\n"
+"QScrollBar::add-line:vertical {\n"
+"	height: 1px;\n"
+"	border-radius: 3px;\n"
+"}\n"
+"QScrollBar::sub-line:vertical {\n"
+"	height: 1px;\n"
+"	border-radius: 3px;\n"
+"\n"
+"}\n"
+" "));
         tableView->setLineWidth(1);
-        tableView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        tableView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
         tableView->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked);
         tableView->setAlternatingRowColors(true);
         tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-        tableView->setGridStyle(Qt::DashLine);
-        tableView->setSortingEnabled(true);
+        tableView->setGridStyle(Qt::NoPen);
+        tableView->setSortingEnabled(false);
+        tableView->setCornerButtonEnabled(false);
         tableView->horizontalHeader()->setVisible(false);
+        tableView->horizontalHeader()->setCascadingSectionResizes(false);
         tableView->horizontalHeader()->setMinimumSectionSize(10);
         tableView->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
         tableView->horizontalHeader()->setStretchLastSection(true);
         tableView->verticalHeader()->setVisible(false);
         tableView->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
-        searchLineEdit = new QLineEdit(InventoryWindow);
-        searchLineEdit->setObjectName(QStringLiteral("searchLineEdit"));
-        searchLineEdit->setGeometry(QRect(610, 120, 401, 31));
-        searchLineEdit->setMinimumSize(QSize(0, 25));
-        searchLineEdit->setFont(font);
-        searchLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
-"	border-radius: 8px; \n"
-"	color:rgb(0, 0, 0);\n"
-"	background-color: rgb(255, 255, 255); \n"
-"} \n"
-"\n"
-""));
         searchIcon = new QPushButton(InventoryWindow);
         searchIcon->setObjectName(QStringLiteral("searchIcon"));
-        searchIcon->setGeometry(QRect(570, 120, 41, 31));
+        searchIcon->setGeometry(QRect(510, 80, 41, 31));
         QIcon icon;
         icon.addFile(QStringLiteral(":/image/noun_79907_cc.png"), QSize(), QIcon::Normal, QIcon::Off);
         searchIcon->setIcon(icon);
         searchIcon->setIconSize(QSize(41, 31));
         searchIcon->setFlat(true);
-        backgroundLabel = new QLabel(InventoryWindow);
-        backgroundLabel->setObjectName(QStringLiteral("backgroundLabel"));
-        backgroundLabel->setGeometry(QRect(0, 0, 1024, 600));
-        backgroundLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/background.jpg")));
-        backgroundLabel->setScaledContents(true);
-        frame_2 = new QFrame(InventoryWindow);
-        frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(12, 12, 1000, 72));
-        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(90, 130, 31);"));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        label = new QLabel(frame_2);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(340, 0, 231, 61));
-        QFont font1;
-        font1.setPointSize(36);
-        label->setFont(font1);
-        label->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
-        frame_3 = new QFrame(InventoryWindow);
-        frame_3->setObjectName(QStringLiteral("frame_3"));
-        frame_3->setGeometry(QRect(160, 120, 400, 360));
-        frame_3->setStyleSheet(QStringLiteral("background-color: rgb(202, 218, 154);"));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
-        detailsLineEdit = new QLineEdit(frame_3);
-        detailsLineEdit->setObjectName(QStringLiteral("detailsLineEdit"));
-        detailsLineEdit->setGeometry(QRect(10, 150, 381, 150));
-        detailsLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
-"	border-radius: 8px; \n"
-"	color:rgb(0, 0, 0);\n"
-"	background-color: rgb(255, 255, 255); \n"
-"} "));
-        detailsLineEdit->setAlignment(Qt::AlignCenter);
-        frame = new QFrame(frame_3);
-        frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(0, 0, 400, 150));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        verticalLayout = new QVBoxLayout(frame);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        itemNameLineEdit = new QLineEdit(frame);
-        itemNameLineEdit->setObjectName(QStringLiteral("itemNameLineEdit"));
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(itemNameLineEdit->sizePolicy().hasHeightForWidth());
-        itemNameLineEdit->setSizePolicy(sizePolicy);
-        itemNameLineEdit->setMinimumSize(QSize(335, 25));
-        itemNameLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
-"	border-radius: 8px; \n"
+        searchLineEdit = new QLineEdit(InventoryWindow);
+        searchLineEdit->setObjectName(QStringLiteral("searchLineEdit"));
+        searchLineEdit->setGeometry(QRect(550, 80, 431, 31));
+        searchLineEdit->setMinimumSize(QSize(0, 25));
+        searchLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	\n"
+"	border-radius: 10px; \n"
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
 "} \n"
 "\n"
 ""));
-        itemNameLineEdit->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(itemNameLineEdit);
-
-        priceLineEdit = new QLineEdit(frame);
-        priceLineEdit->setObjectName(QStringLiteral("priceLineEdit"));
-        sizePolicy.setHeightForWidth(priceLineEdit->sizePolicy().hasHeightForWidth());
-        priceLineEdit->setSizePolicy(sizePolicy);
-        priceLineEdit->setMinimumSize(QSize(335, 25));
-        priceLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
-"	border-radius: 8px; \n"
-"	color:rgb(0, 0, 0);\n"
-"	background-color: rgb(255, 255, 255); \n"
-"} \n"
-"\n"
-""));
-        priceLineEdit->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(priceLineEdit);
-
-        quanitityLineEdit = new QLineEdit(frame);
-        quanitityLineEdit->setObjectName(QStringLiteral("quanitityLineEdit"));
-        sizePolicy.setHeightForWidth(quanitityLineEdit->sizePolicy().hasHeightForWidth());
-        quanitityLineEdit->setSizePolicy(sizePolicy);
-        quanitityLineEdit->setMinimumSize(QSize(335, 25));
-        quanitityLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
-"	border-radius: 8px; \n"
-"	color:rgb(0, 0, 0);\n"
-"	background-color: rgb(255, 255, 255); \n"
-"} \n"
-"\n"
-""));
-        quanitityLineEdit->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(quanitityLineEdit);
-
-        frame_4 = new QFrame(frame_3);
-        frame_4->setObjectName(QStringLiteral("frame_4"));
-        frame_4->setGeometry(QRect(0, 300, 401, 61));
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(10);
-        sizePolicy1.setHeightForWidth(frame_4->sizePolicy().hasHeightForWidth());
-        frame_4->setSizePolicy(sizePolicy1);
-        frame_4->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
-        frame_4->setFrameShape(QFrame::StyledPanel);
-        frame_4->setFrameShadow(QFrame::Raised);
-        horizontalLayout = new QHBoxLayout(frame_4);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        confirmButton = new QPushButton(frame_4);
-        confirmButton->setObjectName(QStringLiteral("confirmButton"));
-        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(confirmButton->sizePolicy().hasHeightForWidth());
-        confirmButton->setSizePolicy(sizePolicy2);
-        QFont font2;
-        font2.setPointSize(22);
-        confirmButton->setFont(font2);
-        confirmButton->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"	\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-""));
-
-        horizontalLayout->addWidget(confirmButton);
-
-        cancelButton = new QPushButton(frame_4);
-        cancelButton->setObjectName(QStringLiteral("cancelButton"));
-        QSizePolicy sizePolicy3(QSizePolicy::Maximum, QSizePolicy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(cancelButton->sizePolicy().hasHeightForWidth());
-        cancelButton->setSizePolicy(sizePolicy3);
-        cancelButton->setFont(font2);
-        cancelButton->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"	\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-""));
-
-        horizontalLayout->addWidget(cancelButton);
-
-        frame_5 = new QFrame(InventoryWindow);
-        frame_5->setObjectName(QStringLiteral("frame_5"));
-        frame_5->setGeometry(QRect(160, 480, 401, 111));
-        frame_5->setFont(font2);
-        frame_5->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
-        frame_5->setFrameShape(QFrame::StyledPanel);
-        frame_5->setFrameShadow(QFrame::Raised);
-        horizontalLayout_2 = new QHBoxLayout(frame_5);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        removeButton = new QPushButton(frame_5);
-        removeButton->setObjectName(QStringLiteral("removeButton"));
-        QFont font3;
-        font3.setPointSize(26);
-        removeButton->setFont(font3);
-        removeButton->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"	\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-""));
-
-        horizontalLayout_2->addWidget(removeButton);
-
-        addButton = new QPushButton(frame_5);
-        addButton->setObjectName(QStringLiteral("addButton"));
-        addButton->setFont(font3);
-        addButton->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"	\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-""));
-
-        horizontalLayout_2->addWidget(addButton);
-
-        frame_6 = new QFrame(InventoryWindow);
-        frame_6->setObjectName(QStringLiteral("frame_6"));
-        frame_6->setGeometry(QRect(10, 120, 151, 191));
+        inventoryTitle = new QLabel(InventoryWindow);
+        inventoryTitle->setObjectName(QStringLiteral("inventoryTitle"));
+        inventoryTitle->setGeometry(QRect(0, 0, 1024, 60));
         QFont font4;
-        font4.setPointSize(15);
+        font4.setFamily(QStringLiteral("Symbola"));
+        font4.setPointSize(36);
         font4.setBold(true);
-        font4.setUnderline(false);
         font4.setWeight(75);
-        frame_6->setFont(font4);
-        frame_6->setToolTipDuration(-3);
-        frame_6->setLayoutDirection(Qt::RightToLeft);
-        frame_6->setAutoFillBackground(false);
-        frame_6->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
-        frame_6->setFrameShape(QFrame::StyledPanel);
-        frame_6->setFrameShadow(QFrame::Raised);
-        verticalLayout_2 = new QVBoxLayout(frame_6);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        itemNameLabel = new QLabel(frame_6);
-        itemNameLabel->setObjectName(QStringLiteral("itemNameLabel"));
-        QSizePolicy sizePolicy4(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(itemNameLabel->sizePolicy().hasHeightForWidth());
-        itemNameLabel->setSizePolicy(sizePolicy4);
-        itemNameLabel->setMinimumSize(QSize(66, 25));
-        QFont font5;
-        font5.setPointSize(18);
-        font5.setBold(true);
-        font5.setWeight(75);
-        itemNameLabel->setFont(font5);
-
-        verticalLayout_2->addWidget(itemNameLabel);
-
-        quanitityLabel = new QLabel(frame_6);
-        quanitityLabel->setObjectName(QStringLiteral("quanitityLabel"));
-        sizePolicy4.setHeightForWidth(quanitityLabel->sizePolicy().hasHeightForWidth());
-        quanitityLabel->setSizePolicy(sizePolicy4);
-        quanitityLabel->setMinimumSize(QSize(49, 25));
-        quanitityLabel->setFont(font5);
-
-        verticalLayout_2->addWidget(quanitityLabel);
-
-        priceLabel = new QLabel(frame_6);
-        priceLabel->setObjectName(QStringLiteral("priceLabel"));
-        sizePolicy4.setHeightForWidth(priceLabel->sizePolicy().hasHeightForWidth());
-        priceLabel->setSizePolicy(sizePolicy4);
-        priceLabel->setMinimumSize(QSize(65, 25));
-        priceLabel->setFont(font5);
-
-        verticalLayout_2->addWidget(priceLabel);
-
-        detailsLabel = new QLabel(frame_6);
+        inventoryTitle->setFont(font4);
+        inventoryTitle->setStyleSheet(QLatin1String("\n"
+"	\n"
+"color: rgb(0, 0, 127);\n"
+"\n"
+""));
+        inventoryTitle->setScaledContents(false);
+        inventoryTitle->setAlignment(Qt::AlignCenter);
+        returnButton = new QPushButton(InventoryWindow);
+        returnButton->setObjectName(QStringLiteral("returnButton"));
+        returnButton->setGeometry(QRect(20, 10, 71, 31));
+        returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"background-color: none;\n"
+"}"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
+        returnButton->setIcon(icon1);
+        returnButton->setIconSize(QSize(71, 31));
+        phoneNumberLineEdit = new QLineEdit(InventoryWindow);
+        phoneNumberLineEdit->setObjectName(QStringLiteral("phoneNumberLineEdit"));
+        phoneNumberLineEdit->setGeometry(QRect(113, 250, 358, 191));
+        sizePolicy.setHeightForWidth(phoneNumberLineEdit->sizePolicy().hasHeightForWidth());
+        phoneNumberLineEdit->setSizePolicy(sizePolicy);
+        phoneNumberLineEdit->setMinimumSize(QSize(335, 25));
+        phoneNumberLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
+"\n"
+""));
+        phoneNumberLineEdit->setInputMethodHints(Qt::ImhNoPredictiveText);
+        phoneNumberLineEdit->setAlignment(Qt::AlignCenter);
+        phoneNumberLineEdit->setClearButtonEnabled(false);
+        detailsLabel = new QLabel(InventoryWindow);
         detailsLabel->setObjectName(QStringLiteral("detailsLabel"));
-        detailsLabel->setFont(font5);
-
-        verticalLayout_2->addWidget(detailsLabel);
-
-        backgroundLabel->raise();
-        tableView->raise();
-        searchLineEdit->raise();
-        searchIcon->raise();
-        frame_2->raise();
-        frame_3->raise();
-        frame_5->raise();
-        frame_6->raise();
+        detailsLabel->setGeometry(QRect(40, 250, 90, 25));
+        sizePolicy.setHeightForWidth(detailsLabel->sizePolicy().hasHeightForWidth());
+        detailsLabel->setSizePolicy(sizePolicy);
+        detailsLabel->setMinimumSize(QSize(90, 25));
+        detailsLabel->setFont(font);
+        detailsLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
 
         retranslateUi(InventoryWindow);
 
@@ -379,20 +380,18 @@ public:
     void retranslateUi(QWidget *InventoryWindow)
     {
         InventoryWindow->setWindowTitle(QApplication::translate("InventoryWindow", "Form", 0));
-        searchLineEdit->setText(QApplication::translate("InventoryWindow", "  Search...", 0));
-        searchIcon->setText(QString());
         backgroundLabel->setText(QString());
-        label->setText(QApplication::translate("InventoryWindow", "Inventory", 0));
-        confirmButton->setText(QApplication::translate("InventoryWindow", "Confirm", 0));
+        itemNameLabel->setText(QApplication::translate("InventoryWindow", "Item Name", 0));
+        priceLabel->setText(QApplication::translate("InventoryWindow", "Price", 0));
+        quantityLabel->setText(QApplication::translate("InventoryWindow", "Quantity", 0));
         cancelButton->setText(QApplication::translate("InventoryWindow", "Cancel", 0));
         removeButton->setText(QApplication::translate("InventoryWindow", "Remove", 0));
         addButton->setText(QApplication::translate("InventoryWindow", "Add", 0));
-#ifndef QT_NO_TOOLTIP
-        frame_6->setToolTip(QString());
-#endif // QT_NO_TOOLTIP
-        itemNameLabel->setText(QApplication::translate("InventoryWindow", "Item Name", 0));
-        quanitityLabel->setText(QApplication::translate("InventoryWindow", "Quanitity", 0));
-        priceLabel->setText(QApplication::translate("InventoryWindow", "Price", 0));
+        confirmButton->setText(QApplication::translate("InventoryWindow", "Confirm", 0));
+        searchIcon->setText(QString());
+        inventoryTitle->setText(QApplication::translate("InventoryWindow", "Inventory", 0));
+        returnButton->setText(QString());
+        phoneNumberLineEdit->setText(QString());
         detailsLabel->setText(QApplication::translate("InventoryWindow", "Details", 0));
     } // retranslateUi
 

@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../newfolder/QtProcess/onesolmain.h"
+#include "onesolmain.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_OneSolMain_t {
-    QByteArrayData data[13];
-    char stringdata0[174];
+    QByteArrayData data[14];
+    char stringdata0[200];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,14 +41,16 @@ QT_MOC_LITERAL(8, 103, 10), // "staffClick"
 QT_MOC_LITERAL(9, 114, 18), // "reportSlotLoggedin"
 QT_MOC_LITERAL(10, 133, 11), // "saleClicked"
 QT_MOC_LITERAL(11, 145, 14), // "saleLogginSlot"
-QT_MOC_LITERAL(12, 160, 13) // "staffReturned"
+QT_MOC_LITERAL(12, 160, 13), // "staffReturned"
+QT_MOC_LITERAL(13, 174, 25) // "returnFromTransactionSlot"
 
     },
     "OneSolMain\0staffLogin\0\0reportLogin\0"
     "saleLogginSignal\0UserLoggedIn\0"
     "reportButtonClicked\0staffSlotLoggedin\0"
     "staffClick\0reportSlotLoggedin\0saleClicked\0"
-    "saleLogginSlot\0staffReturned"
+    "saleLogginSlot\0staffReturned\0"
+    "returnFromTransactionSlot"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,7 +60,7 @@ static const uint qt_meta_data_OneSolMain[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -66,19 +68,20 @@ static const uint qt_meta_data_OneSolMain[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   69,    2, 0x06 /* Public */,
-       3,    0,   70,    2, 0x06 /* Public */,
-       4,    0,   71,    2, 0x06 /* Public */,
+       1,    0,   74,    2, 0x06 /* Public */,
+       3,    0,   75,    2, 0x06 /* Public */,
+       4,    0,   76,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   72,    2, 0x08 /* Private */,
-       6,    0,   73,    2, 0x08 /* Private */,
-       7,    0,   74,    2, 0x08 /* Private */,
-       8,    0,   75,    2, 0x08 /* Private */,
-       9,    0,   76,    2, 0x08 /* Private */,
-      10,    0,   77,    2, 0x08 /* Private */,
-      11,    0,   78,    2, 0x08 /* Private */,
-      12,    0,   79,    2, 0x08 /* Private */,
+       5,    0,   77,    2, 0x08 /* Private */,
+       6,    0,   78,    2, 0x08 /* Private */,
+       7,    0,   79,    2, 0x08 /* Private */,
+       8,    0,   80,    2, 0x08 /* Private */,
+       9,    0,   81,    2, 0x08 /* Private */,
+      10,    0,   82,    2, 0x08 /* Private */,
+      11,    0,   83,    2, 0x08 /* Private */,
+      12,    0,   84,    2, 0x08 /* Private */,
+      13,    0,   85,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -86,6 +89,7 @@ static const uint qt_meta_data_OneSolMain[] = {
     QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -115,6 +119,7 @@ void OneSolMain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->saleClicked(); break;
         case 9: _t->saleLogginSlot(); break;
         case 10: _t->staffReturned(); break;
+        case 11: _t->returnFromTransactionSlot(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -170,13 +175,13 @@ int OneSolMain::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }

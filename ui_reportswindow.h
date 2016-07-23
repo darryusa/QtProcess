@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCalendarWidget>
-#include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
@@ -26,13 +25,13 @@ class Ui_ReportsWindow
 {
 public:
     QLabel *startLabel;
-    QCalendarWidget *startDateCal;
     QLabel *endLabel;
     QCalendarWidget *endDateCal;
     QPushButton *generateButton;
     QLabel *pictureLabel;
-    QFrame *frame_2;
     QLabel *label;
+    QCalendarWidget *startDateCal;
+    QPushButton *returnButton;
 
     void setupUi(QWidget *ReportsWindow)
     {
@@ -41,29 +40,34 @@ public:
         ReportsWindow->resize(1024, 600);
         startLabel = new QLabel(ReportsWindow);
         startLabel->setObjectName(QStringLiteral("startLabel"));
-        startLabel->setGeometry(QRect(80, 100, 351, 51));
+        startLabel->setGeometry(QRect(90, 90, 351, 51));
         QFont font;
         font.setPointSize(18);
         font.setBold(true);
         font.setWeight(75);
         startLabel->setFont(font);
+        startLabel->setStyleSheet(QLatin1String("\n"
+"\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
+""));
         startLabel->setAlignment(Qt::AlignCenter);
-        startDateCal = new QCalendarWidget(ReportsWindow);
-        startDateCal->setObjectName(QStringLiteral("startDateCal"));
-        startDateCal->setGeometry(QRect(80, 140, 351, 251));
         endLabel = new QLabel(ReportsWindow);
         endLabel->setObjectName(QStringLiteral("endLabel"));
-        endLabel->setGeometry(QRect(500, 110, 371, 31));
+        endLabel->setGeometry(QRect(510, 100, 371, 31));
         endLabel->setFont(font);
+        endLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         endLabel->setAlignment(Qt::AlignCenter);
         endDateCal = new QCalendarWidget(ReportsWindow);
         endDateCal->setObjectName(QStringLiteral("endDateCal"));
-        endDateCal->setGeometry(QRect(500, 140, 371, 251));
+        endDateCal->setGeometry(QRect(510, 150, 381, 271));
         generateButton = new QPushButton(ReportsWindow);
         generateButton->setObjectName(QStringLiteral("generateButton"));
-        generateButton->setGeometry(QRect(340, 440, 321, 111));
+        generateButton->setGeometry(QRect(340, 440, 341, 111));
         QFont font1;
         font1.setPointSize(24);
+        font1.setBold(true);
+        font1.setWeight(75);
         generateButton->setFont(font1);
         generateButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
@@ -72,36 +76,49 @@ public:
 "	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
 "\n"
 "	border-radius: 10px;\n"
-"	color: rgb(255, 255, 255);\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
 "}"));
         pictureLabel = new QLabel(ReportsWindow);
         pictureLabel->setObjectName(QStringLiteral("pictureLabel"));
         pictureLabel->setGeometry(QRect(0, 0, 1024, 600));
         pictureLabel->setAutoFillBackground(true);
         pictureLabel->setFrameShadow(QFrame::Raised);
-        pictureLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/background.jpg")));
+        pictureLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/Vs2.0BamBoo.jpg")));
         pictureLabel->setScaledContents(true);
-        frame_2 = new QFrame(ReportsWindow);
-        frame_2->setObjectName(QStringLiteral("frame_2"));
-        frame_2->setGeometry(QRect(10, 10, 1000, 61));
-        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(90, 130, 31);"));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        label = new QLabel(frame_2);
+        label = new QLabel(ReportsWindow);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(30, 0, 931, 61));
+        label->setGeometry(QRect(40, 10, 931, 61));
         QFont font2;
+        font2.setFamily(QStringLiteral("Symbola"));
         font2.setPointSize(36);
+        font2.setBold(true);
+        font2.setWeight(75);
         label->setFont(font2);
-        label->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+        label->setStyleSheet(QLatin1String("color: rgb(0, 0, 127);\n"
+""));
         label->setAlignment(Qt::AlignCenter);
+        startDateCal = new QCalendarWidget(ReportsWindow);
+        startDateCal->setObjectName(QStringLiteral("startDateCal"));
+        startDateCal->setGeometry(QRect(90, 150, 381, 271));
+        returnButton = new QPushButton(ReportsWindow);
+        returnButton->setObjectName(QStringLiteral("returnButton"));
+        returnButton->setGeometry(QRect(20, 10, 71, 31));
+        returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"background-color: none;\n"
+"}"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
+        returnButton->setIcon(icon);
+        returnButton->setIconSize(QSize(71, 31));
         pictureLabel->raise();
         startLabel->raise();
-        startDateCal->raise();
         endLabel->raise();
         endDateCal->raise();
         generateButton->raise();
-        frame_2->raise();
+        label->raise();
+        startDateCal->raise();
+        returnButton->raise();
 
         retranslateUi(ReportsWindow);
 
@@ -116,6 +133,7 @@ public:
         generateButton->setText(QApplication::translate("ReportsWindow", "Generate Reports", 0));
         pictureLabel->setText(QString());
         label->setText(QApplication::translate("ReportsWindow", "Transaction Report", 0));
+        returnButton->setText(QString());
     } // retranslateUi
 
 };
