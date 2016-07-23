@@ -22,7 +22,7 @@ private:
     Ui::MenuWindow *ui;
 
 signals:
-    void callLogin();
+    void inventoryClicked();
     void reportClicked();
     void staffClicked();
     void saleClicked();

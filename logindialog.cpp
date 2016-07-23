@@ -84,9 +84,13 @@ void LoginDialog::enterButtonPressed()
             {
                 emit reportLoggedin();
             }
-            else if(loginSender2 == "sale");
+            else if(loginSender2 == "sale")
             {
                 emit saleLoggin();
+            }
+            else if(loginSender2 == "inventory")
+            {
+                emit inventoryLogin();
             }
         }
     }

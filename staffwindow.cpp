@@ -10,8 +10,6 @@ int ID;
 StaffWindow::StaffWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StaffWindow)
 {
     ui->setupUi(this);
-
-    QTableView *tableView = ui->tableView;
     this->model = new QSqlQueryModel();
     model->setQuery("SELECT [ID], [last], [first], [phone_number] FROM [main].[employee]");
     sort_filter = new QSortFilterProxyModel(this);
@@ -68,7 +66,6 @@ void StaffWindow::on_searchLineEdit_textChanged(const QString &arg1)
 
 void StaffWindow::on_modifyPINButton_clicked()
 {
-    qDebug() << "test passed";
     pinNumPad = new PINNumPad(this);
     pinNumPad->setModal(true);
     pinNumPad->show();
@@ -111,7 +108,7 @@ void StaffWindow::on_confirmButton_clicked()
                 privilige = qry.value(3).toInt();
             }
         }
-        int ID = (maxID)+ one;
+//        int ID = (maxID)+ one;
         if(!existed)
         {
             QVariant newID = ID;

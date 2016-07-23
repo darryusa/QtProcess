@@ -21,6 +21,7 @@ signals:
     void reportLogin();
     void backButtonPressedSignal();
     void saleLoggin();
+    void inventoryLogin();
 
 private:
     Ui::LoginDialog *ui;

@@ -13,15 +13,19 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     reportsWindow = new ReportsWindow(this);
     stackedWidget = new QStackedWidget;
     reportListDialog = new ReportListDialog(this);
+    transactionWindow = new TransactionWindow(this);
+    inventoryWindow = new InventoryWindow(this);
     loginStaff = new LoginDialog(this,"staff");
     loginReport = new LoginDialog(this,"report");
-    transactionWindow = new TransactionWindow(this);
     loginSale = new LoginDialog(this,"sale");
+    loginInventory = new LoginDialog(this,"inventory");
+    stackedWidget->addWidget(loginInventory);
     stackedWidget->addWidget(transactionWindow);
     stackedWidget->addWidget(reportListDialog);
     stackedWidget->addWidget( staffWindow );
     stackedWidget->addWidget(menuWindow);
     stackedWidget->addWidget(reportsWindow);
+    stackedWidget->addWidget(inventoryWindow);
     stackedWidget->setCurrentWidget( menuWindow );
 
 
@@ -29,12 +33,16 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     connect(loginReport, SIGNAL(reportLoggedin()), this, SLOT(reportSlotLoggedin()));
     connect(loginStaff, SIGNAL(staffLoggedin()), this, SLOT(staffSlotLoggedin()));
     connect(loginSale, SIGNAL(saleLoggin()), this, SLOT(saleLogginSlot()));
+    connect(loginInventory,SIGNAL(inventoryLogin()),this, SLOT(inventoryLoggedin()));
     connect(menuWindow, SIGNAL(reportClicked()), this, SLOT(reportButtonClicked()));
     connect(menuWindow, SIGNAL(staffClicked()), this, SLOT(staffClick()));
     connect(menuWindow,SIGNAL(saleClicked()), this, SLOT(saleClicked()));
+    connect(menuWindow,SIGNAL(inventoryClicked()), this, SLOT(inventoryClicked()));
     connect(staffWindow,SIGNAL(staffReturn()),this,SLOT(staffReturned()));
+    connect(inventoryWindow,SIGNAL(inventoryReturn()),this,SLOT(staffReturned()));
     connect(this,SIGNAL(saleLogginSignal()),transactionWindow,SLOT(transactionLoggedin()));
     connect(transactionWindow,SIGNAL(returnToMain()),this,SLOT(returnFromTransactionSlot()));
+
     QRect screenGeometry = QDesktopWidget().availableGeometry( this );
 
     stackedWidget->resize( screenGeometry.size() );
@@ -101,4 +109,15 @@ void OneSolMain::saleLogginSlot()
     loginSale->hide();
     emit saleLogginSignal();
     stackedWidget->setCurrentWidget(transactionWindow);
+}
+void OneSolMain::inventoryClicked()
+{
+    loginInventory->setModal(true);
+    loginInventory->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
+    loginInventory->show();
+}
+void OneSolMain::inventoryLoggedin()
+{
+    loginInventory->hide();
+    stackedWidget->setCurrentWidget(inventoryWindow);
 }
