@@ -189,7 +189,6 @@ void TransactionWindow::on_allTableView_clicked(const QModelIndex &index)
         ui->treeWidget->resizeColumnToContents(3);
 
     int row = index.row();
-    double val1 = index.sibling(row, 3).data().toFloat();
 }
 
 void TransactionWindow::on_treeWidget_clicked(const QModelIndex &index)
@@ -222,17 +221,75 @@ void TransactionWindow::updateDatabase()
     qry.bindValue(":seconds",seconds);
     if(qry.exec())
     {
-        QMessageBox::critical(this,tr("Save"),tr("Saved"));
-        emit returnToMain();
+        QTreeWidgetItemIterator it(ui->treeWidget);
+        while (*it)
+        {
+            if((*it)->data(0,0).value<int>() != 0)
+            {
+                updateId << (*it)->data(0,0).value<int>();
+                updateQuantity << (*it)->data(2,0).value<int>();
+            }
+            ++it;
+        }
+        QString idset= "(";
+        for(int i =0; i < updateId.length() ; i++)
+        {
+            idset += QString::number(updateId.at(i).value<int>());
+            if(i < updateId.length()-1)
+                idset +=",";
+        }
+        idset +=")";
+        QSqlQuery qry2;
+        qry2.prepare("SELECT quantity FROM inventory WHERE ID in "+idset+";");
+        //qry2.bindValue(":id",idset);
+        if(qry2.exec())
+        {
+            while(qry2.next())
+            {
+                qDebug() << qry2.value(0).toString();
+            }
+        }
+        else
+        {
+            qDebug() << qry2.lastError();
+        }
+        QSqlQuery qry3;
+        qry3.prepare("UPDATE inventory SET quantity =:quantity WHERE ID in :id");
+
+
+
+
+        if(qry3.exec())
+        {
+            QMessageBox::critical(this,tr("Save"),tr("Saved"));
+
+        }
+        else
+        {
+            QMessageBox::critical(this,tr("Error"),qry3.lastError().text());
+        }
     }
+
     else
     {
         QMessageBox::critical(this,tr("Error"),qry.lastError().text());
     }
+
+}
+void TransactionWindow::clearDesk()
+{
+    ui->treeWidget->clear();
+    double subTotal = 0;
+    double grandTotal = 0;
+    double taxTotal = 0;
+    ui->subTotalLineEdit->setText(0);
+    ui->totalLineEdit->setText(0);
+    ui->taxLineEdit->setText(0);
 }
 
 void TransactionWindow::on_returnButton_2_clicked()
 {
-
+    ui->treeWidget->clear();
+    clearDesk();
     emit returnToMain();
 }

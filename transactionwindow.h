@@ -56,6 +56,11 @@ private:
     double salesTax = .06;
     double taxTotal;
     void updateDatabase();
+    void clearDesk();
+    QVariantList updateId;
+    QVariantList updateQuantity;
+    QVariantList originalQuantity;
+
 };
 
 #endif // TRANSACTIONWINDOW_H

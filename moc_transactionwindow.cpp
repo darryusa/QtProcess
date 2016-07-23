@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "transactionwindow.h"
+#include "../newfolder/QtProcess/transactionwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_TransactionWindow_t {
     QByteArrayData data[10];
-    char stringdata0[182];
+    char stringdata0[180];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,16 +33,16 @@ QT_MOC_LITERAL(0, 0, 17), // "TransactionWindow"
 QT_MOC_LITERAL(1, 18, 22), // "on_tableView_activated"
 QT_MOC_LITERAL(2, 41, 0), // ""
 QT_MOC_LITERAL(3, 42, 5), // "index"
-QT_MOC_LITERAL(4, 48, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(5, 70, 32), // "on_searchBarLineEdit_textChanged"
-QT_MOC_LITERAL(6, 103, 4), // "arg1"
-QT_MOC_LITERAL(7, 108, 25), // "on_allTableView_activated"
-QT_MOC_LITERAL(8, 134, 23), // "on_deleteButton_clicked"
-QT_MOC_LITERAL(9, 158, 23) // "on_treeWidget_activated"
+QT_MOC_LITERAL(4, 48, 19), // "transactionLoggedin"
+QT_MOC_LITERAL(5, 68, 32), // "on_searchBarLineEdit_textChanged"
+QT_MOC_LITERAL(6, 101, 4), // "arg1"
+QT_MOC_LITERAL(7, 106, 25), // "on_allTableView_activated"
+QT_MOC_LITERAL(8, 132, 23), // "on_deleteButton_clicked"
+QT_MOC_LITERAL(9, 156, 23) // "on_treeWidget_activated"
 
     },
     "TransactionWindow\0on_tableView_activated\0"
-    "\0index\0on_pushButton_clicked\0"
+    "\0index\0transactionLoggedin\0"
     "on_searchBarLineEdit_textChanged\0arg1\0"
     "on_allTableView_activated\0"
     "on_deleteButton_clicked\0on_treeWidget_activated"
@@ -88,7 +88,7 @@ void TransactionWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_tableView_activated((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
-        case 1: _t->on_pushButton_clicked(); break;
+        case 1: _t->transactionLoggedin(); break;
         case 2: _t->on_searchBarLineEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 3: _t->on_allTableView_activated((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 4: _t->on_deleteButton_clicked(); break;

@@ -59,13 +59,11 @@ public:
     QLineEdit *searchLineEdit;
     QPushButton *modifyPINButton;
     QLabel *pINLabel;
+    QPushButton *returnButton;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QRadioButton *employeeRadioButton;
     QRadioButton *managerRadioButton;
-    QLabel *label;
-    QPushButton *returnButton;
-    QPushButton *returnButton_2;
 
     void setupUi(QWidget *StaffWindow)
     {
@@ -78,21 +76,21 @@ public:
         employeeTitle->setObjectName(QStringLiteral("employeeTitle"));
         employeeTitle->setGeometry(QRect(0, 0, 1024, 60));
         QFont font;
-        font.setFamily(QStringLiteral("Symbola"));
-        font.setPointSize(36);
+        font.setPointSize(20);
         font.setBold(true);
         font.setWeight(75);
         employeeTitle->setFont(font);
-        employeeTitle->setStyleSheet(QLatin1String("\n"
-"	\n"
-"color: rgb(0, 0, 127);\n"
+        employeeTitle->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} \n"
 "\n"
 ""));
-        employeeTitle->setScaledContents(false);
         employeeTitle->setAlignment(Qt::AlignCenter);
         formLayoutWidget = new QWidget(StaffWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(0, 60, 511, 317));
+        formLayoutWidget->setGeometry(QRect(0, 60, 511, 311));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(40, 0, 40, 0);
@@ -104,11 +102,6 @@ public:
         sizePolicy.setHeightForWidth(firstNameLabel->sizePolicy().hasHeightForWidth());
         firstNameLabel->setSizePolicy(sizePolicy);
         firstNameLabel->setMinimumSize(QSize(66, 25));
-        QFont font1;
-        font1.setBold(false);
-        font1.setWeight(50);
-        firstNameLabel->setFont(font1);
-        firstNameLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, firstNameLabel);
 
@@ -132,7 +125,7 @@ public:
 
         formLayout->setWidget(0, QFormLayout::FieldRole, firstNameLineEdit);
 
-        verticalSpacer = new QSpacerItem(332, 13, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         formLayout->setItem(1, QFormLayout::FieldRole, verticalSpacer);
 
@@ -141,8 +134,6 @@ public:
         sizePolicy.setHeightForWidth(lastNameLabel->sizePolicy().hasHeightForWidth());
         lastNameLabel->setSizePolicy(sizePolicy);
         lastNameLabel->setMinimumSize(QSize(65, 25));
-        lastNameLabel->setFont(font1);
-        lastNameLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, lastNameLabel);
 
@@ -172,8 +163,6 @@ public:
         sizePolicy.setHeightForWidth(addressLabel->sizePolicy().hasHeightForWidth());
         addressLabel->setSizePolicy(sizePolicy);
         addressLabel->setMinimumSize(QSize(49, 25));
-        addressLabel->setFont(font1);
-        addressLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
 
         formLayout->setWidget(4, QFormLayout::LabelRole, addressLabel);
 
@@ -194,7 +183,7 @@ public:
 
         formLayout->setWidget(4, QFormLayout::FieldRole, addressLineEdit);
 
-        verticalSpacer_3 = new QSpacerItem(332, 13, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_3 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         formLayout->setItem(5, QFormLayout::FieldRole, verticalSpacer_3);
 
@@ -203,8 +192,6 @@ public:
         sizePolicy.setHeightForWidth(phoneNumberLabel->sizePolicy().hasHeightForWidth());
         phoneNumberLabel->setSizePolicy(sizePolicy);
         phoneNumberLabel->setMinimumSize(QSize(90, 25));
-        phoneNumberLabel->setFont(font1);
-        phoneNumberLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
 
         formLayout->setWidget(6, QFormLayout::LabelRole, phoneNumberLabel);
 
@@ -234,8 +221,6 @@ public:
         sizePolicy.setHeightForWidth(emailAddressLabel->sizePolicy().hasHeightForWidth());
         emailAddressLabel->setSizePolicy(sizePolicy);
         emailAddressLabel->setMinimumSize(QSize(86, 25));
-        emailAddressLabel->setFont(font1);
-        emailAddressLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
 
         formLayout->setWidget(8, QFormLayout::LabelRole, emailAddressLabel);
 
@@ -256,14 +241,12 @@ public:
 
         formLayout->setWidget(8, QFormLayout::FieldRole, emailAddressLineEdit);
 
-        verticalSpacer_5 = new QSpacerItem(332, 13, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_5 = new QSpacerItem(10, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         formLayout->setItem(9, QFormLayout::FieldRole, verticalSpacer_5);
 
         sSNLabel = new QLabel(formLayoutWidget);
         sSNLabel->setObjectName(QStringLiteral("sSNLabel"));
-        sSNLabel->setFont(font1);
-        sSNLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
 
         formLayout->setWidget(10, QFormLayout::LabelRole, sSNLabel);
 
@@ -289,86 +272,42 @@ public:
         cancelButton = new QPushButton(StaffWindow);
         cancelButton->setObjectName(QStringLiteral("cancelButton"));
         cancelButton->setGeometry(QRect(360, 450, 80, 22));
-        QFont font2;
-        font2.setBold(true);
-        font2.setWeight(75);
-        cancelButton->setFont(font2);
         cancelButton->setStyleSheet(QLatin1String("QPushButton{\n"
-"	border-radius: 20px;\n"
-"\n"
-"\n"
-"	\n"
-"	color: rgb(0, 0, 127);\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	\n"
-"\n"
-"\n"
-"\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(164, 179, 60);\n"
 "}\n"
 ""));
         confirmButton = new QPushButton(StaffWindow);
         confirmButton->setObjectName(QStringLiteral("confirmButton"));
         confirmButton->setGeometry(QRect(60, 450, 80, 22));
-        confirmButton->setFont(font2);
-        confirmButton->setStyleSheet(QLatin1String("QPushButton\n"
-"{\n"
-"	border-radius: 20px;\n"
-"	color: rgb(0, 0, 127);\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+        confirmButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 10px;\n"
+"	background-color: rgb(164, 179, 60);\n"
 "}\n"
 ""));
         addButton = new QPushButton(StaffWindow);
         addButton->setObjectName(QStringLiteral("addButton"));
         addButton->setGeometry(QRect(110, 530, 211, 41));
-        QFont font3;
-        font3.setPointSize(16);
-        font3.setBold(true);
-        font3.setWeight(75);
-        addButton->setFont(font3);
         addButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 20px;\n"
 "	background-color: rgb(164, 179, 60);\n"
-"\n"
-"	\n"
-"	color: rgb(0, 0, 127);\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	\n"
-"\n"
-"\n"
-"\n"
 "}\n"
 ""));
         removeButton = new QPushButton(StaffWindow);
         removeButton->setObjectName(QStringLiteral("removeButton"));
-        removeButton->setGeometry(QRect(640, 530, 211, 41));
-        removeButton->setFont(font3);
+        removeButton->setGeometry(QRect(700, 530, 211, 41));
         removeButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 20px;\n"
 "	background-color: rgb(164, 179, 60);\n"
-"\n"
-"	\n"
-"	color: rgb(0, 0, 127);\n"
-"	\n"
-"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
-"\n"
-"	\n"
-"\n"
-"\n"
-"\n"
 "}\n"
 ""));
         tableView = new QTableView(StaffWindow);
         tableView->setObjectName(QStringLiteral("tableView"));
         tableView->setGeometry(QRect(510, 90, 480, 411));
-        QFont font4;
-        font4.setPointSize(16);
-        tableView->setFont(font4);
+        QFont font1;
+        font1.setPointSize(16);
+        tableView->setFont(font1);
         tableView->setStyleSheet(QLatin1String("QTableView { \n"
-"	border-image: url(:/image/whiteboxBorder.jpeg);\n"
 "	border-radius: 20px; \n"
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
@@ -428,10 +367,9 @@ public:
         searchIcon->setFlat(true);
         searchLineEdit = new QLineEdit(StaffWindow);
         searchLineEdit->setObjectName(QStringLiteral("searchLineEdit"));
-        searchLineEdit->setGeometry(QRect(560, 60, 431, 31));
+        searchLineEdit->setGeometry(QRect(550, 60, 431, 31));
         searchLineEdit->setMinimumSize(QSize(0, 25));
         searchLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
-"	\n"
 "	border-radius: 10px; \n"
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
@@ -443,9 +381,9 @@ public:
         modifyPINButton->setObjectName(QStringLiteral("modifyPINButton"));
         modifyPINButton->setGeometry(QRect(136, 380, 91, 25));
         modifyPINButton->setMinimumSize(QSize(0, 25));
-        QFont font5;
-        font5.setPointSize(10);
-        modifyPINButton->setFont(font5);
+        QFont font2;
+        font2.setPointSize(10);
+        modifyPINButton->setFont(font2);
         modifyPINButton->setStyleSheet(QLatin1String("QPushButton { \n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -459,8 +397,16 @@ public:
         pINLabel = new QLabel(StaffWindow);
         pINLabel->setObjectName(QStringLiteral("pINLabel"));
         pINLabel->setGeometry(QRect(40, 380, 20, 24));
-        pINLabel->setFont(font1);
-        pINLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
+        returnButton = new QPushButton(StaffWindow);
+        returnButton->setObjectName(QStringLiteral("returnButton"));
+        returnButton->setGeometry(QRect(30, 10, 71, 31));
+        returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"background-color: none;\n"
+"}"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
+        returnButton->setIcon(icon1);
+        returnButton->setIconSize(QSize(71, 31));
         layoutWidget = new QWidget(StaffWindow);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(260, 380, 171, 22));
@@ -469,59 +415,16 @@ public:
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         employeeRadioButton = new QRadioButton(layoutWidget);
         employeeRadioButton->setObjectName(QStringLiteral("employeeRadioButton"));
-        employeeRadioButton->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         employeeRadioButton->setChecked(true);
 
         horizontalLayout->addWidget(employeeRadioButton);
 
         managerRadioButton = new QRadioButton(layoutWidget);
         managerRadioButton->setObjectName(QStringLiteral("managerRadioButton"));
-        managerRadioButton->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         managerRadioButton->setChecked(false);
 
         horizontalLayout->addWidget(managerRadioButton);
 
-        label = new QLabel(StaffWindow);
-        label->setObjectName(QStringLiteral("label"));
-        label->setEnabled(true);
-        label->setGeometry(QRect(0, 0, 1024, 600));
-        label->setAutoFillBackground(false);
-        label->setPixmap(QPixmap(QString::fromUtf8(":/image/Vs2.0BamBoo.jpg")));
-        label->setScaledContents(true);
-        label->setAlignment(Qt::AlignCenter);
-        returnButton = new QPushButton(StaffWindow);
-        returnButton->setObjectName(QStringLiteral("returnButton"));
-        returnButton->setGeometry(QRect(20, 10, 71, 31));
-        returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: rgb(211, 225, 148);\n"
-"}"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
-        returnButton->setIcon(icon1);
-        returnButton->setIconSize(QSize(71, 31));
-        returnButton_2 = new QPushButton(StaffWindow);
-        returnButton_2->setObjectName(QStringLiteral("returnButton_2"));
-        returnButton_2->setGeometry(QRect(620, 570, 71, 31));
-        returnButton_2->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: rgb(211, 225, 148);\n"
-"}"));
-        returnButton_2->setIcon(icon1);
-        returnButton_2->setIconSize(QSize(71, 31));
-        label->raise();
-        employeeTitle->raise();
-        formLayoutWidget->raise();
-        cancelButton->raise();
-        confirmButton->raise();
-        addButton->raise();
-        removeButton->raise();
-        tableView->raise();
-        searchIcon->raise();
-        searchLineEdit->raise();
-        modifyPINButton->raise();
-        pINLabel->raise();
-        layoutWidget->raise();
-        returnButton->raise();
-        returnButton_2->raise();
 
         retranslateUi(StaffWindow);
         QObject::connect(addButton, SIGNAL(clicked()), firstNameLineEdit, SLOT(clear()));
@@ -555,11 +458,9 @@ public:
 #endif // QT_NO_TOOLTIP
         modifyPINButton->setText(QApplication::translate("StaffWindow", "*    *    *    *", 0));
         pINLabel->setText(QApplication::translate("StaffWindow", "PIN", 0));
+        returnButton->setText(QString());
         employeeRadioButton->setText(QApplication::translate("StaffWindow", "Employee", 0));
         managerRadioButton->setText(QApplication::translate("StaffWindow", "Manager", 0));
-        label->setText(QString());
-        returnButton->setText(QString());
-        returnButton_2->setText(QString());
     } // retranslateUi
 
 };
