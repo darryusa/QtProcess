@@ -10,7 +10,8 @@ class ItemModify;
 class ItemModify : public QDialog
 {
     Q_OBJECT
-
+signals:
+    void returnToInventory();
 public:
     explicit ItemModify(QWidget *parent = 0);
     ~ItemModify();

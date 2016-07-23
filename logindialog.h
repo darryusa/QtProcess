@@ -24,6 +24,7 @@ signals:
     void inventoryLogin();
 
 private:
+
     Ui::LoginDialog *ui;
     bool passwordCheck(QString loginSender2);
 private slots:

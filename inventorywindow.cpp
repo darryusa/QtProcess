@@ -13,6 +13,7 @@ InventoryWindow::InventoryWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     populateTable();
+
 }
 
 void InventoryWindow::populateTable()
@@ -95,6 +96,7 @@ void InventoryWindow::on_addButton_clicked()
 {
     InventoryWindow::setSender(false);
     itemModify = new ItemModify(this);
+    connect(itemModify,SIGNAL( returnToInventory()), this, SLOT(returnedFromItemModify()));
     itemModify->setModal(true);
     itemModify->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
     itemModify->show();
@@ -102,8 +104,10 @@ void InventoryWindow::on_addButton_clicked()
 
 void InventoryWindow::on_editButton_clicked()
 {
+
     InventoryWindow::setSender(true);
     itemModify = new ItemModify(this);
+    connect(itemModify,SIGNAL( returnToInventory()), this, SLOT(returnedFromItemModify()));
     itemModify->setModal(true);
     itemModify->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
     itemModify->show();
@@ -112,4 +116,9 @@ void InventoryWindow::on_editButton_clicked()
 void InventoryWindow::on_returnButton_clicked()
 {
     emit inventoryReturn();
+}
+void InventoryWindow::returnedFromItemModify()
+{
+    model->setQuery("SELECT * FROM [main].[inventory] WHERE quantity != 0");
+    itemModify->deleteLater();
 }

@@ -25,6 +25,7 @@ signals:
     void inventoryReturn();
 private slots:
 
+    void returnedFromItemModify();
 
     void on_searchLineEdit_textChanged(const QString &arg1);
 

@@ -60,7 +60,9 @@ void ItemModify::autoFill()
 
 void ItemModify::on_pushButton_clicked()
 {
-
+    if(ui->nameLineEdit->text() !="" && ui->quantitySpinBox->value() !=0 && ui->priceLineEdit->text() != ""
+            && ui->categoryComboBox->currentText() != "")
+    {
         bool ok;
         if(InventoryWindow::getSender() )
         {
@@ -77,7 +79,7 @@ void ItemModify::on_pushButton_clicked()
             if(qry3.exec())
             {
                 QMessageBox::critical(this,tr("Save"),tr("Saved"));
-                this->deleteLater();
+                emit returnToInventory();
             }
             else
             {
@@ -99,17 +101,21 @@ void ItemModify::on_pushButton_clicked()
             if(qry4.exec())
             {
                 QMessageBox::critical(this,tr("Save"),tr("Saved"));
-                this->deleteLater();
+                emit returnToInventory();
             }
             else
             {
                 QMessageBox::critical(this,tr("Error"),qry4.lastError().text());
             }
         }
+    }
+    else
+    {
 
+    }
 }
 
 void ItemModify::on_pushButton_2_clicked()
 {
-    this->deleteLater();
+    emit returnToInventory();
 }
