@@ -29,6 +29,7 @@ private:
     void populateList();
     QSortFilterProxyModel *sort_filter;
     QModelIndex matchingIndex;
+    void populateTable();
 
 signals:
     void staffReturn();
@@ -37,18 +38,12 @@ private slots:
 
 
     void on_tableView_activated(const QModelIndex &index);
-
-
-
     void on_modifyPINButton_clicked();
-
-
-
     void on_searchLineEdit_textChanged(const QString &arg1);
-
     void on_confirmButton_clicked();
     void on_returnButton_clicked();
     void on_removeButton_clicked();
+    void on_tableView_viewportEntered();
 };
 
 #endif // STAFFWINDOW_H

@@ -4,7 +4,7 @@
 #include "qmessagebox.h"
 #include "qsqlerror.h"
 #include "itemmodify.h"
-
+#include "qdebug.h"
 QString InventoryWindow::selectedName;
 bool InventoryWindow::modifyItem;
 InventoryWindow::InventoryWindow(QWidget *parent) :
@@ -71,20 +71,22 @@ void InventoryWindow::on_removeButton_clicked()
     QSqlQuery qry4;
     if(InventoryWindow::selectedName.length()>0)
     {
-        qry4.prepare("delete from inventory where id= '"+InventoryWindow::selectedName+"' or name= '"+InventoryWindow::selectedName+"' "
-                  "or description= '"+InventoryWindow::selectedName+"' or price= '"+InventoryWindow::selectedName+"' or category = '"  );
-        InventoryWindow::selectedName = "";
+        qDebug()<< selectedName;
+        qry4.prepare("DELETE FROM inventory WHERE id= '"+InventoryWindow::selectedName+"' or name= '"+InventoryWindow::selectedName+"' "
+                  "or description= '"+InventoryWindow::selectedName+"' or price= '"+InventoryWindow::selectedName+"' or category = '"+InventoryWindow::selectedName+"' ");
+
 
         if(qry4.exec())
         {
           QMessageBox::critical(this,tr("DELETE"),tr("DELETED"));
-          model->setQuery("SELECT * FROM [main].[inventory] WHERE quantity != 0");
+
         }
         else
         {
             QMessageBox::critical(this,tr("error"),qry4.lastError().text());
         }
-
+        InventoryWindow::selectedName = "";
+        model->setQuery("SELECT * FROM [main].[inventory] WHERE quantity != 0");
     }
 }
 

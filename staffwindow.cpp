@@ -10,17 +10,22 @@ int ID;
 StaffWindow::StaffWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StaffWindow)
 {
     ui->setupUi(this);
+    populateTable();
+
+}
+
+void StaffWindow::populateTable()
+{
     this->model = new QSqlQueryModel();
-    model->setQuery("SELECT [ID], [last], [first], [phone_number] FROM [main].[employee]");
+    model->setQuery("SELECT ID, last, first, phone_number FROM employee");
     sort_filter = new QSortFilterProxyModel(this);
     sort_filter->setSourceModel(model);
     sort_filter->sort (0);
     sort_filter->setFilterKeyColumn(-1);
     this->ui->tableView->setModel( sort_filter );
-
+    ui->tableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
 
 }
-
 
 StaffWindow::~StaffWindow()
 {
@@ -66,6 +71,7 @@ void StaffWindow::on_searchLineEdit_textChanged(const QString &arg1)
 
 void StaffWindow::on_modifyPINButton_clicked()
 {
+    qDebug() << "test passed";
     pinNumPad = new PINNumPad(this);
     pinNumPad->setModal(true);
     pinNumPad->show();
@@ -79,7 +85,7 @@ void StaffWindow::on_confirmButton_clicked()
     QSqlQuery qry2;
     if(ui->lastNameLineEdit->text() != "" && ui->firstNameLineEdit->text() !="" && ui->addressLineEdit->text() !=""
             && ui->phoneNumberLineEdit->text()!= "" && ui->sSNLineEdit->text() !="")
-    {      
+    {
         QString first,last,address,email,phoneNumber,SSN,PIN;
         int privilige;
         first = ui->firstNameLineEdit->text();
@@ -108,7 +114,7 @@ void StaffWindow::on_confirmButton_clicked()
                 privilige = qry.value(3).toInt();
             }
         }
-//        int ID = (maxID)+ one;
+        int ID = (maxID)+ one;
         if(!existed)
         {
             QVariant newID = ID;
@@ -122,7 +128,7 @@ void StaffWindow::on_confirmButton_clicked()
             qry2.bindValue(":phone_number",phoneNumber);
             qry2.bindValue(":address",address);
             qry2.bindValue(":privilige", privilige);
-            qry2.bindValue(":pin", PIN);         
+            qry2.bindValue(":pin", PIN);
 
             if(qry2.exec())
             {
@@ -198,4 +204,9 @@ void StaffWindow::on_removeButton_clicked()
         }
 
     }
+}
+
+void StaffWindow::on_tableView_viewportEntered()
+{
+    populateTable();
 }

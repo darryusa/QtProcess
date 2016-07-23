@@ -61,15 +61,16 @@ bool DbManager::pinChecker(QString& pin, QString& loginSender2)
     bool success = false;
     QSqlQuery query;
     qDebug() <<loginSender2;
-    query.prepare("SELECT PIN,ID privilige FROM employee");
+    query.prepare("SELECT pin,id, privilige FROM employee");
     if(query.exec())
     {
         while(query.next() )
         {
             if(pin.compare(query.value(0).toString()) == 0)
             {
+                qDebug() << query.value(2).value<int>();
                 if(((loginSender2 == "staff" || loginSender2 == "inventory" || loginSender2 == "report")
-                    && query.value(1) >1) || (loginSender2 == "sale"))
+                    && query.value(2).value<int>() > 1 )|| (loginSender2 == "sale"))
                 {
                     if(loginSender2 == "sale")
                     {
