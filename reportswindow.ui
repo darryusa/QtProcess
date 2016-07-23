@@ -13,79 +13,13 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="startLabel">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>90</y>
-     <width>351</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>18</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">
-
-	
-	color: rgb(0, 0, 127);
-</string>
-   </property>
-   <property name="text">
-    <string>Select the start date:</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="endLabel">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>100</y>
-     <width>371</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>18</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(0, 0, 127);</string>
-   </property>
-   <property name="text">
-    <string>Select the end date:</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QCalendarWidget" name="endDateCal">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>150</y>
-     <width>381</width>
-     <height>271</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="generateButton">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>440</y>
-     <width>341</width>
-     <height>111</height>
+     <x>730</x>
+     <y>80</y>
+     <width>71</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -164,16 +98,6 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QCalendarWidget" name="startDateCal">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>150</y>
-     <width>381</width>
-     <height>271</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="returnButton">
    <property name="geometry">
     <rect>
@@ -203,14 +127,156 @@
     </size>
    </property>
   </widget>
+  <widget class="QDateEdit" name="dateEdit">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>72</y>
+     <width>110</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>2000</year>
+     <month>1</month>
+     <day>1</day>
+    </datetime>
+   </property>
+   <property name="displayFormat">
+    <string>MM/dd/yyyy</string>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
+   </property>
+   <property name="currentSectionIndex">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>72</y>
+     <width>110</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>71</y>
+     <width>261</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Today</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Yesterday</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>This Week</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>LastWeek</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Custom</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>110</y>
+     <width>881</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableView { 
+border-color: rgb(211, 225, 148);
+	
+	
+	border-image: url(:/image/whiteboxBorder.jpeg);
+	border-color: rgb(0, 0, 127);
+	border-radius: 20px; 
+	
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+
+QTableView::item:selected {
+   	background-color: red;
+	border-radius: 5px;
+}
+QTableView QTableCornerButton::section {
+    background: red;
+    border: 2px outset red;
+}</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>520</y>
+     <width>361</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="totalLabel">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Total</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="totalLineEdit">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <zorder>pictureLabel</zorder>
-  <zorder>startLabel</zorder>
-  <zorder>endLabel</zorder>
-  <zorder>endDateCal</zorder>
   <zorder>generateButton</zorder>
   <zorder>label</zorder>
-  <zorder>startDateCal</zorder>
   <zorder>returnButton</zorder>
+  <zorder>dateEdit</zorder>
+  <zorder>dateEdit_2</zorder>
+  <zorder>comboBox</zorder>
+  <zorder>tableView</zorder>
+  <zorder>formLayoutWidget</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

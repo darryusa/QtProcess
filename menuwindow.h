@@ -22,10 +22,10 @@ private:
     Ui::MenuWindow *ui;
 
 signals:
-    void inventoryClicked();
     void reportClicked();
     void staffClicked();
     void saleClicked();
+    void inventoryClicked();
 
 private slots:
     void on_saleButton_clicked();
