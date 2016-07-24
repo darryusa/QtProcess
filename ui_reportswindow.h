@@ -39,12 +39,17 @@ public:
     QWidget *formLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *totalLabel;
-    QLineEdit *salesTaxTotalEdit;
+    QLineEdit *TaxTotalEdit;
     QSpacerItem *horizontalSpacer;
+    QLabel *totalLabel_3;
+    QLineEdit *salesTaxTotalEdit;
+    QSpacerItem *horizontalSpacer_2;
     QLabel *totalLabel_2;
     QLineEdit *salesTotalEdit;
     QLabel *label_2;
     QWidget *customDateWidget;
+    QWidget *widget;
+    QHBoxLayout *customDateLayout;
     QLabel *label_3;
     QDateEdit *startCustomDate;
     QLabel *label_4;
@@ -138,7 +143,7 @@ public:
 "}"));
         formLayoutWidget = new QWidget(ReportsWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(200, 560, 631, 27));
+        formLayoutWidget->setGeometry(QRect(100, 560, 731, 27));
         horizontalLayout = new QHBoxLayout(formLayoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -153,6 +158,29 @@ public:
 
         horizontalLayout->addWidget(totalLabel);
 
+        TaxTotalEdit = new QLineEdit(formLayoutWidget);
+        TaxTotalEdit->setObjectName(QStringLiteral("TaxTotalEdit"));
+        TaxTotalEdit->setMinimumSize(QSize(0, 25));
+        TaxTotalEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
+"	border-radius: 8px; \n"
+"	color:rgb(0, 0, 0);\n"
+"	background-color: rgb(255, 255, 255); \n"
+"} "));
+        TaxTotalEdit->setReadOnly(true);
+
+        horizontalLayout->addWidget(TaxTotalEdit);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        totalLabel_3 = new QLabel(formLayoutWidget);
+        totalLabel_3->setObjectName(QStringLiteral("totalLabel_3"));
+        totalLabel_3->setMinimumSize(QSize(0, 25));
+        totalLabel_3->setFont(font2);
+
+        horizontalLayout->addWidget(totalLabel_3);
+
         salesTaxTotalEdit = new QLineEdit(formLayoutWidget);
         salesTaxTotalEdit->setObjectName(QStringLiteral("salesTaxTotalEdit"));
         salesTaxTotalEdit->setMinimumSize(QSize(0, 25));
@@ -161,12 +189,13 @@ public:
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
 "} "));
+        salesTaxTotalEdit->setReadOnly(true);
 
         horizontalLayout->addWidget(salesTaxTotalEdit);
 
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout->addItem(horizontalSpacer);
+        horizontalLayout->addItem(horizontalSpacer_2);
 
         totalLabel_2 = new QLabel(formLayoutWidget);
         totalLabel_2->setObjectName(QStringLiteral("totalLabel_2"));
@@ -183,6 +212,7 @@ public:
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
 "} "));
+        salesTotalEdit->setReadOnly(true);
 
         horizontalLayout->addWidget(salesTotalEdit);
 
@@ -193,37 +223,64 @@ public:
         customDateWidget = new QWidget(ReportsWindow);
         customDateWidget->setObjectName(QStringLiteral("customDateWidget"));
         customDateWidget->setGeometry(QRect(485, 68, 311, 33));
-        label_3 = new QLabel(customDateWidget);
+        widget = new QWidget(customDateWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(0, -8, 271, 51));
+        customDateLayout = new QHBoxLayout(widget);
+        customDateLayout->setObjectName(QStringLiteral("customDateLayout"));
+        customDateLayout->setContentsMargins(0, 0, 0, 0);
+        label_3 = new QLabel(widget);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(0, 2, 51, 31));
+        label_3->setMinimumSize(QSize(0, 31));
+        label_3->setBaseSize(QSize(0, 31));
         label_3->setFont(font2);
-        startCustomDate = new QDateEdit(customDateWidget);
+
+        customDateLayout->addWidget(label_3);
+
+        startCustomDate = new QDateEdit(widget);
         startCustomDate->setObjectName(QStringLiteral("startCustomDate"));
-        startCustomDate->setGeometry(QRect(50, 2, 110, 31));
+        startCustomDate->setMinimumSize(QSize(0, 31));
+        startCustomDate->setBaseSize(QSize(0, 31));
         startCustomDate->setStyleSheet(QLatin1String("\n"
 "	border-radius: 8px; \n"
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
 ""));
-        startCustomDate->setDateTime(QDateTime(QDate(2016, 7, 23), QTime(0, 0, 0)));
+        startCustomDate->setDateTime(QDateTime(QDate(2000, 3, 1), QTime(0, 0, 0)));
         startCustomDate->setCalendarPopup(true);
-        startCustomDate->setCurrentSectionIndex(1);
-        startCustomDate->setDate(QDate(2016, 7, 23));
-        label_4 = new QLabel(customDateWidget);
+        startCustomDate->setCurrentSectionIndex(0);
+        startCustomDate->setDate(QDate(2000, 3, 1));
+
+        customDateLayout->addWidget(startCustomDate);
+
+        label_4 = new QLabel(widget);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(170, 2, 21, 31));
+        label_4->setMinimumSize(QSize(0, 31));
+        label_4->setBaseSize(QSize(0, 31));
         label_4->setFont(font2);
-        endCustomDate = new QDateEdit(customDateWidget);
+
+        customDateLayout->addWidget(label_4);
+
+        endCustomDate = new QDateEdit(widget);
         endCustomDate->setObjectName(QStringLiteral("endCustomDate"));
-        endCustomDate->setGeometry(QRect(195, 2, 110, 31));
+        endCustomDate->setMinimumSize(QSize(0, 31));
+        endCustomDate->setBaseSize(QSize(0, 31));
         endCustomDate->setStyleSheet(QLatin1String("\n"
 "	border-radius: 8px; \n"
 "	color:rgb(0, 0, 0);\n"
 "	background-color: rgb(255, 255, 255); \n"
 ""));
-        endCustomDate->setCurrentSection(QDateTimeEdit::DaySection);
+        endCustomDate->setCurrentSection(QDateTimeEdit::YearSection);
         endCustomDate->setCalendarPopup(true);
         endCustomDate->setDate(QDate(2016, 7, 23));
+
+        customDateLayout->addWidget(endCustomDate);
+
+        label_3->raise();
+        startCustomDate->raise();
+        label_4->raise();
+        endCustomDate->raise();
+        widget->raise();
         pictureLabel->raise();
         generateButton->raise();
         label->raise();
@@ -254,13 +311,14 @@ public:
          << QApplication::translate("ReportsWindow", "LastWeek", 0)
          << QApplication::translate("ReportsWindow", "Custom", 0)
         );
-        totalLabel->setText(QApplication::translate("ReportsWindow", "Sales Tax Total", 0));
+        totalLabel->setText(QApplication::translate("ReportsWindow", "Tax Total", 0));
+        totalLabel_3->setText(QApplication::translate("ReportsWindow", "Sales + Tax Total", 0));
         totalLabel_2->setText(QApplication::translate("ReportsWindow", "Sales Total", 0));
         label_2->setText(QApplication::translate("ReportsWindow", "Select time period", 0));
         label_3->setText(QApplication::translate("ReportsWindow", "From", 0));
-        startCustomDate->setDisplayFormat(QApplication::translate("ReportsWindow", "MM/dd/yyyy", 0));
+        startCustomDate->setDisplayFormat(QApplication::translate("ReportsWindow", "yyyy-MM-dd", 0));
         label_4->setText(QApplication::translate("ReportsWindow", "To", 0));
-        endCustomDate->setDisplayFormat(QApplication::translate("ReportsWindow", "MM/dd/yyyy", 0));
+        endCustomDate->setDisplayFormat(QApplication::translate("ReportsWindow", "yyyy-MM-dd", 0));
     } // retranslateUi
 
 };

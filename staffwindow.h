@@ -37,13 +37,13 @@ signals:
 private slots:
 
 
-    void on_tableView_activated(const QModelIndex &index);
+
     void on_modifyPINButton_clicked();
     void on_searchLineEdit_textChanged(const QString &arg1);
     void on_confirmButton_clicked();
     void on_returnButton_clicked();
     void on_removeButton_clicked();
-    void on_tableView_viewportEntered();
+    void on_tableView_clicked(const QModelIndex &index);
 };
 
 #endif // STAFFWINDOW_H

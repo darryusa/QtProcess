@@ -2,7 +2,6 @@
 #include "ui_itemmodify.h"
 #include "inventorywindow.h"
 #include "qsqlquery.h"
-#include "qdebug.h"
 #include "qmessagebox.h"
 #include <qsqlerror.h>
 
@@ -70,7 +69,6 @@ void ItemModify::on_pushButton_clicked()
             qry3.prepare("UPDATE inventory SET name =(:name),quantity =(:quantity),price =(:price),category =(:category)"
                          "WHERE ID=(:id)");
 
-            qDebug()<<ui->quantitySpinBox->value();
             qry3.bindValue(":name" ,ui->nameLineEdit->text());
             qry3.bindValue(":quantity",ui->quantitySpinBox->value());
             qry3.bindValue(":price",extractDouble(ui->priceLineEdit->text()));

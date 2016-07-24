@@ -2,7 +2,8 @@
 #define REPORTSWINDOW_H
 
 #include <QWidget>
-
+#include <qsqlquerymodel.h>
+#include <qsortfilterproxymodel.h>
 namespace Ui {
 class ReportsWindow;
 }
@@ -18,8 +19,17 @@ public:
 private slots:
     void on_generateButton_clicked();
 
+    void on_timePeriodBox_currentIndexChanged(int index);
+
+    void on_returnButton_clicked();
+signals:
+    void returnFromReport();
 private:
     Ui::ReportsWindow *ui;
+    QSqlQueryModel *model;
+    QSortFilterProxyModel *sort_filter;
+    void init();
+    double sale,saleTax,total;
 };
 
 #endif // REPORTSWINDOW_H

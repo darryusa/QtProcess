@@ -403,17 +403,19 @@ public:
 "}\n"
 " "));
         tableView->setLineWidth(1);
-        tableView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
+        tableView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         tableView->setEditTriggers(QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked);
         tableView->setAlternatingRowColors(true);
+        tableView->setSelectionMode(QAbstractItemView::SingleSelection);
         tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableView->setShowGrid(false);
         tableView->setGridStyle(Qt::NoPen);
-        tableView->setSortingEnabled(false);
+        tableView->setSortingEnabled(true);
         tableView->setCornerButtonEnabled(false);
         tableView->horizontalHeader()->setVisible(false);
         tableView->horizontalHeader()->setCascadingSectionResizes(false);
         tableView->horizontalHeader()->setMinimumSectionSize(10);
-        tableView->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
+        tableView->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
         tableView->horizontalHeader()->setStretchLastSection(true);
         tableView->verticalHeader()->setVisible(false);
         tableView->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
@@ -507,13 +509,13 @@ public:
         confirmButton->raise();
         addButton->raise();
         removeButton->raise();
-        tableView->raise();
         searchIcon->raise();
         searchLineEdit->raise();
         modifyPINButton->raise();
         pINLabel->raise();
         layoutWidget->raise();
         returnButton->raise();
+        tableView->raise();
 
         retranslateUi(StaffWindow);
         QObject::connect(addButton, SIGNAL(clicked()), firstNameLineEdit, SLOT(clear()));
@@ -523,6 +525,7 @@ public:
         QObject::connect(addButton, SIGNAL(clicked()), emailAddressLineEdit, SLOT(clear()));
         QObject::connect(addButton, SIGNAL(clicked()), sSNLineEdit, SLOT(clear()));
         QObject::connect(cancelButton, SIGNAL(clicked()), addButton, SLOT(click()));
+        QObject::connect(removeButton, SIGNAL(clicked()), addButton, SLOT(click()));
 
         QMetaObject::connectSlotsByName(StaffWindow);
     } // setupUi

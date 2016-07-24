@@ -1,8 +1,6 @@
 #include "staffwindow.h"
 #include "ui_staffwindow.h"
-#include <dbmanager.h>
 #include <QMessageBox>
-#include <QDebug>
 #include <QSortFilterProxyModel>
 int one = 1;
 int ID;
@@ -35,43 +33,20 @@ StaffWindow::~StaffWindow()
 // Input Popup and keyboard appears, input is sent to database.
 
 
-void StaffWindow::on_tableView_activated(const QModelIndex &index)
-{
-    QString val = ui->tableView->model()->data(index).toString();
-    QSqlQuery qry;
-    qry.prepare("SELECT * FROM employee WHERE first='"+val+"' or last='"+val+"' ");
-    if(qry.exec())
-    {
-        while(qry.next())
-        {
-            ui->firstNameLineEdit->setText(qry.value(1).toString());
-            ui->lastNameLineEdit->setText(qry.value(2).toString());
-            ui->addressLineEdit->setText(qry.value(3).toString());
-            ui->phoneNumberLineEdit->setText(qry.value(4).toString());
-            ui->emailAddressLineEdit->setText(qry.value(6).toString());
-            ui->sSNLineEdit->setText(qry.value(8).toString());
-            ui->managerRadioButton->setChecked((qry.value(7)!=1));
-            ui->employeeRadioButton->setChecked((qry.value(7)==1));
-        }
-        selectedName = ui->tableView->model()->data(index).toString();
-    }
-}
+
 
 
 void StaffWindow::on_searchLineEdit_textChanged(const QString &arg1)
 {
     sort_filter->setFilterFixedString(arg1);
     matchingIndex = sort_filter->mapToSource(sort_filter->index(0,0));
-    if(matchingIndex.isValid())
-    {
-      qDebug() << ui->searchLineEdit->text();
-    }
-    qDebug() << ui->searchLineEdit->text();
+
+
 }
 
 void StaffWindow::on_modifyPINButton_clicked()
 {
-    qDebug() << "test passed";
+
     pinNumPad = new PINNumPad(this);
     pinNumPad->setModal(true);
     pinNumPad->show();
@@ -102,8 +77,7 @@ void StaffWindow::on_confirmButton_clicked()
         {
             pinNumPad->deleteLater();
         }
-        qDebug()<< PIN;
-        int maxID;
+        int maxID =0;
         while (qry.next())
         {
             maxID = qry.value(0).toInt();
@@ -114,7 +88,7 @@ void StaffWindow::on_confirmButton_clicked()
                 privilige = qry.value(3).toInt();
             }
         }
-        int ID = (maxID)+ one;
+        ID = (maxID)+ one;
         if(!existed)
         {
             QVariant newID = ID;
@@ -160,7 +134,7 @@ void StaffWindow::on_confirmButton_clicked()
             qry3.bindValue(":privilige", privilige);
             qry3.bindValue(":pin",PIN);
 
-            QMessageBox::information(this,"", SSN);
+
             if(qry3.exec())
             {
                 QMessageBox::critical(this,tr("Save"),tr("Saved"));
@@ -196,7 +170,7 @@ void StaffWindow::on_removeButton_clicked()
         if(qry4.exec())
         {
           QMessageBox::critical(this,tr("DELETE"),tr("DELETED"));
-          model->setQuery("SELECT [ID], [last], [first] FROM [main].[employee]");
+          model->setQuery("SELECT [ID], [last], [first],[phone_number] FROM [main].[employee]");
         }
         else
         {
@@ -206,7 +180,25 @@ void StaffWindow::on_removeButton_clicked()
     }
 }
 
-void StaffWindow::on_tableView_viewportEntered()
+
+void StaffWindow::on_tableView_clicked(const QModelIndex &index)
 {
-    populateTable();
+    QString val = ui->tableView->model()->data(index).toString();
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM employee WHERE first='"+val+"' or last='"+val+"' ");
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            ui->firstNameLineEdit->setText(qry.value(1).toString());
+            ui->lastNameLineEdit->setText(qry.value(2).toString());
+            ui->addressLineEdit->setText(qry.value(3).toString());
+            ui->phoneNumberLineEdit->setText(qry.value(4).toString());
+            ui->emailAddressLineEdit->setText(qry.value(6).toString());
+            ui->sSNLineEdit->setText(qry.value(8).toString());
+            ui->managerRadioButton->setChecked((qry.value(7)!=1));
+            ui->employeeRadioButton->setChecked((qry.value(7)==1));
+        }
+        selectedName = ui->tableView->model()->data(index).toString();
+    }
 }

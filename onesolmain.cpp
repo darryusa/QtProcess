@@ -1,27 +1,24 @@
 #include "onesolmain.h"
 #include "staffwindow.h"
 #include "reportswindow.h"
-#include "dbmanager.h"
 #include <QStackedWidget>
 #include <QDesktopWidget>
 #include <logindialog.h>
-#include <QDebug>
 OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 {
-    staffWindow = new StaffWindow( this );
+
     menuWindow = new MenuWindow(this);
     reportsWindow = new ReportsWindow(this);
     stackedWidget = new QStackedWidget;
-    reportListDialog = new ReportListDialog(this);
     transactionWindow = new TransactionWindow(this);
     inventoryWindow = new InventoryWindow(this);
+    staffWindow = new StaffWindow( this );
     loginStaff = new LoginDialog(this,"staff");
     loginReport = new LoginDialog(this,"report");
     loginSale = new LoginDialog(this,"sale");
     loginInventory = new LoginDialog(this,"inventory");
     stackedWidget->addWidget(loginInventory);
     stackedWidget->addWidget(transactionWindow);
-    stackedWidget->addWidget(reportListDialog);
     stackedWidget->addWidget( staffWindow );
     stackedWidget->addWidget(menuWindow);
     stackedWidget->addWidget(reportsWindow);
@@ -42,7 +39,7 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     connect(inventoryWindow,SIGNAL(inventoryReturn()),this,SLOT(staffReturned()));
     connect(this,SIGNAL(saleLogginSignal()),transactionWindow,SLOT(transactionLoggedin()));
     connect(transactionWindow,SIGNAL(returnToMain()),this,SLOT(returnFromTransactionSlot()));
-
+    connect(reportsWindow,SIGNAL(returnFromReport()),this,SLOT(returnFromReportSlot()));
     QRect screenGeometry = QDesktopWidget().availableGeometry( this );
 
     stackedWidget->resize( screenGeometry.size() );
@@ -65,6 +62,11 @@ void OneSolMain::reportButtonClicked()
 
 
 }
+void OneSolMain::returnFromReportSlot()
+{
+    stackedWidget->setCurrentWidget(menuWindow);
+}
+
 void OneSolMain::returnFromTransactionSlot()
 {
     stackedWidget->setCurrentWidget(menuWindow);
@@ -88,7 +90,7 @@ void OneSolMain::staffReturned()
 }
 void OneSolMain::reportSlotLoggedin()
 {
-    stackedWidget->setCurrentWidget(reportListDialog);
+    stackedWidget->setCurrentWidget(reportsWindow);
     loginReport->hide();
 }
 

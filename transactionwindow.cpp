@@ -206,17 +206,16 @@ void TransactionWindow::on_checkoutButton_clicked()
 }
 void TransactionWindow::updateDatabase()
 {
-    qint64 seconds= QDateTime::currentMSecsSinceEpoch();
     QString date = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
     QSqlQuery qry;
-    qry.prepare("INSERT INTO transactions (times, employee, sale, sale_tax, total,seconds)"
-                 "VALUES (:times, :employee, :sale, :sale_tax, :total,:seconds)");
+    qry.prepare("INSERT INTO transactions (times, employee, sale, sale_tax, total)"
+                 "VALUES (:times, :employee, :sale, :sale_tax, :total)");
     qry.bindValue(":times" , date);
     qry.bindValue(":employee", ui->name->text());
     qry.bindValue(":sale",subTotal);
     qry.bindValue(":sale_tax",taxTotal);
     qry.bindValue(":total",grandTotal);
-    qry.bindValue(":seconds",seconds);
+
     if(qry.exec())
     {
         QTreeWidgetItemIterator it(ui->treeWidget);

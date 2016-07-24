@@ -8,7 +8,6 @@
 #include <reportswindow.h>
 #include <singleton.h>
 #include <logindialog.h>
-#include <reportlistdialog.h>
 #include <transactionwindow.h>
 #include <inventorywindow.h>
 class OneSolMain : public QWidget
@@ -24,7 +23,6 @@ private:
     StaffWindow *staffWindow;
     MenuWindow *menuWindow;
     ReportsWindow *reportsWindow;
-    ReportListDialog * reportListDialog;
     TransactionWindow * transactionWindow;
     InventoryWindow * inventoryWindow;
     LoginDialog * loginReport;
@@ -51,6 +49,7 @@ private slots:
     void returnFromTransactionSlot();
     void inventoryClicked();
     void inventoryLoggedin();
+    void returnFromReportSlot();
 
 };
 typedef Singleton<OneSolMain> oneSolMain;

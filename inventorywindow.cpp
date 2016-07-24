@@ -4,7 +4,7 @@
 #include "qmessagebox.h"
 #include "qsqlerror.h"
 #include "itemmodify.h"
-#include "qdebug.h"
+
 QString InventoryWindow::selectedName;
 bool InventoryWindow::modifyItem;
 InventoryWindow::InventoryWindow(QWidget *parent) :
@@ -72,7 +72,7 @@ void InventoryWindow::on_removeButton_clicked()
     QSqlQuery qry4;
     if(InventoryWindow::selectedName.length()>0)
     {
-        qDebug()<< selectedName;
+
         qry4.prepare("DELETE FROM inventory WHERE id= '"+InventoryWindow::selectedName+"' or name= '"+InventoryWindow::selectedName+"' "
                   "or description= '"+InventoryWindow::selectedName+"' or price= '"+InventoryWindow::selectedName+"' or category = '"+InventoryWindow::selectedName+"' ");
 

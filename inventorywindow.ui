@@ -430,19 +430,6 @@ color: rgb(0, 0, 127);
 } 
 
 </string>
-      </property>
-      <property name="text">
-       <string> Search...</string>
-      </property>
-      <property name="maxLength">
-       <number>32767</number>
-      </property>
-      <property name="cursorPosition">
-       <number>0</number>
-      </property>
-     </widget>
-    </item>
-   </layout>
   </widget>
  </widget>
  <resources>
