@@ -13,13 +13,25 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowOpacity">
+   <double>0.500000000000000</double>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(210, 224, 147);</string>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>80</y>
-     <width>431</width>
-     <height>241</height>
+     <x>80</x>
+     <y>30</y>
+     <width>531</width>
+     <height>451</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -32,17 +44,7 @@
     <property name="topMargin">
      <number>30</number>
     </property>
-    <item row="0" column="1">
-     <widget class="QLabel" name="ID">
-      <property name="text">
-       <string>ID = </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
+    <item row="3" column="0">
      <widget class="QLabel" name="nameLabel">
       <property name="minimumSize">
        <size>
@@ -50,12 +52,19 @@
         <height>25</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Name</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
+    <item row="3" column="1">
      <widget class="QLineEdit" name="nameLineEdit">
       <property name="minimumSize">
        <size>
@@ -63,9 +72,17 @@
         <height>25</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit { 
+	border-radius: 12px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+</string>
+      </property>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="7" column="0">
      <widget class="QLabel" name="priceLabel">
       <property name="minimumSize">
        <size>
@@ -73,12 +90,19 @@
         <height>25</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Price</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="1">
+    <item row="7" column="1">
      <widget class="QLineEdit" name="priceLineEdit">
       <property name="minimumSize">
        <size>
@@ -86,9 +110,17 @@
         <height>25</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit { 
+	border-radius: 12px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+</string>
+      </property>
      </widget>
     </item>
-    <item row="4" column="0">
+    <item row="9" column="0">
      <widget class="QLabel" name="categoryLabel">
       <property name="minimumSize">
        <size>
@@ -96,18 +128,33 @@
         <height>25</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Category</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
+    <item row="9" column="1">
      <widget class="QComboBox" name="categoryComboBox">
       <property name="minimumSize">
        <size>
         <width>0</width>
         <height>25</height>
        </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+	border-radius: 12px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+
+</string>
       </property>
       <property name="currentText">
        <string/>
@@ -145,34 +192,163 @@
       </item>
      </widget>
     </item>
-    <item row="6" column="0">
+    <item row="11" column="0">
      <widget class="QLabel" name="descriptionLabel">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Description</string>
       </property>
      </widget>
     </item>
-    <item row="6" column="1">
-     <widget class="QLineEdit" name="descriptionLineEdit">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>50</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
+    <item row="5" column="0">
      <widget class="QLabel" name="quantityLabel">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Quantity</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
+    <item row="5" column="1">
      <widget class="QSpinBox" name="quantitySpinBox">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+	border-radius: 12px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+
+</string>
+      </property>
       <property name="maximum">
        <number>1000</number>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="1">
+     <widget class="QLineEdit" name="descriptionLineEdit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit { 
+	border-radius: 12px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} 
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="1">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="6" column="1">
+     <spacer name="verticalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="8" column="1">
+     <spacer name="verticalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="10" column="1">
+     <spacer name="verticalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="ID">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>ID = </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
@@ -189,8 +365,14 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>50</pointsize>
+     <family>Symbola</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 127);</string>
    </property>
    <property name="text">
     <string>New/Edit Items</string>
@@ -205,11 +387,29 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>390</y>
-     <width>131</width>
-     <height>41</height>
+     <x>80</x>
+     <y>490</y>
+     <width>201</width>
+     <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>28</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	border-radius: 10px;
+	color: rgb(0, 0, 127);
+}</string>
    </property>
    <property name="text">
     <string>Confirm</string>
@@ -219,10 +419,29 @@
    <property name="geometry">
     <rect>
      <x>410</x>
-     <y>390</y>
-     <width>111</width>
-     <height>41</height>
+     <y>490</y>
+     <width>201</width>
+     <height>71</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>28</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+	border-radius: 10px;
+	
+	color: rgb(0, 0, 127);
+}</string>
    </property>
    <property name="text">
     <string>Cancel</string>

@@ -628,7 +628,7 @@ color: rgb(0, 0, 127);
     <rect>
      <x>510</x>
      <y>90</y>
-     <width>480</width>
+     <width>481</width>
      <height>411</height>
     </rect>
    </property>
@@ -772,8 +772,11 @@ QScrollBar::sub-line:vertical {
 
 </string>
    </property>
+   <property name="text">
+    <string>  Search...</string>
+   </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="modifyPINButton">
