@@ -775,6 +775,9 @@ QScrollBar::sub-line:vertical {
    <property name="text">
     <string>  Search...</string>
    </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>

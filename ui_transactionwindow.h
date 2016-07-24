@@ -47,8 +47,8 @@ public:
     QTreeWidget *treeWidget;
     QWidget *formLayoutWidget;
     QFormLayout *formLayout;
-    QLabel *searchBarLabel;
     QLineEdit *searchBarLineEdit;
+    QPushButton *searchIcon;
     QTabWidget *tabWidget;
     QWidget *allTab;
     QTableView *allTableView;
@@ -224,16 +224,10 @@ public:
         treeWidget->header()->setStretchLastSection(false);
         formLayoutWidget = new QWidget(TransactionWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(590, 80, 421, 31));
+        formLayoutWidget->setGeometry(QRect(590, 80, 421, 39));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
-        searchBarLabel = new QLabel(formLayoutWidget);
-        searchBarLabel->setObjectName(QStringLiteral("searchBarLabel"));
-        searchBarLabel->setMinimumSize(QSize(0, 25));
-
-        formLayout->setWidget(0, QFormLayout::LabelRole, searchBarLabel);
-
         searchBarLineEdit = new QLineEdit(formLayoutWidget);
         searchBarLineEdit->setObjectName(QStringLiteral("searchBarLineEdit"));
         searchBarLineEdit->setMinimumSize(QSize(0, 25));
@@ -243,10 +237,20 @@ public:
 "	background-color: rgb(255, 255, 255); \n"
 "} \n"
 ""));
-        searchBarLineEdit->setAlignment(Qt::AlignCenter);
+        searchBarLineEdit->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         searchBarLineEdit->setCursorMoveStyle(Qt::VisualMoveStyle);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, searchBarLineEdit);
+
+        searchIcon = new QPushButton(formLayoutWidget);
+        searchIcon->setObjectName(QStringLiteral("searchIcon"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/image/noun_79907_cc.png"), QSize(), QIcon::Normal, QIcon::Off);
+        searchIcon->setIcon(icon);
+        searchIcon->setIconSize(QSize(41, 31));
+        searchIcon->setFlat(true);
+
+        formLayout->setWidget(0, QFormLayout::LabelRole, searchIcon);
 
         tabWidget = new QTabWidget(TransactionWindow);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
@@ -412,9 +416,9 @@ public:
         returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "background-color: none;\n"
 "}"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
-        returnButton->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
+        returnButton->setIcon(icon1);
         returnButton->setIconSize(QSize(71, 31));
         returnButton_2 = new QPushButton(TransactionWindow);
         returnButton_2->setObjectName(QStringLiteral("returnButton_2"));
@@ -423,7 +427,7 @@ public:
 "	background-color: rgb(140, 177, 63);\n"
 "\n"
 "}"));
-        returnButton_2->setIcon(icon);
+        returnButton_2->setIcon(icon1);
         returnButton_2->setIconSize(QSize(71, 31));
         label_4 = new QLabel(TransactionWindow);
         label_4->setObjectName(QStringLiteral("label_4"));
@@ -475,7 +479,8 @@ public:
         ___qtreewidgetitem->setText(2, QApplication::translate("TransactionWindow", "Quantity", 0));
         ___qtreewidgetitem->setText(1, QApplication::translate("TransactionWindow", "Name", 0));
         ___qtreewidgetitem->setText(0, QApplication::translate("TransactionWindow", "ID", 0));
-        searchBarLabel->setText(QApplication::translate("TransactionWindow", "searchBar", 0));
+        searchBarLineEdit->setText(QApplication::translate("TransactionWindow", "  Search...", 0));
+        searchIcon->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(allTab), QApplication::translate("TransactionWindow", "All", 0));
         tabWidget->setTabText(tabWidget->indexOf(massageTab), QApplication::translate("TransactionWindow", "Massage ", 0));
         tabWidget->setTabText(tabWidget->indexOf(hairTab), QApplication::translate("TransactionWindow", "Hair", 0));

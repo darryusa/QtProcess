@@ -362,7 +362,7 @@ public:
 ""));
         tableView = new QTableView(StaffWindow);
         tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(510, 90, 480, 411));
+        tableView->setGeometry(QRect(510, 90, 481, 411));
         QFont font4;
         font4.setPointSize(16);
         tableView->setFont(font4);
@@ -437,7 +437,7 @@ public:
 "} \n"
 "\n"
 ""));
-        searchLineEdit->setAlignment(Qt::AlignCenter);
+        searchLineEdit->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         modifyPINButton = new QPushButton(StaffWindow);
         modifyPINButton->setObjectName(QStringLiteral("modifyPINButton"));
         modifyPINButton->setGeometry(QRect(136, 380, 91, 25));
@@ -541,6 +541,7 @@ public:
         addButton->setText(QApplication::translate("StaffWindow", "Add", 0));
         removeButton->setText(QApplication::translate("StaffWindow", "Remove", 0));
         searchIcon->setText(QString());
+        searchLineEdit->setText(QApplication::translate("StaffWindow", "  Search...", 0));
 #ifndef QT_NO_TOOLTIP
         modifyPINButton->setToolTip(QApplication::translate("StaffWindow", "<html><head/><body><p>Click to Edit PIN</p></body></html>", 0));
 #endif // QT_NO_TOOLTIP

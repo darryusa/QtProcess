@@ -437,6 +437,9 @@ color: rgb(0, 0, 127);
       <property name="maxLength">
        <number>32767</number>
       </property>
+      <property name="cursorPosition">
+       <number>0</number>
+      </property>
      </widget>
     </item>
    </layout>

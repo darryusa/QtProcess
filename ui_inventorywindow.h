@@ -27,8 +27,10 @@ class Ui_InventoryWindow
 {
 public:
     QLabel *backgroundLabel;
+    QPushButton *cancelButton;
     QPushButton *removeButton;
     QPushButton *addButton;
+    QPushButton *confirmButton;
     QTableView *tableView;
     QLabel *inventoryTitle;
     QPushButton *returnButton;
@@ -48,14 +50,36 @@ public:
         backgroundLabel->setGeometry(QRect(0, 0, 1024, 600));
         backgroundLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/Vs2.0BamBoo.jpg")));
         backgroundLabel->setScaledContents(true);
-        removeButton = new QPushButton(InventoryWindow);
-        removeButton->setObjectName(QStringLiteral("removeButton"));
-        removeButton->setGeometry(QRect(650, 540, 211, 41));
+        cancelButton = new QPushButton(InventoryWindow);
+        cancelButton->setObjectName(QStringLiteral("cancelButton"));
+        cancelButton->setGeometry(QRect(350, 470, 80, 22));
         QFont font;
-        font.setPointSize(16);
         font.setBold(true);
         font.setWeight(75);
-        removeButton->setFont(font);
+        cancelButton->setFont(font);
+        cancelButton->setStyleSheet(QLatin1String("QPushButton{\n"
+"	border-radius: 8px;\n"
+"\n"
+"\n"
+"	\n"
+"	color: rgb(0, 0, 127);\n"
+"	\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"\n"
+"	\n"
+"\n"
+"\n"
+"\n"
+"}\n"
+""));
+        removeButton = new QPushButton(InventoryWindow);
+        removeButton->setObjectName(QStringLiteral("removeButton"));
+        removeButton->setGeometry(QRect(663, 540, 210, 41));
+        QFont font1;
+        font1.setPointSize(16);
+        font1.setBold(true);
+        font1.setWeight(75);
+        removeButton->setFont(font1);
         removeButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 20px;\n"
 "	background-color: rgb(164, 179, 60);\n"
@@ -73,8 +97,8 @@ public:
 ""));
         addButton = new QPushButton(InventoryWindow);
         addButton->setObjectName(QStringLiteral("addButton"));
-        addButton->setGeometry(QRect(120, 540, 211, 41));
-        addButton->setFont(font);
+        addButton->setGeometry(QRect(151, 540, 210, 41));
+        addButton->setFont(font1);
         addButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 20px;\n"
 "	background-color: rgb(164, 179, 60);\n"
@@ -90,12 +114,23 @@ public:
 "\n"
 "}\n"
 ""));
+        confirmButton = new QPushButton(InventoryWindow);
+        confirmButton->setObjectName(QStringLiteral("confirmButton"));
+        confirmButton->setGeometry(QRect(50, 470, 80, 22));
+        confirmButton->setFont(font);
+        confirmButton->setStyleSheet(QLatin1String("QPushButton\n"
+"{\n"
+"	border-radius: 8px;\n"
+"	color: rgb(0, 0, 127);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
+"}\n"
+""));
         tableView = new QTableView(InventoryWindow);
         tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(29, 110, 961, 411));
-        QFont font1;
-        font1.setPointSize(16);
-        tableView->setFont(font1);
+        tableView->setGeometry(QRect(29, 100, 961, 421));
+        QFont font2;
+        font2.setPointSize(16);
+        tableView->setFont(font2);
         tableView->setStyleSheet(QLatin1String("QTableView { \n"
 "	border-image: url(:/image/whiteboxBorder.jpeg);\n"
 "	border-radius: 20px; \n"
@@ -160,12 +195,12 @@ public:
         inventoryTitle = new QLabel(InventoryWindow);
         inventoryTitle->setObjectName(QStringLiteral("inventoryTitle"));
         inventoryTitle->setGeometry(QRect(0, 0, 1024, 60));
-        QFont font2;
-        font2.setFamily(QStringLiteral("Symbola"));
-        font2.setPointSize(36);
-        font2.setBold(true);
-        font2.setWeight(75);
-        inventoryTitle->setFont(font2);
+        QFont font3;
+        font3.setFamily(QStringLiteral("Symbola"));
+        font3.setPointSize(36);
+        font3.setBold(true);
+        font3.setWeight(75);
+        inventoryTitle->setFont(font3);
         inventoryTitle->setStyleSheet(QLatin1String("\n"
 "	\n"
 "color: rgb(0, 0, 127);\n"
@@ -177,7 +212,7 @@ public:
         returnButton->setObjectName(QStringLiteral("returnButton"));
         returnButton->setGeometry(QRect(20, 10, 71, 31));
         returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
-"background-color: none;\n"
+"	background-color: rgb(140, 177, 63);\n"
 "\n"
 "}"));
         QIcon icon;
@@ -186,8 +221,8 @@ public:
         returnButton->setIconSize(QSize(71, 31));
         editButton = new QPushButton(InventoryWindow);
         editButton->setObjectName(QStringLiteral("editButton"));
-        editButton->setGeometry(QRect(380, 540, 211, 41));
-        editButton->setFont(font);
+        editButton->setGeometry(QRect(407, 540, 210, 41));
+        editButton->setFont(font1);
         editButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 20px;\n"
 "	background-color: rgb(164, 179, 60);\n"
@@ -205,7 +240,7 @@ public:
 ""));
         layoutWidget = new QWidget(InventoryWindow);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(30, 70, 951, 39));
+        layoutWidget->setGeometry(QRect(30, 60, 491, 39));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -221,7 +256,11 @@ public:
 
         searchLineEdit = new QLineEdit(layoutWidget);
         searchLineEdit->setObjectName(QStringLiteral("searchLineEdit"));
-        searchLineEdit->setMinimumSize(QSize(0, 25));
+        searchLineEdit->setMinimumSize(QSize(0, 35));
+        QFont font4;
+        font4.setPointSize(12);
+        font4.setKerning(false);
+        searchLineEdit->setFont(font4);
         searchLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	\n"
 "	border-radius: 10px; \n"
@@ -230,6 +269,7 @@ public:
 "} \n"
 "\n"
 ""));
+        searchLineEdit->setMaxLength(32767);
 
         horizontalLayout->addWidget(searchLineEdit);
 
@@ -243,12 +283,15 @@ public:
     {
         InventoryWindow->setWindowTitle(QApplication::translate("InventoryWindow", "Form", 0));
         backgroundLabel->setText(QString());
+        cancelButton->setText(QApplication::translate("InventoryWindow", "Cancel", 0));
         removeButton->setText(QApplication::translate("InventoryWindow", "Remove", 0));
         addButton->setText(QApplication::translate("InventoryWindow", "Add", 0));
+        confirmButton->setText(QApplication::translate("InventoryWindow", "Confirm", 0));
         inventoryTitle->setText(QApplication::translate("InventoryWindow", "Inventory", 0));
         returnButton->setText(QString());
         editButton->setText(QApplication::translate("InventoryWindow", "Edit", 0));
         searchIcon->setText(QString());
+        searchLineEdit->setText(QApplication::translate("InventoryWindow", " Search...", 0));
     } // retranslateUi
 
 };
