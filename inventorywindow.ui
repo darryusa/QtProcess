@@ -49,15 +49,15 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-radius: 8px;
+        border-radius: 8px;
 
 
-	
-	color: rgb(0, 0, 127);
-	
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
-	
+        color: rgb(0, 0, 127);
+
+        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+
 
 
 
@@ -86,15 +86,15 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-radius: 20px;
-	background-color: rgb(164, 179, 60);
+        border-radius: 20px;
+        background-color: rgb(164, 179, 60);
 
-	
-	color: rgb(0, 0, 127);
-	
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
-	
+        color: rgb(0, 0, 127);
+
+        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+
 
 
 
@@ -123,15 +123,15 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-radius: 20px;
-	background-color: rgb(164, 179, 60);
+        border-radius: 20px;
+        background-color: rgb(164, 179, 60);
 
-	
-	color: rgb(0, 0, 127);
-	
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
-	
+        color: rgb(0, 0, 127);
+
+        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+
 
 
 
@@ -160,9 +160,9 @@
    <property name="styleSheet">
     <string notr="true">QPushButton
 {
-	border-radius: 8px;
-	color: rgb(0, 0, 127);
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+        border-radius: 8px;
+        color: rgb(0, 0, 127);
+        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 }
 </string>
    </property>
@@ -185,48 +185,48 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QTableView { 
-	border-image: url(:/image/whiteboxBorder.jpeg);
-	border-radius: 20px; 
-	color:rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255); 
-	
-} 
+    <string notr="true">QTableView {
+        border-image: url(:/image/whiteboxBorder.jpeg);
+        border-radius: 20px;
+        color:rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+
+}
 QHeaderView::section
 {
-	border-radius: 8px;
-	background: rgb(164, 179, 60);
-	height: 25px;
+        border-radius: 8px;
+        background: rgb(164, 179, 60);
+        height: 25px;
 }
 QTableView::item:selected {
-   	background-color: rgb(164, 179, 60);
+        background-color: rgb(164, 179, 60);
 
 }
 QTableView::item {
-	border-radius: 5px;
+        border-radius: 5px;
 }
 QTableView QTableCornerButton::section {
     background: rgb(164, 179, 60);
     border: 2px outset rgb(164, 179, 60);
 }
-QScrollBar:vertical {               
-	background-color: none;
-	width: 10px;    
-	border-radius: 5px;
+QScrollBar:vertical {
+        background-color: none;
+        width: 10px;
+        border-radius: 5px;
 }
 QScrollBar::handle:vertical {
-	background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-	stop: 0  rgb(164, 179, 60), stop: 0.5 rgb(164, 179, 60),  stop:1 rgb(164, 179, 60));
-	min-height: 10px;
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop: 0  rgb(164, 179, 60), stop: 0.5 rgb(164, 179, 60),  stop:1 rgb(164, 179, 60));
+        min-height: 10px;
     border-radius: 5px;
     }
 QScrollBar::add-line:vertical {
-	height: 1px;
-	border-radius: 3px;
+        height: 1px;
+        border-radius: 3px;
 }
 QScrollBar::sub-line:vertical {
-	height: 1px;
-	border-radius: 3px;
+        height: 1px;
+        border-radius: 3px;
 
 }
  </string>
@@ -296,7 +296,7 @@ QScrollBar::sub-line:vertical {
    </property>
    <property name="styleSheet">
     <string notr="true">
-	
+
 color: rgb(0, 0, 127);
 
 </string>
@@ -322,7 +322,7 @@ color: rgb(0, 0, 127);
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	background-color: rgb(140, 177, 63);
+        background-color: rgb(140, 177, 63);
 
 }</string>
    </property>
@@ -358,15 +358,15 @@ color: rgb(0, 0, 127);
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
-	border-radius: 20px;
-	background-color: rgb(164, 179, 60);
+        border-radius: 20px;
+        background-color: rgb(164, 179, 60);
 
-	
-	color: rgb(0, 0, 127);
-	
-	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
-	
+        color: rgb(0, 0, 127);
+
+        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+
 
 
 
@@ -422,14 +422,27 @@ color: rgb(0, 0, 127);
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QLineEdit { 
-	
-	border-radius: 10px; 
-	color:rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255); 
-} 
+       <string notr="true">QLineEdit {
+
+        border-radius: 10px;
+        color:rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+}
 
 </string>
+      </property>
+      <property name="text">
+       <string> Search...</string>
+      </property>
+      <property name="maxLength">
+       <number>32767</number>
+      </property>
+      <property name="cursorPosition">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources>
