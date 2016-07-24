@@ -28,7 +28,6 @@ public:
     QLabel *pictureLabel;
     QLabel *label;
     QPushButton *returnButton;
-    QTableView *tableView_2;
 
     void setupUi(QDialog *ReportListDialog)
     {
@@ -95,34 +94,10 @@ public:
         icon.addFile(QStringLiteral(":/image/return.png"), QSize(), QIcon::Normal, QIcon::Off);
         returnButton->setIcon(icon);
         returnButton->setIconSize(QSize(71, 31));
-        tableView_2 = new QTableView(ReportListDialog);
-        tableView_2->setObjectName(QStringLiteral("tableView_2"));
-        tableView_2->setGeometry(QRect(320, 220, 881, 450));
-        tableView_2->setStyleSheet(QLatin1String("QTableView { \n"
-"border-color: rgb(211, 225, 148);\n"
-"	\n"
-"	\n"
-"	border-image: url(:/image/whiteboxBorder.jpeg);\n"
-"	border-color: rgb(0, 0, 127);\n"
-"	border-radius: 20px; \n"
-"	\n"
-"	color:rgb(0, 0, 0);\n"
-"	background-color: rgb(255, 255, 255); \n"
-"} \n"
-"\n"
-"QTableView::item:selected {\n"
-"   	background-color: red;\n"
-"	border-radius: 5px;\n"
-"}\n"
-"QTableView QTableCornerButton::section {\n"
-"    background: red;\n"
-"    border: 2px outset red;\n"
-"}"));
         pictureLabel->raise();
         tableView->raise();
         label->raise();
         returnButton->raise();
-        tableView_2->raise();
 
         retranslateUi(ReportListDialog);
 

@@ -1,8 +1,6 @@
 #include "staffwindow.h"
 #include "ui_staffwindow.h"
-#include <dbmanager.h>
 #include <QMessageBox>
-#include <QDebug>
 #include <QSortFilterProxyModel>
 int one = 1;
 int ID;
@@ -42,11 +40,8 @@ void StaffWindow::on_searchLineEdit_textChanged(const QString &arg1)
 {
     sort_filter->setFilterFixedString(arg1);
     matchingIndex = sort_filter->mapToSource(sort_filter->index(0,0));
-    if(matchingIndex.isValid())
-    {
-      qDebug() << ui->searchLineEdit->text();
-    }
-    qDebug() << ui->searchLineEdit->text();
+
+
 }
 
 void StaffWindow::on_modifyPINButton_clicked()
@@ -82,8 +77,7 @@ void StaffWindow::on_confirmButton_clicked()
         {
             pinNumPad->deleteLater();
         }
-        qDebug()<< PIN;
-        int maxID;
+        int maxID =0;
         while (qry.next())
         {
             maxID = qry.value(0).toInt();
@@ -94,7 +88,7 @@ void StaffWindow::on_confirmButton_clicked()
                 privilige = qry.value(3).toInt();
             }
         }
-        int ID = (maxID)+ one;
+        ID = (maxID)+ one;
         if(!existed)
         {
             QVariant newID = ID;

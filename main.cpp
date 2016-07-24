@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     //OneSolMain w;
     // w.show();
-    //DbManagerInstance;
+    DbManagerInstance;
     OneSolMainInstance;
 
     return a.exec();

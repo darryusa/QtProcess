@@ -43,11 +43,9 @@ private:
     QString static selectedName;
     bool static modifyItem;
     Ui::InventoryWindow *ui;
-
     void populateTable();
     QSqlQueryModel *model;
     QSortFilterProxyModel *sort_filter;
-
     ItemModify * itemModify;
 };
 

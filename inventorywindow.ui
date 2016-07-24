@@ -32,240 +32,6 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QWidget" name="formLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>80</y>
-     <width>511</width>
-     <height>171</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="formLayout">
-    <property name="leftMargin">
-     <number>40</number>
-    </property>
-    <property name="rightMargin">
-     <number>40</number>
-    </property>
-    <item row="0" column="0">
-     <widget class="QLabel" name="itemNameLabel">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>66</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 127);</string>
-      </property>
-      <property name="text">
-       <string>Item Name</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="firstNameLineEdit">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>335</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit { 
-	border-radius: 8px; 
-	color:rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255); 
-} 
-
-</string>
-      </property>
-      <property name="inputMethodHints">
-       <set>Qt::ImhNoPredictiveText</set>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>10</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="priceLabel">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>65</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 127);</string>
-      </property>
-      <property name="text">
-       <string>Price</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="lastNameLineEdit">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>335</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit { 
-	border-radius: 8px; 
-	color:rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255); 
-} 
-
-</string>
-      </property>
-      <property name="inputMethodHints">
-       <set>Qt::ImhNoPredictiveText</set>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>10</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="quantityLabel">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>49</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 127);</string>
-      </property>
-      <property name="text">
-       <string>Quantity</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="addressLineEdit">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>335</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit { 
-	border-radius: 8px; 
-	color:rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255); 
-} 
-
-</string>
-      </property>
-      <property name="inputMethodHints">
-       <set>Qt::ImhNoPredictiveText</set>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <spacer name="verticalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>10</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-   </layout>
-  </widget>
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
@@ -511,70 +277,6 @@ QScrollBar::sub-line:vertical {
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QPushButton" name="searchIcon">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>80</y>
-     <width>41</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="resource.qrc">
-     <normaloff>:/image/noun_79907_cc.png</normaloff>:/image/noun_79907_cc.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>41</width>
-     <height>31</height>
-    </size>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="searchLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>550</x>
-     <y>80</y>
-     <width>431</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>0</width>
-     <height>25</height>
-    </size>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit { 
-	
-	border-radius: 10px; 
-	color:rgb(0, 0, 0);
-	background-color: rgb(255, 255, 255); 
-} 
-
-</string>
-   </property>
-   <property name="inputMask">
-    <string/>
-   </property>
-   <property name="text">
-    <string notr="true"/>
-   </property>
-   <property name="maxLength">
-    <number>32767</number>
-   </property>
-   <property name="cursorPosition">
-    <number>0</number>
-   </property>
-  </widget>
   <widget class="QLabel" name="inventoryTitle">
    <property name="geometry">
     <rect>
@@ -675,46 +377,23 @@ color: rgb(0, 0, 127);
     <string>Edit</string>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QLineEdit" name="searchLineEdit">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>70</y>
-     <width>951</width>
-     <height>39</height>
+     <x>89</x>
+     <y>76</y>
+     <width>890</width>
+     <height>25</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QPushButton" name="searchIcon">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource.qrc">
-        <normaloff>:/image/noun_79907_cc.png</normaloff>:/image/noun_79907_cc.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>41</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="searchLineEdit">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit { 
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>25</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit { 
 	
 	border-radius: 10px; 
 	color:rgb(0, 0, 0);
@@ -722,11 +401,48 @@ color: rgb(0, 0, 127);
 } 
 
 </string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   </property>
   </widget>
+  <widget class="QPushButton" name="searchIcon">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>70</y>
+     <width>53</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/image/noun_79907_cc.png</normaloff>:/image/noun_79907_cc.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>41</width>
+     <height>31</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>backgroundLabel</zorder>
+  <zorder>cancelButton</zorder>
+  <zorder>removeButton</zorder>
+  <zorder>addButton</zorder>
+  <zorder>confirmButton</zorder>
+  <zorder>tableView</zorder>
+  <zorder>inventoryTitle</zorder>
+  <zorder>returnButton</zorder>
+  <zorder>editButton</zorder>
+  <zorder>searchLineEdit</zorder>
+  <zorder>searchLineEdit</zorder>
+  <zorder>searchIcon</zorder>
+  <zorder>searchLineEdit</zorder>
+  <zorder>searchIcon</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>

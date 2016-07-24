@@ -1,6 +1,5 @@
 #include "pinnumpad.h"
 #include "ui_pinnumpad.h"
-#include <QDebug>
 PINNumPad::PINNumPad(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PINNumPad)
@@ -66,7 +65,6 @@ void PINNumPad::keyboardButtonPressed()
         QString currentText = ui->lineEdit->text();
         if ( currentText.length() > 4 )
         {
-            qDebug() << "pressed";
             ui->lineEdit->clear();
             ui->lineEdit->setEchoMode( QLineEdit::Password );
             ui->lineEdit->setMaxLength( 4 );

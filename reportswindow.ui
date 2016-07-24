@@ -206,9 +206,9 @@ QTableView QTableCornerButton::section {
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>100</x>
      <y>560</y>
-     <width>631</width>
+     <width>731</width>
      <height>27</height>
     </rect>
    </property>
@@ -229,7 +229,60 @@ QTableView QTableCornerButton::section {
        </font>
       </property>
       <property name="text">
-       <string>Sales Tax Total</string>
+       <string>Tax Total</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="TaxTotalEdit">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit { 
+	border-radius: 8px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} </string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="totalLabel_3">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Sales + Tax Total</string>
       </property>
      </widget>
     </item>
@@ -248,10 +301,13 @@ QTableView QTableCornerButton::section {
 	background-color: rgb(255, 255, 255); 
 } </string>
       </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item>
-     <spacer name="horizontalSpacer">
+     <spacer name="horizontalSpacer_2">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -298,6 +354,9 @@ QTableView QTableCornerButton::section {
 	background-color: rgb(255, 255, 255); 
 } </string>
       </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
    </layout>
@@ -331,122 +390,164 @@ QTableView QTableCornerButton::section {
      <height>33</height>
     </rect>
    </property>
-   <widget class="QLabel" name="label_3">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>2</y>
-      <width>51</width>
-      <height>31</height>
+      <y>-8</y>
+      <width>271</width>
+      <height>51</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>From</string>
-    </property>
-   </widget>
-   <widget class="QDateEdit" name="startCustomDate">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>2</y>
-      <width>110</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
+    <layout class="QHBoxLayout" name="customDateLayout">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>From</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="startCustomDate">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
 	border-radius: 8px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
 </string>
-    </property>
-    <property name="dateTime">
-     <datetime>
-      <hour>0</hour>
-      <minute>0</minute>
-      <second>0</second>
-      <year>2016</year>
-      <month>7</month>
-      <day>23</day>
-     </datetime>
-    </property>
-    <property name="displayFormat">
-     <string>MM/dd/yyyy</string>
-    </property>
-    <property name="calendarPopup">
-     <bool>true</bool>
-    </property>
-    <property name="currentSectionIndex">
-     <number>1</number>
-    </property>
-    <property name="date">
-     <date>
-      <year>2016</year>
-      <month>7</month>
-      <day>23</day>
-     </date>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>2</y>
-      <width>21</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>To</string>
-    </property>
-   </widget>
-   <widget class="QDateEdit" name="endCustomDate">
-    <property name="geometry">
-     <rect>
-      <x>195</x>
-      <y>2</y>
-      <width>110</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
+       </property>
+       <property name="dateTime">
+        <datetime>
+         <hour>0</hour>
+         <minute>0</minute>
+         <second>0</second>
+         <year>2000</year>
+         <month>3</month>
+         <day>1</day>
+        </datetime>
+       </property>
+       <property name="displayFormat">
+        <string>yyyy-MM-dd</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+       <property name="currentSectionIndex">
+        <number>0</number>
+       </property>
+       <property name="date">
+        <date>
+         <year>2000</year>
+         <month>3</month>
+         <day>1</day>
+        </date>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>To</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDateEdit" name="endCustomDate">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
 	border-radius: 8px; 
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255); 
 </string>
-    </property>
-    <property name="currentSection">
-     <enum>QDateTimeEdit::DaySection</enum>
-    </property>
-    <property name="displayFormat">
-     <string>MM/dd/yyyy</string>
-    </property>
-    <property name="calendarPopup">
-     <bool>true</bool>
-    </property>
-    <property name="date">
-     <date>
-      <year>2016</year>
-      <month>7</month>
-      <day>23</day>
-     </date>
-    </property>
+       </property>
+       <property name="currentSection">
+        <enum>QDateTimeEdit::YearSection</enum>
+       </property>
+       <property name="displayFormat">
+        <string>yyyy-MM-dd</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+       <property name="date">
+        <date>
+         <year>2016</year>
+         <month>7</month>
+         <day>23</day>
+        </date>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
+   <zorder>label_3</zorder>
+   <zorder>startCustomDate</zorder>
+   <zorder>label_4</zorder>
+   <zorder>endCustomDate</zorder>
+   <zorder>widget</zorder>
+   <zorder></zorder>
   </widget>
   <zorder>pictureLabel</zorder>
   <zorder>generateButton</zorder>

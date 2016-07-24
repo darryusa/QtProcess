@@ -1,8 +1,7 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
-#include <dbmanager.h>
-#include <QDebug>
 #include <QSignalMapper>
+#include <dbmanager.h>
 #include <transactionwindow.h>
 #define DbManagerInstance Singleton<DbManager>::instance()
 LoginDialog::LoginDialog(QWidget *parent ,const QString & loginSender) :
