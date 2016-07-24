@@ -270,6 +270,7 @@ public:
 "\n"
 ""));
         searchLineEdit->setMaxLength(32767);
+        searchLineEdit->setCursorPosition(0);
 
         horizontalLayout->addWidget(searchLineEdit);
 

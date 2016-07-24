@@ -56,7 +56,7 @@ public:
         if (ItemModify->objectName().isEmpty())
             ItemModify->setObjectName(QStringLiteral("ItemModify"));
         ItemModify->resize(700, 600);
-        ItemModify->setWindowOpacity(0.5);
+        ItemModify->setWindowOpacity(1);
         ItemModify->setAutoFillBackground(false);
         ItemModify->setStyleSheet(QStringLiteral("background-color: rgb(210, 224, 147);"));
         ItemModify->setModal(false);

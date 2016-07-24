@@ -437,6 +437,7 @@ public:
 "} \n"
 "\n"
 ""));
+        searchLineEdit->setCursorPosition(0);
         searchLineEdit->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         modifyPINButton = new QPushButton(StaffWindow);
         modifyPINButton->setObjectName(QStringLiteral("modifyPINButton"));
