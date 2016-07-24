@@ -70,24 +70,29 @@ void InventoryWindow::on_tableView_clicked(const QModelIndex &index)
 void InventoryWindow::on_removeButton_clicked()
 {
     QSqlQuery qry4;
-    if(InventoryWindow::selectedName.length()>0)
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,"Warning","Deleteing an item from inventory, Continue?",QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes)
     {
-
-        qry4.prepare("DELETE FROM inventory WHERE id= '"+InventoryWindow::selectedName+"' or name= '"+InventoryWindow::selectedName+"' "
-                  "or description= '"+InventoryWindow::selectedName+"' or price= '"+InventoryWindow::selectedName+"' or category = '"+InventoryWindow::selectedName+"' ");
-
-
-        if(qry4.exec())
+        if(InventoryWindow::selectedName.length()>0)
         {
-          QMessageBox::critical(this,tr("DELETE"),tr("DELETED"));
 
+            qry4.prepare("DELETE FROM inventory WHERE id= '"+InventoryWindow::selectedName+"' or name= '"+InventoryWindow::selectedName+"' "
+                      "or description= '"+InventoryWindow::selectedName+"' or price= '"+InventoryWindow::selectedName+"' or category = '"+InventoryWindow::selectedName+"' ");
+
+
+            if(qry4.exec())
+            {
+              QMessageBox::critical(this,tr("DELETE"),tr("DELETED"));
+
+            }
+            else
+            {
+                QMessageBox::critical(this,tr("error"),qry4.lastError().text());
+            }
+            InventoryWindow::selectedName = "";
+            model->setQuery("SELECT * FROM [main].[inventory] WHERE quantity != 0");
         }
-        else
-        {
-            QMessageBox::critical(this,tr("error"),qry4.lastError().text());
-        }
-        InventoryWindow::selectedName = "";
-        model->setQuery("SELECT * FROM [main].[inventory] WHERE quantity != 0");
     }
 }
 

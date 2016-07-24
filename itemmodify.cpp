@@ -66,7 +66,7 @@ void ItemModify::on_pushButton_clicked()
         if(InventoryWindow::getSender() )
         {
             QSqlQuery qry3;
-            qry3.prepare("UPDATE inventory SET name =(:name),quantity =(:quantity),price =(:price),category =(:category)"
+            qry3.prepare("UPDATE inventory SET name =(:name),quantity =(:quantity),price =(:price),category =(:category),description =(:description)"
                          "WHERE ID=(:id)");
 
             qry3.bindValue(":name" ,ui->nameLineEdit->text());
@@ -74,6 +74,7 @@ void ItemModify::on_pushButton_clicked()
             qry3.bindValue(":price",extractDouble(ui->priceLineEdit->text()));
             qry3.bindValue(":category",ui->categoryComboBox->currentText());
             qry3.bindValue(":id",ui->ID->text().toInt(&ok,10));
+            qry3.bindValue(":description",ui->descriptionLineEdit->text());
             if(qry3.exec())
             {
                 QMessageBox::critical(this,tr("Save"),tr("Saved"));

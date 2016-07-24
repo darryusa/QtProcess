@@ -31,6 +31,7 @@ private slots:
     void keyboardButtonPressed();
     void enterButtonPressed();
     void backButtonPressed();
+    void on_backButton_clicked();
 };
 
 #endif // LOGINDIALOG_H

@@ -28,6 +28,7 @@ private slots:
     void backButtonPressed();
 
     void enterButtonPressed();
+    void on_backButton_clicked();
 };
 
 #endif // PINNUMPAD_H

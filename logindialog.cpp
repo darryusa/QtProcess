@@ -125,3 +125,8 @@ bool LoginDialog::passwordCheck(QString loginSender2)
     }
     return correctPIN;
 }
+
+void LoginDialog::on_backButton_clicked()
+{
+   ui->lineEdit->setEchoMode( QLineEdit::Password );
+}

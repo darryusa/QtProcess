@@ -40,6 +40,8 @@ private slots:
 
     void on_returnButton_2_clicked();
 
+    void on_tabWidget_currentChanged(int index);
+
 private:
     void updateTotal(double val1);
     int static sender;

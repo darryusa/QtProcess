@@ -147,10 +147,15 @@ void TransactionWindow::on_deleteButton_clicked()
 
     if(item && !item->parent())
     {
-        double price = -1 * extractDouble(item->data(3,0).toString()) * item->data(2,0).value<int>();
-        updateTotal(price);
-        if(item->parent() == NULL)
-            delete item;
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this,"Warning","Deleteing an item from bill of sale, Continue?",QMessageBox::Yes | QMessageBox::No);
+        if(reply == QMessageBox::Yes)
+        {
+            double price = -1 * extractDouble(item->data(3,0).toString()) * item->data(2,0).value<int>();
+            updateTotal(price);
+            if(item->parent() == NULL)
+                delete item;
+        }
     }
 
 }
@@ -279,4 +284,14 @@ void TransactionWindow::on_returnButton_2_clicked()
 {
     clearDesk();
     emit returnToMain();
+}
+
+void TransactionWindow::on_tabWidget_tabBarClicked(int index)
+{
+
+}
+
+void TransactionWindow::on_tabWidget_currentChanged(int index)
+{
+    qDebug()<< ui->tabWidget->currentWidget();
 }

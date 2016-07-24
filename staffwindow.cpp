@@ -162,21 +162,26 @@ void StaffWindow::on_returnButton_clicked()
 void StaffWindow::on_removeButton_clicked()
 {
     QSqlQuery qry4;
-    if(selectedName.length()>1)
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this,"Warning","remove a person, Continue?",QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes)
     {
-        qry4.prepare("delete from employee where first='"+selectedName+"' or last='"+selectedName+"'   ");
-        selectedName = "";
-
-        if(qry4.exec())
+        if(selectedName.length()>1)
         {
-          QMessageBox::critical(this,tr("DELETE"),tr("DELETED"));
-          model->setQuery("SELECT [ID], [last], [first],[phone_number] FROM [main].[employee]");
-        }
-        else
-        {
-            QMessageBox::critical(this,tr("error"),qry4.lastError().text());
-        }
+            qry4.prepare("delete from employee where first='"+selectedName+"' or last='"+selectedName+"'   ");
+            selectedName = "";
 
+            if(qry4.exec())
+            {
+              QMessageBox::critical(this,tr("DELETE"),tr("DELETED"));
+              model->setQuery("SELECT [ID], [last], [first],[phone_number] FROM [main].[employee]");
+            }
+            else
+            {
+                QMessageBox::critical(this,tr("error"),qry4.lastError().text());
+            }
+
+        }
     }
 }
 

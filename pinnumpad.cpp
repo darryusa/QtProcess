@@ -106,3 +106,9 @@ void PINNumPad::enterButtonPressed()
     }
 
 }
+
+void PINNumPad::on_backButton_clicked()
+{
+    ui->lineEdit->clear();
+    ui->lineEdit->setEchoMode( QLineEdit::Password );
+}
