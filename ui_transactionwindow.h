@@ -237,6 +237,7 @@ public:
 "	background-color: rgb(255, 255, 255); \n"
 "} \n"
 ""));
+        searchBarLineEdit->setEchoMode(QLineEdit::Normal);
         searchBarLineEdit->setCursorPosition(0);
         searchBarLineEdit->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         searchBarLineEdit->setCursorMoveStyle(Qt::VisualMoveStyle);

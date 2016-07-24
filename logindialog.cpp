@@ -9,7 +9,7 @@ LoginDialog::LoginDialog(QWidget *parent ,const QString & loginSender) :
     ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);
-
+    //receive signal of which button call numpad
     loginSender2 = loginSender;
     for ( int i = 0; i < ui->passwordButtonLayout->count(); i++ )
     {
@@ -71,13 +71,12 @@ void LoginDialog::enterButtonPressed()
     QString currentText = ui->lineEdit->text();
     if ( button && currentText.length() == 4 )
     {
-
+        //emit signal according to the caller
         if(passwordCheck(loginSender2))
         {
             if(loginSender2 == "staff")
             {
                 emit staffLoggedin();
-//                connect(oneSolMain::Instance(),SIGNAL(staffLogin()),oneSolMain::Instance(),SLOT(staffSlotLoggedin()));
             }
             else if(loginSender2 == "report")
             {
@@ -107,7 +106,7 @@ bool LoginDialog::passwordCheck(QString loginSender2)
     QString currentText = ui->lineEdit->text();
 
     bool correctPIN = false;
-    // Password: "0000" for testing. Check database here.
+    //check for pin matches
     if ( DbManagerInstance.pinChecker(currentText,loginSender2))
     {
         ui->lineEdit->setMaxLength( 256 );

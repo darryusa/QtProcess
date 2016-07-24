@@ -28,8 +28,8 @@ static double extractDouble(const QString &s)
 
 void ReportsWindow::init()
 {
+    //initialize tables
     this->model = new QSqlQueryModel();
-//        SELECT * FROM transactions WHERE times BETWEEN '2016-07-22' AND '2016-09-25';
     QString start = ui->startCustomDate->text();
     QString end = ui->endCustomDate->text();
     ui->customDateWidget->hide();
@@ -48,6 +48,7 @@ ReportsWindow::~ReportsWindow()
 
 void ReportsWindow::on_generateButton_clicked()
 {
+    //display items according to which report user want
     QString startDate;
     QString endDate;
     if(ui->timePeriodBox->currentIndex() == 0)
@@ -94,7 +95,7 @@ void ReportsWindow::on_generateButton_clicked()
     ui->salesTaxTotalEdit->setText(QString::number(total));
     ui->salesTotalEdit->setText(QString::number(sale));
 }
-
+    // display custom date when user choose custom
 void ReportsWindow::on_timePeriodBox_currentIndexChanged(int index)
 {
     if(index == 4)
@@ -109,6 +110,7 @@ void ReportsWindow::on_timePeriodBox_currentIndexChanged(int index)
 
 void ReportsWindow::on_returnButton_clicked()
 {
+    //clear everything
     model->clear();
     ui->salesTaxTotalEdit->clear();
     ui->salesTotalEdit->clear();

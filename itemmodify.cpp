@@ -63,12 +63,13 @@ void ItemModify::on_pushButton_clicked()
             && ui->categoryComboBox->currentText() != "")
     {
         bool ok;
+        //if user clicked on edit in inventory window
         if(InventoryWindow::getSender() )
         {
             QSqlQuery qry3;
             qry3.prepare("UPDATE inventory SET name =(:name),quantity =(:quantity),price =(:price),category =(:category),description =(:description)"
                          "WHERE ID=(:id)");
-
+            // set value of required fieldd
             qry3.bindValue(":name" ,ui->nameLineEdit->text());
             qry3.bindValue(":quantity",ui->quantitySpinBox->value());
             qry3.bindValue(":price",extractDouble(ui->priceLineEdit->text()));
@@ -85,6 +86,7 @@ void ItemModify::on_pushButton_clicked()
                 QMessageBox::critical(this,tr("Error"),qry3.lastError().text());
             }
         }
+        // if user click add in inventory window
         else
         {
             QSqlQuery qry4;

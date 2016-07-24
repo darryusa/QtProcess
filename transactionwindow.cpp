@@ -22,6 +22,7 @@ TransactionWindow::TransactionWindow(QWidget *parent) :
 
 void TransactionWindow::populateTables()
 {
+    //initialize table
     this->model = new QSqlQueryModel();
     model->setQuery("SELECT [ID], [name], [price],[quantity] FROM [main].[inventory] WHERE quantity != 0");
     sort_filter = new QSortFilterProxyModel(this);
@@ -64,17 +65,14 @@ void TransactionWindow::on_searchBarLineEdit_textChanged(const QString &arg1)
 {
     sort_filter->setFilterFixedString(arg1);
     matchingIndex = sort_filter->mapToSource(sort_filter->index(0,0));
-    if(matchingIndex.isValid())
-    {
 
-    }
 }
 
 void TransactionWindow::transactionLoggedin()
 {
     QSqlQuery qry;
 
-
+    // display the person loggedin
     qry.prepare("SELECT first,last FROM employee WHERE id=(:id)");
     qry.bindValue(":id",TransactionWindow::sender);
     if(qry.exec())
@@ -89,12 +87,14 @@ void TransactionWindow::transactionLoggedin()
 
 void TransactionWindow::AddRoot(QString name,double price,QString description,int id)
 {
+
     QTreeWidgetItemIterator it(ui->treeWidget);
+    //check to see if item are already in tree
     while (*it)
     {
         if((*it)->data(0,0).value<int>() == id)
         {
-
+            // if yes then update the quantity
             int temp = (*it)->data(2,0).value<int>() +1;
 
             (*it)->setData(2,0,temp);
@@ -103,7 +103,7 @@ void TransactionWindow::AddRoot(QString name,double price,QString description,in
         }
         ++it;
     }
-
+    //if not then insert new items
     QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidget);
     item->setData(0,0,id);
     item->setText(1,name);
@@ -116,19 +116,15 @@ void TransactionWindow::AddRoot(QString name,double price,QString description,in
 
 void TransactionWindow::AddChild(QTreeWidgetItem *parent,QString description)
 {
+    // add second row
     QTreeWidgetItem *item = new QTreeWidgetItem();
-
     item->setText(0,description);
     parent->addChild(item);
-
-
-
-
 
 }
 void TransactionWindow::updateTotal(double val1)
 {
-
+    // update total
     subTotal = subTotal + val1;
     subTotal = floor(subTotal*100+0.5)/100;
     taxTotal = subTotal * salesTax;
@@ -145,7 +141,7 @@ void TransactionWindow::updateTotal(double val1)
 void TransactionWindow::on_deleteButton_clicked()
 {
     QTreeWidgetItem *item = ui->treeWidget->currentItem();
-
+    // remove items
     if(item && !item->parent())
     {
         QMessageBox::StandardButton reply;
@@ -178,7 +174,7 @@ void TransactionWindow::on_allTableView_clicked(const QModelIndex &index)
 {
     QString val = ui->allTableView->model()->data(index).toString();
     QSqlQuery qry;
-
+    // move from  list of items to bill of sale
     qry.prepare("SELECT * FROM inventory WHERE name='"+val+"' or id='"+val+"' or quantity= '"+val+"' or price= '"+val+"' " );
     if(qry.exec())
     {
@@ -203,6 +199,7 @@ void TransactionWindow::on_treeWidget_clicked(const QModelIndex &index)
 
 void TransactionWindow::on_checkoutButton_clicked()
 {
+    //promt for confirmation in checkout before updating database
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this,"Confirm","Continue checking out?",QMessageBox::Yes | QMessageBox::No);
     if( reply == QMessageBox::Yes)
@@ -212,6 +209,7 @@ void TransactionWindow::on_checkoutButton_clicked()
 }
 void TransactionWindow::updateDatabase()
 {
+
     QString date = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
     QSqlQuery qry;
     qry.prepare("INSERT INTO transactions (times, employee, sale, sale_tax, total)"
@@ -224,6 +222,7 @@ void TransactionWindow::updateDatabase()
 
     if(qry.exec())
     {
+        // get id and quantity of items in tree
         QTreeWidgetItemIterator it(ui->treeWidget);
         while (*it)
         {
@@ -238,7 +237,7 @@ void TransactionWindow::updateDatabase()
         QSqlQuery qry3;
 
         qry3.prepare("UPDATE inventory SET quantity=quantity - (:quantity) WHERE ID=:id");
-
+        // update each item indivitually
         for(int i = 0;i<updateId.length();i++)
         {
             qry3.bindValue(":quantity",updateQuantity.at(i).value<int>());
@@ -249,7 +248,7 @@ void TransactionWindow::updateDatabase()
         qry.exec("SELECT id FROM transactions");
         qry.last();
         int transID = qry.value(0).value<int>();
-
+        //insert into an separate database
         qry.prepare("INSERT INTO items_sold (transID, itemID,quantity)"
                      "VALUES (:transID,:itemID,:quantity)");
         for(int i =0; i < updateId.length(); i++)
@@ -291,7 +290,7 @@ void TransactionWindow::on_returnButton_2_clicked()
 
 void TransactionWindow::on_tabWidget_currentChanged(int index)
 {
-
+    // display items according to tab
     switch (index)
     {
     case 0:
@@ -318,14 +317,6 @@ void TransactionWindow::on_tabWidget_currentChanged(int index)
         model->setQuery("SELECT [ID], [name], [price] FROM [main].[inventory] WHERE category = 'Items' ");
         break;
 
-
-
-
-
-
-
-
-
     }
 }
 
@@ -333,7 +324,7 @@ void TransactionWindow::on_massageTableView_clicked(const QModelIndex &index)
 {
     QString val = ui->allTableView->model()->data(index).toString();
     QSqlQuery qry;
-
+    // make sure massage table are clickable and transferable to bill of sale
     qry.prepare("SELECT * FROM inventory WHERE name='"+val+"' or id='"+val+"'  or price= '"+val+"' " );
     if(qry.exec())
     {
@@ -353,6 +344,7 @@ void TransactionWindow::on_hairTableView_clicked(const QModelIndex &index)
 {
     QString val = ui->allTableView->model()->data(index).toString();
     QSqlQuery qry;
+    // make sure hair table are clickable and transferable to bill of sale
 
     qry.prepare("SELECT * FROM inventory WHERE name='"+val+"' or id='"+val+"'  or price= '"+val+"' " );
     if(qry.exec())
@@ -374,6 +366,7 @@ void TransactionWindow::on_nailTableView_clicked(const QModelIndex &index)
 {
     QString val = ui->allTableView->model()->data(index).toString();
     QSqlQuery qry;
+    // make sure nail table are clickable and transferable to bill of sale
 
     qry.prepare("SELECT * FROM inventory WHERE name='"+val+"' or id='"+val+"'  or price= '"+val+"' " );
     if(qry.exec())
@@ -395,6 +388,7 @@ void TransactionWindow::on_itemTableview_clicked(const QModelIndex &index)
 {
     QString val = ui->allTableView->model()->data(index).toString();
     QSqlQuery qry;
+    // make sure items table are clickable and transferable to bill of sale
 
     qry.prepare("SELECT * FROM inventory WHERE name='"+val+"' or id='"+val+"'  or price= '"+val+"' " );
     if(qry.exec())
@@ -411,3 +405,8 @@ void TransactionWindow::on_itemTableview_clicked(const QModelIndex &index)
         ui->treeWidget->resizeColumnToContents(3);
 }
 
+
+void TransactionWindow::on_searchBarLineEdit_selectionChanged()
+{
+    ui->searchBarLineEdit->clear();
+}

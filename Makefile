@@ -55,7 +55,6 @@ SOURCES       = main.cpp \
 		menuwindow.cpp \
 		reportswindow.cpp \
 		logindialog.cpp \
-		reportlistdialog.cpp \
 		transactionwindow.cpp \
 		pinnumpad.cpp \
 		inventorywindow.cpp \
@@ -65,7 +64,6 @@ SOURCES       = main.cpp \
 		moc_menuwindow.cpp \
 		moc_reportswindow.cpp \
 		moc_logindialog.cpp \
-		moc_reportlistdialog.cpp \
 		moc_transactionwindow.cpp \
 		moc_pinnumpad.cpp \
 		moc_inventorywindow.cpp \
@@ -77,7 +75,6 @@ OBJECTS       = main.o \
 		menuwindow.o \
 		reportswindow.o \
 		logindialog.o \
-		reportlistdialog.o \
 		transactionwindow.o \
 		pinnumpad.o \
 		inventorywindow.o \
@@ -88,7 +85,6 @@ OBJECTS       = main.o \
 		moc_menuwindow.o \
 		moc_reportswindow.o \
 		moc_logindialog.o \
-		moc_reportlistdialog.o \
 		moc_transactionwindow.o \
 		moc_pinnumpad.o \
 		moc_inventorywindow.o \
@@ -251,7 +247,6 @@ DIST          = ../../Qt/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		reportswindow.h \
 		logindialog.h \
 		singleton.h \
-		reportlistdialog.h \
 		transactionwindow.h \
 		pinnumpad.h \
 		inventorywindow.h \
@@ -263,7 +258,6 @@ DIST          = ../../Qt/5.7/gcc_64/mkspecs/features/spec_pre.prf \
 		menuwindow.cpp \
 		reportswindow.cpp \
 		logindialog.cpp \
-		reportlistdialog.cpp \
 		transactionwindow.cpp \
 		pinnumpad.cpp \
 		inventorywindow.cpp \
@@ -276,7 +270,7 @@ TARGET        = OneSol
 first: all
 ####### Build rules
 
-$(TARGET): ui_staffwindow.h ui_menuwindow.h ui_reportswindow.h ui_logindialog.h ui_reportlistdialog.h ui_transactionwindow.h ui_pinnumpad.h ui_inventorywindow.h ui_itemmodify.h $(OBJECTS)  
+$(TARGET): ui_staffwindow.h ui_menuwindow.h ui_reportswindow.h ui_logindialog.h ui_transactionwindow.h ui_pinnumpad.h ui_inventorywindow.h ui_itemmodify.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 	objcopy --only-keep-debug OneSol OneSol.debug && objcopy --strip-debug OneSol && objcopy --add-gnu-debuglink=OneSol.debug OneSol && chmod -x OneSol.debug
 
@@ -610,9 +604,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resource.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents onesolmain.h staffwindow.h dbmanager.h menuwindow.h reportswindow.h logindialog.h singleton.h reportlistdialog.h transactionwindow.h pinnumpad.h inventorywindow.h call_once.h itemmodify.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp onesolmain.cpp staffwindow.cpp dbmanager.cpp menuwindow.cpp reportswindow.cpp logindialog.cpp reportlistdialog.cpp transactionwindow.cpp pinnumpad.cpp inventorywindow.cpp itemmodify.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents staffwindow.ui menuwindow.ui reportswindow.ui logindialog.ui reportlistdialog.ui transactionwindow.ui pinnumpad.ui inventorywindow.ui itemmodify.ui $(DISTDIR)/
+	$(COPY_FILE) --parents onesolmain.h staffwindow.h dbmanager.h menuwindow.h reportswindow.h logindialog.h singleton.h transactionwindow.h pinnumpad.h inventorywindow.h call_once.h itemmodify.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp onesolmain.cpp staffwindow.cpp dbmanager.cpp menuwindow.cpp reportswindow.cpp logindialog.cpp transactionwindow.cpp pinnumpad.cpp inventorywindow.cpp itemmodify.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents staffwindow.ui menuwindow.ui reportswindow.ui logindialog.ui transactionwindow.ui pinnumpad.ui inventorywindow.ui itemmodify.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -649,9 +643,9 @@ qrc_resource.cpp: resource.qrc \
 		image/Vs2.0BamBoo.jpg
 	/home/neal/Qt/5.7/gcc_64/bin/rcc -name resource resource.qrc -o qrc_resource.cpp
 
-compiler_moc_header_make_all: moc_onesolmain.cpp moc_staffwindow.cpp moc_menuwindow.cpp moc_reportswindow.cpp moc_logindialog.cpp moc_reportlistdialog.cpp moc_transactionwindow.cpp moc_pinnumpad.cpp moc_inventorywindow.cpp moc_itemmodify.cpp
+compiler_moc_header_make_all: moc_onesolmain.cpp moc_staffwindow.cpp moc_menuwindow.cpp moc_reportswindow.cpp moc_logindialog.cpp moc_transactionwindow.cpp moc_pinnumpad.cpp moc_inventorywindow.cpp moc_itemmodify.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_onesolmain.cpp moc_staffwindow.cpp moc_menuwindow.cpp moc_reportswindow.cpp moc_logindialog.cpp moc_reportlistdialog.cpp moc_transactionwindow.cpp moc_pinnumpad.cpp moc_inventorywindow.cpp moc_itemmodify.cpp
+	-$(DEL_FILE) moc_onesolmain.cpp moc_staffwindow.cpp moc_menuwindow.cpp moc_reportswindow.cpp moc_logindialog.cpp moc_transactionwindow.cpp moc_pinnumpad.cpp moc_inventorywindow.cpp moc_itemmodify.cpp
 moc_onesolmain.cpp: ../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qwidget.h \
 		../../Qt/5.7/gcc_64/include/QtGui/qwindowdefs.h \
@@ -913,7 +907,6 @@ moc_onesolmain.cpp: ../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.7/gcc_64/include/QtCore/QThreadStorage \
 		../../Qt/5.7/gcc_64/include/QtCore/QThread \
 		logindialog.h \
-		reportlistdialog.h \
 		transactionwindow.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QTreeWidgetItem \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtreewidget.h \
@@ -1374,6 +1367,12 @@ moc_reportswindow.cpp: ../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.7/gcc_64/include/QtCore/qfiledevice.h \
 		../../Qt/5.7/gcc_64/include/QtGui/qvector2d.h \
 		../../Qt/5.7/gcc_64/include/QtGui/qtouchdevice.h \
+		../../Qt/5.7/gcc_64/include/QtSql/qsqlquerymodel.h \
+		../../Qt/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../Qt/5.7/gcc_64/include/QtSql/qsqldatabase.h \
+		../../Qt/5.7/gcc_64/include/QtSql/qsql.h \
+		../../Qt/5.7/gcc_64/include/QtCore/qsortfilterproxymodel.h \
+		../../Qt/5.7/gcc_64/include/QtCore/qabstractproxymodel.h \
 		reportswindow.h \
 		../../Qt/5.7/gcc_64/bin/moc
 	/home/neal/Qt/5.7/gcc_64/bin/moc $(DEFINES) -I/home/neal/Qt/5.7/gcc_64/mkspecs/linux-g++ -I/home/neal/Desktop/QtProcess -I/home/neal/Qt/5.7/gcc_64/include -I/home/neal/Qt/5.7/gcc_64/include/QtWidgets -I/home/neal/Qt/5.7/gcc_64/include/QtGui -I/home/neal/Qt/5.7/gcc_64/include/QtSql -I/home/neal/Qt/5.7/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include reportswindow.h -o moc_reportswindow.cpp
@@ -1479,252 +1478,6 @@ moc_logindialog.cpp: ../../Qt/5.7/gcc_64/include/QtWidgets/QDialog \
 		logindialog.h \
 		../../Qt/5.7/gcc_64/bin/moc
 	/home/neal/Qt/5.7/gcc_64/bin/moc $(DEFINES) -I/home/neal/Qt/5.7/gcc_64/mkspecs/linux-g++ -I/home/neal/Desktop/QtProcess -I/home/neal/Qt/5.7/gcc_64/include -I/home/neal/Qt/5.7/gcc_64/include/QtWidgets -I/home/neal/Qt/5.7/gcc_64/include/QtGui -I/home/neal/Qt/5.7/gcc_64/include/QtSql -I/home/neal/Qt/5.7/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include logindialog.h -o moc_logindialog.cpp
-
-moc_reportlistdialog.cpp: ../../Qt/5.7/gcc_64/include/QtWidgets/QDialog \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qdialog.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qwidget.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qglobal.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qconfig.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfeatures.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsystemdetection.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qprocessordetection.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtypeinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtypetraits.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qisenum.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsysinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlogging.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qflags.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qatomic.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbasicatomic.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qgenericatomic.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qglobalstatic.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmutex.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qnumeric.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobjectdefs.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qnamespace.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobject.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstring.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qchar.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qrefcount.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlist.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpair.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qregexp.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstringmatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcoreevent.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmetatype.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobject_impl.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmargins.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qrect.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsize.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpoint.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpalette.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qcolor.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qrgba64.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qbrush.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qvector.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qmatrix.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpolygon.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qregion.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdatastream.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qiodevice.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qline.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qtransform.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpainterpath.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qimage.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpixelformat.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsharedpointer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qshareddata.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qhash.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qfont.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qfontinfo.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qcursor.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qkeysequence.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qevent.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmap.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdebug.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtextstream.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlocale.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qset.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qurl.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qurlquery.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfile.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfiledevice.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qvector2d.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qtouchdevice.h \
-		../../Qt/5.7/gcc_64/include/QtSql/QtSql \
-		../../Qt/5.7/gcc_64/include/QtSql/QtSqlDepends \
-		../../Qt/5.7/gcc_64/include/QtCore/QtCore \
-		../../Qt/5.7/gcc_64/include/QtCore/QtCoreDepends \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractanimation.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qanimationgroup.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qparallelanimationgroup.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpauseanimation.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpropertyanimation.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qvariantanimation.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qeasingcurve.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsequentialanimationgroup.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtextcodec.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qendian.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlibraryinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdatetime.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbuffer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdir.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfileinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdiriterator.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfileselector.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QObject \
-		../../Qt/5.7/gcc_64/include/QtCore/QStringList \
-		../../Qt/5.7/gcc_64/include/QtCore/qfilesystemwatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlockfile.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qloggingcategory.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qprocess.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qresource.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsavefile.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsettings.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstandardpaths.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstorageinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtemporarydir.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QScopedPointer \
-		../../Qt/5.7/gcc_64/include/QtCore/qtemporaryfile.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractproxymodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qidentityproxymodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsortfilterproxymodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstringlistmodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qjsonarray.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qjsonvalue.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qjsondocument.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qjsonobject.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstracteventdispatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qeventloop.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbasictimer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcoreapplication.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmath.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmetaobject.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmimedata.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobjectcleanuphandler.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpointer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsharedmemory.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsignalmapper.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsocketnotifier.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsystemsemaphore.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtranslator.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qwineventnotifier.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmimedatabase.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmimetype.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfactoryinterface.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlibrary.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qplugin.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpluginloader.h \
-		../../Qt/5.7/gcc_64/include/QtCore/quuid.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractstate.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstracttransition.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qeventtransition.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfinalstate.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qhistorystate.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsignaltransition.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstate.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstatemachine.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qexception.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfuture.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfutureinterface.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qrunnable.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qresultstore.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfuturesynchronizer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfuturewatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qreadwritelock.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsemaphore.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qthread.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qthreadpool.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qthreadstorage.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qwaitcondition.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qarraydataops.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qarraydatapointer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbitarray.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbytearraymatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcache.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcollator.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcommandlineoption.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcommandlineparser.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcryptographichash.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qelapsedtimer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlinkedlist.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmessageauthenticationcode.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qqueue.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qregularexpression.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qscopedvaluerollback.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstack.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtextboundaryfinder.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtimeline.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtimezone.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qversionnumber.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qxmlstream.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtcoreversion.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsql.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqldatabase.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqldriver.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqldriverplugin.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlerror.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlfield.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlindex.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlrecord.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlquery.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlresult.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlquerymodel.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlrelationaldelegate.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qitemdelegate.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qvalidator.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qicon.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qslider.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qtabbar.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qrubberband.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qlistview.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qcombobox.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqltablemodel.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qtsqlversion.h \
-		reportlistdialog.h \
-		../../Qt/5.7/gcc_64/bin/moc
-	/home/neal/Qt/5.7/gcc_64/bin/moc $(DEFINES) -I/home/neal/Qt/5.7/gcc_64/mkspecs/linux-g++ -I/home/neal/Desktop/QtProcess -I/home/neal/Qt/5.7/gcc_64/include -I/home/neal/Qt/5.7/gcc_64/include/QtWidgets -I/home/neal/Qt/5.7/gcc_64/include/QtGui -I/home/neal/Qt/5.7/gcc_64/include/QtSql -I/home/neal/Qt/5.7/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include reportlistdialog.h -o moc_reportlistdialog.cpp
 
 moc_transactionwindow.cpp: ../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qwidget.h \
@@ -2293,9 +2046,9 @@ moc_itemmodify.cpp: ../../Qt/5.7/gcc_64/include/QtWidgets/QDialog \
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_staffwindow.h ui_menuwindow.h ui_reportswindow.h ui_logindialog.h ui_reportlistdialog.h ui_transactionwindow.h ui_pinnumpad.h ui_inventorywindow.h ui_itemmodify.h
+compiler_uic_make_all: ui_staffwindow.h ui_menuwindow.h ui_reportswindow.h ui_logindialog.h ui_transactionwindow.h ui_pinnumpad.h ui_inventorywindow.h ui_itemmodify.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_staffwindow.h ui_menuwindow.h ui_reportswindow.h ui_logindialog.h ui_reportlistdialog.h ui_transactionwindow.h ui_pinnumpad.h ui_inventorywindow.h ui_itemmodify.h
+	-$(DEL_FILE) ui_staffwindow.h ui_menuwindow.h ui_reportswindow.h ui_logindialog.h ui_transactionwindow.h ui_pinnumpad.h ui_inventorywindow.h ui_itemmodify.h
 ui_staffwindow.h: staffwindow.ui \
 		../../Qt/5.7/gcc_64/bin/uic
 	/home/neal/Qt/5.7/gcc_64/bin/uic staffwindow.ui -o ui_staffwindow.h
@@ -2311,10 +2064,6 @@ ui_reportswindow.h: reportswindow.ui \
 ui_logindialog.h: logindialog.ui \
 		../../Qt/5.7/gcc_64/bin/uic
 	/home/neal/Qt/5.7/gcc_64/bin/uic logindialog.ui -o ui_logindialog.h
-
-ui_reportlistdialog.h: reportlistdialog.ui \
-		../../Qt/5.7/gcc_64/bin/uic
-	/home/neal/Qt/5.7/gcc_64/bin/uic reportlistdialog.ui -o ui_reportlistdialog.h
 
 ui_transactionwindow.h: transactionwindow.ui \
 		../../Qt/5.7/gcc_64/bin/uic
@@ -2604,7 +2353,6 @@ main.o: main.cpp onesolmain.h \
 		../../Qt/5.7/gcc_64/include/QtCore/QThreadStorage \
 		../../Qt/5.7/gcc_64/include/QtCore/QThread \
 		logindialog.h \
-		reportlistdialog.h \
 		transactionwindow.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QTreeWidgetItem \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtreewidget.h \
@@ -2886,7 +2634,6 @@ onesolmain.o: onesolmain.cpp onesolmain.h \
 		../../Qt/5.7/gcc_64/include/QtCore/QThreadStorage \
 		../../Qt/5.7/gcc_64/include/QtCore/QThread \
 		logindialog.h \
-		reportlistdialog.h \
 		transactionwindow.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QTreeWidgetItem \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtreewidget.h \
@@ -2894,14 +2641,8 @@ onesolmain.o: onesolmain.cpp onesolmain.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h \
 		inventorywindow.h \
 		itemmodify.h \
-		dbmanager.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QString \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlDatabase \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlQuery \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlError \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QDesktopWidget \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QDebug
+		../../Qt/5.7/gcc_64/include/QtWidgets/qdesktopwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o onesolmain.o onesolmain.cpp
 
 staffwindow.o: staffwindow.cpp staffwindow.h \
@@ -3190,22 +2931,8 @@ staffwindow.o: staffwindow.cpp staffwindow.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QSpacerItem \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QTableView \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtableview.h \
-		dbmanager.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QString \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlDatabase \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlQuery \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlError \
-		singleton.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QtGlobal \
-		call_once.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QAtomicInt \
-		../../Qt/5.7/gcc_64/include/QtCore/QMutex \
-		../../Qt/5.7/gcc_64/include/QtCore/QWaitCondition \
-		../../Qt/5.7/gcc_64/include/QtCore/QThreadStorage \
-		../../Qt/5.7/gcc_64/include/QtCore/QThread \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QMessageBox \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qmessagebox.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QDebug
+		../../Qt/5.7/gcc_64/include/QtWidgets/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o staffwindow.o staffwindow.cpp
 
 dbmanager.o: dbmanager.cpp dbmanager.h \
@@ -3613,29 +3340,7 @@ menuwindow.o: menuwindow.cpp menuwindow.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qlabel.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QDebug \
-		dbmanager.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QString \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlDatabase \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqldatabase.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsql.h \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlQuery \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlquery.h \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlError \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlerror.h \
-		singleton.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QtGlobal \
-		../../Qt/5.7/gcc_64/include/QtCore/QScopedPointer \
-		call_once.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QAtomicInt \
-		../../Qt/5.7/gcc_64/include/QtCore/QMutex \
-		../../Qt/5.7/gcc_64/include/QtCore/QWaitCondition \
-		../../Qt/5.7/gcc_64/include/QtCore/qwaitcondition.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QThreadStorage \
-		../../Qt/5.7/gcc_64/include/QtCore/qthreadstorage.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QThread \
-		../../Qt/5.7/gcc_64/include/QtCore/qthread.h
+		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menuwindow.o menuwindow.cpp
 
 reportswindow.o: reportswindow.cpp reportswindow.h \
@@ -3736,7 +3441,15 @@ reportswindow.o: reportswindow.cpp reportswindow.h \
 		../../Qt/5.7/gcc_64/include/QtCore/qfiledevice.h \
 		../../Qt/5.7/gcc_64/include/QtGui/qvector2d.h \
 		../../Qt/5.7/gcc_64/include/QtGui/qtouchdevice.h \
+		../../Qt/5.7/gcc_64/include/QtSql/qsqlquerymodel.h \
+		../../Qt/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../Qt/5.7/gcc_64/include/QtSql/qsqldatabase.h \
+		../../Qt/5.7/gcc_64/include/QtSql/qsql.h \
+		../../Qt/5.7/gcc_64/include/QtCore/qsortfilterproxymodel.h \
+		../../Qt/5.7/gcc_64/include/QtCore/qabstractproxymodel.h \
 		ui_reportswindow.h \
+		../../Qt/5.7/gcc_64/include/QtCore/QDate \
+		../../Qt/5.7/gcc_64/include/QtCore/qdatetime.h \
 		../../Qt/5.7/gcc_64/include/QtCore/QVariant \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QAction \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qaction.h \
@@ -3751,16 +3464,8 @@ reportswindow.o: reportswindow.cpp reportswindow.h \
 		../../Qt/5.7/gcc_64/include/QtGui/qinputmethod.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QButtonGroup \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QCalendarWidget \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qcalendarwidget.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdatetime.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QHeaderView \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qheaderview.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QComboBox \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qcombobox.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qstyleoption.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractspinbox.h \
@@ -3772,11 +3477,34 @@ reportswindow.o: reportswindow.cpp reportswindow.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtabbar.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qrubberband.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QDateEdit \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qdatetimeedit.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qlayout.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QHeaderView \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qheaderview.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../Qt/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QLabel \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qlabel.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QLineEdit \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qlineedit.h \
+		../../Qt/5.7/gcc_64/include/QtGui/qtextcursor.h \
+		../../Qt/5.7/gcc_64/include/QtGui/qtextformat.h \
+		../../Qt/5.7/gcc_64/include/QtGui/qpen.h \
+		../../Qt/5.7/gcc_64/include/QtGui/qtextoption.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h
+		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QSpacerItem \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QTableView \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qtableview.h \
+		../../Qt/5.7/gcc_64/include/QtSql/qsqlquery.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o reportswindow.o reportswindow.cpp
 
 logindialog.o: logindialog.cpp logindialog.h \
@@ -3926,6 +3654,8 @@ logindialog.o: logindialog.cpp logindialog.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
+		../../Qt/5.7/gcc_64/include/QtCore/QSignalMapper \
+		../../Qt/5.7/gcc_64/include/QtCore/qsignalmapper.h \
 		dbmanager.h \
 		../../Qt/5.7/gcc_64/include/QtCore/QString \
 		../../Qt/5.7/gcc_64/include/QtSql/QSqlDatabase \
@@ -3947,9 +3677,6 @@ logindialog.o: logindialog.cpp logindialog.h \
 		../../Qt/5.7/gcc_64/include/QtCore/qthreadstorage.h \
 		../../Qt/5.7/gcc_64/include/QtCore/QThread \
 		../../Qt/5.7/gcc_64/include/QtCore/qthread.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QDebug \
-		../../Qt/5.7/gcc_64/include/QtCore/QSignalMapper \
-		../../Qt/5.7/gcc_64/include/QtCore/qsignalmapper.h \
 		transactionwindow.h \
 		../../Qt/5.7/gcc_64/include/QtSql/QtSql \
 		../../Qt/5.7/gcc_64/include/QtSql/QtSqlDepends \
@@ -4072,285 +3799,6 @@ logindialog.o: logindialog.cpp logindialog.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtreeview.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logindialog.o logindialog.cpp
-
-reportlistdialog.o: reportlistdialog.cpp reportlistdialog.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QDialog \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qdialog.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qwidget.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qglobal.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qconfig.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfeatures.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsystemdetection.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qprocessordetection.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtypeinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtypetraits.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qisenum.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsysinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlogging.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qflags.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qatomic.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbasicatomic.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qgenericatomic.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qglobalstatic.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmutex.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qnumeric.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobjectdefs.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qnamespace.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobject.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstring.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qchar.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qrefcount.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlist.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpair.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qregexp.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstringmatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcoreevent.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmetatype.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobject_impl.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmargins.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qrect.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsize.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpoint.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpalette.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qcolor.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qrgba64.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qbrush.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qvector.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qmatrix.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpolygon.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qregion.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdatastream.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qiodevice.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qline.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qtransform.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpainterpath.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qimage.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpixelformat.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsharedpointer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qshareddata.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qhash.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qfont.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qfontinfo.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qcursor.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qkeysequence.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qevent.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmap.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdebug.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtextstream.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlocale.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qset.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qurl.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qurlquery.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfile.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfiledevice.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qvector2d.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qtouchdevice.h \
-		../../Qt/5.7/gcc_64/include/QtSql/QtSql \
-		../../Qt/5.7/gcc_64/include/QtSql/QtSqlDepends \
-		../../Qt/5.7/gcc_64/include/QtCore/QtCore \
-		../../Qt/5.7/gcc_64/include/QtCore/QtCoreDepends \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractanimation.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qanimationgroup.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qparallelanimationgroup.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpauseanimation.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpropertyanimation.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qvariantanimation.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qeasingcurve.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsequentialanimationgroup.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtextcodec.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qendian.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlibraryinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdatetime.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbuffer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdir.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfileinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qdiriterator.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfileselector.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QObject \
-		../../Qt/5.7/gcc_64/include/QtCore/QStringList \
-		../../Qt/5.7/gcc_64/include/QtCore/qfilesystemwatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlockfile.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qloggingcategory.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qprocess.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qresource.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsavefile.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsettings.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstandardpaths.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstorageinfo.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtemporarydir.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QScopedPointer \
-		../../Qt/5.7/gcc_64/include/QtCore/qtemporaryfile.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractproxymodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qidentityproxymodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsortfilterproxymodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstringlistmodel.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qjsonarray.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qjsonvalue.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qjsondocument.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qjsonobject.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstracteventdispatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qeventloop.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbasictimer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcoreapplication.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmath.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmetaobject.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmimedata.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qobjectcleanuphandler.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpointer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsharedmemory.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsignalmapper.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsocketnotifier.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsystemsemaphore.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtranslator.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qwineventnotifier.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmimedatabase.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmimetype.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfactoryinterface.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlibrary.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qplugin.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qpluginloader.h \
-		../../Qt/5.7/gcc_64/include/QtCore/quuid.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstractstate.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qabstracttransition.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qeventtransition.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfinalstate.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qhistorystate.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsignaltransition.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstate.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstatemachine.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qexception.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfuture.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfutureinterface.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qrunnable.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qresultstore.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfuturesynchronizer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qfuturewatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qreadwritelock.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qsemaphore.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qthread.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qthreadpool.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qthreadstorage.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qwaitcondition.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qarraydataops.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qarraydatapointer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbitarray.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qbytearraymatcher.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcache.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcollator.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcommandlineoption.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcommandlineparser.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qcryptographichash.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qelapsedtimer.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qlinkedlist.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qmessageauthenticationcode.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qqueue.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qregularexpression.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qscopedvaluerollback.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qstack.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtextboundaryfinder.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtimeline.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtimezone.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qversionnumber.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qxmlstream.h \
-		../../Qt/5.7/gcc_64/include/QtCore/qtcoreversion.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsql.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqldatabase.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqldriver.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqldriverplugin.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlerror.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlfield.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlindex.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlrecord.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlquery.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlresult.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlquerymodel.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlrelationaldelegate.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qitemdelegate.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qvalidator.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qicon.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qslider.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qstyle.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qtabbar.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qtabwidget.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qrubberband.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qframe.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qlistview.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qcombobox.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qsqltablemodel.h \
-		../../Qt/5.7/gcc_64/include/QtSql/qtsqlversion.h \
-		ui_reportlistdialog.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QVariant \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QAction \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qaction.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QApplication \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qapplication.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qguiapplication.h \
-		../../Qt/5.7/gcc_64/include/QtGui/qinputmethod.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QButtonGroup \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QHeaderView \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qheaderview.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QLabel \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qlabel.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QTableView \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qtableview.h \
-		dbmanager.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QString \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlDatabase \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlQuery \
-		../../Qt/5.7/gcc_64/include/QtSql/QSqlError \
-		singleton.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QtGlobal \
-		call_once.h \
-		../../Qt/5.7/gcc_64/include/QtCore/QAtomicInt \
-		../../Qt/5.7/gcc_64/include/QtCore/QMutex \
-		../../Qt/5.7/gcc_64/include/QtCore/QWaitCondition \
-		../../Qt/5.7/gcc_64/include/QtCore/QThreadStorage \
-		../../Qt/5.7/gcc_64/include/QtCore/QThread
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o reportlistdialog.o reportlistdialog.cpp
 
 transactionwindow.o: transactionwindow.cpp transactionwindow.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
@@ -4789,8 +4237,7 @@ pinnumpad.o: pinnumpad.cpp pinnumpad.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
-		../../Qt/5.7/gcc_64/include/QtCore/QDebug
+		../../Qt/5.7/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pinnumpad.o pinnumpad.cpp
 
 inventorywindow.o: inventorywindow.cpp inventorywindow.h \
@@ -4915,14 +4362,11 @@ inventorywindow.o: inventorywindow.cpp inventorywindow.h \
 		../../Qt/5.7/gcc_64/include/QtGui/qinputmethod.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QButtonGroup \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QFormLayout \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qformlayout.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QLayout \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../Qt/5.7/gcc_64/include/QtWidgets/qboxlayout.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qlayout.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/qboxlayout.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QHBoxLayout \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QHeaderView \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qheaderview.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -4951,7 +4395,6 @@ inventorywindow.o: inventorywindow.cpp inventorywindow.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../Qt/5.7/gcc_64/include/QtWidgets/QSpacerItem \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QTableView \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qtableview.h \
 		../../Qt/5.7/gcc_64/include/QtSql/qsqlquery.h \
@@ -5111,6 +4554,7 @@ itemmodify.o: itemmodify.cpp itemmodify.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../Qt/5.7/gcc_64/include/QtWidgets/QSpacerItem \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QSpinBox \
 		../../Qt/5.7/gcc_64/include/QtWidgets/qspinbox.h \
 		../../Qt/5.7/gcc_64/include/QtWidgets/QWidget \
@@ -5142,9 +4586,6 @@ moc_reportswindow.o: moc_reportswindow.cpp
 
 moc_logindialog.o: moc_logindialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_logindialog.o moc_logindialog.cpp
-
-moc_reportlistdialog.o: moc_reportlistdialog.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_reportlistdialog.o moc_reportlistdialog.cpp
 
 moc_transactionwindow.o: moc_transactionwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_transactionwindow.o moc_transactionwindow.cpp

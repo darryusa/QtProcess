@@ -240,7 +240,7 @@ public:
 ""));
         layoutWidget = new QWidget(InventoryWindow);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(30, 60, 491, 39));
+        layoutWidget->setGeometry(QRect(30, 60, 491, 43));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -292,7 +292,7 @@ public:
         returnButton->setText(QString());
         editButton->setText(QApplication::translate("InventoryWindow", "Edit", 0));
         searchIcon->setText(QString());
-        searchLineEdit->setText(QApplication::translate("InventoryWindow", " Search...", 0));
+        searchLineEdit->setText(QString());
     } // retranslateUi
 
 };

@@ -6,7 +6,7 @@
 #include <logindialog.h>
 OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 {
-
+    //initialize variable
     menuWindow = new MenuWindow(this);
     reportsWindow = new ReportsWindow(this);
     stackedWidget = new QStackedWidget;
@@ -26,7 +26,7 @@ OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
     stackedWidget->setCurrentWidget( menuWindow );
 
 
-
+    // connect SIGNAL and slots
     connect(loginReport, SIGNAL(reportLoggedin()), this, SLOT(reportSlotLoggedin()));
     connect(loginStaff, SIGNAL(staffLoggedin()), this, SLOT(staffSlotLoggedin()));
     connect(loginSale, SIGNAL(saleLoggin()), this, SLOT(saleLogginSlot()));

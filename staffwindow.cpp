@@ -14,6 +14,7 @@ StaffWindow::StaffWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StaffWin
 
 void StaffWindow::populateTable()
 {
+    //initialize table
     this->model = new QSqlQueryModel();
     model->setQuery("SELECT ID, last, first, phone_number FROM employee");
     sort_filter = new QSortFilterProxyModel(this);
@@ -29,9 +30,6 @@ StaffWindow::~StaffWindow()
 {
     delete ui;
 }
-
-// Input Popup and keyboard appears, input is sent to database.
-
 
 
 
@@ -69,18 +67,20 @@ void StaffWindow::on_confirmButton_clicked()
         address = ui->addressLineEdit->text();
         SSN = ui->sSNLineEdit->text();
         phoneNumber = ui->phoneNumberLineEdit->text();
+        // fail safe check for pin pad
         if(pinNumPad != NULL)
             PIN = pinNumPad->getPIN();
         privilige = ui->employeeRadioButton->isChecked()? 1 : 2;
         QSqlQuery qry("SELECT ID, SSN,PIN,privilige FROM employee");
+        //remove pinpad
         if(PIN != NULL)
         {
             pinNumPad->deleteLater();
         }
-        int maxID =0;
+
         while (qry.next())
         {
-            maxID = qry.value(0).toInt();
+            //check to see if employee is already exist by SSN
             if( qry.value(1) == SSN)
             {
                 existed = true;
@@ -88,15 +88,13 @@ void StaffWindow::on_confirmButton_clicked()
                 privilige = qry.value(3).toInt();
             }
         }
-        ID = (maxID)+ one;
+        // if not existed then insert to database
         if(!existed)
         {
-            QVariant newID = ID;
-            qry2.prepare("INSERT INTO employee (first,last,id,email_address,address,ssn,phone_number,privilige,pin)"
-                         "VALUES (:first,:last,:id,:email_address,:address,:ssn,:phone_number,:privilige,:pin)");
+            qry2.prepare("INSERT INTO employee (first,last,email_address,address,ssn,phone_number,privilige,pin)"
+                         "VALUES (:first,:last,:email_address,:address,:ssn,:phone_number,:privilige,:pin)");
             qry2.bindValue(":first" ,first);
             qry2.bindValue(":last",last);
-            qry2.bindValue(":id", ID);
             qry2.bindValue(":email_address",email);
             qry2.bindValue(":ssn",SSN);
             qry2.bindValue(":phone_number",phoneNumber);
@@ -115,6 +113,7 @@ void StaffWindow::on_confirmButton_clicked()
             }
 
         }
+        //if existed then update database
         else
         {
             QSqlQuery qry3;
@@ -163,6 +162,7 @@ void StaffWindow::on_removeButton_clicked()
 {
     QSqlQuery qry4;
     QMessageBox::StandardButton reply;
+    //display message box to confirm deleteion
     reply = QMessageBox::question(this,"Warning","remove a person, Continue?",QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes)
     {

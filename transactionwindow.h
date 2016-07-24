@@ -50,6 +50,8 @@ private slots:
 
     void on_itemTableview_clicked(const QModelIndex &index);
 
+    void on_searchBarLineEdit_selectionChanged();
+
 private:
     void updateTotal(double val1);
     int static sender;

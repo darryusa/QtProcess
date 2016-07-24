@@ -18,13 +18,16 @@ InventoryWindow::InventoryWindow(QWidget *parent) :
 
 void InventoryWindow::populateTable()
 {
+    //set query and display it using QSqlmode
     this->model = new QSqlQueryModel();
     model->setQuery("SELECT * FROM [main].[inventory] WHERE quantity != 0 ");
     sort_filter = new QSortFilterProxyModel(this);
     sort_filter->setSourceModel(model);
     sort_filter->sort (0);
+    //enable searching
     sort_filter->setFilterKeyColumn(-1);
     this->ui->tableView->setModel( sort_filter );
+    //resize column automatically
     ui->tableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
 
 }
@@ -57,6 +60,7 @@ InventoryWindow::~InventoryWindow()
 
 void InventoryWindow::on_searchLineEdit_textChanged(const QString &arg1)
 {
+    //enable searching on line edit
     sort_filter->setFilterFixedString(arg1);
     sort_filter->mapToSource(sort_filter->index(0,0));
 }
@@ -71,6 +75,7 @@ void InventoryWindow::on_removeButton_clicked()
 {
     QSqlQuery qry4;
     QMessageBox::StandardButton reply;
+    //display warning message when remove button is pressed
     reply = QMessageBox::question(this,"Warning","Deleteing an item from inventory, Continue?",QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes)
     {
@@ -124,6 +129,7 @@ void InventoryWindow::on_returnButton_clicked()
 }
 void InventoryWindow::returnedFromItemModify()
 {
+    //update table
     model->setQuery("SELECT * FROM [main].[inventory] WHERE quantity != 0");
     itemModify->deleteLater();
 }

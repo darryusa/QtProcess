@@ -76,9 +76,10 @@ void PINNumPad::keyboardButtonPressed()
 
 void PINNumPad::enterButtonPressed()
 {
-    //font = new QFont(45);
+
     QFont font("San Serif", 40, QFont::Bold,true);
     ui->lineEdit->setFont(font);
+    // first time enter pin
     if(count ==0)
     {
         oldPin = ui->lineEdit->text();
@@ -88,6 +89,7 @@ void PINNumPad::enterButtonPressed()
         ui->lineEdit->setText("Re-EnterPin");
         count++;
     }
+    // enter pin correct
     else if(count == 1)
     {
         if(oldPin == ui->lineEdit->text())
@@ -95,6 +97,7 @@ void PINNumPad::enterButtonPressed()
             setPIN(oldPin);
             this->hide();
         }
+        //enter pin incorrect
         else
         {
             count = 0;
