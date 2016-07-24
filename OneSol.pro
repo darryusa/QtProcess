@@ -34,9 +34,7 @@ HEADERS  += onesolmain.h \
     singleton.h \
     reportlistdialog.h \
     transactionwindow.h \
-    ui_transactionwindow.h \
     pinnumpad.h \
-    ui_pinnumpad.h \
     inventorywindow.h \
     call_once.h \
     itemmodify.h

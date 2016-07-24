@@ -8,13 +8,14 @@
 #include <QDebug>
 OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 {
-    staffWindow = new StaffWindow( this );
+
     menuWindow = new MenuWindow(this);
     reportsWindow = new ReportsWindow(this);
     stackedWidget = new QStackedWidget;
     reportListDialog = new ReportListDialog(this);
     transactionWindow = new TransactionWindow(this);
     inventoryWindow = new InventoryWindow(this);
+    staffWindow = new StaffWindow( this );
     loginStaff = new LoginDialog(this,"staff");
     loginReport = new LoginDialog(this,"report");
     loginSale = new LoginDialog(this,"sale");
@@ -88,7 +89,7 @@ void OneSolMain::staffReturned()
 }
 void OneSolMain::reportSlotLoggedin()
 {
-    stackedWidget->setCurrentWidget(reportListDialog);
+    stackedWidget->setCurrentWidget(reportsWindow);
     loginReport->hide();
 }
 
