@@ -445,7 +445,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>4</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>true</bool>
@@ -578,12 +578,43 @@ QScrollBar::sub-line:vertical {
 } 
 
 QTableView::item:selected {
-   	background-color: red;
-	border-radius: 5px;
+   	background-color: rgb(164, 179, 60);
+	border-radius: 8px;
 }
 QTableView QTableCornerButton::section {
     background: red;
     border: 2px outset red;
+}
+QHeaderView::section
+{
+	border-radius: 8px;
+	background: rgb(164, 179, 60);
+	height: 25px;
+}
+QTableView::item
+{
+	border-radius: 8px;
+
+}
+QScrollBar:vertical {               
+	background-color: none;
+	width: 10px;    
+	border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+	background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+	stop: 0  rgb(164, 179, 60), stop: 0.5 rgb(164, 179, 60),  stop:1 rgb(164, 179, 60));
+	min-height: 10px;
+    border-radius: 5px;
+    }
+QScrollBar::add-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+}
+QScrollBar::sub-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+
 }</string>
      </property>
      <property name="editTriggers">
@@ -592,6 +623,9 @@ QTableView QTableCornerButton::section {
      <property name="selectionBehavior">
       <enum>QAbstractItemView::SelectRows</enum>
      </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
     </widget>
    </widget>
    <widget class="QWidget" name="hairTab">
@@ -615,14 +649,48 @@ QTableView QTableCornerButton::section {
 } 
 
 QTableView::item:selected {
-   	background-color: red;
-	border-radius: 5px;
+   	background-color: rgb(164, 179, 60);
+	border-radius: 8px;
 }
 QTableView QTableCornerButton::section {
     background: red;
     border: 2px outset red;
+}
+QHeaderView::section
+{
+	border-radius: 8px;
+	background: rgb(164, 179, 60);
+	height: 25px;
+}
+QTableView::item
+{
+	border-radius: 8px;
+
+}
+QScrollBar:vertical {               
+	background-color: none;
+	width: 10px;    
+	border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+	background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+	stop: 0  rgb(164, 179, 60), stop: 0.5 rgb(164, 179, 60),  stop:1 rgb(164, 179, 60));
+	min-height: 10px;
+    border-radius: 5px;
+    }
+QScrollBar::add-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+}
+QScrollBar::sub-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+
 }</string>
      </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
     </widget>
    </widget>
    <widget class="QWidget" name="nailTab">
@@ -646,14 +714,48 @@ QTableView QTableCornerButton::section {
 } 
 
 QTableView::item:selected {
-   	background-color: red;
-	border-radius: 5px;
+   	background-color: rgb(164, 179, 60);
+	border-radius: 8px;
 }
 QTableView QTableCornerButton::section {
     background: red;
     border: 2px outset red;
+}
+QHeaderView::section
+{
+	border-radius: 8px;
+	background: rgb(164, 179, 60);
+	height: 25px;
+}
+QTableView::item
+{
+	border-radius: 8px;
+
+}
+QScrollBar:vertical {               
+	background-color: none;
+	width: 10px;    
+	border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+	background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+	stop: 0  rgb(164, 179, 60), stop: 0.5 rgb(164, 179, 60),  stop:1 rgb(164, 179, 60));
+	min-height: 10px;
+    border-radius: 5px;
+    }
+QScrollBar::add-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+}
+QScrollBar::sub-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+
 }</string>
      </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
     </widget>
    </widget>
    <widget class="QWidget" name="itemsTab">
@@ -677,12 +779,43 @@ QTableView QTableCornerButton::section {
 } 
 
 QTableView::item:selected {
-   	background-color: red;
-	border-radius: 5px;
+   	background-color: rgb(164, 179, 60);
+	border-radius: 8px;
 }
 QTableView QTableCornerButton::section {
     background: red;
     border: 2px outset red;
+}
+QHeaderView::section
+{
+	border-radius: 8px;
+	background: rgb(164, 179, 60);
+	height: 25px;
+}
+QTableView::item
+{
+	border-radius: 8px;
+
+}
+QScrollBar:vertical {               
+	background-color: none;
+	width: 10px;    
+	border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+	background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+	stop: 0  rgb(164, 179, 60), stop: 0.5 rgb(164, 179, 60),  stop:1 rgb(164, 179, 60));
+	min-height: 10px;
+    border-radius: 5px;
+    }
+QScrollBar::add-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+}
+QScrollBar::sub-line:vertical {
+	height: 1px;
+	border-radius: 3px;
+
 }</string>
      </property>
      <property name="frameShape">
@@ -694,6 +827,9 @@ QTableView QTableCornerButton::section {
      <property name="gridStyle">
       <enum>Qt::NoPen</enum>
      </property>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
     </widget>
    </widget>
   </widget>

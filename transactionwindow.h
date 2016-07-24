@@ -42,6 +42,14 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_massageTableView_clicked(const QModelIndex &index);
+
+    void on_hairTableView_clicked(const QModelIndex &index);
+
+    void on_nailTableView_clicked(const QModelIndex &index);
+
+    void on_itemTableview_clicked(const QModelIndex &index);
+
 private:
     void updateTotal(double val1);
     int static sender;

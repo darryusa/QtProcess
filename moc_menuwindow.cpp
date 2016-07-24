@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MenuWindow_t {
     QByteArrayData data[10];
-    char stringdata0[157];
+    char stringdata0[164];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,20 +30,20 @@ struct qt_meta_stringdata_MenuWindow_t {
 static const qt_meta_stringdata_MenuWindow_t qt_meta_stringdata_MenuWindow = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "MenuWindow"
-QT_MOC_LITERAL(1, 11, 9), // "callLogin"
-QT_MOC_LITERAL(2, 21, 0), // ""
-QT_MOC_LITERAL(3, 22, 13), // "reportClicked"
-QT_MOC_LITERAL(4, 36, 12), // "staffClicked"
-QT_MOC_LITERAL(5, 49, 11), // "saleClicked"
-QT_MOC_LITERAL(6, 61, 21), // "on_saleButton_clicked"
-QT_MOC_LITERAL(7, 83, 26), // "on_inventoryButton_clicked"
-QT_MOC_LITERAL(8, 110, 22), // "on_staffButton_clicked"
-QT_MOC_LITERAL(9, 133, 23) // "on_reportButton_clicked"
+QT_MOC_LITERAL(1, 11, 13), // "reportClicked"
+QT_MOC_LITERAL(2, 25, 0), // ""
+QT_MOC_LITERAL(3, 26, 12), // "staffClicked"
+QT_MOC_LITERAL(4, 39, 11), // "saleClicked"
+QT_MOC_LITERAL(5, 51, 16), // "inventoryClicked"
+QT_MOC_LITERAL(6, 68, 21), // "on_saleButton_clicked"
+QT_MOC_LITERAL(7, 90, 26), // "on_inventoryButton_clicked"
+QT_MOC_LITERAL(8, 117, 22), // "on_staffButton_clicked"
+QT_MOC_LITERAL(9, 140, 23) // "on_reportButton_clicked"
 
     },
-    "MenuWindow\0callLogin\0\0reportClicked\0"
-    "staffClicked\0saleClicked\0on_saleButton_clicked\0"
-    "on_inventoryButton_clicked\0"
+    "MenuWindow\0reportClicked\0\0staffClicked\0"
+    "saleClicked\0inventoryClicked\0"
+    "on_saleButton_clicked\0on_inventoryButton_clicked\0"
     "on_staffButton_clicked\0on_reportButton_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -94,10 +94,10 @@ void MenuWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MenuWindow *_t = static_cast<MenuWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->callLogin(); break;
-        case 1: _t->reportClicked(); break;
-        case 2: _t->staffClicked(); break;
-        case 3: _t->saleClicked(); break;
+        case 0: _t->reportClicked(); break;
+        case 1: _t->staffClicked(); break;
+        case 2: _t->saleClicked(); break;
+        case 3: _t->inventoryClicked(); break;
         case 4: _t->on_saleButton_clicked(); break;
         case 5: _t->on_inventoryButton_clicked(); break;
         case 6: _t->on_staffButton_clicked(); break;
@@ -109,28 +109,28 @@ void MenuWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (MenuWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::callLogin)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::reportClicked)) {
                 *result = 0;
                 return;
             }
         }
         {
             typedef void (MenuWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::reportClicked)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::staffClicked)) {
                 *result = 1;
                 return;
             }
         }
         {
             typedef void (MenuWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::staffClicked)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::saleClicked)) {
                 *result = 2;
                 return;
             }
         }
         {
             typedef void (MenuWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::saleClicked)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuWindow::inventoryClicked)) {
                 *result = 3;
                 return;
             }
@@ -176,25 +176,25 @@ int MenuWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MenuWindow::callLogin()
+void MenuWindow::reportClicked()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 
 // SIGNAL 1
-void MenuWindow::reportClicked()
+void MenuWindow::staffClicked()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, Q_NULLPTR);
 }
 
 // SIGNAL 2
-void MenuWindow::staffClicked()
+void MenuWindow::saleClicked()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, Q_NULLPTR);
 }
 
 // SIGNAL 3
-void MenuWindow::saleClicked()
+void MenuWindow::inventoryClicked()
 {
     QMetaObject::activate(this, &staticMetaObject, 3, Q_NULLPTR);
 }

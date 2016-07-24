@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_StaffWindow_t {
     QByteArrayData data[11];
-    char stringdata0[189];
+    char stringdata0[187];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,22 +32,22 @@ static const qt_meta_stringdata_StaffWindow_t qt_meta_stringdata_StaffWindow = {
 QT_MOC_LITERAL(0, 0, 11), // "StaffWindow"
 QT_MOC_LITERAL(1, 12, 11), // "staffReturn"
 QT_MOC_LITERAL(2, 24, 0), // ""
-QT_MOC_LITERAL(3, 25, 22), // "on_tableView_activated"
-QT_MOC_LITERAL(4, 48, 5), // "index"
-QT_MOC_LITERAL(5, 54, 26), // "on_modifyPINButton_clicked"
-QT_MOC_LITERAL(6, 81, 29), // "on_searchLineEdit_textChanged"
-QT_MOC_LITERAL(7, 111, 4), // "arg1"
-QT_MOC_LITERAL(8, 116, 24), // "on_confirmButton_clicked"
-QT_MOC_LITERAL(9, 141, 23), // "on_returnButton_clicked"
-QT_MOC_LITERAL(10, 165, 23) // "on_removeButton_clicked"
+QT_MOC_LITERAL(3, 25, 26), // "on_modifyPINButton_clicked"
+QT_MOC_LITERAL(4, 52, 29), // "on_searchLineEdit_textChanged"
+QT_MOC_LITERAL(5, 82, 4), // "arg1"
+QT_MOC_LITERAL(6, 87, 24), // "on_confirmButton_clicked"
+QT_MOC_LITERAL(7, 112, 23), // "on_returnButton_clicked"
+QT_MOC_LITERAL(8, 136, 23), // "on_removeButton_clicked"
+QT_MOC_LITERAL(9, 160, 20), // "on_tableView_clicked"
+QT_MOC_LITERAL(10, 181, 5) // "index"
 
     },
     "StaffWindow\0staffReturn\0\0"
-    "on_tableView_activated\0index\0"
     "on_modifyPINButton_clicked\0"
     "on_searchLineEdit_textChanged\0arg1\0"
     "on_confirmButton_clicked\0"
-    "on_returnButton_clicked\0on_removeButton_clicked"
+    "on_returnButton_clicked\0on_removeButton_clicked\0"
+    "on_tableView_clicked\0index"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,23 +68,23 @@ static const uint qt_meta_data_StaffWindow[] = {
        1,    0,   49,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    1,   50,    2, 0x08 /* Private */,
-       5,    0,   53,    2, 0x08 /* Private */,
-       6,    1,   54,    2, 0x08 /* Private */,
-       8,    0,   57,    2, 0x08 /* Private */,
-       9,    0,   58,    2, 0x08 /* Private */,
-      10,    0,   59,    2, 0x08 /* Private */,
+       3,    0,   50,    2, 0x08 /* Private */,
+       4,    1,   51,    2, 0x08 /* Private */,
+       6,    0,   54,    2, 0x08 /* Private */,
+       7,    0,   55,    2, 0x08 /* Private */,
+       8,    0,   56,    2, 0x08 /* Private */,
+       9,    1,   57,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QModelIndex,    4,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    7,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QModelIndex,   10,
 
        0        // eod
 };
@@ -96,12 +96,12 @@ void StaffWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->staffReturn(); break;
-        case 1: _t->on_tableView_activated((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
-        case 2: _t->on_modifyPINButton_clicked(); break;
-        case 3: _t->on_searchLineEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 4: _t->on_confirmButton_clicked(); break;
-        case 5: _t->on_returnButton_clicked(); break;
-        case 6: _t->on_removeButton_clicked(); break;
+        case 1: _t->on_modifyPINButton_clicked(); break;
+        case 2: _t->on_searchLineEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 3: _t->on_confirmButton_clicked(); break;
+        case 4: _t->on_returnButton_clicked(); break;
+        case 5: _t->on_removeButton_clicked(); break;
+        case 6: _t->on_tableView_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

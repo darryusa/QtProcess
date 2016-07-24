@@ -23,16 +23,17 @@ TransactionWindow::TransactionWindow(QWidget *parent) :
 void TransactionWindow::populateTables()
 {
     this->model = new QSqlQueryModel();
-    model->setQuery("SELECT [ID], [name], [quantity], [price] FROM [main].[inventory] WHERE quantity != 0");
+    model->setQuery("SELECT [ID], [name], [price],[quantity] FROM [main].[inventory] WHERE quantity != 0");
     sort_filter = new QSortFilterProxyModel(this);
     sort_filter->setSourceModel(model);
     sort_filter->sort (0);
     sort_filter->setFilterKeyColumn(-1);
     this->ui->allTableView->setModel( sort_filter );
     ui->allTableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
-
-
-
+    ui->massageTableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
+    ui->hairTableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
+    ui->nailTableView->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
+    ui->itemTableview->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
 }
 
 TransactionWindow::~TransactionWindow()
@@ -286,12 +287,127 @@ void TransactionWindow::on_returnButton_2_clicked()
     emit returnToMain();
 }
 
-void TransactionWindow::on_tabWidget_tabBarClicked(int index)
-{
 
-}
 
 void TransactionWindow::on_tabWidget_currentChanged(int index)
 {
-    qDebug()<< ui->tabWidget->currentWidget();
+
+    switch (index)
+    {
+    case 0:
+        model->setQuery("SELECT [ID], [name], [price],[quantity] FROM [main].[inventory] WHERE quantity != 0");
+        break;
+
+    case 1:
+        this->ui->massageTableView->setModel( sort_filter );
+        model->setQuery("SELECT [ID], [name], [price] FROM [main].[inventory] WHERE category = 'Massage' ");
+        break;
+
+    case 2:
+        this->ui->hairTableView->setModel( sort_filter );
+        model->setQuery("SELECT [ID], [name], [price] FROM [main].[inventory] WHERE category = 'Hair' ");
+        break;
+
+    case 3:
+        this->ui->nailTableView->setModel( sort_filter );
+        model->setQuery("SELECT [ID], [name], [price] FROM [main].[inventory] WHERE category = 'Nail' ");
+        break;
+
+    case 4:
+        this->ui->itemTableview->setModel( sort_filter );
+        model->setQuery("SELECT [ID], [name], [price] FROM [main].[inventory] WHERE category = 'Items' ");
+        break;
+
+
+
+
+
+
+
+
+
+    }
 }
+
+void TransactionWindow::on_massageTableView_clicked(const QModelIndex &index)
+{
+    QString val = ui->allTableView->model()->data(index).toString();
+    QSqlQuery qry;
+
+    qry.prepare("SELECT * FROM inventory WHERE name='"+val+"' or id='"+val+"'  or price= '"+val+"' " );
+    if(qry.exec())
+    {
+        if(qry.first())
+        {
+            AddRoot(qry.value(1).toString(),qry.value(4).toFloat(),qry.value(2).toString(),qry.value(0).value<int>());
+        }
+        selectedName = ui->allTableView->model()->data(index).toString();
+    }
+        ui->treeWidget->resizeColumnToContents(0);
+        ui->treeWidget->resizeColumnToContents(1);
+        ui->treeWidget->resizeColumnToContents(2);
+        ui->treeWidget->resizeColumnToContents(3);
+}
+
+void TransactionWindow::on_hairTableView_clicked(const QModelIndex &index)
+{
+    QString val = ui->allTableView->model()->data(index).toString();
+    QSqlQuery qry;
+
+    qry.prepare("SELECT * FROM inventory WHERE name='"+val+"' or id='"+val+"'  or price= '"+val+"' " );
+    if(qry.exec())
+    {
+        if(qry.first())
+        {
+            AddRoot(qry.value(1).toString(),qry.value(4).toFloat(),qry.value(2).toString(),qry.value(0).value<int>());
+        }
+        selectedName = ui->allTableView->model()->data(index).toString();
+    }
+        ui->treeWidget->resizeColumnToContents(0);
+        ui->treeWidget->resizeColumnToContents(1);
+        ui->treeWidget->resizeColumnToContents(2);
+        ui->treeWidget->resizeColumnToContents(3);
+}
+
+
+void TransactionWindow::on_nailTableView_clicked(const QModelIndex &index)
+{
+    QString val = ui->allTableView->model()->data(index).toString();
+    QSqlQuery qry;
+
+    qry.prepare("SELECT * FROM inventory WHERE name='"+val+"' or id='"+val+"'  or price= '"+val+"' " );
+    if(qry.exec())
+    {
+        if(qry.first())
+        {
+            AddRoot(qry.value(1).toString(),qry.value(4).toFloat(),qry.value(2).toString(),qry.value(0).value<int>());
+        }
+        selectedName = ui->allTableView->model()->data(index).toString();
+    }
+        ui->treeWidget->resizeColumnToContents(0);
+        ui->treeWidget->resizeColumnToContents(1);
+        ui->treeWidget->resizeColumnToContents(2);
+        ui->treeWidget->resizeColumnToContents(3);
+}
+
+
+void TransactionWindow::on_itemTableview_clicked(const QModelIndex &index)
+{
+    QString val = ui->allTableView->model()->data(index).toString();
+    QSqlQuery qry;
+
+    qry.prepare("SELECT * FROM inventory WHERE name='"+val+"' or id='"+val+"'  or price= '"+val+"' " );
+    if(qry.exec())
+    {
+        if(qry.first())
+        {
+            AddRoot(qry.value(1).toString(),qry.value(4).toFloat(),qry.value(2).toString(),qry.value(0).value<int>());
+        }
+        selectedName = ui->allTableView->model()->data(index).toString();
+    }
+        ui->treeWidget->resizeColumnToContents(0);
+        ui->treeWidget->resizeColumnToContents(1);
+        ui->treeWidget->resizeColumnToContents(2);
+        ui->treeWidget->resizeColumnToContents(3);
+}
+

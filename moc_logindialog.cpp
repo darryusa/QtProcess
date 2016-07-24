@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_LoginDialog_t {
-    QByteArrayData data[11];
-    char stringdata0[161];
+    QByteArrayData data[13];
+    char stringdata0[198];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,16 +37,19 @@ QT_MOC_LITERAL(4, 40, 14), // "reportLoggedin"
 QT_MOC_LITERAL(5, 55, 11), // "reportLogin"
 QT_MOC_LITERAL(6, 67, 23), // "backButtonPressedSignal"
 QT_MOC_LITERAL(7, 91, 10), // "saleLoggin"
-QT_MOC_LITERAL(8, 102, 21), // "keyboardButtonPressed"
-QT_MOC_LITERAL(9, 124, 18), // "enterButtonPressed"
-QT_MOC_LITERAL(10, 143, 17) // "backButtonPressed"
+QT_MOC_LITERAL(8, 102, 14), // "inventoryLogin"
+QT_MOC_LITERAL(9, 117, 21), // "keyboardButtonPressed"
+QT_MOC_LITERAL(10, 139, 18), // "enterButtonPressed"
+QT_MOC_LITERAL(11, 158, 17), // "backButtonPressed"
+QT_MOC_LITERAL(12, 176, 21) // "on_backButton_clicked"
 
     },
     "LoginDialog\0staffClicked\0\0staffLoggedin\0"
     "reportLoggedin\0reportLogin\0"
     "backButtonPressedSignal\0saleLoggin\0"
-    "keyboardButtonPressed\0enterButtonPressed\0"
-    "backButtonPressed"
+    "inventoryLogin\0keyboardButtonPressed\0"
+    "enterButtonPressed\0backButtonPressed\0"
+    "on_backButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,25 +59,27 @@ static const uint qt_meta_data_LoginDialog[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       6,       // signalCount
+       7,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   59,    2, 0x06 /* Public */,
-       3,    0,   60,    2, 0x06 /* Public */,
-       4,    0,   61,    2, 0x06 /* Public */,
-       5,    0,   62,    2, 0x06 /* Public */,
-       6,    0,   63,    2, 0x06 /* Public */,
-       7,    0,   64,    2, 0x06 /* Public */,
+       1,    0,   69,    2, 0x06 /* Public */,
+       3,    0,   70,    2, 0x06 /* Public */,
+       4,    0,   71,    2, 0x06 /* Public */,
+       5,    0,   72,    2, 0x06 /* Public */,
+       6,    0,   73,    2, 0x06 /* Public */,
+       7,    0,   74,    2, 0x06 /* Public */,
+       8,    0,   75,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   65,    2, 0x08 /* Private */,
-       9,    0,   66,    2, 0x08 /* Private */,
-      10,    0,   67,    2, 0x08 /* Private */,
+       9,    0,   76,    2, 0x08 /* Private */,
+      10,    0,   77,    2, 0x08 /* Private */,
+      11,    0,   78,    2, 0x08 /* Private */,
+      12,    0,   79,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -83,8 +88,10 @@ static const uint qt_meta_data_LoginDialog[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -104,9 +111,11 @@ void LoginDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 3: _t->reportLogin(); break;
         case 4: _t->backButtonPressedSignal(); break;
         case 5: _t->saleLoggin(); break;
-        case 6: _t->keyboardButtonPressed(); break;
-        case 7: _t->enterButtonPressed(); break;
-        case 8: _t->backButtonPressed(); break;
+        case 6: _t->inventoryLogin(); break;
+        case 7: _t->keyboardButtonPressed(); break;
+        case 8: _t->enterButtonPressed(); break;
+        case 9: _t->backButtonPressed(); break;
+        case 10: _t->on_backButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -154,6 +163,13 @@ void LoginDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
                 return;
             }
         }
+        {
+            typedef void (LoginDialog::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&LoginDialog::inventoryLogin)) {
+                *result = 6;
+                return;
+            }
+        }
     }
     Q_UNUSED(_a);
 }
@@ -183,13 +199,13 @@ int LoginDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 11)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 11;
     }
     return _id;
 }
@@ -228,5 +244,11 @@ void LoginDialog::backButtonPressedSignal()
 void LoginDialog::saleLoggin()
 {
     QMetaObject::activate(this, &staticMetaObject, 5, Q_NULLPTR);
+}
+
+// SIGNAL 6
+void LoginDialog::inventoryLogin()
+{
+    QMetaObject::activate(this, &staticMetaObject, 6, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE
