@@ -16,23 +16,25 @@
   <widget class="QPushButton" name="generateButton">
    <property name="geometry">
     <rect>
-     <x>730</x>
-     <y>80</y>
-     <width>71</width>
+     <x>861</x>
+     <y>70</y>
+     <width>151</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>24</pointsize>
+     <pointsize>18</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton
+
 {
-	
+	border-image: url(:/image/featured-overlayOK.png);
 	
 	background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
 
@@ -42,7 +44,7 @@
 }</string>
    </property>
    <property name="text">
-    <string>Generate Reports</string>
+    <string>Submit</string>
    </property>
   </widget>
   <widget class="QLabel" name="pictureLabel">
@@ -127,53 +129,21 @@
     </size>
    </property>
   </widget>
-  <widget class="QDateEdit" name="dateEdit">
+  <widget class="QComboBox" name="timePeriodBox">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>72</y>
-     <width>110</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="dateTime">
-    <datetime>
-     <hour>0</hour>
-     <minute>0</minute>
-     <second>0</second>
-     <year>2000</year>
-     <month>1</month>
-     <day>1</day>
-    </datetime>
-   </property>
-   <property name="displayFormat">
-    <string>MM/dd/yyyy</string>
-   </property>
-   <property name="calendarPopup">
-    <bool>true</bool>
-   </property>
-   <property name="currentSectionIndex">
-    <number>0</number>
-   </property>
-  </widget>
-  <widget class="QDateEdit" name="dateEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>520</x>
-     <y>72</y>
-     <width>110</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>71</y>
+     <x>190</x>
+     <y>70</y>
      <width>261</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+	border-radius: 8px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+</string>
    </property>
    <item>
     <property name="text">
@@ -204,10 +174,10 @@
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>10</x>
      <y>110</y>
-     <width>881</width>
-     <height>401</height>
+     <width>1001</width>
+     <height>441</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -236,14 +206,14 @@ QTableView QTableCornerButton::section {
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>520</y>
-     <width>361</width>
-     <height>31</height>
+     <x>200</x>
+     <y>560</y>
+     <width>631</width>
+     <height>27</height>
     </rect>
    </property>
-   <layout class="QFormLayout" name="formLayout">
-    <item row="0" column="0">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
      <widget class="QLabel" name="totalLabel">
       <property name="minimumSize">
        <size>
@@ -251,32 +221,242 @@ QTableView QTableCornerButton::section {
         <height>25</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>Total</string>
+       <string>Sales Tax Total</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="totalLineEdit">
+    <item>
+     <widget class="QLineEdit" name="salesTaxTotalEdit">
       <property name="minimumSize">
        <size>
         <width>0</width>
         <height>25</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit { 
+	border-radius: 8px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} </string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="totalLabel_2">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Sales Total</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="salesTotalEdit">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit { 
+	border-radius: 8px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+} </string>
+      </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Select time period</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="customDateWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>485</x>
+     <y>68</y>
+     <width>311</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>2</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>From</string>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="startCustomDate">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>2</y>
+      <width>110</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+	border-radius: 8px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+</string>
+    </property>
+    <property name="dateTime">
+     <datetime>
+      <hour>0</hour>
+      <minute>0</minute>
+      <second>0</second>
+      <year>2016</year>
+      <month>7</month>
+      <day>23</day>
+     </datetime>
+    </property>
+    <property name="displayFormat">
+     <string>MM/dd/yyyy</string>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+    <property name="currentSectionIndex">
+     <number>1</number>
+    </property>
+    <property name="date">
+     <date>
+      <year>2016</year>
+      <month>7</month>
+      <day>23</day>
+     </date>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>2</y>
+      <width>21</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>To</string>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="endCustomDate">
+    <property name="geometry">
+     <rect>
+      <x>195</x>
+      <y>2</y>
+      <width>110</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+	border-radius: 8px; 
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255); 
+</string>
+    </property>
+    <property name="currentSection">
+     <enum>QDateTimeEdit::DaySection</enum>
+    </property>
+    <property name="displayFormat">
+     <string>MM/dd/yyyy</string>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+    <property name="date">
+     <date>
+      <year>2016</year>
+      <month>7</month>
+      <day>23</day>
+     </date>
+    </property>
+   </widget>
   </widget>
   <zorder>pictureLabel</zorder>
   <zorder>generateButton</zorder>
   <zorder>label</zorder>
   <zorder>returnButton</zorder>
-  <zorder>dateEdit</zorder>
-  <zorder>dateEdit_2</zorder>
-  <zorder>comboBox</zorder>
+  <zorder>timePeriodBox</zorder>
   <zorder>tableView</zorder>
   <zorder>formLayoutWidget</zorder>
+  <zorder>label_2</zorder>
+  <zorder>customDateWidget</zorder>
  </widget>
  <resources>
   <include location="resource.qrc"/>
