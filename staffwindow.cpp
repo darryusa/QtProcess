@@ -73,9 +73,10 @@ void StaffWindow::on_confirmButton_clicked()
         privilige = ui->employeeRadioButton->isChecked()? 1 : 2;
         QSqlQuery qry("SELECT ID, SSN,PIN,privilige FROM employee");
         //remove pinpad
-        if(PIN != NULL)
+        if(PIN != "")
         {
             pinNumPad->deleteLater();
+            pinNumPad = NULL;
         }
 
         while (qry.next())
@@ -105,7 +106,7 @@ void StaffWindow::on_confirmButton_clicked()
             if(qry2.exec())
             {
                 QMessageBox::critical(this,tr("Save"),tr("Saved"));
-
+                PIN = "";
             }
             else
             {
@@ -137,7 +138,7 @@ void StaffWindow::on_confirmButton_clicked()
             if(qry3.exec())
             {
                 QMessageBox::critical(this,tr("Save"),tr("Saved"));
-
+                PIN = "";
             }
             else
             {

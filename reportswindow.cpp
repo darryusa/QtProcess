@@ -77,6 +77,11 @@ void ReportsWindow::on_generateButton_clicked()
         endDate = QDateTime::currentDateTime().addDays(date).toString("yyyy-MM-dd");
         startDate = QDateTime::currentDateTime().addDays(date-7).toString("yyyy-MM-dd");
     }
+    else if(ui->timePeriodBox->currentIndex() == 4)
+    {
+        startDate = ui->startCustomDate->text();
+        endDate  = ui->endCustomDate->text();
+    }
 
     model->setQuery("SELECT * FROM [main].[transactions] where times BETWEEN '"+startDate+"' AND '"+endDate+"' "   );
     QSqlQuery qry;
