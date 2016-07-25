@@ -6,12 +6,20 @@
 
 QT       += core gui
 QT       += sql
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = OneSol
 TEMPLATE = app
 
-//Test
+CONFIG += 32bit
+
+CONFIG(32bit){
+    TARGET = 32bit_binary
+}
+CONFIG(64bit){
+    TARGET = 64bit_binary
+}
 SOURCES += main.cpp\
         onesolmain.cpp \
     staffwindow.cpp \
@@ -22,7 +30,8 @@ SOURCES += main.cpp\
     transactionwindow.cpp \
     pinnumpad.cpp \
     inventorywindow.cpp \
-    itemmodify.cpp
+    itemmodify.cpp \
+    mainwindow.cpp
 
 HEADERS  += onesolmain.h \
     staffwindow.h \
@@ -35,7 +44,8 @@ HEADERS  += onesolmain.h \
     pinnumpad.h \
     inventorywindow.h \
     call_once.h \
-    itemmodify.h
+    itemmodify.h \
+    mainwindow.h
 
 FORMS += \
     staffwindow.ui \
@@ -45,7 +55,8 @@ FORMS += \
     transactionwindow.ui \
     pinnumpad.ui \
     inventorywindow.ui \
-    itemmodify.ui
+    itemmodify.ui \
+    mainwindow.ui
     logindialog.ui
 
 RESOURCES += \

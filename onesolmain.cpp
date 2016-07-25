@@ -7,16 +7,16 @@
 OneSolMain::OneSolMain( QWidget *parent ) : QWidget( parent )
 {
     //initialize variable
-    menuWindow = new MenuWindow(this);
+    menuWindow = new MainWindow(this);
     reportsWindow = new ReportsWindow(this);
     stackedWidget = new QStackedWidget;
     transactionWindow = new TransactionWindow(this);
     inventoryWindow = new InventoryWindow(this);
     staffWindow = new StaffWindow( this );
-    loginStaff = new LoginDialog(this,"staff");
-    loginReport = new LoginDialog(this,"report");
-    loginSale = new LoginDialog(this,"sale");
-    loginInventory = new LoginDialog(this,"inventory");
+    loginStaff = new LoginDialog(menuWindow,"staff");
+    loginReport = new LoginDialog(menuWindow,"report");
+    loginSale = new LoginDialog(menuWindow,"sale");
+    loginInventory = new LoginDialog(menuWindow,"inventory");
     stackedWidget->addWidget(loginInventory);
     stackedWidget->addWidget(transactionWindow);
     stackedWidget->addWidget( staffWindow );
@@ -104,7 +104,7 @@ void OneSolMain::saleClicked()
 {
     loginSale->setModal(true);
     loginSale->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
-    loginSale->show();
+    loginSale->open();
 }
 void OneSolMain::saleLogginSlot()
 {

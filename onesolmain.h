@@ -10,6 +10,7 @@
 #include <logindialog.h>
 #include <transactionwindow.h>
 #include <inventorywindow.h>
+#include <mainwindow.h>
 class OneSolMain : public QWidget
 {
     Q_OBJECT
@@ -19,9 +20,10 @@ public:
     ~OneSolMain();
 
 private:
+
     QStackedWidget *stackedWidget;
     StaffWindow *staffWindow;
-    MenuWindow *menuWindow;
+    MainWindow *menuWindow;
     ReportsWindow *reportsWindow;
     TransactionWindow * transactionWindow;
     InventoryWindow * inventoryWindow;
