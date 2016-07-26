@@ -332,7 +332,7 @@ public:
 
         lineEdit = new QLineEdit(LoginDialog);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(0, 0, 411, 118));
+        lineEdit->setGeometry(QRect(0, 0, 411, 121));
         QFont font5;
         font5.setPointSize(58);
         lineEdit->setFont(font5);
@@ -342,7 +342,7 @@ public:
         lineEdit->setAlignment(Qt::AlignCenter);
         backButton = new QPushButton(LoginDialog);
         backButton->setObjectName(QStringLiteral("backButton"));
-        backButton->setGeometry(QRect(410, 0, 101, 118));
+        backButton->setGeometry(QRect(410, 0, 101, 121));
         backButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));\n"
 "\n"
 "	border-radius: 10px;\n"

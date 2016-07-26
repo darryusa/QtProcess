@@ -70,12 +70,12 @@ public:
     {
         if (StaffWindow->objectName().isEmpty())
             StaffWindow->setObjectName(QStringLiteral("StaffWindow"));
-        StaffWindow->resize(1024, 600);
+        StaffWindow->resize(1280, 720);
         StaffWindow->setToolTipDuration(-6);
         StaffWindow->setLayoutDirection(Qt::LeftToRight);
         employeeTitle = new QLabel(StaffWindow);
         employeeTitle->setObjectName(QStringLiteral("employeeTitle"));
-        employeeTitle->setGeometry(QRect(0, 0, 1024, 60));
+        employeeTitle->setGeometry(QRect(0, 0, 1281, 60));
         QFont font;
         font.setFamily(QStringLiteral("Symbola"));
         font.setPointSize(36);
@@ -91,7 +91,7 @@ public:
         employeeTitle->setAlignment(Qt::AlignCenter);
         formLayoutWidget = new QWidget(StaffWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(0, 60, 511, 317));
+        formLayoutWidget->setGeometry(QRect(0, 60, 661, 411));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(40, 0, 40, 0);
@@ -104,8 +104,9 @@ public:
         firstNameLabel->setSizePolicy(sizePolicy);
         firstNameLabel->setMinimumSize(QSize(66, 25));
         QFont font1;
-        font1.setBold(false);
-        font1.setWeight(50);
+        font1.setPointSize(12);
+        font1.setBold(true);
+        font1.setWeight(75);
         firstNameLabel->setFont(font1);
         firstNameLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
 
@@ -113,12 +114,12 @@ public:
 
         firstNameLineEdit = new QLineEdit(formLayoutWidget);
         firstNameLineEdit->setObjectName(QStringLiteral("firstNameLineEdit"));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(firstNameLineEdit->sizePolicy().hasHeightForWidth());
-        firstNameLineEdit->setSizePolicy(sizePolicy1);
-        firstNameLineEdit->setMinimumSize(QSize(335, 25));
+        sizePolicy.setHeightForWidth(firstNameLineEdit->sizePolicy().hasHeightForWidth());
+        firstNameLineEdit->setSizePolicy(sizePolicy);
+        firstNameLineEdit->setMinimumSize(QSize(335, 40));
+        QFont font2;
+        font2.setPointSize(12);
+        firstNameLineEdit->setFont(font2);
         firstNameLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 8px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -147,9 +148,10 @@ public:
 
         lastNameLineEdit = new QLineEdit(formLayoutWidget);
         lastNameLineEdit->setObjectName(QStringLiteral("lastNameLineEdit"));
-        sizePolicy1.setHeightForWidth(lastNameLineEdit->sizePolicy().hasHeightForWidth());
-        lastNameLineEdit->setSizePolicy(sizePolicy1);
-        lastNameLineEdit->setMinimumSize(QSize(335, 25));
+        sizePolicy.setHeightForWidth(lastNameLineEdit->sizePolicy().hasHeightForWidth());
+        lastNameLineEdit->setSizePolicy(sizePolicy);
+        lastNameLineEdit->setMinimumSize(QSize(335, 40));
+        lastNameLineEdit->setFont(font2);
         lastNameLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 8px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -178,9 +180,10 @@ public:
 
         addressLineEdit = new QLineEdit(formLayoutWidget);
         addressLineEdit->setObjectName(QStringLiteral("addressLineEdit"));
-        sizePolicy1.setHeightForWidth(addressLineEdit->sizePolicy().hasHeightForWidth());
-        addressLineEdit->setSizePolicy(sizePolicy1);
-        addressLineEdit->setMinimumSize(QSize(335, 25));
+        sizePolicy.setHeightForWidth(addressLineEdit->sizePolicy().hasHeightForWidth());
+        addressLineEdit->setSizePolicy(sizePolicy);
+        addressLineEdit->setMinimumSize(QSize(335, 40));
+        addressLineEdit->setFont(font2);
         addressLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 8px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -209,9 +212,10 @@ public:
 
         phoneNumberLineEdit = new QLineEdit(formLayoutWidget);
         phoneNumberLineEdit->setObjectName(QStringLiteral("phoneNumberLineEdit"));
-        sizePolicy1.setHeightForWidth(phoneNumberLineEdit->sizePolicy().hasHeightForWidth());
-        phoneNumberLineEdit->setSizePolicy(sizePolicy1);
-        phoneNumberLineEdit->setMinimumSize(QSize(335, 25));
+        sizePolicy.setHeightForWidth(phoneNumberLineEdit->sizePolicy().hasHeightForWidth());
+        phoneNumberLineEdit->setSizePolicy(sizePolicy);
+        phoneNumberLineEdit->setMinimumSize(QSize(335, 40));
+        phoneNumberLineEdit->setFont(font2);
         phoneNumberLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 8px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -240,9 +244,10 @@ public:
 
         emailAddressLineEdit = new QLineEdit(formLayoutWidget);
         emailAddressLineEdit->setObjectName(QStringLiteral("emailAddressLineEdit"));
-        sizePolicy1.setHeightForWidth(emailAddressLineEdit->sizePolicy().hasHeightForWidth());
-        emailAddressLineEdit->setSizePolicy(sizePolicy1);
-        emailAddressLineEdit->setMinimumSize(QSize(335, 25));
+        sizePolicy.setHeightForWidth(emailAddressLineEdit->sizePolicy().hasHeightForWidth());
+        emailAddressLineEdit->setSizePolicy(sizePolicy);
+        emailAddressLineEdit->setMinimumSize(QSize(335, 40));
+        emailAddressLineEdit->setFont(font2);
         emailAddressLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 8px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -268,7 +273,10 @@ public:
 
         sSNLineEdit = new QLineEdit(formLayoutWidget);
         sSNLineEdit->setObjectName(QStringLiteral("sSNLineEdit"));
-        sSNLineEdit->setMinimumSize(QSize(0, 25));
+        sizePolicy.setHeightForWidth(sSNLineEdit->sizePolicy().hasHeightForWidth());
+        sSNLineEdit->setSizePolicy(sizePolicy);
+        sSNLineEdit->setMinimumSize(QSize(0, 40));
+        sSNLineEdit->setFont(font2);
         sSNLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 8px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -287,11 +295,11 @@ public:
 
         cancelButton = new QPushButton(StaffWindow);
         cancelButton->setObjectName(QStringLiteral("cancelButton"));
-        cancelButton->setGeometry(QRect(360, 450, 80, 22));
-        QFont font2;
-        font2.setBold(true);
-        font2.setWeight(75);
-        cancelButton->setFont(font2);
+        cancelButton->setGeometry(QRect(470, 530, 120, 44));
+        QFont font3;
+        font3.setBold(true);
+        font3.setWeight(75);
+        cancelButton->setFont(font3);
         cancelButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 8px;\n"
 "\n"
@@ -309,8 +317,8 @@ public:
 ""));
         confirmButton = new QPushButton(StaffWindow);
         confirmButton->setObjectName(QStringLiteral("confirmButton"));
-        confirmButton->setGeometry(QRect(60, 450, 80, 22));
-        confirmButton->setFont(font2);
+        confirmButton->setGeometry(QRect(210, 530, 120, 44));
+        confirmButton->setFont(font3);
         confirmButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	border-radius: 8px;\n"
@@ -320,12 +328,12 @@ public:
 ""));
         addButton = new QPushButton(StaffWindow);
         addButton->setObjectName(QStringLiteral("addButton"));
-        addButton->setGeometry(QRect(110, 530, 211, 41));
-        QFont font3;
-        font3.setPointSize(16);
-        font3.setBold(true);
-        font3.setWeight(75);
-        addButton->setFont(font3);
+        addButton->setGeometry(QRect(210, 650, 241, 61));
+        QFont font4;
+        font4.setPointSize(16);
+        font4.setBold(true);
+        font4.setWeight(75);
+        addButton->setFont(font4);
         addButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 20px;\n"
 "	background-color: rgb(164, 179, 60);\n"
@@ -343,8 +351,8 @@ public:
 ""));
         removeButton = new QPushButton(StaffWindow);
         removeButton->setObjectName(QStringLiteral("removeButton"));
-        removeButton->setGeometry(QRect(640, 530, 211, 41));
-        removeButton->setFont(font3);
+        removeButton->setGeometry(QRect(820, 650, 241, 61));
+        removeButton->setFont(font4);
         removeButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	border-radius: 20px;\n"
 "	background-color: rgb(164, 179, 60);\n"
@@ -362,7 +370,7 @@ public:
 ""));
         tableView = new QTableView(StaffWindow);
         tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(510, 90, 481, 411));
+        tableView->setGeometry(QRect(660, 100, 591, 521));
         QPalette palette;
         QBrush brush(QColor(0, 0, 0, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -430,9 +438,9 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush6);
         palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
         tableView->setPalette(palette);
-        QFont font4;
-        font4.setPointSize(16);
-        tableView->setFont(font4);
+        QFont font5;
+        font5.setPointSize(14);
+        tableView->setFont(font5);
         tableView->setStyleSheet(QLatin1String("QTableView { \n"
 "	border-image: url(:/image/whiteboxBorder.jpeg);\n"
 "	border-radius: 20px; \n"
@@ -488,7 +496,7 @@ public:
         tableView->verticalHeader()->setProperty("showSortIndicator", QVariant(false));
         searchIcon = new QPushButton(StaffWindow);
         searchIcon->setObjectName(QStringLiteral("searchIcon"));
-        searchIcon->setGeometry(QRect(510, 60, 41, 31));
+        searchIcon->setGeometry(QRect(680, 60, 61, 41));
         QIcon icon;
         icon.addFile(QStringLiteral(":/image/noun_79907_cc.png"), QSize(), QIcon::Normal, QIcon::Off);
         searchIcon->setIcon(icon);
@@ -496,8 +504,11 @@ public:
         searchIcon->setFlat(true);
         searchLineEdit = new QLineEdit(StaffWindow);
         searchLineEdit->setObjectName(QStringLiteral("searchLineEdit"));
-        searchLineEdit->setGeometry(QRect(560, 60, 431, 31));
+        searchLineEdit->setGeometry(QRect(740, 60, 451, 41));
         searchLineEdit->setMinimumSize(QSize(0, 25));
+        QFont font6;
+        font6.setPointSize(11);
+        searchLineEdit->setFont(font6);
         searchLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	\n"
 "	border-radius: 10px; \n"
@@ -511,11 +522,11 @@ public:
         searchLineEdit->setCursorMoveStyle(Qt::LogicalMoveStyle);
         modifyPINButton = new QPushButton(StaffWindow);
         modifyPINButton->setObjectName(QStringLiteral("modifyPINButton"));
-        modifyPINButton->setGeometry(QRect(136, 380, 91, 25));
+        modifyPINButton->setGeometry(QRect(180, 470, 141, 41));
         modifyPINButton->setMinimumSize(QSize(0, 25));
-        QFont font5;
-        font5.setPointSize(10);
-        modifyPINButton->setFont(font5);
+        QFont font7;
+        font7.setPointSize(10);
+        modifyPINButton->setFont(font7);
         modifyPINButton->setStyleSheet(QLatin1String("QPushButton { \n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -528,17 +539,23 @@ public:
         modifyPINButton->setCheckable(true);
         pINLabel = new QLabel(StaffWindow);
         pINLabel->setObjectName(QStringLiteral("pINLabel"));
-        pINLabel->setGeometry(QRect(40, 380, 20, 24));
-        pINLabel->setFont(font1);
+        pINLabel->setGeometry(QRect(40, 470, 31, 24));
+        QFont font8;
+        font8.setPointSize(12);
+        font8.setBold(true);
+        font8.setItalic(false);
+        font8.setWeight(75);
+        pINLabel->setFont(font8);
         pINLabel->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         layoutWidget = new QWidget(StaffWindow);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(260, 380, 171, 22));
+        layoutWidget->setGeometry(QRect(370, 470, 281, 41));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         employeeRadioButton = new QRadioButton(layoutWidget);
         employeeRadioButton->setObjectName(QStringLiteral("employeeRadioButton"));
+        employeeRadioButton->setFont(font1);
         employeeRadioButton->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         employeeRadioButton->setChecked(true);
 
@@ -546,6 +563,7 @@ public:
 
         managerRadioButton = new QRadioButton(layoutWidget);
         managerRadioButton->setObjectName(QStringLiteral("managerRadioButton"));
+        managerRadioButton->setFont(font1);
         managerRadioButton->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         managerRadioButton->setChecked(false);
 
@@ -554,14 +572,14 @@ public:
         label = new QLabel(StaffWindow);
         label->setObjectName(QStringLiteral("label"));
         label->setEnabled(true);
-        label->setGeometry(QRect(0, 0, 1024, 600));
+        label->setGeometry(QRect(0, 0, 1280, 720));
         label->setAutoFillBackground(false);
         label->setPixmap(QPixmap(QString::fromUtf8(":/image/Vs2.0BamBoo.jpg")));
         label->setScaledContents(true);
         label->setAlignment(Qt::AlignCenter);
         returnButton = new QPushButton(StaffWindow);
         returnButton->setObjectName(QStringLiteral("returnButton"));
-        returnButton->setGeometry(QRect(20, 10, 71, 31));
+        returnButton->setGeometry(QRect(20, 10, 81, 41));
         returnButton->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(140, 177, 63);\n"
 "\n"

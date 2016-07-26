@@ -53,7 +53,7 @@ public:
 ""));
         backButton = new QPushButton(PINNumPad);
         backButton->setObjectName(QStringLiteral("backButton"));
-        backButton->setGeometry(QRect(410, 0, 101, 118));
+        backButton->setGeometry(QRect(410, 0, 101, 121));
         backButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -339,7 +339,7 @@ public:
 
         lineEdit = new QLineEdit(PINNumPad);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(0, 0, 411, 118));
+        lineEdit->setGeometry(QRect(0, 0, 411, 121));
         QFont font3;
         font3.setPointSize(58);
         lineEdit->setFont(font3);

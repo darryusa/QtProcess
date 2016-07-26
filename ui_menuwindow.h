@@ -36,6 +36,11 @@ public:
         if (MenuWindow->objectName().isEmpty())
             MenuWindow->setObjectName(QStringLiteral("MenuWindow"));
         MenuWindow->resize(1024, 600);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MenuWindow->sizePolicy().hasHeightForWidth());
+        MenuWindow->setSizePolicy(sizePolicy);
         MenuWindow->setMaximumSize(QSize(1024, 600));
         MenuWindow->setAutoFillBackground(true);
         pictureLabel = new QLabel(MenuWindow);
@@ -49,9 +54,6 @@ public:
         reportButton = new QPushButton(MenuWindow);
         reportButton->setObjectName(QStringLiteral("reportButton"));
         reportButton->setGeometry(QRect(169, 350, 281, 210));
-        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(reportButton->sizePolicy().hasHeightForWidth());
         reportButton->setSizePolicy(sizePolicy);
         QFont font;

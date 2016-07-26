@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>600</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
-     <height>600</height>
+     <width>1280</width>
+     <height>720</height>
     </rect>
    </property>
    <property name="text">
@@ -32,156 +32,18 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="cancelButton">
-   <property name="geometry">
-    <rect>
-     <x>350</x>
-     <y>470</y>
-     <width>80</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-        border-radius: 8px;
-
-
-
-        color: rgb(0, 0, 127);
-
-        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
-
-
-
-
-
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Cancel</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="removeButton">
-   <property name="geometry">
-    <rect>
-     <x>663</x>
-     <y>540</y>
-     <width>210</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>16</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-        border-radius: 20px;
-        background-color: rgb(164, 179, 60);
-
-
-        color: rgb(0, 0, 127);
-
-        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
-
-
-
-
-
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Remove</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="addButton">
-   <property name="geometry">
-    <rect>
-     <x>151</x>
-     <y>540</y>
-     <width>210</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>16</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-        border-radius: 20px;
-        background-color: rgb(164, 179, 60);
-
-
-        color: rgb(0, 0, 127);
-
-        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
-
-
-
-
-
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Add</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="confirmButton">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>470</y>
-     <width>80</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton
-{
-        border-radius: 8px;
-        color: rgb(0, 0, 127);
-        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Confirm</string>
-   </property>
-  </widget>
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>29</x>
+     <x>99</x>
      <y>100</y>
-     <width>961</width>
-     <height>421</height>
+     <width>1081</width>
+     <height>521</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>16</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -256,7 +118,7 @@ QScrollBar::sub-line:vertical {
     <bool>false</bool>
    </property>
    <attribute name="horizontalHeaderVisible">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
    <attribute name="horizontalHeaderCascadingSectionResizes">
     <bool>false</bool>
@@ -282,7 +144,7 @@ QScrollBar::sub-line:vertical {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
+     <width>1280</width>
      <height>60</height>
     </rect>
    </property>
@@ -316,8 +178,8 @@ color: rgb(0, 0, 127);
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>71</width>
-     <height>31</height>
+     <width>81</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -340,47 +202,10 @@ color: rgb(0, 0, 127);
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="editButton">
-   <property name="geometry">
-    <rect>
-     <x>407</x>
-     <y>540</y>
-     <width>210</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>16</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-        border-radius: 20px;
-        background-color: rgb(164, 179, 60);
-
-
-        color: rgb(0, 0, 127);
-
-        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
-
-
-
-
-
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Edit</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>100</x>
      <y>60</y>
      <width>491</width>
      <height>43</height>
@@ -439,6 +264,161 @@ color: rgb(0, 0, 127);
       </property>
       <property name="cursorPosition">
        <number>0</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>639</y>
+     <width>1141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QPushButton" name="addButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+        border-radius: 20px;
+        background-color: rgb(164, 179, 60);
+
+
+        color: rgb(0, 0, 127);
+
+        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+
+
+
+
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>100</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="editButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+        border-radius: 20px;
+        background-color: rgb(164, 179, 60);
+
+
+        color: rgb(0, 0, 127);
+
+        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+
+
+
+
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Edit</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>100</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="removeButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+        border-radius: 20px;
+        background-color: rgb(164, 179, 60);
+
+
+        color: rgb(0, 0, 127);
+
+        background-color: qlineargradient(spread:pad, x1:1, y1:0.041, x2:0.534178, y2:0.358, stop:0.0366492 rgba(64, 103, 10, 164), stop:1 rgba(164, 179, 60, 255));
+
+
+
+
+
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Remove</string>
       </property>
      </widget>
     </item>

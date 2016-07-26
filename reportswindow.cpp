@@ -1,6 +1,7 @@
 #include "reportswindow.h"
 #include "ui_reportswindow.h"
 #include "qsqlquery.h"
+
 ReportsWindow::ReportsWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ReportsWindow)
@@ -51,6 +52,12 @@ void ReportsWindow::on_generateButton_clicked()
     //display items according to which report user want
     QString startDate;
     QString endDate;
+    QDateTime customEndDate;
+
+    sale = 0;
+    saleTax = 0;
+    total = 0;
+
     if(ui->timePeriodBox->currentIndex() == 0)
     {
         startDate = QDateTime::currentDateTime().toString("yyyy-MM-dd");
@@ -80,7 +87,8 @@ void ReportsWindow::on_generateButton_clicked()
     else if(ui->timePeriodBox->currentIndex() == 4)
     {
         startDate = ui->startCustomDate->text();
-        endDate  = ui->endCustomDate->text();
+        customEndDate = ui->endCustomDate->dateTime();
+        endDate = customEndDate.addDays(1).toString("yyyy-MM-dd");
     }
 
     model->setQuery("SELECT * FROM [main].[transactions] where times BETWEEN '"+startDate+"' AND '"+endDate+"' "   );

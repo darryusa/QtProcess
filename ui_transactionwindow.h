@@ -69,10 +69,10 @@ public:
     {
         if (TransactionWindow->objectName().isEmpty())
             TransactionWindow->setObjectName(QStringLiteral("TransactionWindow"));
-        TransactionWindow->resize(1024, 600);
+        TransactionWindow->resize(1280, 720);
         deleteButton = new QPushButton(TransactionWindow);
         deleteButton->setObjectName(QStringLiteral("deleteButton"));
-        deleteButton->setGeometry(QRect(610, 520, 181, 51));
+        deleteButton->setGeometry(QRect(720, 630, 221, 71));
         QFont font;
         font.setPointSize(18);
         font.setBold(true);
@@ -89,7 +89,7 @@ public:
 "}"));
         checkoutButton = new QPushButton(TransactionWindow);
         checkoutButton->setObjectName(QStringLiteral("checkoutButton"));
-        checkoutButton->setGeometry(QRect(810, 520, 181, 51));
+        checkoutButton->setGeometry(QRect(1010, 630, 221, 71));
         checkoutButton->setFont(font);
         checkoutButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
@@ -102,20 +102,20 @@ public:
 "}"));
         pictureLabel = new QLabel(TransactionWindow);
         pictureLabel->setObjectName(QStringLiteral("pictureLabel"));
-        pictureLabel->setGeometry(QRect(0, -10, 1024, 611));
+        pictureLabel->setGeometry(QRect(0, 0, 1280, 720));
         pictureLabel->setAutoFillBackground(true);
         pictureLabel->setFrameShadow(QFrame::Raised);
         pictureLabel->setPixmap(QPixmap(QString::fromUtf8(":/image/Vs2.0BamBoo.jpg")));
         pictureLabel->setScaledContents(true);
         frame_3 = new QFrame(TransactionWindow);
         frame_3->setObjectName(QStringLiteral("frame_3"));
-        frame_3->setGeometry(QRect(80, 80, 481, 501));
+        frame_3->setGeometry(QRect(30, 80, 641, 621));
         frame_3->setStyleSheet(QStringLiteral("background-color: rgb(202, 218, 154);"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
         frame = new QFrame(frame_3);
         frame->setObjectName(QStringLiteral("frame"));
-        frame->setGeometry(QRect(0, 390, 481, 111));
+        frame->setGeometry(QRect(50, 480, 541, 131));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         verticalLayout = new QVBoxLayout(frame);
@@ -125,12 +125,25 @@ public:
         subTotalLabel = new QLabel(frame);
         subTotalLabel->setObjectName(QStringLiteral("subTotalLabel"));
         subTotalLabel->setMinimumSize(QSize(0, 25));
+        QFont font1;
+        font1.setPointSize(11);
+        font1.setBold(true);
+        font1.setWeight(75);
+        subTotalLabel->setFont(font1);
 
         formLayout_3->setWidget(0, QFormLayout::LabelRole, subTotalLabel);
 
         subTotalLineEdit = new QLineEdit(frame);
         subTotalLineEdit->setObjectName(QStringLiteral("subTotalLineEdit"));
-        subTotalLineEdit->setMinimumSize(QSize(0, 25));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(subTotalLineEdit->sizePolicy().hasHeightForWidth());
+        subTotalLineEdit->setSizePolicy(sizePolicy);
+        subTotalLineEdit->setMinimumSize(QSize(0, 30));
+        QFont font2;
+        font2.setPointSize(11);
+        subTotalLineEdit->setFont(font2);
         subTotalLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -145,12 +158,16 @@ public:
         taxLabel = new QLabel(frame);
         taxLabel->setObjectName(QStringLiteral("taxLabel"));
         taxLabel->setMinimumSize(QSize(0, 25));
+        taxLabel->setFont(font1);
 
         formLayout_3->setWidget(1, QFormLayout::LabelRole, taxLabel);
 
         taxLineEdit = new QLineEdit(frame);
         taxLineEdit->setObjectName(QStringLiteral("taxLineEdit"));
-        taxLineEdit->setMinimumSize(QSize(0, 25));
+        sizePolicy.setHeightForWidth(taxLineEdit->sizePolicy().hasHeightForWidth());
+        taxLineEdit->setSizePolicy(sizePolicy);
+        taxLineEdit->setMinimumSize(QSize(0, 30));
+        taxLineEdit->setFont(font2);
         taxLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -165,12 +182,16 @@ public:
         totalLabel = new QLabel(frame);
         totalLabel->setObjectName(QStringLiteral("totalLabel"));
         totalLabel->setMinimumSize(QSize(0, 25));
+        totalLabel->setFont(font1);
 
         formLayout_3->setWidget(2, QFormLayout::LabelRole, totalLabel);
 
         totalLineEdit = new QLineEdit(frame);
         totalLineEdit->setObjectName(QStringLiteral("totalLineEdit"));
-        totalLineEdit->setMinimumSize(QSize(0, 25));
+        sizePolicy.setHeightForWidth(totalLineEdit->sizePolicy().hasHeightForWidth());
+        totalLineEdit->setSizePolicy(sizePolicy);
+        totalLineEdit->setMinimumSize(QSize(0, 30));
+        totalLineEdit->setFont(font2);
         totalLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -187,26 +208,24 @@ public:
 
         label = new QLabel(frame_3);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(0, 0, 481, 41));
-        QFont font1;
-        font1.setPointSize(26);
-        font1.setBold(false);
-        font1.setWeight(50);
-        label->setFont(font1);
+        label->setGeometry(QRect(0, 0, 641, 41));
+        QFont font3;
+        font3.setPointSize(26);
+        font3.setBold(false);
+        font3.setWeight(50);
+        label->setFont(font3);
         label->setStyleSheet(QStringLiteral("color: rgb(0, 0, 0);"));
         label->setAlignment(Qt::AlignCenter);
         treeWidget = new QTreeWidget(frame_3);
-        QFont font2;
-        font2.setPointSize(9);
+        QFont font4;
+        font4.setPointSize(9);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
-        __qtreewidgetitem->setFont(0, font2);
+        __qtreewidgetitem->setFont(0, font4);
         treeWidget->setHeaderItem(__qtreewidgetitem);
         treeWidget->setObjectName(QStringLiteral("treeWidget"));
-        treeWidget->setGeometry(QRect(0, 50, 481, 341));
+        treeWidget->setGeometry(QRect(30, 40, 581, 441));
         treeWidget->setMinimumSize(QSize(25, 25));
-        QFont font3;
-        font3.setPointSize(14);
-        treeWidget->setFont(font3);
+        treeWidget->setFont(font2);
         treeWidget->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
 ""));
         treeWidget->setFrameShape(QFrame::NoFrame);
@@ -224,13 +243,16 @@ public:
         treeWidget->header()->setStretchLastSection(false);
         formLayoutWidget = new QWidget(TransactionWindow);
         formLayoutWidget->setObjectName(QStringLiteral("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(590, 80, 421, 39));
+        formLayoutWidget->setGeometry(QRect(720, 90, 441, 41));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
         searchBarLineEdit = new QLineEdit(formLayoutWidget);
         searchBarLineEdit->setObjectName(QStringLiteral("searchBarLineEdit"));
+        sizePolicy.setHeightForWidth(searchBarLineEdit->sizePolicy().hasHeightForWidth());
+        searchBarLineEdit->setSizePolicy(sizePolicy);
         searchBarLineEdit->setMinimumSize(QSize(0, 25));
+        searchBarLineEdit->setFont(font2);
         searchBarLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -246,6 +268,9 @@ public:
 
         searchIcon = new QPushButton(formLayoutWidget);
         searchIcon->setObjectName(QStringLiteral("searchIcon"));
+        sizePolicy.setHeightForWidth(searchIcon->sizePolicy().hasHeightForWidth());
+        searchIcon->setSizePolicy(sizePolicy);
+        searchIcon->setFont(font2);
         QIcon icon;
         icon.addFile(QStringLiteral(":/image/noun_79907_cc.png"), QSize(), QIcon::Normal, QIcon::Off);
         searchIcon->setIcon(icon);
@@ -256,7 +281,8 @@ public:
 
         tabWidget = new QTabWidget(TransactionWindow);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(590, 110, 421, 371));
+        tabWidget->setGeometry(QRect(690, 130, 541, 481));
+        tabWidget->setFont(font2);
         tabWidget->setTabPosition(QTabWidget::West);
         tabWidget->setTabShape(QTabWidget::Triangular);
         tabWidget->setTabBarAutoHide(true);
@@ -264,7 +290,8 @@ public:
         allTab->setObjectName(QStringLiteral("allTab"));
         allTableView = new QTableView(allTab);
         allTableView->setObjectName(QStringLiteral("allTableView"));
-        allTableView->setGeometry(QRect(0, 0, 401, 371));
+        allTableView->setGeometry(QRect(-10, 0, 541, 481));
+        allTableView->setFont(font2);
         allTableView->setStyleSheet(QLatin1String("QTableView { \n"
 "	border-radius: 20px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -331,7 +358,8 @@ public:
         massageTab->setObjectName(QStringLiteral("massageTab"));
         massageTableView = new QTableView(massageTab);
         massageTableView->setObjectName(QStringLiteral("massageTableView"));
-        massageTableView->setGeometry(QRect(0, 0, 401, 371));
+        massageTableView->setGeometry(QRect(0, 0, 540, 480));
+        massageTableView->setFont(font2);
         massageTableView->setStyleSheet(QLatin1String("QTableView { \n"
 "	border-radius: 20px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -386,7 +414,8 @@ public:
         hairTab->setObjectName(QStringLiteral("hairTab"));
         hairTableView = new QTableView(hairTab);
         hairTableView->setObjectName(QStringLiteral("hairTableView"));
-        hairTableView->setGeometry(QRect(0, 0, 401, 371));
+        hairTableView->setGeometry(QRect(0, 0, 541, 481));
+        hairTableView->setFont(font2);
         hairTableView->setStyleSheet(QLatin1String("QTableView { \n"
 "	border-radius: 20px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -439,7 +468,8 @@ public:
         nailTab->setObjectName(QStringLiteral("nailTab"));
         nailTableView = new QTableView(nailTab);
         nailTableView->setObjectName(QStringLiteral("nailTableView"));
-        nailTableView->setGeometry(QRect(0, 0, 401, 371));
+        nailTableView->setGeometry(QRect(0, 0, 541, 481));
+        nailTableView->setFont(font2);
         nailTableView->setStyleSheet(QLatin1String("QTableView { \n"
 "	border-radius: 20px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -492,7 +522,8 @@ public:
         itemsTab->setObjectName(QStringLiteral("itemsTab"));
         itemTableview = new QTableView(itemsTab);
         itemTableview->setObjectName(QStringLiteral("itemTableview"));
-        itemTableview->setGeometry(QRect(0, 0, 401, 371));
+        itemTableview->setGeometry(QRect(0, 0, 541, 481));
+        itemTableview->setFont(font2);
         itemTableview->setStyleSheet(QLatin1String("QTableView { \n"
 "	border-radius: 20px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -556,7 +587,7 @@ public:
         returnButton->setIconSize(QSize(71, 31));
         returnButton_2 = new QPushButton(TransactionWindow);
         returnButton_2->setObjectName(QStringLiteral("returnButton_2"));
-        returnButton_2->setGeometry(QRect(20, 20, 71, 31));
+        returnButton_2->setGeometry(QRect(20, 10, 81, 41));
         returnButton_2->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: rgb(140, 177, 63);\n"
 "\n"
@@ -566,17 +597,17 @@ public:
         label_4 = new QLabel(TransactionWindow);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(100, 10, 891, 61));
-        QFont font4;
-        font4.setFamily(QStringLiteral("Symbola"));
-        font4.setPointSize(36);
-        font4.setBold(true);
-        font4.setWeight(75);
-        label_4->setFont(font4);
+        QFont font5;
+        font5.setFamily(QStringLiteral("Symbola"));
+        font5.setPointSize(36);
+        font5.setBold(true);
+        font5.setWeight(75);
+        label_4->setFont(font5);
         label_4->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         label_4->setAlignment(Qt::AlignCenter);
         name = new QLabel(TransactionWindow);
         name->setObjectName(QStringLiteral("name"));
-        name->setGeometry(QRect(770, 10, 221, 61));
+        name->setGeometry(QRect(890, 10, 371, 61));
         name->setFont(font);
         name->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         returnButton->raise();
@@ -613,7 +644,7 @@ public:
         ___qtreewidgetitem->setText(2, QApplication::translate("TransactionWindow", "Quantity", 0));
         ___qtreewidgetitem->setText(1, QApplication::translate("TransactionWindow", "Name", 0));
         ___qtreewidgetitem->setText(0, QApplication::translate("TransactionWindow", "ID", 0));
-        searchBarLineEdit->setText(QApplication::translate("TransactionWindow", "  Search...", 0));
+        searchBarLineEdit->setText(QString());
         searchIcon->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(allTab), QApplication::translate("TransactionWindow", "All", 0));
         tabWidget->setTabText(tabWidget->indexOf(massageTab), QApplication::translate("TransactionWindow", "Massage ", 0));

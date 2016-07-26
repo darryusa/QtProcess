@@ -74,6 +74,9 @@ void LoginDialog::enterButtonPressed()
         //emit signal according to the caller
         if(passwordCheck(loginSender2))
         {
+            ui->lineEdit->clear();
+            ui->lineEdit->setEchoMode( QLineEdit::Password );
+
             if(loginSender2 == "staff")
             {
                 emit staffLoggedin();

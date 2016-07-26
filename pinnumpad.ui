@@ -25,7 +25,7 @@ background-color: rgb(211, 225, 178);
      <x>410</x>
      <y>0</y>
      <width>101</width>
-     <height>118</height>
+     <height>121</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -489,7 +489,7 @@ QPushButton:pressed{
      <x>0</x>
      <y>0</y>
      <width>411</width>
-     <height>118</height>
+     <height>121</height>
     </rect>
    </property>
    <property name="font">

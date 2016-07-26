@@ -7,16 +7,12 @@ MenuWindow::MenuWindow(QWidget *parent) :
     ui(new Ui::MenuWindow)
 {
     ui->setupUi(this);
-
 }
 
 MenuWindow::~MenuWindow()
 {
     delete ui;
 }
-
-
-
 
 void MenuWindow::on_saleButton_clicked()
 {
@@ -36,5 +32,4 @@ void MenuWindow::on_staffButton_clicked()
 void MenuWindow::on_reportButton_clicked()
 {
     emit reportClicked();
-
 }

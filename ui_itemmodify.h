@@ -82,6 +82,9 @@ public:
         nameLineEdit = new QLineEdit(formLayoutWidget);
         nameLineEdit->setObjectName(QStringLiteral("nameLineEdit"));
         nameLineEdit->setMinimumSize(QSize(0, 25));
+        QFont font1;
+        font1.setPointSize(11);
+        nameLineEdit->setFont(font1);
         nameLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -101,6 +104,7 @@ public:
         priceLineEdit = new QLineEdit(formLayoutWidget);
         priceLineEdit->setObjectName(QStringLiteral("priceLineEdit"));
         priceLineEdit->setMinimumSize(QSize(0, 25));
+        priceLineEdit->setFont(font1);
         priceLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -120,6 +124,7 @@ public:
         categoryComboBox = new QComboBox(formLayoutWidget);
         categoryComboBox->setObjectName(QStringLiteral("categoryComboBox"));
         categoryComboBox->setMinimumSize(QSize(0, 25));
+        categoryComboBox->setFont(font1);
         categoryComboBox->setStyleSheet(QLatin1String("\n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -145,6 +150,7 @@ public:
         quantitySpinBox = new QSpinBox(formLayoutWidget);
         quantitySpinBox->setObjectName(QStringLiteral("quantitySpinBox"));
         quantitySpinBox->setMinimumSize(QSize(0, 25));
+        quantitySpinBox->setFont(font1);
         quantitySpinBox->setStyleSheet(QLatin1String("\n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -163,6 +169,7 @@ public:
         sizePolicy.setHeightForWidth(descriptionLineEdit->sizePolicy().hasHeightForWidth());
         descriptionLineEdit->setSizePolicy(sizePolicy);
         descriptionLineEdit->setMinimumSize(QSize(0, 100));
+        descriptionLineEdit->setFont(font1);
         descriptionLineEdit->setStyleSheet(QLatin1String("QLineEdit { \n"
 "	border-radius: 12px; \n"
 "	color:rgb(0, 0, 0);\n"
@@ -195,10 +202,10 @@ public:
         ID = new QLabel(formLayoutWidget);
         ID->setObjectName(QStringLiteral("ID"));
         ID->setMinimumSize(QSize(0, 25));
-        QFont font1;
-        font1.setBold(true);
-        font1.setWeight(75);
-        ID->setFont(font1);
+        QFont font2;
+        font2.setBold(true);
+        font2.setWeight(75);
+        ID->setFont(font2);
         ID->setAlignment(Qt::AlignCenter);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, ID);
@@ -206,23 +213,23 @@ public:
         label = new QLabel(ItemModify);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(50, 10, 591, 51));
-        QFont font2;
-        font2.setFamily(QStringLiteral("Symbola"));
-        font2.setPointSize(36);
-        font2.setBold(true);
-        font2.setWeight(75);
-        label->setFont(font2);
+        QFont font3;
+        font3.setFamily(QStringLiteral("Symbola"));
+        font3.setPointSize(36);
+        font3.setBold(true);
+        font3.setWeight(75);
+        label->setFont(font3);
         label->setStyleSheet(QStringLiteral("color: rgb(0, 0, 127);"));
         label->setScaledContents(false);
         label->setAlignment(Qt::AlignCenter);
         pushButton = new QPushButton(ItemModify);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(80, 490, 201, 71));
-        QFont font3;
-        font3.setPointSize(28);
-        font3.setBold(true);
-        font3.setWeight(75);
-        pushButton->setFont(font3);
+        QFont font4;
+        font4.setPointSize(28);
+        font4.setBold(true);
+        font4.setWeight(75);
+        pushButton->setFont(font4);
         pushButton->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"
@@ -235,7 +242,7 @@ public:
         pushButton_2 = new QPushButton(ItemModify);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(410, 490, 201, 71));
-        pushButton_2->setFont(font3);
+        pushButton_2->setFont(font4);
         pushButton_2->setStyleSheet(QLatin1String("QPushButton\n"
 "{\n"
 "	\n"

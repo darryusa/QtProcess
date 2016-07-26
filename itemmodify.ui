@@ -72,6 +72,11 @@
         <height>25</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QLineEdit { 
 	border-radius: 12px; 
@@ -110,6 +115,11 @@
         <height>25</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QLineEdit { 
 	border-radius: 12px; 
@@ -147,6 +157,11 @@
         <width>0</width>
         <height>25</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -228,6 +243,11 @@
         <height>25</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">
 	border-radius: 12px; 
@@ -254,6 +274,11 @@
         <width>0</width>
         <height>100</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QLineEdit { 
